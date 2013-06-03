@@ -27,11 +27,14 @@ Description : The motor driver program executes a simple up-down linear actuator
 
 enum{
     BOUNCER = 0,
+    SMILEY,
     SINE,
     SINECIRCLE
 };
+
 //Universal variables
 uint8_t state;
+uint16_t statetimer;
 uint16_t matrix[8][8];
 uint8_t inttimer;
 uint16_t delay;
@@ -45,6 +48,9 @@ uint16_t wallbrightness;
 
 //sinecircle variables
 uint8_t radius;
+
+//sine variables
+uint8_t sinecounter;
 
 /* Smileyface map
 uint8_t matrix[8][8] = {
@@ -437,6 +443,18 @@ void update_sinecircle(){
 
     draw_circle(radius, wallbrightness);
 }//end update sinecircle
+
+void update_sine(){    
+    uint8_t i,j;
+    for(i=sinecounter;i<(sinecounter+8);i++)
+        for(j=0;j<8;j++)
+        {
+            if(sinemap[j][i%28] == 1)
+                matrix[j][i] = wallbrightness;
+        }
+    sinecounter = (sinecounter+1)%28;  
+}
+
 void update_bouncer(){
     if(dirx == 1)
       {
@@ -511,7 +529,8 @@ void configure_timer1()
 void setup()
 {
     erase_screen(0x0000);
-    state = SINECIRCLE;
+    //state = SINECIRCLE;
+    state = SINE;
     
     //bouncer variables
     posx = 1;
@@ -524,14 +543,9 @@ void setup()
     //circle variables
     radius = 0;
 
-    switch(state)
-    {
-        case BOUNCER:
-            break;
-        case SINECIRCLE:
-            //configure_sinecircle();
-            break;
-    }
+    //sine var
+    sinecounter = 0;
+    
     //configure timer configuration
     configure_timer0();
     configure_timer1();
@@ -552,17 +566,23 @@ ISR(TIMER0_COMPA_vect)
 
 ISR(TIMER1_COMPA_vect)
 {
-
     erase_screen(0x0000);
     //update x
     switch(state){
         case BOUNCER:
             update_bouncer();
             break;
+        case SINE:
+            update_sine();
+            break;
         case SINECIRCLE:
             update_sinecircle();
             break;
     }//end switch
+
+    statetimer += 1;
+    if(statetimer==0x00ff)
+        state = (state+1)%(SINECIRCLE+1);
 }//end ISR COMPA TIMER1
 
 /* Main */
