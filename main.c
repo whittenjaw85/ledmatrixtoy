@@ -54,138 +54,142 @@ uint8_t radius;
 uint8_t sinecounter;
 
 //Smileyface map
-uint8_t smileymap[8][8] = {
-  {0, 0,  1,  1,  1,  1,  0,  0},
-  {0, 1,  0,  0,  0,  0,  1,  0},
-  {1, 0,  1,  0,  0,  1,  0,  1},
-  {1, 0,  0,  0,  0,  0,  0,  1},
-  {1, 0,  1,  0,  0,  1,  0,  1},
-  {1, 0,  0,  1,  1,  0,  0,  1},
-  {0, 1,  0,  0,  0,  0,  1,  0},
-  {0, 0,  1,  1,  1,  1,  0,  0}};
-
-//Sinemap
-uint8_t sinemap[8][28] = {
-{1,1,1,1, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, },
-{0,0,0,0, 1,1,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,1,1, },
-{0,0,0,0, 0,0,1,1, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 1,1,0,0, },
-{0,0,0,0, 0,0,0,0, 1,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0, },
-{0,0,0,0, 0,0,0,0, 0,1,0,0, 0,0,0,0, 0,0,0,0, 0,0,1,0, 0,0,0,0, },
-{0,0,0,0, 0,0,0,0, 0,0,1,1, 0,0,0,0, 0,0,0,0, 1,1,0,0, 0,0,0,0, },
-{0,0,0,0, 0,0,0,0, 0,0,0,0, 1,1,0,0, 0,0,1,1, 0,0,0,0, 0,0,0,0, },
-{0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,1,1, 1,1,0,0, 0,0,0,0, 0,0,0,0, }
+uint8_t smileymap[8] = {
+    0b00111100,
+    0b01000010,
+    0b10100101,
+    0b10000001,
+    0b10100101,
+    0b10011001,
+    0b01000010,
+    0b00111100
 };
 
-uint8_t sinecirclemap[9][8][8] = {
+//Sinemap
+uint32_t sinemap[8] = {
+    0b1111000000000000000000000000,
+    0b0000110000000000000000000011,
+    0b0000001100000000000000001100,
+    0b0000000010000000000000010000,
+    0b0000000001000000000000100000,
+    0b0000000000110000000011000000,
+    0b0000000000001100001100000000,
+    0b0000000000000011110000000000
+};
+
+
+uint8_t sinecirclemap[11][8] = {
 {
-    //0
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
+},
+{
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
+},
+{
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
+},
+{
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00010000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
 
 },
 {
-    //1
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,1,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00011000,
+    0b00011000,
+    0b00000000,
+    0b00000000,
+    0b00000000
 },
 {
-    //2
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,1,1,0,0,0},
-{0,0,0,1,1,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-
+    0b00000000,
+    0b00000000,
+    0b00011000,
+    0b00100100,
+    0b00100100,
+    0b00011000,
+    0b00000000,
+    0b00000000
 },
 {
-    //3
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,1,1,0,0,0},
-{0,0,1,0,0,1,0,0},
-{0,0,1,0,0,1,0,0},
-{0,0,0,1,1,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-
+    0b00000000,
+    0b00100100,
+    0b01100110,
+    0b00000000,
+    0b00000000,
+    0b01100110,
+    0b00100100,
+    0b00000000
 },
 {
-    //4
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,1,0,0,1,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,1,0,0,1,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-
+    0b00000000,
+    0b00011000,
+    0b00000000,
+    0b01000010,
+    0b01000010,
+    0b00000000,
+    0b00011000,
+    0b00000000
 },
 {
-    //5
-{0,0,0,0,0,0,0,0},
-{0,0,0,1,1,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,1,0,0,0,0,1,0},
-{0,1,0,0,0,0,1,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,1,1,0,0,0},
-{0,0,0,0,0,0,0,0},
-
+    0b00100100,
+    0b01000010,
+    0b10000001,
+    0b00000000,
+    0b00000000,
+    0b10000001,
+    0b01000010,
+    0b00100100
 },
 {
-    //6
-{0,0,1,0,0,1,0,0},
-{0,1,0,0,0,0,1,0},
-{1,0,0,0,0,0,0,1},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{1,0,0,0,0,0,0,1},
-{0,1,0,0,0,0,1,0},
-{0,0,1,0,0,1,0,0},
-
+    0b11000011,
+    0b10000001,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b10000001,
+    0b11000011
 },
 {
-    //7
-{1,1,0,0,0,0,1,1},
-{1,0,0,0,0,0,0,1},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{1,0,0,0,0,0,0,1},
-{1,1,0,0,0,0,1,1},
-
-},
-{
-    //8
-{0,0,0,1,1,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{1,0,0,0,0,0,0,1},
-{1,0,0,0,0,0,0,1},
-{0,0,0,0,0,0,0,0},
-{0,0,0,0,0,0,0,0},
-{0,0,0,1,1,0,0,0},
-
+    0b00011000,
+    0b00000000,
+    0b00000000,
+    0b10000001,
+    0b10000001,
+    0b00000000,
+    0b00000000,
+    0b00011000
 }};
-
 
 
 void erase_screen(uint16_t val)
@@ -200,338 +204,56 @@ void erase_screen(uint16_t val)
   }
 }//end erase screen
 
+void copy_image(uint8_t img[8], uint16_t color)
+{
+    uint8_t i,j;
+    for(i=0;i<8;i++)
+        for(j=0;j<8;j++)
+        {
+            if( ((img[j]>>i)&0x1) == 0x1)
+                matrix[j][i] = color;
+        }
+}
+
 void draw_circle(uint8_t radius, uint16_t color)
 {
+    uint16_t colors[4];
+    colors[3] = color;
+    colors[2] = color - 0x3333;
+    colors[1] = color - 0x6666;
+    colors[0] = color - 0x9999;
 
-   uint16_t color2 = color - 0x3333;
-   uint16_t color3 = color - 0x6666;
-   uint16_t color4 = color - 0x9999;
-
-    //always centered
-    switch(radius)
+    uint8_t i;
+    for(i=0;i<4;i++)
     {
-        case 1:
-            matrix[4][3] = color;
-            break;
-        case 2:
-            matrix[4][3] = color;
-            matrix[3][3] = color;
-            matrix[3][4] = color;
-            matrix[4][4] = color;
-            break;
-        case 3:
-            matrix[5][3] = color;
-            matrix[5][4] = color;
-            matrix[2][3] = color;
-            matrix[2][4] = color;
-            matrix[3][5] = color;
-            matrix[4][5] = color;
-            matrix[3][2] = color;
-            matrix[4][2] = color;
+        copy_image(sinecirclemap[ (i+radius)%11 ], colors[i]); 
+    }
 
-            //dimmer
-            matrix[3][3] = color2;
-            matrix[3][4] = color2;
-            matrix[4][3] = color2;
-            matrix[4][4] = color2;
-            break;
-        case 4:
-            matrix[2][2] = color;
-            matrix[5][2] = color;
-            matrix[2][5] = color;
-            matrix[5][5] = color;
-
-            //dimmer
-            matrix[5][3] = color2;
-            matrix[5][4] = color2;
-            matrix[2][3] = color2;
-            matrix[2][4] = color2;
-            matrix[3][5] = color2;
-            matrix[4][5] = color2;
-            matrix[3][2] = color2;
-            matrix[4][2] = color2;
-
-            //even dimmer
-            matrix[3][3] = color3;
-            matrix[3][4] = color3;
-            matrix[4][3] = color3;
-            matrix[4][4] = color3;
-            break;
-        case 5:
-            matrix[1][3] = color;
-            matrix[1][4] = color;
-            matrix[3][1] = color;
-            matrix[4][1] = color;
-            matrix[6][3] = color;
-            matrix[6][4] = color;
-            matrix[3][6] = color;
-            matrix[4][6] = color;
-
-            //dimmer
-            matrix[2][2] = color2;
-            matrix[5][2] = color2;
-            matrix[2][5] = color2;
-            matrix[5][5] = color2;
-
-            //even dimmer
-            matrix[5][3] = color3;
-            matrix[5][4] = color3;
-            matrix[2][3] = color3;
-            matrix[2][4] = color3;
-            matrix[3][5] = color3;
-            matrix[4][5] = color3;
-            matrix[3][2] = color3;
-            matrix[4][2] = color3;
-
-            matrix[3][3] = color4;
-            matrix[3][4] = color4;
-            matrix[4][3] = color4;
-            matrix[4][4] = color4;
-
-        break;
-        case 6:
-            matrix[1][1] = color;
-            matrix[6][1] = color;
-            matrix[6][6] = color;
-            matrix[1][6] = color;
-
-            matrix[1][3] = color2;
-            matrix[1][4] = color2;
-            matrix[3][1] = color2;
-            matrix[4][1] = color2;
-            matrix[6][3] = color2;
-            matrix[6][4] = color2;
-            matrix[3][6] = color2;
-            matrix[4][6] = color2;
-
-            //dimmer
-            matrix[2][2] = color3;
-            matrix[5][2] = color3;
-            matrix[2][5] = color3;
-            matrix[5][5] = color3;
-
-            //even dimmer
-            matrix[5][3] = color4;
-            matrix[5][4] = color4;
-            matrix[2][3] = color4;
-            matrix[2][4] = color4;
-            matrix[3][5] = color4;
-            matrix[4][5] = color4;
-            matrix[3][2] = color4;
-            matrix[4][2] = color4;
-        break;
-        case 7:
-            matrix[0][2] = color;
-            matrix[0][5] = color;
-            matrix[2][0] = color;
-            matrix[2][7] = color;
-            matrix[5][0] = color;
-            matrix[5][7] = color;
-            matrix[7][2] = color;
-            matrix[7][5] = color;
-            matrix[1][2] = color;
-            matrix[1][5] = color;
-            matrix[2][1] = color;
-            matrix[2][6] = color;
-            matrix[5][1] = color;
-            matrix[5][6] = color;
-            matrix[6][2] = color;
-            matrix[6][5] = color;
-
-            matrix[1][1] = color2;
-            matrix[6][1] = color2;
-            matrix[6][6] = color2;
-            matrix[1][6] = color2;
-
-            matrix[1][3] = color3;
-            matrix[1][4] = color3;
-            matrix[3][1] = color3;
-            matrix[4][1] = color3;
-            matrix[6][3] = color3;
-            matrix[6][4] = color3;
-            matrix[3][6] = color3;
-            matrix[4][6] = color3;
-
-            //dimmer
-            matrix[2][2] = color4;
-            matrix[5][2] = color4;
-            matrix[2][5] = color4;
-            matrix[5][5] = color4;
-
-        break;
-        case 8:
-            matrix[0][0] = color;
-            matrix[0][1] = color;
-            matrix[0][6] = color;
-            matrix[0][7] = color;
-            matrix[1][0] = color;
-            matrix[1][7] = color;
-            matrix[7][7] = color;
-            matrix[7][6] = color;
-            matrix[7][1] = color;
-            matrix[7][0] = color;
-            matrix[6][7] = color;
-            matrix[6][0] = color;
-
-            matrix[0][2] = color2;
-            matrix[0][5] = color2;
-            matrix[2][0] = color2;
-            matrix[2][7] = color2;
-            matrix[5][0] = color2;
-            matrix[5][7] = color2;
-            matrix[7][2] = color2;
-            matrix[7][5] = color2;
-            matrix[1][2] = color2;
-            matrix[1][5] = color2;
-            matrix[2][1] = color2;
-            matrix[2][6] = color2;
-            matrix[5][1] = color2;
-            matrix[5][6] = color2;
-            matrix[6][2] = color2;
-            matrix[6][5] = color2;
-
-            matrix[1][1] = color3;
-            matrix[6][1] = color3;
-            matrix[6][6] = color3;
-            matrix[1][6] = color3;
-
-            matrix[1][3] = color4;
-            matrix[1][4] = color4;
-            matrix[3][1] = color4;
-            matrix[4][1] = color4;
-            matrix[6][3] = color4;
-            matrix[6][4] = color4;
-            matrix[3][6] = color4;
-            matrix[4][6] = color4;
-
-        break;
-        case 9:
-            matrix[0][3] = color;
-            matrix[0][4] = color;
-            matrix[3][0] = color;
-            matrix[3][7] = color;
-            matrix[4][0] = color;
-            matrix[4][7] = color;
-            matrix[7][3] = color;
-            matrix[7][4] = color;
-
-            matrix[0][0] = color2;
-            matrix[0][1] = color2;
-            matrix[0][6] = color2;
-            matrix[0][7] = color2;
-            matrix[1][0] = color2;
-            matrix[1][7] = color2;
-            matrix[7][7] = color2;
-            matrix[7][6] = color2;
-            matrix[7][1] = color2;
-            matrix[7][0] = color2;
-            matrix[6][7] = color2;
-            matrix[6][0] = color2;
-
-            matrix[0][2] = color3;
-            matrix[0][5] = color3;
-            matrix[2][0] = color3;
-            matrix[2][7] = color3;
-            matrix[5][0] = color3;
-            matrix[5][7] = color3;
-            matrix[7][2] = color3;
-            matrix[7][5] = color3;
-            matrix[1][2] = color3;
-            matrix[1][5] = color3;
-            matrix[2][1] = color3;
-            matrix[2][6] = color3;
-            matrix[5][1] = color3;
-            matrix[5][6] = color3;
-            matrix[6][2] = color3;
-            matrix[6][5] = color3;
-
-            matrix[1][1] = color4;
-            matrix[6][1] = color4;
-            matrix[6][6] = color4;
-            matrix[1][6] = color4;
-
-        break;
-        case 10:
-            matrix[0][3] = color;
-            matrix[0][4] = color;
-            matrix[3][0] = color;
-            matrix[3][7] = color;
-            matrix[4][0] = color;
-            matrix[4][7] = color;
-            matrix[7][3] = color;
-            matrix[7][4] = color;
-
-            matrix[0][0] = color2;
-            matrix[0][1] = color2;
-            matrix[0][6] = color2;
-            matrix[0][7] = color2;
-            matrix[1][0] = color2;
-            matrix[1][7] = color2;
-            matrix[7][7] = color2;
-            matrix[7][6] = color2;
-            matrix[7][1] = color2;
-            matrix[7][0] = color2;
-            matrix[6][7] = color2;
-            matrix[6][0] = color2;
-
-            matrix[0][2] = color3;
-            matrix[0][5] = color3;
-            matrix[2][0] = color3;
-            matrix[2][7] = color3;
-            matrix[5][0] = color3;
-            matrix[5][7] = color3;
-            matrix[7][2] = color3;
-            matrix[7][5] = color3;
-            matrix[1][2] = color3;
-            matrix[1][5] = color3;
-            matrix[2][1] = color3;
-            matrix[2][6] = color3;
-            matrix[5][1] = color3;
-            matrix[5][6] = color3;
-            matrix[6][2] = color3;
-            matrix[6][5] = color3;
-
-        break;
-    case 11:
-            matrix[0][3] = color;
-            matrix[0][4] = color;
-            matrix[3][0] = color;
-            matrix[3][7] = color;
-            matrix[4][0] = color;
-            matrix[4][7] = color;
-            matrix[7][3] = color;
-            matrix[7][4] = color;
-
-            matrix[0][0] = color2;
-            matrix[0][1] = color2;
-            matrix[0][6] = color2;
-            matrix[0][7] = color2;
-            matrix[1][0] = color2;
-            matrix[1][7] = color2;
-            matrix[7][7] = color2;
-            matrix[7][6] = color2;
-            matrix[7][1] = color2;
-            matrix[7][0] = color2;
-            matrix[6][7] = color2;
-            matrix[6][0] = color2;
-    break;
-    case 12:
-            matrix[0][3] = color;
-            matrix[0][4] = color;
-            matrix[3][0] = color;
-            matrix[3][7] = color;
-            matrix[4][0] = color;
-            matrix[4][7] = color;
-            matrix[7][3] = color;
-            matrix[7][4] = color;
-
-    break;
-
-
-    }//end switch:
-
-
-
+    /*
+    //draw up to radius
+    if(radius<5)
+    {
+        start = 0;
+        stop = radius;
+    }
+    else if(radius > 8)
+    {
+        start = radius-4;
+        stop = 9;
+    }
+    else{
+        start = radius-4;
+        stop = radius;
+    }
+        
+    //draw radius
+    uint8_t cnt = stop-start;
+    for(i=start;i<stop;i++)
+    {
+        copy_image((sinecirclemap[i]), colors[cnt]);
+        cnt--;
+    }
+    */
 }
 
 void draw_outline()
@@ -548,7 +270,7 @@ void draw_outline()
 }
 
 void update_sinecircle(){
-    if(radius==12)
+    if(radius==10)
         radius = 0;
     else
         radius += 1; 
@@ -557,25 +279,22 @@ void update_sinecircle(){
 }//end update sinecircle
 
 void update_sine(){    
-    uint8_t i,j;
+    uint8_t i,j,mask;
     for(i=0;i<8;i++)
         for(j=0;j<8;j++)
         {
-            if(sinemap[j][(i+sinecounter)%28] == 1)
+            mask = (sinecounter+i)%28;
+            if( ((sinemap[j]>>(mask))&0x01) == 0x01)
                 matrix[j][i] = wallbrightness;
+            //if(sinemap[j][(i+sinecounter)%28] == 1)
+            //    matrix[j][i] = wallbrightness;
         }
     sinecounter = (sinecounter+1)%28;  
 }
 
 
 void update_smiley(){
-    uint8_t i,j;
-    for(j=0;j<8;j++)
-        for(i=0;i<8;i++)
-        {
-            if(smileymap[j][i] == 1)
-                matrix[j][i] = wallbrightness;
-        }
+    copy_image(smileymap, wallbrightness);
 }
 
 void update_bouncer(){
@@ -625,6 +344,14 @@ void configure_sine(){
     maxtimer = 0x0200;
 }
 
+void configure_sinecircle(){
+    cli();
+    OCR1A = 0x1222;
+    TCNT1 = 0;
+    sei();
+    maxtimer = 0x00ff;
+}
+
 void configure_timer0()
 {
   cli();
@@ -660,8 +387,9 @@ void configure_timer1()
 void setup()
 {
     erase_screen(0x0000);
-    //state = SINECIRCLE;
-    state = SINE;
+    state = SINECIRCLE;
+    statetimer = 0;
+    //state = SINE;
 
     //bouncer variables
     posx = 1;
@@ -681,7 +409,8 @@ void setup()
     configure_timer0();
     configure_timer1();
 
-    configure_sine(); 
+    //configure_sine(); 
+    configure_sinecircle();
 }
 
 
@@ -724,6 +453,9 @@ ISR(TIMER1_COMPA_vect)
         switch(state){
             case(SINE):
                 configure_sine();
+                break;
+            case(SINECIRCLE):
+                configure_sinecircle();
                 break;
             default:
                 OCR1A = 0x0fff;
