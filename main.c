@@ -37,6 +37,7 @@ uint8_t state;
 uint16_t statetimer;
 uint16_t matrix[8][8];
 uint8_t inttimer;
+uint16_t maxtimer;
 uint16_t delay;
 
 //Bouncer variables
@@ -52,17 +53,18 @@ uint8_t radius;
 //sine variables
 uint8_t sinecounter;
 
-/* Smileyface map
-uint8_t matrix[8][8] = {
-  {0, 0,  255,  255,  255,  255,  0,  0},
-  {0, 255,  0,  0,  0,  0,  255,  0},
-  {255, 0,  255,  0,  0,  255,  0,  255},
-  {255, 0,  0,  0,  0,  0,  0,  255},
-  {255, 0,  255,  0,  0,  255,  0,  255},
-  {255, 0,  0,  255,  255,  0,  0,  255},
-  {0, 255,  0,  0,  0,  0,  255,  0},
-  {0, 0,  255,  255,  255,  255,  0,  0}};
-*/
+//Smileyface map
+uint8_t smileymap[8][8] = {
+  {0, 0,  1,  1,  1,  1,  0,  0},
+  {0, 1,  0,  0,  0,  0,  1,  0},
+  {1, 0,  1,  0,  0,  1,  0,  1},
+  {1, 0,  0,  0,  0,  0,  0,  1},
+  {1, 0,  1,  0,  0,  1,  0,  1},
+  {1, 0,  0,  1,  1,  0,  0,  1},
+  {0, 1,  0,  0,  0,  0,  1,  0},
+  {0, 0,  1,  1,  1,  1,  0,  0}};
+
+//Sinemap
 uint8_t sinemap[8][28] = {
 {1,1,1,1, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, },
 {0,0,0,0, 1,1,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,1,1, },
@@ -446,13 +448,24 @@ void update_sinecircle(){
 
 void update_sine(){    
     uint8_t i,j;
-    for(i=sinecounter;i<(sinecounter+8);i++)
+    for(i=0;i<8;i++)
         for(j=0;j<8;j++)
         {
-            if(sinemap[j][i%28] == 1)
+            if(sinemap[j][(i+sinecounter)%28] == 1)
                 matrix[j][i] = wallbrightness;
         }
     sinecounter = (sinecounter+1)%28;  
+}
+
+
+void update_smiley(){
+    uint8_t i,j;
+    for(j=0;j<8;j++)
+        for(i=0;i<8;i++)
+        {
+            if(smileymap[j][i] == 1)
+                matrix[j][i] = wallbrightness;
+        }
 }
 
 void update_bouncer(){
@@ -494,6 +507,14 @@ void update_bouncer(){
       matrix[posy][posx] = 0x00ff;
 }
 
+void configure_sine(){
+    cli();
+    OCR1A = 0x02ff;
+    TCNT1 = 0;
+    sei();
+    maxtimer = 0x0200;
+}
+
 void configure_timer0()
 {
   cli();
@@ -531,7 +552,7 @@ void setup()
     erase_screen(0x0000);
     //state = SINECIRCLE;
     state = SINE;
-    
+
     //bouncer variables
     posx = 1;
     posy = 0;
@@ -549,6 +570,8 @@ void setup()
     //configure timer configuration
     configure_timer0();
     configure_timer1();
+
+    configure_sine(); 
 }
 
 
@@ -572,6 +595,9 @@ ISR(TIMER1_COMPA_vect)
         case BOUNCER:
             update_bouncer();
             break;
+        case SMILEY:
+            update_smiley();
+            break;
         case SINE:
             update_sine();
             break;
@@ -581,8 +607,19 @@ ISR(TIMER1_COMPA_vect)
     }//end switch
 
     statetimer += 1;
-    if(statetimer==0x00ff)
+    if(statetimer==maxtimer)
+    {
+        statetimer=0;
         state = (state+1)%(SINECIRCLE+1);
+        switch(state){
+            case(SINE):
+                configure_sine();
+                break;
+            default:
+                OCR1A = 0x0fff;
+                maxtimer = 0x00ff;
+        }
+    }
 }//end ISR COMPA TIMER1
 
 /* Main */
