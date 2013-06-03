@@ -7,10 +7,12 @@ Description : The motor driver program executes a simple up-down linear actuator
 */
 #include <avr/io.h>
 #include <avr/sleep.h>
+#include <stdio.h>
 #include <avr/power.h>
 #include <avr/interrupt.h>
-#include <util/delay.h>
+
 #define F_CPU 1000000
+#include <util/delay.h>
 
 #define TIMER_MAX_VALUE 65535
 #define BS(bitnum) (1<<bitnum)
@@ -23,15 +25,26 @@ Description : The motor driver program executes a simple up-down linear actuator
 #define enable2 4
 #define reset 5
 
+enum{
+    BOUNCER = 0,
+    SINE,
+    SINECIRCLE
+};
+//Universal variables
+uint8_t state;
 uint16_t matrix[8][8];
 uint8_t inttimer;
 uint16_t delay;
 
+//Bouncer variables
 uint8_t posx;
 uint8_t posy;
 uint8_t dirx;
 uint8_t diry;
 uint16_t wallbrightness;
+
+//sinecircle variables
+uint8_t radius;
 
 /* Smileyface map
 uint8_t matrix[8][8] = {
@@ -44,6 +57,16 @@ uint8_t matrix[8][8] = {
   {0, 255,  0,  0,  0,  0,  255,  0},
   {0, 0,  255,  255,  255,  255,  0,  0}};
 */
+uint8_t sinemap[8][28] = {
+{1,1,1,1, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, },
+{0,0,0,0, 1,1,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,1,1, },
+{0,0,0,0, 0,0,1,1, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 1,1,0,0, },
+{0,0,0,0, 0,0,0,0, 1,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0, },
+{0,0,0,0, 0,0,0,0, 0,1,0,0, 0,0,0,0, 0,0,0,0, 0,0,1,0, 0,0,0,0, },
+{0,0,0,0, 0,0,0,0, 0,0,1,1, 0,0,0,0, 0,0,0,0, 1,1,0,0, 0,0,0,0, },
+{0,0,0,0, 0,0,0,0, 0,0,0,0, 1,1,0,0, 0,0,1,1, 0,0,0,0, 0,0,0,0, },
+{0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,1,1, 1,1,0,0, 0,0,0,0, 0,0,0,0, }
+};
 
 
 
@@ -59,6 +82,340 @@ void erase_screen(uint16_t val)
   }
 }//end erase screen
 
+void draw_circle(uint8_t radius, uint16_t color)
+{
+
+   uint16_t color2 = color - 0x3333;
+   uint16_t color3 = color - 0x6666;
+   uint16_t color4 = color - 0x9999;
+
+    //always centered
+    switch(radius)
+    {
+        case 1:
+            matrix[4][3] = color;
+            break;
+        case 2:
+            matrix[4][3] = color;
+            matrix[3][3] = color;
+            matrix[3][4] = color;
+            matrix[4][4] = color;
+            break;
+        case 3:
+            matrix[5][3] = color;
+            matrix[5][4] = color;
+            matrix[2][3] = color;
+            matrix[2][4] = color;
+            matrix[3][5] = color;
+            matrix[4][5] = color;
+            matrix[3][2] = color;
+            matrix[4][2] = color;
+
+            //dimmer
+            matrix[3][3] = color2;
+            matrix[3][4] = color2;
+            matrix[4][3] = color2;
+            matrix[4][4] = color2;
+            break;
+        case 4:
+            matrix[2][2] = color;
+            matrix[5][2] = color;
+            matrix[2][5] = color;
+            matrix[5][5] = color;
+
+            //dimmer
+            matrix[5][3] = color2;
+            matrix[5][4] = color2;
+            matrix[2][3] = color2;
+            matrix[2][4] = color2;
+            matrix[3][5] = color2;
+            matrix[4][5] = color2;
+            matrix[3][2] = color2;
+            matrix[4][2] = color2;
+
+            //even dimmer
+            matrix[3][3] = color3;
+            matrix[3][4] = color3;
+            matrix[4][3] = color3;
+            matrix[4][4] = color3;
+            break;
+        case 5:
+            matrix[1][3] = color;
+            matrix[1][4] = color;
+            matrix[3][1] = color;
+            matrix[4][1] = color;
+            matrix[6][3] = color;
+            matrix[6][4] = color;
+            matrix[3][6] = color;
+            matrix[4][6] = color;
+
+            //dimmer
+            matrix[2][2] = color2;
+            matrix[5][2] = color2;
+            matrix[2][5] = color2;
+            matrix[5][5] = color2;
+
+            //even dimmer
+            matrix[5][3] = color3;
+            matrix[5][4] = color3;
+            matrix[2][3] = color3;
+            matrix[2][4] = color3;
+            matrix[3][5] = color3;
+            matrix[4][5] = color3;
+            matrix[3][2] = color3;
+            matrix[4][2] = color3;
+
+            matrix[3][3] = color4;
+            matrix[3][4] = color4;
+            matrix[4][3] = color4;
+            matrix[4][4] = color4;
+
+        break;
+        case 6:
+            matrix[1][1] = color;
+            matrix[6][1] = color;
+            matrix[6][6] = color;
+            matrix[1][6] = color;
+
+            matrix[1][3] = color2;
+            matrix[1][4] = color2;
+            matrix[3][1] = color2;
+            matrix[4][1] = color2;
+            matrix[6][3] = color2;
+            matrix[6][4] = color2;
+            matrix[3][6] = color2;
+            matrix[4][6] = color2;
+
+            //dimmer
+            matrix[2][2] = color3;
+            matrix[5][2] = color3;
+            matrix[2][5] = color3;
+            matrix[5][5] = color3;
+
+            //even dimmer
+            matrix[5][3] = color4;
+            matrix[5][4] = color4;
+            matrix[2][3] = color4;
+            matrix[2][4] = color4;
+            matrix[3][5] = color4;
+            matrix[4][5] = color4;
+            matrix[3][2] = color4;
+            matrix[4][2] = color4;
+        break;
+        case 7:
+            matrix[0][2] = color;
+            matrix[0][5] = color;
+            matrix[2][0] = color;
+            matrix[2][7] = color;
+            matrix[5][0] = color;
+            matrix[5][7] = color;
+            matrix[7][2] = color;
+            matrix[7][5] = color;
+            matrix[1][2] = color;
+            matrix[1][5] = color;
+            matrix[2][1] = color;
+            matrix[2][6] = color;
+            matrix[5][1] = color;
+            matrix[5][6] = color;
+            matrix[6][2] = color;
+            matrix[6][5] = color;
+
+            matrix[1][1] = color2;
+            matrix[6][1] = color2;
+            matrix[6][6] = color2;
+            matrix[1][6] = color2;
+
+            matrix[1][3] = color3;
+            matrix[1][4] = color3;
+            matrix[3][1] = color3;
+            matrix[4][1] = color3;
+            matrix[6][3] = color3;
+            matrix[6][4] = color3;
+            matrix[3][6] = color3;
+            matrix[4][6] = color3;
+
+            //dimmer
+            matrix[2][2] = color4;
+            matrix[5][2] = color4;
+            matrix[2][5] = color4;
+            matrix[5][5] = color4;
+
+        break;
+        case 8:
+            matrix[0][0] = color;
+            matrix[0][1] = color;
+            matrix[0][6] = color;
+            matrix[0][7] = color;
+            matrix[1][0] = color;
+            matrix[1][7] = color;
+            matrix[7][7] = color;
+            matrix[7][6] = color;
+            matrix[7][1] = color;
+            matrix[7][0] = color;
+            matrix[6][7] = color;
+            matrix[6][0] = color;
+
+            matrix[0][2] = color2;
+            matrix[0][5] = color2;
+            matrix[2][0] = color2;
+            matrix[2][7] = color2;
+            matrix[5][0] = color2;
+            matrix[5][7] = color2;
+            matrix[7][2] = color2;
+            matrix[7][5] = color2;
+            matrix[1][2] = color2;
+            matrix[1][5] = color2;
+            matrix[2][1] = color2;
+            matrix[2][6] = color2;
+            matrix[5][1] = color2;
+            matrix[5][6] = color2;
+            matrix[6][2] = color2;
+            matrix[6][5] = color2;
+
+            matrix[1][1] = color3;
+            matrix[6][1] = color3;
+            matrix[6][6] = color3;
+            matrix[1][6] = color3;
+
+            matrix[1][3] = color4;
+            matrix[1][4] = color4;
+            matrix[3][1] = color4;
+            matrix[4][1] = color4;
+            matrix[6][3] = color4;
+            matrix[6][4] = color4;
+            matrix[3][6] = color4;
+            matrix[4][6] = color4;
+
+        break;
+        case 9:
+            matrix[0][3] = color;
+            matrix[0][4] = color;
+            matrix[3][0] = color;
+            matrix[3][7] = color;
+            matrix[4][0] = color;
+            matrix[4][7] = color;
+            matrix[7][3] = color;
+            matrix[7][4] = color;
+
+            matrix[0][0] = color2;
+            matrix[0][1] = color2;
+            matrix[0][6] = color2;
+            matrix[0][7] = color2;
+            matrix[1][0] = color2;
+            matrix[1][7] = color2;
+            matrix[7][7] = color2;
+            matrix[7][6] = color2;
+            matrix[7][1] = color2;
+            matrix[7][0] = color2;
+            matrix[6][7] = color2;
+            matrix[6][0] = color2;
+
+            matrix[0][2] = color3;
+            matrix[0][5] = color3;
+            matrix[2][0] = color3;
+            matrix[2][7] = color3;
+            matrix[5][0] = color3;
+            matrix[5][7] = color3;
+            matrix[7][2] = color3;
+            matrix[7][5] = color3;
+            matrix[1][2] = color3;
+            matrix[1][5] = color3;
+            matrix[2][1] = color3;
+            matrix[2][6] = color3;
+            matrix[5][1] = color3;
+            matrix[5][6] = color3;
+            matrix[6][2] = color3;
+            matrix[6][5] = color3;
+
+            matrix[1][1] = color4;
+            matrix[6][1] = color4;
+            matrix[6][6] = color4;
+            matrix[1][6] = color4;
+
+        break;
+        case 10:
+            matrix[0][3] = color;
+            matrix[0][4] = color;
+            matrix[3][0] = color;
+            matrix[3][7] = color;
+            matrix[4][0] = color;
+            matrix[4][7] = color;
+            matrix[7][3] = color;
+            matrix[7][4] = color;
+
+            matrix[0][0] = color2;
+            matrix[0][1] = color2;
+            matrix[0][6] = color2;
+            matrix[0][7] = color2;
+            matrix[1][0] = color2;
+            matrix[1][7] = color2;
+            matrix[7][7] = color2;
+            matrix[7][6] = color2;
+            matrix[7][1] = color2;
+            matrix[7][0] = color2;
+            matrix[6][7] = color2;
+            matrix[6][0] = color2;
+
+            matrix[0][2] = color3;
+            matrix[0][5] = color3;
+            matrix[2][0] = color3;
+            matrix[2][7] = color3;
+            matrix[5][0] = color3;
+            matrix[5][7] = color3;
+            matrix[7][2] = color3;
+            matrix[7][5] = color3;
+            matrix[1][2] = color3;
+            matrix[1][5] = color3;
+            matrix[2][1] = color3;
+            matrix[2][6] = color3;
+            matrix[5][1] = color3;
+            matrix[5][6] = color3;
+            matrix[6][2] = color3;
+            matrix[6][5] = color3;
+
+        break;
+    case 11:
+            matrix[0][3] = color;
+            matrix[0][4] = color;
+            matrix[3][0] = color;
+            matrix[3][7] = color;
+            matrix[4][0] = color;
+            matrix[4][7] = color;
+            matrix[7][3] = color;
+            matrix[7][4] = color;
+
+            matrix[0][0] = color2;
+            matrix[0][1] = color2;
+            matrix[0][6] = color2;
+            matrix[0][7] = color2;
+            matrix[1][0] = color2;
+            matrix[1][7] = color2;
+            matrix[7][7] = color2;
+            matrix[7][6] = color2;
+            matrix[7][1] = color2;
+            matrix[7][0] = color2;
+            matrix[6][7] = color2;
+            matrix[6][0] = color2;
+    break;
+    case 12:
+            matrix[0][3] = color;
+            matrix[0][4] = color;
+            matrix[3][0] = color;
+            matrix[3][7] = color;
+            matrix[4][0] = color;
+            matrix[4][7] = color;
+            matrix[7][3] = color;
+            matrix[7][4] = color;
+
+    break;
+
+
+    }//end switch:
+
+
+
+}
+
 void draw_outline()
 {
     int i,j;
@@ -70,6 +427,53 @@ void draw_outline()
           matrix[j][i] = wallbrightness;
       }
     }
+}
+
+void update_sinecircle(){
+    if(radius==12)
+        radius = 0;
+    else
+        radius += 1; 
+
+    draw_circle(radius, wallbrightness);
+}//end update sinecircle
+void update_bouncer(){
+    if(dirx == 1)
+      {
+        if(posx == 7)
+        {
+          dirx = 0;
+          posx -= 2;
+        }else posx += 1;
+      }
+      else{
+        if(posx == 0)
+        {
+          dirx = 1;
+          posx += 2;
+        }
+        else posx -= 1;
+      }
+
+      if(diry == 1)
+      {
+        if(posy == 7)
+        {
+          diry = 0;
+          posy -= 1;
+        }else posy += 1;
+      }
+      else{
+        if(posy == 0)
+        {
+          diry = 1;
+          posy += 1;
+        }
+        else posy -= 1;
+      }
+
+      draw_outline();
+      matrix[posy][posx] = 0x00ff;
 }
 
 void configure_timer0()
@@ -96,28 +500,41 @@ void configure_timer1()
   TIMSK1 = 0; //Clear registers
   TCNT1 = 0; //reset timer
 
-  OCR1A = 0xffff;
+  OCR1A = 0x0fff;
   TIMSK1 |= BS(OCIE1A); //enable COMPA1 ISR
   //TCCR0A |= BS(WGM11);//not needed since not toggling anything
   //TCCR0B |= BS(CS12)|BS(CS10); //1024 prescaler, must be configured
-  TCCR1B |= BS(CS11)|BS(WGM12);
+  TCCR1B |= BS(CS12)|BS(WGM12);
   sei();
 }
 
 void setup()
 {
-  erase_screen(0x0000);
+    erase_screen(0x0000);
+    state = SINECIRCLE;
+    
+    //bouncer variables
+    posx = 1;
+    posy = 0;
+    dirx = 0;
+    diry = 0;
+    wallbrightness = 0x0000;
+    delay = 0;
 
-  posx = 1;
-  posy = 0;
-  dirx = 0;
-  diry = 0;
-  wallbrightness = 0x0000;
-  delay = 0;
+    //circle variables
+    radius = 0;
 
-  //configure timer configuration
-  configure_timer0();
-  configure_timer1();
+    switch(state)
+    {
+        case BOUNCER:
+            break;
+        case SINECIRCLE:
+            //configure_sinecircle();
+            break;
+    }
+    //configure timer configuration
+    configure_timer0();
+    configure_timer1();
 }
 
 
@@ -136,46 +553,17 @@ ISR(TIMER0_COMPA_vect)
 ISR(TIMER1_COMPA_vect)
 {
 
-  erase_screen(0x0000);
-  //update x
-
-  if(dirx == 1)
-  {
-    if(posx == 7)
-    {
-      dirx = 0;
-      posx -= 2;
-    }else posx += 1;
-  }
-  else{
-    if(posx == 0)
-    {
-      dirx = 1;
-      posx += 2;
-    }
-    else posx -= 1;
-  }
-
-  if(diry == 1)
-  {
-    if(posy == 7)
-    {
-      diry = 0;
-      posy -= 1;
-    }else posy += 1;
-  }
-  else{
-    if(posy == 0)
-    {
-      diry = 1;
-      posy += 1;
-    }
-    else posy -= 1;
-  }
-
-  draw_outline();
-  matrix[posy][posx] = 0x00ff;
-}
+    erase_screen(0x0000);
+    //update x
+    switch(state){
+        case BOUNCER:
+            update_bouncer();
+            break;
+        case SINECIRCLE:
+            update_sinecircle();
+            break;
+    }//end switch
+}//end ISR COMPA TIMER1
 
 /* Main */
 

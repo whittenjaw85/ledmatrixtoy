@@ -1,0 +1,2922 @@
+GAS LISTING /tmp/ccHhQq1L.s 			page 1
+
+
+   1               		.file	"main.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.stabs	"/home/jon/prog/c/avr/ledmatrixtoy/",100,0,2,.Ltext0
+   8               		.stabs	"main.c",100,0,2,.Ltext0
+   9               		.text
+  10               	.Ltext0:
+  11               		.stabs	"gcc2_compiled.",60,0,0,0
+  12               		.stabs	"int:t(0,1)=r(0,1);-32768;32767;",128,0,0,0
+  13               		.stabs	"char:t(0,2)=@s8;r(0,2);0;255;",128,0,0,0
+  14               		.stabs	"long int:t(0,3)=@s32;r(0,3);020000000000;017777777777;",128,0,0,0
+  15               		.stabs	"unsigned int:t(0,4)=r(0,4);0;0177777;",128,0,0,0
+  16               		.stabs	"long unsigned int:t(0,5)=@s32;r(0,5);0;037777777777;",128,0,0,0
+  17               		.stabs	"long long int:t(0,6)=@s64;r(0,6);01000000000000000000000;0777777777777777777777;",128,0,0,
+  18               		.stabs	"long long unsigned int:t(0,7)=@s64;r(0,7);0;01777777777777777777777;",128,0,0,0
+  19               		.stabs	"short int:t(0,8)=r(0,8);-32768;32767;",128,0,0,0
+  20               		.stabs	"short unsigned int:t(0,9)=r(0,9);0;0177777;",128,0,0,0
+  21               		.stabs	"signed char:t(0,10)=@s8;r(0,10);-128;127;",128,0,0,0
+  22               		.stabs	"unsigned char:t(0,11)=@s8;r(0,11);0;255;",128,0,0,0
+  23               		.stabs	"float:t(0,12)=r(0,1);4;0;",128,0,0,0
+  24               		.stabs	"double:t(0,13)=r(0,1);4;0;",128,0,0,0
+  25               		.stabs	"long double:t(0,14)=r(0,1);4;0;",128,0,0,0
+  26               		.stabs	"void:t(0,15)=(0,15)",128,0,0,0
+  27               		.stabs	"/usr/lib/gcc/avr/4.7.0/../../../avr/include/avr/io.h",130,0,0,0
+  28               		.stabs	"/usr/lib/gcc/avr/4.7.0/../../../avr/include/avr/sfr_defs.h",130,0,0,0
+  29               		.stabs	"/usr/lib/gcc/avr/4.7.0/../../../avr/include/inttypes.h",130,0,0,0
+  30               		.stabs	"/usr/lib/gcc/avr/4.7.0/include/stdint.h",130,0,0,0
+  31               		.stabs	"/usr/lib/gcc/avr/4.7.0/../../../avr/include/stdint.h",130,0,0,0
+  32               		.stabs	"int8_t:t(5,1)=(0,10)",128,0,121,0
+  33               		.stabs	"uint8_t:t(5,2)=(0,11)",128,0,122,0
+  34               		.stabs	"int16_t:t(5,3)=(0,1)",128,0,123,0
+  35               		.stabs	"uint16_t:t(5,4)=(0,4)",128,0,124,0
+  36               		.stabs	"int32_t:t(5,5)=(0,3)",128,0,125,0
+  37               		.stabs	"uint32_t:t(5,6)=(0,5)",128,0,126,0
+  38               		.stabs	"int64_t:t(5,7)=(0,6)",128,0,128,0
+  39               		.stabs	"uint64_t:t(5,8)=(0,7)",128,0,129,0
+  40               		.stabs	"intptr_t:t(5,9)=(5,3)",128,0,142,0
+  41               		.stabs	"uintptr_t:t(5,10)=(5,4)",128,0,147,0
+  42               		.stabs	"int_least8_t:t(5,11)=(5,1)",128,0,159,0
+  43               		.stabs	"uint_least8_t:t(5,12)=(5,2)",128,0,164,0
+  44               		.stabs	"int_least16_t:t(5,13)=(5,3)",128,0,169,0
+  45               		.stabs	"uint_least16_t:t(5,14)=(5,4)",128,0,174,0
+  46               		.stabs	"int_least32_t:t(5,15)=(5,5)",128,0,179,0
+  47               		.stabs	"uint_least32_t:t(5,16)=(5,6)",128,0,184,0
+  48               		.stabs	"int_least64_t:t(5,17)=(5,7)",128,0,192,0
+  49               		.stabs	"uint_least64_t:t(5,18)=(5,8)",128,0,199,0
+  50               		.stabs	"int_fast8_t:t(5,19)=(5,1)",128,0,213,0
+  51               		.stabs	"uint_fast8_t:t(5,20)=(5,2)",128,0,218,0
+  52               		.stabs	"int_fast16_t:t(5,21)=(5,3)",128,0,223,0
+  53               		.stabs	"uint_fast16_t:t(5,22)=(5,4)",128,0,228,0
+  54               		.stabs	"int_fast32_t:t(5,23)=(5,5)",128,0,233,0
+  55               		.stabs	"uint_fast32_t:t(5,24)=(5,6)",128,0,238,0
+  56               		.stabs	"int_fast64_t:t(5,25)=(5,7)",128,0,246,0
+  57               		.stabs	"uint_fast64_t:t(5,26)=(5,8)",128,0,253,0
+GAS LISTING /tmp/ccHhQq1L.s 			page 2
+
+
+  58               		.stabs	"intmax_t:t(5,27)=(5,7)",128,0,273,0
+  59               		.stabs	"uintmax_t:t(5,28)=(5,8)",128,0,278,0
+  60               		.stabn	162,0,0,0
+  61               		.stabn	162,0,0,0
+  62               		.stabs	"int_farptr_t:t(3,1)=(5,5)",128,0,77,0
+  63               		.stabs	"uint_farptr_t:t(3,2)=(5,6)",128,0,81,0
+  64               		.stabn	162,0,0,0
+  65               		.stabn	162,0,0,0
+  66               		.stabs	"/usr/lib/gcc/avr/4.7.0/../../../avr/include/avr/fuse.h",130,0,0,0
+  67               		.stabs	"__fuse_t:t(6,1)=(6,2)=s3low:(0,11),0,8;high:(0,11),8,8;extended:(0,11),16,8;;",128,0,244,0
+  68               		.stabn	162,0,0,0
+  69               		.stabn	162,0,0,0
+  70               		.stabs	"/usr/lib/gcc/avr/4.7.0/../../../avr/include/stdio.h",130,0,0,0
+  71               		.stabs	"/usr/lib/gcc/avr/4.7.0/include/stdarg.h",130,0,0,0
+  72               		.stabs	"__gnuc_va_list:t(8,1)=(8,2)=*(0,15)",128,0,40,0
+  73               		.stabs	"va_list:t(8,3)=(8,1)",128,0,102,0
+  74               		.stabn	162,0,0,0
+  75               		.stabs	"/usr/lib/gcc/avr/4.7.0/include/stddef.h",130,0,0,0
+  76               		.stabs	"size_t:t(9,1)=(0,4)",128,0,213,0
+  77               		.stabn	162,0,0,0
+  78               		.stabs	"__file:T(7,1)=s14buf:(7,2)=*(0,2),0,16;unget:(0,11),16,8;flags:(5,2),24,8;size:(0,1),32,16
+  79               		.stabn	162,0,0,0
+  80               		.stabs	"/usr/lib/gcc/avr/4.7.0/../../../avr/include/avr/power.h",130,0,0,0
+  81               		.stabs	" :T(10,1)=@s8;eclock_div_1:0,clock_div_2:1,clock_div_4:2,clock_div_8:3,clock_div_16:4,cloc
+  82               		.stabs	"clock_div_t:t(10,2)=(10,1)",128,0,1478,0
+  83               		.stabn	162,0,0,0
+  84               		.stabs	" :T(0,16)=@s8;eBOUNCER:0,SINECIRCLE:1,;",128,0,0,0
+  85               		.stabs	"erase_screen:F(0,15)",36,0,62,erase_screen
+  86               		.stabs	"val:P(5,4)",64,0,62,24
+  87               	.global	erase_screen
+  88               		.type	erase_screen, @function
+  89               	erase_screen:
+  90               		.stabd	46,0,0
+   1:main.c        **** /*
+   2:main.c        **** Author : Jonathan Whitten
+   3:main.c        **** Date : 24 AUG 2012
+   4:main.c        **** Title : Motor Driver
+   5:main.c        **** Description : The motor driver program executes a simple up-down linear actuator, which should neve
+   6:main.c        **** 
+   7:main.c        **** */
+   8:main.c        **** #include <avr/io.h>
+   9:main.c        **** #include <avr/sleep.h>
+  10:main.c        **** #include <stdio.h>
+  11:main.c        **** #include <avr/power.h>
+  12:main.c        **** #include <avr/interrupt.h>
+  13:main.c        **** 
+  14:main.c        **** #define F_CPU 1000000
+  15:main.c        **** #include <util/delay.h>
+  16:main.c        **** 
+  17:main.c        **** #define TIMER_MAX_VALUE 65535
+  18:main.c        **** #define BS(bitnum) (1<<bitnum)
+  19:main.c        **** #define NOT(val) (val^0xFF)
+  20:main.c        **** 
+  21:main.c        **** #define data 0
+  22:main.c        **** #define shift 1
+  23:main.c        **** #define latch 2
+  24:main.c        **** #define enable1 3
+GAS LISTING /tmp/ccHhQq1L.s 			page 3
+
+
+  25:main.c        **** #define enable2 4
+  26:main.c        **** #define reset 5
+  27:main.c        **** 
+  28:main.c        **** enum{
+  29:main.c        ****     BOUNCER = 0,
+  30:main.c        ****     SINECIRCLE
+  31:main.c        **** };
+  32:main.c        **** //Universal variables
+  33:main.c        **** uint8_t state;
+  34:main.c        **** uint16_t matrix[8][8];
+  35:main.c        **** uint8_t inttimer;
+  36:main.c        **** uint16_t delay;
+  37:main.c        **** 
+  38:main.c        **** //Bouncer variables
+  39:main.c        **** uint8_t posx;
+  40:main.c        **** uint8_t posy;
+  41:main.c        **** uint8_t dirx;
+  42:main.c        **** uint8_t diry;
+  43:main.c        **** uint16_t wallbrightness;
+  44:main.c        **** 
+  45:main.c        **** //sinecircle variables
+  46:main.c        **** uint8_t radius;
+  47:main.c        **** 
+  48:main.c        **** /* Smileyface map
+  49:main.c        **** uint8_t matrix[8][8] = {
+  50:main.c        ****   {0, 0,  255,  255,  255,  255,  0,  0},
+  51:main.c        ****   {0, 255,  0,  0,  0,  0,  255,  0},
+  52:main.c        ****   {255, 0,  255,  0,  0,  255,  0,  255},
+  53:main.c        ****   {255, 0,  0,  0,  0,  0,  0,  255},
+  54:main.c        ****   {255, 0,  255,  0,  0,  255,  0,  255},
+  55:main.c        ****   {255, 0,  0,  255,  255,  0,  0,  255},
+  56:main.c        ****   {0, 255,  0,  0,  0,  0,  255,  0},
+  57:main.c        ****   {0, 0,  255,  255,  255,  255,  0,  0}};
+  58:main.c        **** */
+  59:main.c        **** 
+  60:main.c        **** 
+  61:main.c        **** 
+  62:main.c        **** void erase_screen(uint16_t val)
+  63:main.c        **** {
+  91               		.stabn	68,0,63,.LM0-.LFBB1
+  92               	.LM0:
+  93               	.LFBB1:
+  94               	/* prologue: function */
+  95               	/* frame size = 0 */
+  96               	/* stack size = 0 */
+  97               	.L__stack_usage = 0
+  98 0000 E0E0      		ldi r30,lo8(matrix)
+  99 0002 F0E0      		ldi r31,hi8(matrix)
+ 100               	.L2:
+  64:main.c        ****   int i=0,j =0;
+  65:main.c        ****   for(i=0;i<8;i++)
+  66:main.c        ****   {
+  67:main.c        ****     for(j=0;j<8;j++)
+  68:main.c        ****     {
+  69:main.c        ****       matrix[i][j] = val;
+ 101               		.stabn	68,0,69,.LM1-.LFBB1
+ 102               	.LM1:
+GAS LISTING /tmp/ccHhQq1L.s 			page 4
+
+
+ 103 0004 9183      		std Z+1,r25
+ 104 0006 8083      		st Z,r24
+ 105 0008 9383      		std Z+3,r25
+ 106 000a 8283      		std Z+2,r24
+ 107 000c 9583      		std Z+5,r25
+ 108 000e 8483      		std Z+4,r24
+ 109 0010 9783      		std Z+7,r25
+ 110 0012 8683      		std Z+6,r24
+ 111 0014 9187      		std Z+9,r25
+ 112 0016 8087      		std Z+8,r24
+ 113 0018 9387      		std Z+11,r25
+ 114 001a 8287      		std Z+10,r24
+ 115 001c 9587      		std Z+13,r25
+ 116 001e 8487      		std Z+12,r24
+ 117 0020 9787      		std Z+15,r25
+ 118 0022 8687      		std Z+14,r24
+ 119 0024 7096      		adiw r30,16
+  65:main.c        ****   for(i=0;i<8;i++)
+ 120               		.stabn	68,0,65,.LM2-.LFBB1
+ 121               	.LM2:
+ 122 0026 20E0      		ldi r18,hi8(matrix+128)
+ 123 0028 E030      		cpi r30,lo8(matrix+128)
+ 124 002a F207      		cpc r31,r18
+ 125 002c 01F4      		brne .L2
+ 126               	/* epilogue start */
+  70:main.c        ****     }
+  71:main.c        ****   }
+  72:main.c        **** }//end erase screen
+ 127               		.stabn	68,0,72,.LM3-.LFBB1
+ 128               	.LM3:
+ 129 002e 0895      		ret
+ 130               		.size	erase_screen, .-erase_screen
+ 131               	.Lscope1:
+ 132               		.stabs	"",36,0,0,.Lscope1-.LFBB1
+ 133               		.stabd	78,0,0
+ 134               		.stabs	"draw_circle:F(0,15)",36,0,74,draw_circle
+ 135               		.stabs	"radius:P(5,2)",64,0,74,24
+ 136               		.stabs	"color:P(5,4)",64,0,74,22
+ 137               	.global	draw_circle
+ 138               		.type	draw_circle, @function
+ 139               	draw_circle:
+ 140               		.stabd	46,0,0
+  73:main.c        **** 
+  74:main.c        **** void draw_circle(uint8_t radius, uint16_t color)
+  75:main.c        **** {
+ 141               		.stabn	68,0,75,.LM4-.LFBB2
+ 142               	.LM4:
+ 143               	.LFBB2:
+ 144               	/* prologue: function */
+ 145               	/* frame size = 0 */
+ 146               	/* stack size = 0 */
+ 147               	.L__stack_usage = 0
+  76:main.c        **** 
+  77:main.c        ****    uint16_t color2 = color - 0x3333;
+ 148               		.stabn	68,0,77,.LM5-.LFBB2
+ 149               	.LM5:
+ 150 0030 9B01      		movw r18,r22
+GAS LISTING /tmp/ccHhQq1L.s 			page 5
+
+
+ 151 0032 2353      		subi r18,51
+ 152 0034 3343      		sbci r19,51
+  78:main.c        ****    uint16_t color3 = color - 0x6666;
+ 153               		.stabn	68,0,78,.LM6-.LFBB2
+ 154               	.LM6:
+ 155 0036 AB01      		movw r20,r22
+ 156 0038 4656      		subi r20,102
+ 157 003a 5646      		sbci r21,102
+  79:main.c        ****    uint16_t color4 = color - 0x9999;
+ 158               		.stabn	68,0,79,.LM7-.LFBB2
+ 159               	.LM7:
+ 160 003c FB01      		movw r30,r22
+ 161 003e E959      		subi r30,-103
+ 162 0040 F949      		sbci r31,-103
+  80:main.c        **** 
+  81:main.c        ****     //always centered
+  82:main.c        ****     switch(radius)
+ 163               		.stabn	68,0,82,.LM8-.LFBB2
+ 164               	.LM8:
+ 165 0042 90E0      		ldi r25,0
+ 166 0044 0197      		sbiw r24,1
+ 167 0046 8C30      		cpi r24,12
+ 168 0048 9105      		cpc r25,__zero_reg__
+ 169 004a 00F0      		brlo .+2
+ 170 004c 00C0      		rjmp .L4
+ 171 004e 8050      		subi r24,lo8(-(gs(.L18)))
+ 172 0050 9040      		sbci r25,hi8(-(gs(.L18)))
+ 173 0052 8F93      		push r24
+ 174 0054 9F93      		push r25
+ 175 0056 0895      		ret
+ 176               		.section	.progmem.gcc_sw_table,"ax",@progbits
+ 177               		.p2align	1
+ 178               	.L18:
+ 179 0000 00C0      		rjmp .L6
+ 180 0002 00C0      		rjmp .L7
+ 181 0004 00C0      		rjmp .L8
+ 182 0006 00C0      		rjmp .L9
+ 183 0008 00C0      		rjmp .L10
+ 184 000a 00C0      		rjmp .L11
+ 185 000c 00C0      		rjmp .L12
+ 186 000e 00C0      		rjmp .L13
+ 187 0010 00C0      		rjmp .L14
+ 188 0012 00C0      		rjmp .L15
+ 189 0014 00C0      		rjmp .L16
+ 190 0016 00C0      		rjmp .L17
+ 191               		.text
+ 192               	.L6:
+  83:main.c        ****     {
+  84:main.c        ****         case 1:
+  85:main.c        ****             matrix[4][3] = color;
+ 193               		.stabn	68,0,85,.LM9-.LFBB2
+ 194               	.LM9:
+ 195 0058 7093 0000 		sts matrix+70+1,r23
+ 196 005c 6093 0000 		sts matrix+70,r22
+  86:main.c        ****             break;
+ 197               		.stabn	68,0,86,.LM10-.LFBB2
+ 198               	.LM10:
+GAS LISTING /tmp/ccHhQq1L.s 			page 6
+
+
+ 199 0060 0895      		ret
+ 200               	.L7:
+  87:main.c        ****         case 2:
+  88:main.c        ****             matrix[4][3] = color;
+ 201               		.stabn	68,0,88,.LM11-.LFBB2
+ 202               	.LM11:
+ 203 0062 7093 0000 		sts matrix+70+1,r23
+ 204 0066 6093 0000 		sts matrix+70,r22
+  89:main.c        ****             matrix[3][3] = color;
+ 205               		.stabn	68,0,89,.LM12-.LFBB2
+ 206               	.LM12:
+ 207 006a 7093 0000 		sts matrix+54+1,r23
+ 208 006e 6093 0000 		sts matrix+54,r22
+  90:main.c        ****             matrix[3][4] = color;
+ 209               		.stabn	68,0,90,.LM13-.LFBB2
+ 210               	.LM13:
+ 211 0072 7093 0000 		sts matrix+56+1,r23
+ 212 0076 6093 0000 		sts matrix+56,r22
+  91:main.c        ****             matrix[4][4] = color;
+ 213               		.stabn	68,0,91,.LM14-.LFBB2
+ 214               	.LM14:
+ 215 007a 7093 0000 		sts matrix+72+1,r23
+ 216 007e 6093 0000 		sts matrix+72,r22
+  92:main.c        ****             break;
+ 217               		.stabn	68,0,92,.LM15-.LFBB2
+ 218               	.LM15:
+ 219 0082 0895      		ret
+ 220               	.L8:
+  93:main.c        ****         case 3:
+  94:main.c        ****             matrix[5][3] = color;
+ 221               		.stabn	68,0,94,.LM16-.LFBB2
+ 222               	.LM16:
+ 223 0084 7093 0000 		sts matrix+86+1,r23
+ 224 0088 6093 0000 		sts matrix+86,r22
+  95:main.c        ****             matrix[5][4] = color;
+ 225               		.stabn	68,0,95,.LM17-.LFBB2
+ 226               	.LM17:
+ 227 008c 7093 0000 		sts matrix+88+1,r23
+ 228 0090 6093 0000 		sts matrix+88,r22
+  96:main.c        ****             matrix[2][3] = color;
+ 229               		.stabn	68,0,96,.LM18-.LFBB2
+ 230               	.LM18:
+ 231 0094 7093 0000 		sts matrix+38+1,r23
+ 232 0098 6093 0000 		sts matrix+38,r22
+  97:main.c        ****             matrix[2][4] = color;
+ 233               		.stabn	68,0,97,.LM19-.LFBB2
+ 234               	.LM19:
+ 235 009c 7093 0000 		sts matrix+40+1,r23
+ 236 00a0 6093 0000 		sts matrix+40,r22
+  98:main.c        ****             matrix[3][5] = color;
+ 237               		.stabn	68,0,98,.LM20-.LFBB2
+ 238               	.LM20:
+ 239 00a4 7093 0000 		sts matrix+58+1,r23
+ 240 00a8 6093 0000 		sts matrix+58,r22
+  99:main.c        ****             matrix[4][5] = color;
+ 241               		.stabn	68,0,99,.LM21-.LFBB2
+ 242               	.LM21:
+GAS LISTING /tmp/ccHhQq1L.s 			page 7
+
+
+ 243 00ac 7093 0000 		sts matrix+74+1,r23
+ 244 00b0 6093 0000 		sts matrix+74,r22
+ 100:main.c        ****             matrix[3][2] = color;
+ 245               		.stabn	68,0,100,.LM22-.LFBB2
+ 246               	.LM22:
+ 247 00b4 7093 0000 		sts matrix+52+1,r23
+ 248 00b8 6093 0000 		sts matrix+52,r22
+ 101:main.c        ****             matrix[4][2] = color;
+ 249               		.stabn	68,0,101,.LM23-.LFBB2
+ 250               	.LM23:
+ 251 00bc 7093 0000 		sts matrix+68+1,r23
+ 252 00c0 6093 0000 		sts matrix+68,r22
+ 102:main.c        **** 
+ 103:main.c        ****             //dimmer
+ 104:main.c        ****             matrix[3][3] = color2;
+ 253               		.stabn	68,0,104,.LM24-.LFBB2
+ 254               	.LM24:
+ 255 00c4 3093 0000 		sts matrix+54+1,r19
+ 256 00c8 2093 0000 		sts matrix+54,r18
+ 105:main.c        ****             matrix[3][4] = color2;
+ 257               		.stabn	68,0,105,.LM25-.LFBB2
+ 258               	.LM25:
+ 259 00cc 3093 0000 		sts matrix+56+1,r19
+ 260 00d0 2093 0000 		sts matrix+56,r18
+ 106:main.c        ****             matrix[4][3] = color2;
+ 261               		.stabn	68,0,106,.LM26-.LFBB2
+ 262               	.LM26:
+ 263 00d4 3093 0000 		sts matrix+70+1,r19
+ 264 00d8 2093 0000 		sts matrix+70,r18
+ 107:main.c        ****             matrix[4][4] = color2;
+ 265               		.stabn	68,0,107,.LM27-.LFBB2
+ 266               	.LM27:
+ 267 00dc 3093 0000 		sts matrix+72+1,r19
+ 268 00e0 2093 0000 		sts matrix+72,r18
+ 108:main.c        ****             break;
+ 269               		.stabn	68,0,108,.LM28-.LFBB2
+ 270               	.LM28:
+ 271 00e4 0895      		ret
+ 272               	.L9:
+ 109:main.c        ****         case 4:
+ 110:main.c        ****             matrix[2][2] = color;
+ 273               		.stabn	68,0,110,.LM29-.LFBB2
+ 274               	.LM29:
+ 275 00e6 7093 0000 		sts matrix+36+1,r23
+ 276 00ea 6093 0000 		sts matrix+36,r22
+ 111:main.c        ****             matrix[5][2] = color;
+ 277               		.stabn	68,0,111,.LM30-.LFBB2
+ 278               	.LM30:
+ 279 00ee 7093 0000 		sts matrix+84+1,r23
+ 280 00f2 6093 0000 		sts matrix+84,r22
+ 112:main.c        ****             matrix[2][5] = color;
+ 281               		.stabn	68,0,112,.LM31-.LFBB2
+ 282               	.LM31:
+ 283 00f6 7093 0000 		sts matrix+42+1,r23
+ 284 00fa 6093 0000 		sts matrix+42,r22
+ 113:main.c        ****             matrix[5][5] = color;
+ 285               		.stabn	68,0,113,.LM32-.LFBB2
+GAS LISTING /tmp/ccHhQq1L.s 			page 8
+
+
+ 286               	.LM32:
+ 287 00fe 7093 0000 		sts matrix+90+1,r23
+ 288 0102 6093 0000 		sts matrix+90,r22
+ 114:main.c        **** 
+ 115:main.c        ****             //dimmer
+ 116:main.c        ****             matrix[5][3] = color2;
+ 289               		.stabn	68,0,116,.LM33-.LFBB2
+ 290               	.LM33:
+ 291 0106 3093 0000 		sts matrix+86+1,r19
+ 292 010a 2093 0000 		sts matrix+86,r18
+ 117:main.c        ****             matrix[5][4] = color2;
+ 293               		.stabn	68,0,117,.LM34-.LFBB2
+ 294               	.LM34:
+ 295 010e 3093 0000 		sts matrix+88+1,r19
+ 296 0112 2093 0000 		sts matrix+88,r18
+ 118:main.c        ****             matrix[2][3] = color2;
+ 297               		.stabn	68,0,118,.LM35-.LFBB2
+ 298               	.LM35:
+ 299 0116 3093 0000 		sts matrix+38+1,r19
+ 300 011a 2093 0000 		sts matrix+38,r18
+ 119:main.c        ****             matrix[2][4] = color2;
+ 301               		.stabn	68,0,119,.LM36-.LFBB2
+ 302               	.LM36:
+ 303 011e 3093 0000 		sts matrix+40+1,r19
+ 304 0122 2093 0000 		sts matrix+40,r18
+ 120:main.c        ****             matrix[3][5] = color2;
+ 305               		.stabn	68,0,120,.LM37-.LFBB2
+ 306               	.LM37:
+ 307 0126 3093 0000 		sts matrix+58+1,r19
+ 308 012a 2093 0000 		sts matrix+58,r18
+ 121:main.c        ****             matrix[4][5] = color2;
+ 309               		.stabn	68,0,121,.LM38-.LFBB2
+ 310               	.LM38:
+ 311 012e 3093 0000 		sts matrix+74+1,r19
+ 312 0132 2093 0000 		sts matrix+74,r18
+ 122:main.c        ****             matrix[3][2] = color2;
+ 313               		.stabn	68,0,122,.LM39-.LFBB2
+ 314               	.LM39:
+ 315 0136 3093 0000 		sts matrix+52+1,r19
+ 316 013a 2093 0000 		sts matrix+52,r18
+ 123:main.c        ****             matrix[4][2] = color2;
+ 317               		.stabn	68,0,123,.LM40-.LFBB2
+ 318               	.LM40:
+ 319 013e 3093 0000 		sts matrix+68+1,r19
+ 320 0142 2093 0000 		sts matrix+68,r18
+ 124:main.c        **** 
+ 125:main.c        ****             //even dimmer
+ 126:main.c        ****             matrix[3][3] = color3;
+ 321               		.stabn	68,0,126,.LM41-.LFBB2
+ 322               	.LM41:
+ 323 0146 5093 0000 		sts matrix+54+1,r21
+ 324 014a 4093 0000 		sts matrix+54,r20
+ 127:main.c        ****             matrix[3][4] = color3;
+ 325               		.stabn	68,0,127,.LM42-.LFBB2
+ 326               	.LM42:
+ 327 014e 5093 0000 		sts matrix+56+1,r21
+ 328 0152 4093 0000 		sts matrix+56,r20
+GAS LISTING /tmp/ccHhQq1L.s 			page 9
+
+
+ 128:main.c        ****             matrix[4][3] = color3;
+ 329               		.stabn	68,0,128,.LM43-.LFBB2
+ 330               	.LM43:
+ 331 0156 5093 0000 		sts matrix+70+1,r21
+ 332 015a 4093 0000 		sts matrix+70,r20
+ 129:main.c        ****             matrix[4][4] = color3;
+ 333               		.stabn	68,0,129,.LM44-.LFBB2
+ 334               	.LM44:
+ 335 015e 5093 0000 		sts matrix+72+1,r21
+ 336 0162 4093 0000 		sts matrix+72,r20
+ 130:main.c        ****             break;
+ 337               		.stabn	68,0,130,.LM45-.LFBB2
+ 338               	.LM45:
+ 339 0166 0895      		ret
+ 340               	.L10:
+ 131:main.c        ****         case 5:
+ 132:main.c        ****             matrix[1][3] = color;
+ 341               		.stabn	68,0,132,.LM46-.LFBB2
+ 342               	.LM46:
+ 343 0168 7093 0000 		sts matrix+22+1,r23
+ 344 016c 6093 0000 		sts matrix+22,r22
+ 133:main.c        ****             matrix[1][4] = color;
+ 345               		.stabn	68,0,133,.LM47-.LFBB2
+ 346               	.LM47:
+ 347 0170 7093 0000 		sts matrix+24+1,r23
+ 348 0174 6093 0000 		sts matrix+24,r22
+ 134:main.c        ****             matrix[3][1] = color;
+ 349               		.stabn	68,0,134,.LM48-.LFBB2
+ 350               	.LM48:
+ 351 0178 7093 0000 		sts matrix+50+1,r23
+ 352 017c 6093 0000 		sts matrix+50,r22
+ 135:main.c        ****             matrix[4][1] = color;
+ 353               		.stabn	68,0,135,.LM49-.LFBB2
+ 354               	.LM49:
+ 355 0180 7093 0000 		sts matrix+66+1,r23
+ 356 0184 6093 0000 		sts matrix+66,r22
+ 136:main.c        ****             matrix[6][3] = color;
+ 357               		.stabn	68,0,136,.LM50-.LFBB2
+ 358               	.LM50:
+ 359 0188 7093 0000 		sts matrix+102+1,r23
+ 360 018c 6093 0000 		sts matrix+102,r22
+ 137:main.c        ****             matrix[6][4] = color;
+ 361               		.stabn	68,0,137,.LM51-.LFBB2
+ 362               	.LM51:
+ 363 0190 7093 0000 		sts matrix+104+1,r23
+ 364 0194 6093 0000 		sts matrix+104,r22
+ 138:main.c        ****             matrix[3][6] = color;
+ 365               		.stabn	68,0,138,.LM52-.LFBB2
+ 366               	.LM52:
+ 367 0198 7093 0000 		sts matrix+60+1,r23
+ 368 019c 6093 0000 		sts matrix+60,r22
+ 139:main.c        ****             matrix[4][6] = color;
+ 369               		.stabn	68,0,139,.LM53-.LFBB2
+ 370               	.LM53:
+ 371 01a0 7093 0000 		sts matrix+76+1,r23
+ 372 01a4 6093 0000 		sts matrix+76,r22
+ 140:main.c        **** 
+GAS LISTING /tmp/ccHhQq1L.s 			page 10
+
+
+ 141:main.c        ****             //dimmer
+ 142:main.c        ****             matrix[2][2] = color2;
+ 373               		.stabn	68,0,142,.LM54-.LFBB2
+ 374               	.LM54:
+ 375 01a8 3093 0000 		sts matrix+36+1,r19
+ 376 01ac 2093 0000 		sts matrix+36,r18
+ 143:main.c        ****             matrix[5][2] = color2;
+ 377               		.stabn	68,0,143,.LM55-.LFBB2
+ 378               	.LM55:
+ 379 01b0 3093 0000 		sts matrix+84+1,r19
+ 380 01b4 2093 0000 		sts matrix+84,r18
+ 144:main.c        ****             matrix[2][5] = color2;
+ 381               		.stabn	68,0,144,.LM56-.LFBB2
+ 382               	.LM56:
+ 383 01b8 3093 0000 		sts matrix+42+1,r19
+ 384 01bc 2093 0000 		sts matrix+42,r18
+ 145:main.c        ****             matrix[5][5] = color2;
+ 385               		.stabn	68,0,145,.LM57-.LFBB2
+ 386               	.LM57:
+ 387 01c0 3093 0000 		sts matrix+90+1,r19
+ 388 01c4 2093 0000 		sts matrix+90,r18
+ 146:main.c        **** 
+ 147:main.c        ****             //even dimmer
+ 148:main.c        ****             matrix[5][3] = color3;
+ 389               		.stabn	68,0,148,.LM58-.LFBB2
+ 390               	.LM58:
+ 391 01c8 5093 0000 		sts matrix+86+1,r21
+ 392 01cc 4093 0000 		sts matrix+86,r20
+ 149:main.c        ****             matrix[5][4] = color3;
+ 393               		.stabn	68,0,149,.LM59-.LFBB2
+ 394               	.LM59:
+ 395 01d0 5093 0000 		sts matrix+88+1,r21
+ 396 01d4 4093 0000 		sts matrix+88,r20
+ 150:main.c        ****             matrix[2][3] = color3;
+ 397               		.stabn	68,0,150,.LM60-.LFBB2
+ 398               	.LM60:
+ 399 01d8 5093 0000 		sts matrix+38+1,r21
+ 400 01dc 4093 0000 		sts matrix+38,r20
+ 151:main.c        ****             matrix[2][4] = color3;
+ 401               		.stabn	68,0,151,.LM61-.LFBB2
+ 402               	.LM61:
+ 403 01e0 5093 0000 		sts matrix+40+1,r21
+ 404 01e4 4093 0000 		sts matrix+40,r20
+ 152:main.c        ****             matrix[3][5] = color3;
+ 405               		.stabn	68,0,152,.LM62-.LFBB2
+ 406               	.LM62:
+ 407 01e8 5093 0000 		sts matrix+58+1,r21
+ 408 01ec 4093 0000 		sts matrix+58,r20
+ 153:main.c        ****             matrix[4][5] = color3;
+ 409               		.stabn	68,0,153,.LM63-.LFBB2
+ 410               	.LM63:
+ 411 01f0 5093 0000 		sts matrix+74+1,r21
+ 412 01f4 4093 0000 		sts matrix+74,r20
+ 154:main.c        ****             matrix[3][2] = color3;
+ 413               		.stabn	68,0,154,.LM64-.LFBB2
+ 414               	.LM64:
+ 415 01f8 5093 0000 		sts matrix+52+1,r21
+GAS LISTING /tmp/ccHhQq1L.s 			page 11
+
+
+ 416 01fc 4093 0000 		sts matrix+52,r20
+ 155:main.c        ****             matrix[4][2] = color3;
+ 417               		.stabn	68,0,155,.LM65-.LFBB2
+ 418               	.LM65:
+ 419 0200 5093 0000 		sts matrix+68+1,r21
+ 420 0204 4093 0000 		sts matrix+68,r20
+ 156:main.c        **** 
+ 157:main.c        ****             matrix[3][3] = color4;
+ 421               		.stabn	68,0,157,.LM66-.LFBB2
+ 422               	.LM66:
+ 423 0208 F093 0000 		sts matrix+54+1,r31
+ 424 020c E093 0000 		sts matrix+54,r30
+ 158:main.c        ****             matrix[3][4] = color4;
+ 425               		.stabn	68,0,158,.LM67-.LFBB2
+ 426               	.LM67:
+ 427 0210 F093 0000 		sts matrix+56+1,r31
+ 428 0214 E093 0000 		sts matrix+56,r30
+ 159:main.c        ****             matrix[4][3] = color4;
+ 429               		.stabn	68,0,159,.LM68-.LFBB2
+ 430               	.LM68:
+ 431 0218 F093 0000 		sts matrix+70+1,r31
+ 432 021c E093 0000 		sts matrix+70,r30
+ 160:main.c        ****             matrix[4][4] = color4;
+ 433               		.stabn	68,0,160,.LM69-.LFBB2
+ 434               	.LM69:
+ 435 0220 F093 0000 		sts matrix+72+1,r31
+ 436 0224 E093 0000 		sts matrix+72,r30
+ 161:main.c        **** 
+ 162:main.c        ****         break;
+ 437               		.stabn	68,0,162,.LM70-.LFBB2
+ 438               	.LM70:
+ 439 0228 0895      		ret
+ 440               	.L11:
+ 163:main.c        ****         case 6:
+ 164:main.c        ****             matrix[1][1] = color;
+ 441               		.stabn	68,0,164,.LM71-.LFBB2
+ 442               	.LM71:
+ 443 022a 7093 0000 		sts matrix+18+1,r23
+ 444 022e 6093 0000 		sts matrix+18,r22
+ 165:main.c        ****             matrix[6][1] = color;
+ 445               		.stabn	68,0,165,.LM72-.LFBB2
+ 446               	.LM72:
+ 447 0232 7093 0000 		sts matrix+98+1,r23
+ 448 0236 6093 0000 		sts matrix+98,r22
+ 166:main.c        ****             matrix[6][6] = color;
+ 449               		.stabn	68,0,166,.LM73-.LFBB2
+ 450               	.LM73:
+ 451 023a 7093 0000 		sts matrix+108+1,r23
+ 452 023e 6093 0000 		sts matrix+108,r22
+ 167:main.c        ****             matrix[1][6] = color;
+ 453               		.stabn	68,0,167,.LM74-.LFBB2
+ 454               	.LM74:
+ 455 0242 7093 0000 		sts matrix+28+1,r23
+ 456 0246 6093 0000 		sts matrix+28,r22
+ 168:main.c        **** 
+ 169:main.c        ****             matrix[1][3] = color2;
+ 457               		.stabn	68,0,169,.LM75-.LFBB2
+GAS LISTING /tmp/ccHhQq1L.s 			page 12
+
+
+ 458               	.LM75:
+ 459 024a 3093 0000 		sts matrix+22+1,r19
+ 460 024e 2093 0000 		sts matrix+22,r18
+ 170:main.c        ****             matrix[1][4] = color2;
+ 461               		.stabn	68,0,170,.LM76-.LFBB2
+ 462               	.LM76:
+ 463 0252 3093 0000 		sts matrix+24+1,r19
+ 464 0256 2093 0000 		sts matrix+24,r18
+ 171:main.c        ****             matrix[3][1] = color2;
+ 465               		.stabn	68,0,171,.LM77-.LFBB2
+ 466               	.LM77:
+ 467 025a 3093 0000 		sts matrix+50+1,r19
+ 468 025e 2093 0000 		sts matrix+50,r18
+ 172:main.c        ****             matrix[4][1] = color2;
+ 469               		.stabn	68,0,172,.LM78-.LFBB2
+ 470               	.LM78:
+ 471 0262 3093 0000 		sts matrix+66+1,r19
+ 472 0266 2093 0000 		sts matrix+66,r18
+ 173:main.c        ****             matrix[6][3] = color2;
+ 473               		.stabn	68,0,173,.LM79-.LFBB2
+ 474               	.LM79:
+ 475 026a 3093 0000 		sts matrix+102+1,r19
+ 476 026e 2093 0000 		sts matrix+102,r18
+ 174:main.c        ****             matrix[6][4] = color2;
+ 477               		.stabn	68,0,174,.LM80-.LFBB2
+ 478               	.LM80:
+ 479 0272 3093 0000 		sts matrix+104+1,r19
+ 480 0276 2093 0000 		sts matrix+104,r18
+ 175:main.c        ****             matrix[3][6] = color2;
+ 481               		.stabn	68,0,175,.LM81-.LFBB2
+ 482               	.LM81:
+ 483 027a 3093 0000 		sts matrix+60+1,r19
+ 484 027e 2093 0000 		sts matrix+60,r18
+ 176:main.c        ****             matrix[4][6] = color2;
+ 485               		.stabn	68,0,176,.LM82-.LFBB2
+ 486               	.LM82:
+ 487 0282 3093 0000 		sts matrix+76+1,r19
+ 488 0286 2093 0000 		sts matrix+76,r18
+ 177:main.c        **** 
+ 178:main.c        ****             //dimmer
+ 179:main.c        ****             matrix[2][2] = color3;
+ 489               		.stabn	68,0,179,.LM83-.LFBB2
+ 490               	.LM83:
+ 491 028a 5093 0000 		sts matrix+36+1,r21
+ 492 028e 4093 0000 		sts matrix+36,r20
+ 180:main.c        ****             matrix[5][2] = color3;
+ 493               		.stabn	68,0,180,.LM84-.LFBB2
+ 494               	.LM84:
+ 495 0292 5093 0000 		sts matrix+84+1,r21
+ 496 0296 4093 0000 		sts matrix+84,r20
+ 181:main.c        ****             matrix[2][5] = color3;
+ 497               		.stabn	68,0,181,.LM85-.LFBB2
+ 498               	.LM85:
+ 499 029a 5093 0000 		sts matrix+42+1,r21
+ 500 029e 4093 0000 		sts matrix+42,r20
+ 182:main.c        ****             matrix[5][5] = color3;
+ 501               		.stabn	68,0,182,.LM86-.LFBB2
+GAS LISTING /tmp/ccHhQq1L.s 			page 13
+
+
+ 502               	.LM86:
+ 503 02a2 5093 0000 		sts matrix+90+1,r21
+ 504 02a6 4093 0000 		sts matrix+90,r20
+ 183:main.c        **** 
+ 184:main.c        ****             //even dimmer
+ 185:main.c        ****             matrix[5][3] = color4;
+ 505               		.stabn	68,0,185,.LM87-.LFBB2
+ 506               	.LM87:
+ 507 02aa F093 0000 		sts matrix+86+1,r31
+ 508 02ae E093 0000 		sts matrix+86,r30
+ 186:main.c        ****             matrix[5][4] = color4;
+ 509               		.stabn	68,0,186,.LM88-.LFBB2
+ 510               	.LM88:
+ 511 02b2 F093 0000 		sts matrix+88+1,r31
+ 512 02b6 E093 0000 		sts matrix+88,r30
+ 187:main.c        ****             matrix[2][3] = color4;
+ 513               		.stabn	68,0,187,.LM89-.LFBB2
+ 514               	.LM89:
+ 515 02ba F093 0000 		sts matrix+38+1,r31
+ 516 02be E093 0000 		sts matrix+38,r30
+ 188:main.c        ****             matrix[2][4] = color4;
+ 517               		.stabn	68,0,188,.LM90-.LFBB2
+ 518               	.LM90:
+ 519 02c2 F093 0000 		sts matrix+40+1,r31
+ 520 02c6 E093 0000 		sts matrix+40,r30
+ 189:main.c        ****             matrix[3][5] = color4;
+ 521               		.stabn	68,0,189,.LM91-.LFBB2
+ 522               	.LM91:
+ 523 02ca F093 0000 		sts matrix+58+1,r31
+ 524 02ce E093 0000 		sts matrix+58,r30
+ 190:main.c        ****             matrix[4][5] = color4;
+ 525               		.stabn	68,0,190,.LM92-.LFBB2
+ 526               	.LM92:
+ 527 02d2 F093 0000 		sts matrix+74+1,r31
+ 528 02d6 E093 0000 		sts matrix+74,r30
+ 191:main.c        ****             matrix[3][2] = color4;
+ 529               		.stabn	68,0,191,.LM93-.LFBB2
+ 530               	.LM93:
+ 531 02da F093 0000 		sts matrix+52+1,r31
+ 532 02de E093 0000 		sts matrix+52,r30
+ 192:main.c        ****             matrix[4][2] = color4;
+ 533               		.stabn	68,0,192,.LM94-.LFBB2
+ 534               	.LM94:
+ 535 02e2 F093 0000 		sts matrix+68+1,r31
+ 536 02e6 E093 0000 		sts matrix+68,r30
+ 193:main.c        ****         break;
+ 537               		.stabn	68,0,193,.LM95-.LFBB2
+ 538               	.LM95:
+ 539 02ea 0895      		ret
+ 540               	.L12:
+ 194:main.c        ****         case 7:
+ 195:main.c        ****             matrix[0][2] = color;
+ 541               		.stabn	68,0,195,.LM96-.LFBB2
+ 542               	.LM96:
+ 543 02ec 7093 0000 		sts matrix+4+1,r23
+ 544 02f0 6093 0000 		sts matrix+4,r22
+ 196:main.c        ****             matrix[0][5] = color;
+GAS LISTING /tmp/ccHhQq1L.s 			page 14
+
+
+ 545               		.stabn	68,0,196,.LM97-.LFBB2
+ 546               	.LM97:
+ 547 02f4 7093 0000 		sts matrix+10+1,r23
+ 548 02f8 6093 0000 		sts matrix+10,r22
+ 197:main.c        ****             matrix[2][0] = color;
+ 549               		.stabn	68,0,197,.LM98-.LFBB2
+ 550               	.LM98:
+ 551 02fc 7093 0000 		sts matrix+32+1,r23
+ 552 0300 6093 0000 		sts matrix+32,r22
+ 198:main.c        ****             matrix[2][7] = color;
+ 553               		.stabn	68,0,198,.LM99-.LFBB2
+ 554               	.LM99:
+ 555 0304 7093 0000 		sts matrix+46+1,r23
+ 556 0308 6093 0000 		sts matrix+46,r22
+ 199:main.c        ****             matrix[5][0] = color;
+ 557               		.stabn	68,0,199,.LM100-.LFBB2
+ 558               	.LM100:
+ 559 030c 7093 0000 		sts matrix+80+1,r23
+ 560 0310 6093 0000 		sts matrix+80,r22
+ 200:main.c        ****             matrix[5][7] = color;
+ 561               		.stabn	68,0,200,.LM101-.LFBB2
+ 562               	.LM101:
+ 563 0314 7093 0000 		sts matrix+94+1,r23
+ 564 0318 6093 0000 		sts matrix+94,r22
+ 201:main.c        ****             matrix[7][2] = color;
+ 565               		.stabn	68,0,201,.LM102-.LFBB2
+ 566               	.LM102:
+ 567 031c 7093 0000 		sts matrix+116+1,r23
+ 568 0320 6093 0000 		sts matrix+116,r22
+ 202:main.c        ****             matrix[7][5] = color;
+ 569               		.stabn	68,0,202,.LM103-.LFBB2
+ 570               	.LM103:
+ 571 0324 7093 0000 		sts matrix+122+1,r23
+ 572 0328 6093 0000 		sts matrix+122,r22
+ 203:main.c        ****             matrix[1][2] = color;
+ 573               		.stabn	68,0,203,.LM104-.LFBB2
+ 574               	.LM104:
+ 575 032c 7093 0000 		sts matrix+20+1,r23
+ 576 0330 6093 0000 		sts matrix+20,r22
+ 204:main.c        ****             matrix[1][5] = color;
+ 577               		.stabn	68,0,204,.LM105-.LFBB2
+ 578               	.LM105:
+ 579 0334 7093 0000 		sts matrix+26+1,r23
+ 580 0338 6093 0000 		sts matrix+26,r22
+ 205:main.c        ****             matrix[2][1] = color;
+ 581               		.stabn	68,0,205,.LM106-.LFBB2
+ 582               	.LM106:
+ 583 033c 7093 0000 		sts matrix+34+1,r23
+ 584 0340 6093 0000 		sts matrix+34,r22
+ 206:main.c        ****             matrix[2][6] = color;
+ 585               		.stabn	68,0,206,.LM107-.LFBB2
+ 586               	.LM107:
+ 587 0344 7093 0000 		sts matrix+44+1,r23
+ 588 0348 6093 0000 		sts matrix+44,r22
+ 207:main.c        ****             matrix[5][1] = color;
+ 589               		.stabn	68,0,207,.LM108-.LFBB2
+ 590               	.LM108:
+GAS LISTING /tmp/ccHhQq1L.s 			page 15
+
+
+ 591 034c 7093 0000 		sts matrix+82+1,r23
+ 592 0350 6093 0000 		sts matrix+82,r22
+ 208:main.c        ****             matrix[5][6] = color;
+ 593               		.stabn	68,0,208,.LM109-.LFBB2
+ 594               	.LM109:
+ 595 0354 7093 0000 		sts matrix+92+1,r23
+ 596 0358 6093 0000 		sts matrix+92,r22
+ 209:main.c        ****             matrix[6][2] = color;
+ 597               		.stabn	68,0,209,.LM110-.LFBB2
+ 598               	.LM110:
+ 599 035c 7093 0000 		sts matrix+100+1,r23
+ 600 0360 6093 0000 		sts matrix+100,r22
+ 210:main.c        ****             matrix[6][5] = color;
+ 601               		.stabn	68,0,210,.LM111-.LFBB2
+ 602               	.LM111:
+ 603 0364 7093 0000 		sts matrix+106+1,r23
+ 604 0368 6093 0000 		sts matrix+106,r22
+ 211:main.c        **** 
+ 212:main.c        ****             matrix[1][1] = color2;
+ 605               		.stabn	68,0,212,.LM112-.LFBB2
+ 606               	.LM112:
+ 607 036c 3093 0000 		sts matrix+18+1,r19
+ 608 0370 2093 0000 		sts matrix+18,r18
+ 213:main.c        ****             matrix[6][1] = color2;
+ 609               		.stabn	68,0,213,.LM113-.LFBB2
+ 610               	.LM113:
+ 611 0374 3093 0000 		sts matrix+98+1,r19
+ 612 0378 2093 0000 		sts matrix+98,r18
+ 214:main.c        ****             matrix[6][6] = color2;
+ 613               		.stabn	68,0,214,.LM114-.LFBB2
+ 614               	.LM114:
+ 615 037c 3093 0000 		sts matrix+108+1,r19
+ 616 0380 2093 0000 		sts matrix+108,r18
+ 215:main.c        ****             matrix[1][6] = color2;
+ 617               		.stabn	68,0,215,.LM115-.LFBB2
+ 618               	.LM115:
+ 619 0384 3093 0000 		sts matrix+28+1,r19
+ 620 0388 2093 0000 		sts matrix+28,r18
+ 216:main.c        **** 
+ 217:main.c        ****             matrix[1][3] = color3;
+ 621               		.stabn	68,0,217,.LM116-.LFBB2
+ 622               	.LM116:
+ 623 038c 5093 0000 		sts matrix+22+1,r21
+ 624 0390 4093 0000 		sts matrix+22,r20
+ 218:main.c        ****             matrix[1][4] = color3;
+ 625               		.stabn	68,0,218,.LM117-.LFBB2
+ 626               	.LM117:
+ 627 0394 5093 0000 		sts matrix+24+1,r21
+ 628 0398 4093 0000 		sts matrix+24,r20
+ 219:main.c        ****             matrix[3][1] = color3;
+ 629               		.stabn	68,0,219,.LM118-.LFBB2
+ 630               	.LM118:
+ 631 039c 5093 0000 		sts matrix+50+1,r21
+ 632 03a0 4093 0000 		sts matrix+50,r20
+ 220:main.c        ****             matrix[4][1] = color3;
+ 633               		.stabn	68,0,220,.LM119-.LFBB2
+ 634               	.LM119:
+GAS LISTING /tmp/ccHhQq1L.s 			page 16
+
+
+ 635 03a4 5093 0000 		sts matrix+66+1,r21
+ 636 03a8 4093 0000 		sts matrix+66,r20
+ 221:main.c        ****             matrix[6][3] = color3;
+ 637               		.stabn	68,0,221,.LM120-.LFBB2
+ 638               	.LM120:
+ 639 03ac 5093 0000 		sts matrix+102+1,r21
+ 640 03b0 4093 0000 		sts matrix+102,r20
+ 222:main.c        ****             matrix[6][4] = color3;
+ 641               		.stabn	68,0,222,.LM121-.LFBB2
+ 642               	.LM121:
+ 643 03b4 5093 0000 		sts matrix+104+1,r21
+ 644 03b8 4093 0000 		sts matrix+104,r20
+ 223:main.c        ****             matrix[3][6] = color3;
+ 645               		.stabn	68,0,223,.LM122-.LFBB2
+ 646               	.LM122:
+ 647 03bc 5093 0000 		sts matrix+60+1,r21
+ 648 03c0 4093 0000 		sts matrix+60,r20
+ 224:main.c        ****             matrix[4][6] = color3;
+ 649               		.stabn	68,0,224,.LM123-.LFBB2
+ 650               	.LM123:
+ 651 03c4 5093 0000 		sts matrix+76+1,r21
+ 652 03c8 4093 0000 		sts matrix+76,r20
+ 225:main.c        **** 
+ 226:main.c        ****             //dimmer
+ 227:main.c        ****             matrix[2][2] = color4;
+ 653               		.stabn	68,0,227,.LM124-.LFBB2
+ 654               	.LM124:
+ 655 03cc F093 0000 		sts matrix+36+1,r31
+ 656 03d0 E093 0000 		sts matrix+36,r30
+ 228:main.c        ****             matrix[5][2] = color4;
+ 657               		.stabn	68,0,228,.LM125-.LFBB2
+ 658               	.LM125:
+ 659 03d4 F093 0000 		sts matrix+84+1,r31
+ 660 03d8 E093 0000 		sts matrix+84,r30
+ 229:main.c        ****             matrix[2][5] = color4;
+ 661               		.stabn	68,0,229,.LM126-.LFBB2
+ 662               	.LM126:
+ 663 03dc F093 0000 		sts matrix+42+1,r31
+ 664 03e0 E093 0000 		sts matrix+42,r30
+ 230:main.c        ****             matrix[5][5] = color4;
+ 665               		.stabn	68,0,230,.LM127-.LFBB2
+ 666               	.LM127:
+ 667 03e4 F093 0000 		sts matrix+90+1,r31
+ 668 03e8 E093 0000 		sts matrix+90,r30
+ 231:main.c        **** 
+ 232:main.c        ****         break;
+ 669               		.stabn	68,0,232,.LM128-.LFBB2
+ 670               	.LM128:
+ 671 03ec 0895      		ret
+ 672               	.L13:
+ 233:main.c        ****         case 8:
+ 234:main.c        ****             matrix[0][0] = color;
+ 673               		.stabn	68,0,234,.LM129-.LFBB2
+ 674               	.LM129:
+ 675 03ee 7093 0000 		sts matrix+1,r23
+ 676 03f2 6093 0000 		sts matrix,r22
+ 235:main.c        ****             matrix[0][1] = color;
+GAS LISTING /tmp/ccHhQq1L.s 			page 17
+
+
+ 677               		.stabn	68,0,235,.LM130-.LFBB2
+ 678               	.LM130:
+ 679 03f6 7093 0000 		sts matrix+2+1,r23
+ 680 03fa 6093 0000 		sts matrix+2,r22
+ 236:main.c        ****             matrix[0][6] = color;
+ 681               		.stabn	68,0,236,.LM131-.LFBB2
+ 682               	.LM131:
+ 683 03fe 7093 0000 		sts matrix+12+1,r23
+ 684 0402 6093 0000 		sts matrix+12,r22
+ 237:main.c        ****             matrix[0][7] = color;
+ 685               		.stabn	68,0,237,.LM132-.LFBB2
+ 686               	.LM132:
+ 687 0406 7093 0000 		sts matrix+14+1,r23
+ 688 040a 6093 0000 		sts matrix+14,r22
+ 238:main.c        ****             matrix[1][0] = color;
+ 689               		.stabn	68,0,238,.LM133-.LFBB2
+ 690               	.LM133:
+ 691 040e 7093 0000 		sts matrix+16+1,r23
+ 692 0412 6093 0000 		sts matrix+16,r22
+ 239:main.c        ****             matrix[1][7] = color;
+ 693               		.stabn	68,0,239,.LM134-.LFBB2
+ 694               	.LM134:
+ 695 0416 7093 0000 		sts matrix+30+1,r23
+ 696 041a 6093 0000 		sts matrix+30,r22
+ 240:main.c        ****             matrix[7][7] = color;
+ 697               		.stabn	68,0,240,.LM135-.LFBB2
+ 698               	.LM135:
+ 699 041e 7093 0000 		sts matrix+126+1,r23
+ 700 0422 6093 0000 		sts matrix+126,r22
+ 241:main.c        ****             matrix[7][6] = color;
+ 701               		.stabn	68,0,241,.LM136-.LFBB2
+ 702               	.LM136:
+ 703 0426 7093 0000 		sts matrix+124+1,r23
+ 704 042a 6093 0000 		sts matrix+124,r22
+ 242:main.c        ****             matrix[7][1] = color;
+ 705               		.stabn	68,0,242,.LM137-.LFBB2
+ 706               	.LM137:
+ 707 042e 7093 0000 		sts matrix+114+1,r23
+ 708 0432 6093 0000 		sts matrix+114,r22
+ 243:main.c        ****             matrix[7][0] = color;
+ 709               		.stabn	68,0,243,.LM138-.LFBB2
+ 710               	.LM138:
+ 711 0436 7093 0000 		sts matrix+112+1,r23
+ 712 043a 6093 0000 		sts matrix+112,r22
+ 244:main.c        ****             matrix[6][7] = color;
+ 713               		.stabn	68,0,244,.LM139-.LFBB2
+ 714               	.LM139:
+ 715 043e 7093 0000 		sts matrix+110+1,r23
+ 716 0442 6093 0000 		sts matrix+110,r22
+ 245:main.c        ****             matrix[6][0] = color;
+ 717               		.stabn	68,0,245,.LM140-.LFBB2
+ 718               	.LM140:
+ 719 0446 7093 0000 		sts matrix+96+1,r23
+ 720 044a 6093 0000 		sts matrix+96,r22
+ 246:main.c        **** 
+ 247:main.c        ****             matrix[0][2] = color2;
+ 721               		.stabn	68,0,247,.LM141-.LFBB2
+GAS LISTING /tmp/ccHhQq1L.s 			page 18
+
+
+ 722               	.LM141:
+ 723 044e 3093 0000 		sts matrix+4+1,r19
+ 724 0452 2093 0000 		sts matrix+4,r18
+ 248:main.c        ****             matrix[0][5] = color2;
+ 725               		.stabn	68,0,248,.LM142-.LFBB2
+ 726               	.LM142:
+ 727 0456 3093 0000 		sts matrix+10+1,r19
+ 728 045a 2093 0000 		sts matrix+10,r18
+ 249:main.c        ****             matrix[2][0] = color2;
+ 729               		.stabn	68,0,249,.LM143-.LFBB2
+ 730               	.LM143:
+ 731 045e 3093 0000 		sts matrix+32+1,r19
+ 732 0462 2093 0000 		sts matrix+32,r18
+ 250:main.c        ****             matrix[2][7] = color2;
+ 733               		.stabn	68,0,250,.LM144-.LFBB2
+ 734               	.LM144:
+ 735 0466 3093 0000 		sts matrix+46+1,r19
+ 736 046a 2093 0000 		sts matrix+46,r18
+ 251:main.c        ****             matrix[5][0] = color2;
+ 737               		.stabn	68,0,251,.LM145-.LFBB2
+ 738               	.LM145:
+ 739 046e 3093 0000 		sts matrix+80+1,r19
+ 740 0472 2093 0000 		sts matrix+80,r18
+ 252:main.c        ****             matrix[5][7] = color2;
+ 741               		.stabn	68,0,252,.LM146-.LFBB2
+ 742               	.LM146:
+ 743 0476 3093 0000 		sts matrix+94+1,r19
+ 744 047a 2093 0000 		sts matrix+94,r18
+ 253:main.c        ****             matrix[7][2] = color2;
+ 745               		.stabn	68,0,253,.LM147-.LFBB2
+ 746               	.LM147:
+ 747 047e 3093 0000 		sts matrix+116+1,r19
+ 748 0482 2093 0000 		sts matrix+116,r18
+ 254:main.c        ****             matrix[7][5] = color2;
+ 749               		.stabn	68,0,254,.LM148-.LFBB2
+ 750               	.LM148:
+ 751 0486 3093 0000 		sts matrix+122+1,r19
+ 752 048a 2093 0000 		sts matrix+122,r18
+ 255:main.c        ****             matrix[1][2] = color2;
+ 753               		.stabn	68,0,255,.LM149-.LFBB2
+ 754               	.LM149:
+ 755 048e 3093 0000 		sts matrix+20+1,r19
+ 756 0492 2093 0000 		sts matrix+20,r18
+ 256:main.c        ****             matrix[1][5] = color2;
+ 757               		.stabn	68,0,256,.LM150-.LFBB2
+ 758               	.LM150:
+ 759 0496 3093 0000 		sts matrix+26+1,r19
+ 760 049a 2093 0000 		sts matrix+26,r18
+ 257:main.c        ****             matrix[2][1] = color2;
+ 761               		.stabn	68,0,257,.LM151-.LFBB2
+ 762               	.LM151:
+ 763 049e 3093 0000 		sts matrix+34+1,r19
+ 764 04a2 2093 0000 		sts matrix+34,r18
+ 258:main.c        ****             matrix[2][6] = color2;
+ 765               		.stabn	68,0,258,.LM152-.LFBB2
+ 766               	.LM152:
+ 767 04a6 3093 0000 		sts matrix+44+1,r19
+GAS LISTING /tmp/ccHhQq1L.s 			page 19
+
+
+ 768 04aa 2093 0000 		sts matrix+44,r18
+ 259:main.c        ****             matrix[5][1] = color2;
+ 769               		.stabn	68,0,259,.LM153-.LFBB2
+ 770               	.LM153:
+ 771 04ae 3093 0000 		sts matrix+82+1,r19
+ 772 04b2 2093 0000 		sts matrix+82,r18
+ 260:main.c        ****             matrix[5][6] = color2;
+ 773               		.stabn	68,0,260,.LM154-.LFBB2
+ 774               	.LM154:
+ 775 04b6 3093 0000 		sts matrix+92+1,r19
+ 776 04ba 2093 0000 		sts matrix+92,r18
+ 261:main.c        ****             matrix[6][2] = color2;
+ 777               		.stabn	68,0,261,.LM155-.LFBB2
+ 778               	.LM155:
+ 779 04be 3093 0000 		sts matrix+100+1,r19
+ 780 04c2 2093 0000 		sts matrix+100,r18
+ 262:main.c        ****             matrix[6][5] = color2;
+ 781               		.stabn	68,0,262,.LM156-.LFBB2
+ 782               	.LM156:
+ 783 04c6 3093 0000 		sts matrix+106+1,r19
+ 784 04ca 2093 0000 		sts matrix+106,r18
+ 263:main.c        **** 
+ 264:main.c        ****             matrix[1][1] = color3;
+ 785               		.stabn	68,0,264,.LM157-.LFBB2
+ 786               	.LM157:
+ 787 04ce 5093 0000 		sts matrix+18+1,r21
+ 788 04d2 4093 0000 		sts matrix+18,r20
+ 265:main.c        ****             matrix[6][1] = color3;
+ 789               		.stabn	68,0,265,.LM158-.LFBB2
+ 790               	.LM158:
+ 791 04d6 5093 0000 		sts matrix+98+1,r21
+ 792 04da 4093 0000 		sts matrix+98,r20
+ 266:main.c        ****             matrix[6][6] = color3;
+ 793               		.stabn	68,0,266,.LM159-.LFBB2
+ 794               	.LM159:
+ 795 04de 5093 0000 		sts matrix+108+1,r21
+ 796 04e2 4093 0000 		sts matrix+108,r20
+ 267:main.c        ****             matrix[1][6] = color3;
+ 797               		.stabn	68,0,267,.LM160-.LFBB2
+ 798               	.LM160:
+ 799 04e6 5093 0000 		sts matrix+28+1,r21
+ 800 04ea 4093 0000 		sts matrix+28,r20
+ 268:main.c        **** 
+ 269:main.c        ****             matrix[1][3] = color4;
+ 801               		.stabn	68,0,269,.LM161-.LFBB2
+ 802               	.LM161:
+ 803 04ee F093 0000 		sts matrix+22+1,r31
+ 804 04f2 E093 0000 		sts matrix+22,r30
+ 270:main.c        ****             matrix[1][4] = color4;
+ 805               		.stabn	68,0,270,.LM162-.LFBB2
+ 806               	.LM162:
+ 807 04f6 F093 0000 		sts matrix+24+1,r31
+ 808 04fa E093 0000 		sts matrix+24,r30
+ 271:main.c        ****             matrix[3][1] = color4;
+ 809               		.stabn	68,0,271,.LM163-.LFBB2
+ 810               	.LM163:
+ 811 04fe F093 0000 		sts matrix+50+1,r31
+GAS LISTING /tmp/ccHhQq1L.s 			page 20
+
+
+ 812 0502 E093 0000 		sts matrix+50,r30
+ 272:main.c        ****             matrix[4][1] = color4;
+ 813               		.stabn	68,0,272,.LM164-.LFBB2
+ 814               	.LM164:
+ 815 0506 F093 0000 		sts matrix+66+1,r31
+ 816 050a E093 0000 		sts matrix+66,r30
+ 273:main.c        ****             matrix[6][3] = color4;
+ 817               		.stabn	68,0,273,.LM165-.LFBB2
+ 818               	.LM165:
+ 819 050e F093 0000 		sts matrix+102+1,r31
+ 820 0512 E093 0000 		sts matrix+102,r30
+ 274:main.c        ****             matrix[6][4] = color4;
+ 821               		.stabn	68,0,274,.LM166-.LFBB2
+ 822               	.LM166:
+ 823 0516 F093 0000 		sts matrix+104+1,r31
+ 824 051a E093 0000 		sts matrix+104,r30
+ 275:main.c        ****             matrix[3][6] = color4;
+ 825               		.stabn	68,0,275,.LM167-.LFBB2
+ 826               	.LM167:
+ 827 051e F093 0000 		sts matrix+60+1,r31
+ 828 0522 E093 0000 		sts matrix+60,r30
+ 276:main.c        ****             matrix[4][6] = color4;
+ 829               		.stabn	68,0,276,.LM168-.LFBB2
+ 830               	.LM168:
+ 831 0526 F093 0000 		sts matrix+76+1,r31
+ 832 052a E093 0000 		sts matrix+76,r30
+ 277:main.c        **** 
+ 278:main.c        ****         break;
+ 833               		.stabn	68,0,278,.LM169-.LFBB2
+ 834               	.LM169:
+ 835 052e 0895      		ret
+ 836               	.L14:
+ 279:main.c        ****         case 9:
+ 280:main.c        ****             matrix[0][3] = color;
+ 837               		.stabn	68,0,280,.LM170-.LFBB2
+ 838               	.LM170:
+ 839 0530 7093 0000 		sts matrix+6+1,r23
+ 840 0534 6093 0000 		sts matrix+6,r22
+ 281:main.c        ****             matrix[0][4] = color;
+ 841               		.stabn	68,0,281,.LM171-.LFBB2
+ 842               	.LM171:
+ 843 0538 7093 0000 		sts matrix+8+1,r23
+ 844 053c 6093 0000 		sts matrix+8,r22
+ 282:main.c        ****             matrix[3][0] = color;
+ 845               		.stabn	68,0,282,.LM172-.LFBB2
+ 846               	.LM172:
+ 847 0540 7093 0000 		sts matrix+48+1,r23
+ 848 0544 6093 0000 		sts matrix+48,r22
+ 283:main.c        ****             matrix[3][7] = color;
+ 849               		.stabn	68,0,283,.LM173-.LFBB2
+ 850               	.LM173:
+ 851 0548 7093 0000 		sts matrix+62+1,r23
+ 852 054c 6093 0000 		sts matrix+62,r22
+ 284:main.c        ****             matrix[4][0] = color;
+ 853               		.stabn	68,0,284,.LM174-.LFBB2
+ 854               	.LM174:
+ 855 0550 7093 0000 		sts matrix+64+1,r23
+GAS LISTING /tmp/ccHhQq1L.s 			page 21
+
+
+ 856 0554 6093 0000 		sts matrix+64,r22
+ 285:main.c        ****             matrix[4][7] = color;
+ 857               		.stabn	68,0,285,.LM175-.LFBB2
+ 858               	.LM175:
+ 859 0558 7093 0000 		sts matrix+78+1,r23
+ 860 055c 6093 0000 		sts matrix+78,r22
+ 286:main.c        ****             matrix[7][3] = color;
+ 861               		.stabn	68,0,286,.LM176-.LFBB2
+ 862               	.LM176:
+ 863 0560 7093 0000 		sts matrix+118+1,r23
+ 864 0564 6093 0000 		sts matrix+118,r22
+ 287:main.c        ****             matrix[7][4] = color;
+ 865               		.stabn	68,0,287,.LM177-.LFBB2
+ 866               	.LM177:
+ 867 0568 7093 0000 		sts matrix+120+1,r23
+ 868 056c 6093 0000 		sts matrix+120,r22
+ 288:main.c        **** 
+ 289:main.c        ****             matrix[0][0] = color2;
+ 869               		.stabn	68,0,289,.LM178-.LFBB2
+ 870               	.LM178:
+ 871 0570 3093 0000 		sts matrix+1,r19
+ 872 0574 2093 0000 		sts matrix,r18
+ 290:main.c        ****             matrix[0][1] = color2;
+ 873               		.stabn	68,0,290,.LM179-.LFBB2
+ 874               	.LM179:
+ 875 0578 3093 0000 		sts matrix+2+1,r19
+ 876 057c 2093 0000 		sts matrix+2,r18
+ 291:main.c        ****             matrix[0][6] = color2;
+ 877               		.stabn	68,0,291,.LM180-.LFBB2
+ 878               	.LM180:
+ 879 0580 3093 0000 		sts matrix+12+1,r19
+ 880 0584 2093 0000 		sts matrix+12,r18
+ 292:main.c        ****             matrix[0][7] = color2;
+ 881               		.stabn	68,0,292,.LM181-.LFBB2
+ 882               	.LM181:
+ 883 0588 3093 0000 		sts matrix+14+1,r19
+ 884 058c 2093 0000 		sts matrix+14,r18
+ 293:main.c        ****             matrix[1][0] = color2;
+ 885               		.stabn	68,0,293,.LM182-.LFBB2
+ 886               	.LM182:
+ 887 0590 3093 0000 		sts matrix+16+1,r19
+ 888 0594 2093 0000 		sts matrix+16,r18
+ 294:main.c        ****             matrix[1][7] = color2;
+ 889               		.stabn	68,0,294,.LM183-.LFBB2
+ 890               	.LM183:
+ 891 0598 3093 0000 		sts matrix+30+1,r19
+ 892 059c 2093 0000 		sts matrix+30,r18
+ 295:main.c        ****             matrix[7][7] = color2;
+ 893               		.stabn	68,0,295,.LM184-.LFBB2
+ 894               	.LM184:
+ 895 05a0 3093 0000 		sts matrix+126+1,r19
+ 896 05a4 2093 0000 		sts matrix+126,r18
+ 296:main.c        ****             matrix[7][6] = color2;
+ 897               		.stabn	68,0,296,.LM185-.LFBB2
+ 898               	.LM185:
+ 899 05a8 3093 0000 		sts matrix+124+1,r19
+ 900 05ac 2093 0000 		sts matrix+124,r18
+GAS LISTING /tmp/ccHhQq1L.s 			page 22
+
+
+ 297:main.c        ****             matrix[7][1] = color2;
+ 901               		.stabn	68,0,297,.LM186-.LFBB2
+ 902               	.LM186:
+ 903 05b0 3093 0000 		sts matrix+114+1,r19
+ 904 05b4 2093 0000 		sts matrix+114,r18
+ 298:main.c        ****             matrix[7][0] = color2;
+ 905               		.stabn	68,0,298,.LM187-.LFBB2
+ 906               	.LM187:
+ 907 05b8 3093 0000 		sts matrix+112+1,r19
+ 908 05bc 2093 0000 		sts matrix+112,r18
+ 299:main.c        ****             matrix[6][7] = color2;
+ 909               		.stabn	68,0,299,.LM188-.LFBB2
+ 910               	.LM188:
+ 911 05c0 3093 0000 		sts matrix+110+1,r19
+ 912 05c4 2093 0000 		sts matrix+110,r18
+ 300:main.c        ****             matrix[6][0] = color2;
+ 913               		.stabn	68,0,300,.LM189-.LFBB2
+ 914               	.LM189:
+ 915 05c8 3093 0000 		sts matrix+96+1,r19
+ 916 05cc 2093 0000 		sts matrix+96,r18
+ 301:main.c        **** 
+ 302:main.c        ****             matrix[0][2] = color3;
+ 917               		.stabn	68,0,302,.LM190-.LFBB2
+ 918               	.LM190:
+ 919 05d0 5093 0000 		sts matrix+4+1,r21
+ 920 05d4 4093 0000 		sts matrix+4,r20
+ 303:main.c        ****             matrix[0][5] = color3;
+ 921               		.stabn	68,0,303,.LM191-.LFBB2
+ 922               	.LM191:
+ 923 05d8 5093 0000 		sts matrix+10+1,r21
+ 924 05dc 4093 0000 		sts matrix+10,r20
+ 304:main.c        ****             matrix[2][0] = color3;
+ 925               		.stabn	68,0,304,.LM192-.LFBB2
+ 926               	.LM192:
+ 927 05e0 5093 0000 		sts matrix+32+1,r21
+ 928 05e4 4093 0000 		sts matrix+32,r20
+ 305:main.c        ****             matrix[2][7] = color3;
+ 929               		.stabn	68,0,305,.LM193-.LFBB2
+ 930               	.LM193:
+ 931 05e8 5093 0000 		sts matrix+46+1,r21
+ 932 05ec 4093 0000 		sts matrix+46,r20
+ 306:main.c        ****             matrix[5][0] = color3;
+ 933               		.stabn	68,0,306,.LM194-.LFBB2
+ 934               	.LM194:
+ 935 05f0 5093 0000 		sts matrix+80+1,r21
+ 936 05f4 4093 0000 		sts matrix+80,r20
+ 307:main.c        ****             matrix[5][7] = color3;
+ 937               		.stabn	68,0,307,.LM195-.LFBB2
+ 938               	.LM195:
+ 939 05f8 5093 0000 		sts matrix+94+1,r21
+ 940 05fc 4093 0000 		sts matrix+94,r20
+ 308:main.c        ****             matrix[7][2] = color3;
+ 941               		.stabn	68,0,308,.LM196-.LFBB2
+ 942               	.LM196:
+ 943 0600 5093 0000 		sts matrix+116+1,r21
+ 944 0604 4093 0000 		sts matrix+116,r20
+ 309:main.c        ****             matrix[7][5] = color3;
+GAS LISTING /tmp/ccHhQq1L.s 			page 23
+
+
+ 945               		.stabn	68,0,309,.LM197-.LFBB2
+ 946               	.LM197:
+ 947 0608 5093 0000 		sts matrix+122+1,r21
+ 948 060c 4093 0000 		sts matrix+122,r20
+ 310:main.c        ****             matrix[1][2] = color3;
+ 949               		.stabn	68,0,310,.LM198-.LFBB2
+ 950               	.LM198:
+ 951 0610 5093 0000 		sts matrix+20+1,r21
+ 952 0614 4093 0000 		sts matrix+20,r20
+ 311:main.c        ****             matrix[1][5] = color3;
+ 953               		.stabn	68,0,311,.LM199-.LFBB2
+ 954               	.LM199:
+ 955 0618 5093 0000 		sts matrix+26+1,r21
+ 956 061c 4093 0000 		sts matrix+26,r20
+ 312:main.c        ****             matrix[2][1] = color3;
+ 957               		.stabn	68,0,312,.LM200-.LFBB2
+ 958               	.LM200:
+ 959 0620 5093 0000 		sts matrix+34+1,r21
+ 960 0624 4093 0000 		sts matrix+34,r20
+ 313:main.c        ****             matrix[2][6] = color3;
+ 961               		.stabn	68,0,313,.LM201-.LFBB2
+ 962               	.LM201:
+ 963 0628 5093 0000 		sts matrix+44+1,r21
+ 964 062c 4093 0000 		sts matrix+44,r20
+ 314:main.c        ****             matrix[5][1] = color3;
+ 965               		.stabn	68,0,314,.LM202-.LFBB2
+ 966               	.LM202:
+ 967 0630 5093 0000 		sts matrix+82+1,r21
+ 968 0634 4093 0000 		sts matrix+82,r20
+ 315:main.c        ****             matrix[5][6] = color3;
+ 969               		.stabn	68,0,315,.LM203-.LFBB2
+ 970               	.LM203:
+ 971 0638 5093 0000 		sts matrix+92+1,r21
+ 972 063c 4093 0000 		sts matrix+92,r20
+ 316:main.c        ****             matrix[6][2] = color3;
+ 973               		.stabn	68,0,316,.LM204-.LFBB2
+ 974               	.LM204:
+ 975 0640 5093 0000 		sts matrix+100+1,r21
+ 976 0644 4093 0000 		sts matrix+100,r20
+ 317:main.c        ****             matrix[6][5] = color3;
+ 977               		.stabn	68,0,317,.LM205-.LFBB2
+ 978               	.LM205:
+ 979 0648 5093 0000 		sts matrix+106+1,r21
+ 980 064c 4093 0000 		sts matrix+106,r20
+ 318:main.c        **** 
+ 319:main.c        ****             matrix[1][1] = color4;
+ 981               		.stabn	68,0,319,.LM206-.LFBB2
+ 982               	.LM206:
+ 983 0650 F093 0000 		sts matrix+18+1,r31
+ 984 0654 E093 0000 		sts matrix+18,r30
+ 320:main.c        ****             matrix[6][1] = color4;
+ 985               		.stabn	68,0,320,.LM207-.LFBB2
+ 986               	.LM207:
+ 987 0658 F093 0000 		sts matrix+98+1,r31
+ 988 065c E093 0000 		sts matrix+98,r30
+ 321:main.c        ****             matrix[6][6] = color4;
+ 989               		.stabn	68,0,321,.LM208-.LFBB2
+GAS LISTING /tmp/ccHhQq1L.s 			page 24
+
+
+ 990               	.LM208:
+ 991 0660 F093 0000 		sts matrix+108+1,r31
+ 992 0664 E093 0000 		sts matrix+108,r30
+ 322:main.c        ****             matrix[1][6] = color4;
+ 993               		.stabn	68,0,322,.LM209-.LFBB2
+ 994               	.LM209:
+ 995 0668 F093 0000 		sts matrix+28+1,r31
+ 996 066c E093 0000 		sts matrix+28,r30
+ 323:main.c        **** 
+ 324:main.c        ****         break;
+ 997               		.stabn	68,0,324,.LM210-.LFBB2
+ 998               	.LM210:
+ 999 0670 0895      		ret
+ 1000               	.L15:
+ 325:main.c        ****         case 10:
+ 326:main.c        ****             matrix[0][3] = color;
+ 1001               		.stabn	68,0,326,.LM211-.LFBB2
+ 1002               	.LM211:
+ 1003 0672 7093 0000 		sts matrix+6+1,r23
+ 1004 0676 6093 0000 		sts matrix+6,r22
+ 327:main.c        ****             matrix[0][4] = color;
+ 1005               		.stabn	68,0,327,.LM212-.LFBB2
+ 1006               	.LM212:
+ 1007 067a 7093 0000 		sts matrix+8+1,r23
+ 1008 067e 6093 0000 		sts matrix+8,r22
+ 328:main.c        ****             matrix[3][0] = color;
+ 1009               		.stabn	68,0,328,.LM213-.LFBB2
+ 1010               	.LM213:
+ 1011 0682 7093 0000 		sts matrix+48+1,r23
+ 1012 0686 6093 0000 		sts matrix+48,r22
+ 329:main.c        ****             matrix[3][7] = color;
+ 1013               		.stabn	68,0,329,.LM214-.LFBB2
+ 1014               	.LM214:
+ 1015 068a 7093 0000 		sts matrix+62+1,r23
+ 1016 068e 6093 0000 		sts matrix+62,r22
+ 330:main.c        ****             matrix[4][0] = color;
+ 1017               		.stabn	68,0,330,.LM215-.LFBB2
+ 1018               	.LM215:
+ 1019 0692 7093 0000 		sts matrix+64+1,r23
+ 1020 0696 6093 0000 		sts matrix+64,r22
+ 331:main.c        ****             matrix[4][7] = color;
+ 1021               		.stabn	68,0,331,.LM216-.LFBB2
+ 1022               	.LM216:
+ 1023 069a 7093 0000 		sts matrix+78+1,r23
+ 1024 069e 6093 0000 		sts matrix+78,r22
+ 332:main.c        ****             matrix[7][3] = color;
+ 1025               		.stabn	68,0,332,.LM217-.LFBB2
+ 1026               	.LM217:
+ 1027 06a2 7093 0000 		sts matrix+118+1,r23
+ 1028 06a6 6093 0000 		sts matrix+118,r22
+ 333:main.c        ****             matrix[7][4] = color;
+ 1029               		.stabn	68,0,333,.LM218-.LFBB2
+ 1030               	.LM218:
+ 1031 06aa 7093 0000 		sts matrix+120+1,r23
+ 1032 06ae 6093 0000 		sts matrix+120,r22
+ 334:main.c        **** 
+ 335:main.c        ****             matrix[0][0] = color2;
+GAS LISTING /tmp/ccHhQq1L.s 			page 25
+
+
+ 1033               		.stabn	68,0,335,.LM219-.LFBB2
+ 1034               	.LM219:
+ 1035 06b2 3093 0000 		sts matrix+1,r19
+ 1036 06b6 2093 0000 		sts matrix,r18
+ 336:main.c        ****             matrix[0][1] = color2;
+ 1037               		.stabn	68,0,336,.LM220-.LFBB2
+ 1038               	.LM220:
+ 1039 06ba 3093 0000 		sts matrix+2+1,r19
+ 1040 06be 2093 0000 		sts matrix+2,r18
+ 337:main.c        ****             matrix[0][6] = color2;
+ 1041               		.stabn	68,0,337,.LM221-.LFBB2
+ 1042               	.LM221:
+ 1043 06c2 3093 0000 		sts matrix+12+1,r19
+ 1044 06c6 2093 0000 		sts matrix+12,r18
+ 338:main.c        ****             matrix[0][7] = color2;
+ 1045               		.stabn	68,0,338,.LM222-.LFBB2
+ 1046               	.LM222:
+ 1047 06ca 3093 0000 		sts matrix+14+1,r19
+ 1048 06ce 2093 0000 		sts matrix+14,r18
+ 339:main.c        ****             matrix[1][0] = color2;
+ 1049               		.stabn	68,0,339,.LM223-.LFBB2
+ 1050               	.LM223:
+ 1051 06d2 3093 0000 		sts matrix+16+1,r19
+ 1052 06d6 2093 0000 		sts matrix+16,r18
+ 340:main.c        ****             matrix[1][7] = color2;
+ 1053               		.stabn	68,0,340,.LM224-.LFBB2
+ 1054               	.LM224:
+ 1055 06da 3093 0000 		sts matrix+30+1,r19
+ 1056 06de 2093 0000 		sts matrix+30,r18
+ 341:main.c        ****             matrix[7][7] = color2;
+ 1057               		.stabn	68,0,341,.LM225-.LFBB2
+ 1058               	.LM225:
+ 1059 06e2 3093 0000 		sts matrix+126+1,r19
+ 1060 06e6 2093 0000 		sts matrix+126,r18
+ 342:main.c        ****             matrix[7][6] = color2;
+ 1061               		.stabn	68,0,342,.LM226-.LFBB2
+ 1062               	.LM226:
+ 1063 06ea 3093 0000 		sts matrix+124+1,r19
+ 1064 06ee 2093 0000 		sts matrix+124,r18
+ 343:main.c        ****             matrix[7][1] = color2;
+ 1065               		.stabn	68,0,343,.LM227-.LFBB2
+ 1066               	.LM227:
+ 1067 06f2 3093 0000 		sts matrix+114+1,r19
+ 1068 06f6 2093 0000 		sts matrix+114,r18
+ 344:main.c        ****             matrix[7][0] = color2;
+ 1069               		.stabn	68,0,344,.LM228-.LFBB2
+ 1070               	.LM228:
+ 1071 06fa 3093 0000 		sts matrix+112+1,r19
+ 1072 06fe 2093 0000 		sts matrix+112,r18
+ 345:main.c        ****             matrix[6][7] = color2;
+ 1073               		.stabn	68,0,345,.LM229-.LFBB2
+ 1074               	.LM229:
+ 1075 0702 3093 0000 		sts matrix+110+1,r19
+ 1076 0706 2093 0000 		sts matrix+110,r18
+ 346:main.c        ****             matrix[6][0] = color2;
+ 1077               		.stabn	68,0,346,.LM230-.LFBB2
+ 1078               	.LM230:
+GAS LISTING /tmp/ccHhQq1L.s 			page 26
+
+
+ 1079 070a 3093 0000 		sts matrix+96+1,r19
+ 1080 070e 2093 0000 		sts matrix+96,r18
+ 347:main.c        **** 
+ 348:main.c        ****             matrix[0][2] = color3;
+ 1081               		.stabn	68,0,348,.LM231-.LFBB2
+ 1082               	.LM231:
+ 1083 0712 5093 0000 		sts matrix+4+1,r21
+ 1084 0716 4093 0000 		sts matrix+4,r20
+ 349:main.c        ****             matrix[0][5] = color3;
+ 1085               		.stabn	68,0,349,.LM232-.LFBB2
+ 1086               	.LM232:
+ 1087 071a 5093 0000 		sts matrix+10+1,r21
+ 1088 071e 4093 0000 		sts matrix+10,r20
+ 350:main.c        ****             matrix[2][0] = color3;
+ 1089               		.stabn	68,0,350,.LM233-.LFBB2
+ 1090               	.LM233:
+ 1091 0722 5093 0000 		sts matrix+32+1,r21
+ 1092 0726 4093 0000 		sts matrix+32,r20
+ 351:main.c        ****             matrix[2][7] = color3;
+ 1093               		.stabn	68,0,351,.LM234-.LFBB2
+ 1094               	.LM234:
+ 1095 072a 5093 0000 		sts matrix+46+1,r21
+ 1096 072e 4093 0000 		sts matrix+46,r20
+ 352:main.c        ****             matrix[5][0] = color3;
+ 1097               		.stabn	68,0,352,.LM235-.LFBB2
+ 1098               	.LM235:
+ 1099 0732 5093 0000 		sts matrix+80+1,r21
+ 1100 0736 4093 0000 		sts matrix+80,r20
+ 353:main.c        ****             matrix[5][7] = color3;
+ 1101               		.stabn	68,0,353,.LM236-.LFBB2
+ 1102               	.LM236:
+ 1103 073a 5093 0000 		sts matrix+94+1,r21
+ 1104 073e 4093 0000 		sts matrix+94,r20
+ 354:main.c        ****             matrix[7][2] = color3;
+ 1105               		.stabn	68,0,354,.LM237-.LFBB2
+ 1106               	.LM237:
+ 1107 0742 5093 0000 		sts matrix+116+1,r21
+ 1108 0746 4093 0000 		sts matrix+116,r20
+ 355:main.c        ****             matrix[7][5] = color3;
+ 1109               		.stabn	68,0,355,.LM238-.LFBB2
+ 1110               	.LM238:
+ 1111 074a 5093 0000 		sts matrix+122+1,r21
+ 1112 074e 4093 0000 		sts matrix+122,r20
+ 356:main.c        ****             matrix[1][2] = color3;
+ 1113               		.stabn	68,0,356,.LM239-.LFBB2
+ 1114               	.LM239:
+ 1115 0752 5093 0000 		sts matrix+20+1,r21
+ 1116 0756 4093 0000 		sts matrix+20,r20
+ 357:main.c        ****             matrix[1][5] = color3;
+ 1117               		.stabn	68,0,357,.LM240-.LFBB2
+ 1118               	.LM240:
+ 1119 075a 5093 0000 		sts matrix+26+1,r21
+ 1120 075e 4093 0000 		sts matrix+26,r20
+ 358:main.c        ****             matrix[2][1] = color3;
+ 1121               		.stabn	68,0,358,.LM241-.LFBB2
+ 1122               	.LM241:
+ 1123 0762 5093 0000 		sts matrix+34+1,r21
+GAS LISTING /tmp/ccHhQq1L.s 			page 27
+
+
+ 1124 0766 4093 0000 		sts matrix+34,r20
+ 359:main.c        ****             matrix[2][6] = color3;
+ 1125               		.stabn	68,0,359,.LM242-.LFBB2
+ 1126               	.LM242:
+ 1127 076a 5093 0000 		sts matrix+44+1,r21
+ 1128 076e 4093 0000 		sts matrix+44,r20
+ 360:main.c        ****             matrix[5][1] = color3;
+ 1129               		.stabn	68,0,360,.LM243-.LFBB2
+ 1130               	.LM243:
+ 1131 0772 5093 0000 		sts matrix+82+1,r21
+ 1132 0776 4093 0000 		sts matrix+82,r20
+ 361:main.c        ****             matrix[5][6] = color3;
+ 1133               		.stabn	68,0,361,.LM244-.LFBB2
+ 1134               	.LM244:
+ 1135 077a 5093 0000 		sts matrix+92+1,r21
+ 1136 077e 4093 0000 		sts matrix+92,r20
+ 362:main.c        ****             matrix[6][2] = color3;
+ 1137               		.stabn	68,0,362,.LM245-.LFBB2
+ 1138               	.LM245:
+ 1139 0782 5093 0000 		sts matrix+100+1,r21
+ 1140 0786 4093 0000 		sts matrix+100,r20
+ 363:main.c        ****             matrix[6][5] = color3;
+ 1141               		.stabn	68,0,363,.LM246-.LFBB2
+ 1142               	.LM246:
+ 1143 078a 5093 0000 		sts matrix+106+1,r21
+ 1144 078e 4093 0000 		sts matrix+106,r20
+ 364:main.c        **** 
+ 365:main.c        ****         break;
+ 1145               		.stabn	68,0,365,.LM247-.LFBB2
+ 1146               	.LM247:
+ 1147 0792 0895      		ret
+ 1148               	.L16:
+ 366:main.c        ****     case 11:
+ 367:main.c        ****             matrix[0][3] = color;
+ 1149               		.stabn	68,0,367,.LM248-.LFBB2
+ 1150               	.LM248:
+ 1151 0794 7093 0000 		sts matrix+6+1,r23
+ 1152 0798 6093 0000 		sts matrix+6,r22
+ 368:main.c        ****             matrix[0][4] = color;
+ 1153               		.stabn	68,0,368,.LM249-.LFBB2
+ 1154               	.LM249:
+ 1155 079c 7093 0000 		sts matrix+8+1,r23
+ 1156 07a0 6093 0000 		sts matrix+8,r22
+ 369:main.c        ****             matrix[3][0] = color;
+ 1157               		.stabn	68,0,369,.LM250-.LFBB2
+ 1158               	.LM250:
+ 1159 07a4 7093 0000 		sts matrix+48+1,r23
+ 1160 07a8 6093 0000 		sts matrix+48,r22
+ 370:main.c        ****             matrix[3][7] = color;
+ 1161               		.stabn	68,0,370,.LM251-.LFBB2
+ 1162               	.LM251:
+ 1163 07ac 7093 0000 		sts matrix+62+1,r23
+ 1164 07b0 6093 0000 		sts matrix+62,r22
+ 371:main.c        ****             matrix[4][0] = color;
+ 1165               		.stabn	68,0,371,.LM252-.LFBB2
+ 1166               	.LM252:
+ 1167 07b4 7093 0000 		sts matrix+64+1,r23
+GAS LISTING /tmp/ccHhQq1L.s 			page 28
+
+
+ 1168 07b8 6093 0000 		sts matrix+64,r22
+ 372:main.c        ****             matrix[4][7] = color;
+ 1169               		.stabn	68,0,372,.LM253-.LFBB2
+ 1170               	.LM253:
+ 1171 07bc 7093 0000 		sts matrix+78+1,r23
+ 1172 07c0 6093 0000 		sts matrix+78,r22
+ 373:main.c        ****             matrix[7][3] = color;
+ 1173               		.stabn	68,0,373,.LM254-.LFBB2
+ 1174               	.LM254:
+ 1175 07c4 7093 0000 		sts matrix+118+1,r23
+ 1176 07c8 6093 0000 		sts matrix+118,r22
+ 374:main.c        ****             matrix[7][4] = color;
+ 1177               		.stabn	68,0,374,.LM255-.LFBB2
+ 1178               	.LM255:
+ 1179 07cc 7093 0000 		sts matrix+120+1,r23
+ 1180 07d0 6093 0000 		sts matrix+120,r22
+ 375:main.c        **** 
+ 376:main.c        ****             matrix[0][0] = color2;
+ 1181               		.stabn	68,0,376,.LM256-.LFBB2
+ 1182               	.LM256:
+ 1183 07d4 3093 0000 		sts matrix+1,r19
+ 1184 07d8 2093 0000 		sts matrix,r18
+ 377:main.c        ****             matrix[0][1] = color2;
+ 1185               		.stabn	68,0,377,.LM257-.LFBB2
+ 1186               	.LM257:
+ 1187 07dc 3093 0000 		sts matrix+2+1,r19
+ 1188 07e0 2093 0000 		sts matrix+2,r18
+ 378:main.c        ****             matrix[0][6] = color2;
+ 1189               		.stabn	68,0,378,.LM258-.LFBB2
+ 1190               	.LM258:
+ 1191 07e4 3093 0000 		sts matrix+12+1,r19
+ 1192 07e8 2093 0000 		sts matrix+12,r18
+ 379:main.c        ****             matrix[0][7] = color2;
+ 1193               		.stabn	68,0,379,.LM259-.LFBB2
+ 1194               	.LM259:
+ 1195 07ec 3093 0000 		sts matrix+14+1,r19
+ 1196 07f0 2093 0000 		sts matrix+14,r18
+ 380:main.c        ****             matrix[1][0] = color2;
+ 1197               		.stabn	68,0,380,.LM260-.LFBB2
+ 1198               	.LM260:
+ 1199 07f4 3093 0000 		sts matrix+16+1,r19
+ 1200 07f8 2093 0000 		sts matrix+16,r18
+ 381:main.c        ****             matrix[1][7] = color2;
+ 1201               		.stabn	68,0,381,.LM261-.LFBB2
+ 1202               	.LM261:
+ 1203 07fc 3093 0000 		sts matrix+30+1,r19
+ 1204 0800 2093 0000 		sts matrix+30,r18
+ 382:main.c        ****             matrix[7][7] = color2;
+ 1205               		.stabn	68,0,382,.LM262-.LFBB2
+ 1206               	.LM262:
+ 1207 0804 3093 0000 		sts matrix+126+1,r19
+ 1208 0808 2093 0000 		sts matrix+126,r18
+ 383:main.c        ****             matrix[7][6] = color2;
+ 1209               		.stabn	68,0,383,.LM263-.LFBB2
+ 1210               	.LM263:
+ 1211 080c 3093 0000 		sts matrix+124+1,r19
+ 1212 0810 2093 0000 		sts matrix+124,r18
+GAS LISTING /tmp/ccHhQq1L.s 			page 29
+
+
+ 384:main.c        ****             matrix[7][1] = color2;
+ 1213               		.stabn	68,0,384,.LM264-.LFBB2
+ 1214               	.LM264:
+ 1215 0814 3093 0000 		sts matrix+114+1,r19
+ 1216 0818 2093 0000 		sts matrix+114,r18
+ 385:main.c        ****             matrix[7][0] = color2;
+ 1217               		.stabn	68,0,385,.LM265-.LFBB2
+ 1218               	.LM265:
+ 1219 081c 3093 0000 		sts matrix+112+1,r19
+ 1220 0820 2093 0000 		sts matrix+112,r18
+ 386:main.c        ****             matrix[6][7] = color2;
+ 1221               		.stabn	68,0,386,.LM266-.LFBB2
+ 1222               	.LM266:
+ 1223 0824 3093 0000 		sts matrix+110+1,r19
+ 1224 0828 2093 0000 		sts matrix+110,r18
+ 387:main.c        ****             matrix[6][0] = color2;
+ 1225               		.stabn	68,0,387,.LM267-.LFBB2
+ 1226               	.LM267:
+ 1227 082c 3093 0000 		sts matrix+96+1,r19
+ 1228 0830 2093 0000 		sts matrix+96,r18
+ 388:main.c        ****     break;
+ 1229               		.stabn	68,0,388,.LM268-.LFBB2
+ 1230               	.LM268:
+ 1231 0834 0895      		ret
+ 1232               	.L17:
+ 389:main.c        ****     case 12:
+ 390:main.c        ****             matrix[0][3] = color;
+ 1233               		.stabn	68,0,390,.LM269-.LFBB2
+ 1234               	.LM269:
+ 1235 0836 7093 0000 		sts matrix+6+1,r23
+ 1236 083a 6093 0000 		sts matrix+6,r22
+ 391:main.c        ****             matrix[0][4] = color;
+ 1237               		.stabn	68,0,391,.LM270-.LFBB2
+ 1238               	.LM270:
+ 1239 083e 7093 0000 		sts matrix+8+1,r23
+ 1240 0842 6093 0000 		sts matrix+8,r22
+ 392:main.c        ****             matrix[3][0] = color;
+ 1241               		.stabn	68,0,392,.LM271-.LFBB2
+ 1242               	.LM271:
+ 1243 0846 7093 0000 		sts matrix+48+1,r23
+ 1244 084a 6093 0000 		sts matrix+48,r22
+ 393:main.c        ****             matrix[3][7] = color;
+ 1245               		.stabn	68,0,393,.LM272-.LFBB2
+ 1246               	.LM272:
+ 1247 084e 7093 0000 		sts matrix+62+1,r23
+ 1248 0852 6093 0000 		sts matrix+62,r22
+ 394:main.c        ****             matrix[4][0] = color;
+ 1249               		.stabn	68,0,394,.LM273-.LFBB2
+ 1250               	.LM273:
+ 1251 0856 7093 0000 		sts matrix+64+1,r23
+ 1252 085a 6093 0000 		sts matrix+64,r22
+ 395:main.c        ****             matrix[4][7] = color;
+ 1253               		.stabn	68,0,395,.LM274-.LFBB2
+ 1254               	.LM274:
+ 1255 085e 7093 0000 		sts matrix+78+1,r23
+ 1256 0862 6093 0000 		sts matrix+78,r22
+ 396:main.c        ****             matrix[7][3] = color;
+GAS LISTING /tmp/ccHhQq1L.s 			page 30
+
+
+ 1257               		.stabn	68,0,396,.LM275-.LFBB2
+ 1258               	.LM275:
+ 1259 0866 7093 0000 		sts matrix+118+1,r23
+ 1260 086a 6093 0000 		sts matrix+118,r22
+ 397:main.c        ****             matrix[7][4] = color;
+ 1261               		.stabn	68,0,397,.LM276-.LFBB2
+ 1262               	.LM276:
+ 1263 086e 7093 0000 		sts matrix+120+1,r23
+ 1264 0872 6093 0000 		sts matrix+120,r22
+ 1265               	.L4:
+ 1266 0876 0895      		ret
+ 1267               		.size	draw_circle, .-draw_circle
+ 1268               		.stabs	"color2:r(5,4)",64,0,77,18
+ 1269               		.stabs	"color3:r(5,4)",64,0,78,20
+ 1270               		.stabs	"color4:r(5,4)",64,0,79,30
+ 1271               		.stabn	192,0,0,.LFBB2-.LFBB2
+ 1272               		.stabn	224,0,0,.Lscope2-.LFBB2
+ 1273               	.Lscope2:
+ 1274               		.stabs	"",36,0,0,.Lscope2-.LFBB2
+ 1275               		.stabd	78,0,0
+ 1276               		.stabs	"draw_outline:F(0,15)",36,0,408,draw_outline
+ 1277               	.global	draw_outline
+ 1278               		.type	draw_outline, @function
+ 1279               	draw_outline:
+ 1280               		.stabd	46,0,0
+ 398:main.c        **** 
+ 399:main.c        ****     break;
+ 400:main.c        **** 
+ 401:main.c        **** 
+ 402:main.c        ****     }//end switch:
+ 403:main.c        **** 
+ 404:main.c        **** 
+ 405:main.c        **** 
+ 406:main.c        **** }
+ 407:main.c        **** 
+ 408:main.c        **** void draw_outline()
+ 409:main.c        **** {
+ 1281               		.stabn	68,0,409,.LM277-.LFBB3
+ 1282               	.LM277:
+ 1283               	.LFBB3:
+ 1284               	/* prologue: function */
+ 1285               	/* frame size = 0 */
+ 1286               	/* stack size = 0 */
+ 1287               	.L__stack_usage = 0
+ 410:main.c        ****     int i,j;
+ 411:main.c        ****     for(i=0;i<8;i++)
+ 412:main.c        ****     {
+ 413:main.c        ****       for(j=0;j<8;j++)
+ 414:main.c        ****       {
+ 415:main.c        ****         if(i==7 || i==0 || j==7 || j==0)
+ 416:main.c        ****           matrix[j][i] = wallbrightness;
+ 1288               		.stabn	68,0,416,.LM278-.LFBB3
+ 1289               	.LM278:
+ 1290 0878 E091 0000 		lds r30,wallbrightness
+ 1291 087c F091 0000 		lds r31,wallbrightness+1
+ 1292 0880 60E0      		ldi r22,lo8(matrix)
+ 1293 0882 70E0      		ldi r23,hi8(matrix)
+GAS LISTING /tmp/ccHhQq1L.s 			page 31
+
+
+ 411:main.c        ****     for(i=0;i<8;i++)
+ 1294               		.stabn	68,0,411,.LM279-.LFBB3
+ 1295               	.LM279:
+ 1296 0884 20E0      		ldi r18,0
+ 1297 0886 30E0      		ldi r19,0
+ 1298 0888 00C0      		rjmp .L20
+ 1299               	.L23:
+ 415:main.c        ****         if(i==7 || i==0 || j==7 || j==0)
+ 1300               		.stabn	68,0,415,.LM280-.LFBB3
+ 1301               	.LM280:
+ 1302 088a 2730      		cpi r18,7
+ 1303 088c 3105      		cpc r19,__zero_reg__
+ 1304 088e 01F0      		breq .L21
+ 415:main.c        ****         if(i==7 || i==0 || j==7 || j==0)
+ 1305               		.stabn	68,0,415,.LM281-.LFBB3
+ 1306               	.LM281:
+ 1307 0890 2115      		cp r18,__zero_reg__
+ 1308 0892 3105      		cpc r19,__zero_reg__
+ 1309 0894 01F0      		breq .L21
+ 1310 0896 8730      		cpi r24,7
+ 1311 0898 9105      		cpc r25,__zero_reg__
+ 1312 089a 01F0      		breq .L21
+ 1313 089c 0097      		sbiw r24,0
+ 1314 089e 01F4      		brne .L22
+ 1315               	.L21:
+ 408:main.c        **** void draw_outline()
+ 1316               		.stabn	68,0,408,.LM282-.LFBB3
+ 1317               	.LM282:
+ 1318 08a0 DB01      		movw r26,r22
+ 1319 08a2 A40F      		add r26,r20
+ 1320 08a4 B51F      		adc r27,r21
+ 1321               		.stabn	68,0,416,.LM283-.LFBB3
+ 1322               	.LM283:
+ 1323 08a6 ED93      		st X+,r30
+ 1324 08a8 FC93      		st X,r31
+ 1325               	.L22:
+ 413:main.c        ****       for(j=0;j<8;j++)
+ 1326               		.stabn	68,0,413,.LM284-.LFBB3
+ 1327               	.LM284:
+ 1328 08aa 0196      		adiw r24,1
+ 1329 08ac 405F      		subi r20,-16
+ 1330 08ae 5F4F      		sbci r21,-1
+ 1331 08b0 8830      		cpi r24,8
+ 1332 08b2 9105      		cpc r25,__zero_reg__
+ 1333 08b4 01F4      		brne .L23
+ 411:main.c        ****     for(i=0;i<8;i++)
+ 1334               		.stabn	68,0,411,.LM285-.LFBB3
+ 1335               	.LM285:
+ 1336 08b6 2F5F      		subi r18,-1
+ 1337 08b8 3F4F      		sbci r19,-1
+ 1338 08ba 6E5F      		subi r22,-2
+ 1339 08bc 7F4F      		sbci r23,-1
+ 1340 08be 2830      		cpi r18,8
+ 1341 08c0 3105      		cpc r19,__zero_reg__
+ 1342 08c2 01F0      		breq .L19
+ 1343               	.L20:
+ 409:main.c        **** {
+GAS LISTING /tmp/ccHhQq1L.s 			page 32
+
+
+ 1344               		.stabn	68,0,409,.LM286-.LFBB3
+ 1345               	.LM286:
+ 1346 08c4 40E0      		ldi r20,0
+ 1347 08c6 50E0      		ldi r21,0
+ 1348 08c8 80E0      		ldi r24,0
+ 1349 08ca 90E0      		ldi r25,0
+ 1350 08cc 00C0      		rjmp .L23
+ 1351               	.L19:
+ 1352 08ce 0895      		ret
+ 1353               		.size	draw_outline, .-draw_outline
+ 1354               		.stabs	"i:r(0,1)",64,0,410,18
+ 1355               		.stabs	"j:r(0,1)",64,0,410,24
+ 1356               		.stabn	192,0,0,.LFBB3-.LFBB3
+ 1357               		.stabn	224,0,0,.Lscope3-.LFBB3
+ 1358               	.Lscope3:
+ 1359               		.stabs	"",36,0,0,.Lscope3-.LFBB3
+ 1360               		.stabd	78,0,0
+ 1361               		.stabs	"update_sinecircle:F(0,15)",36,0,421,update_sinecircle
+ 1362               	.global	update_sinecircle
+ 1363               		.type	update_sinecircle, @function
+ 1364               	update_sinecircle:
+ 1365               		.stabd	46,0,0
+ 417:main.c        ****       }
+ 418:main.c        ****     }
+ 419:main.c        **** }
+ 420:main.c        **** 
+ 421:main.c        **** void update_sinecircle(){
+ 1366               		.stabn	68,0,421,.LM287-.LFBB4
+ 1367               	.LM287:
+ 1368               	.LFBB4:
+ 1369               	/* prologue: function */
+ 1370               	/* frame size = 0 */
+ 1371               	/* stack size = 0 */
+ 1372               	.L__stack_usage = 0
+ 422:main.c        ****     if(radius==12)
+ 1373               		.stabn	68,0,422,.LM288-.LFBB4
+ 1374               	.LM288:
+ 1375 08d0 8091 0000 		lds r24,radius
+ 1376 08d4 8C30      		cpi r24,lo8(12)
+ 1377 08d6 01F4      		brne .L36
+ 423:main.c        ****         radius = 0;
+ 1378               		.stabn	68,0,423,.LM289-.LFBB4
+ 1379               	.LM289:
+ 1380 08d8 1092 0000 		sts radius,__zero_reg__
+ 1381 08dc 00C0      		rjmp .L37
+ 1382               	.L36:
+ 424:main.c        ****     else
+ 425:main.c        ****         radius += 1; 
+ 1383               		.stabn	68,0,425,.LM290-.LFBB4
+ 1384               	.LM290:
+ 1385 08de 8F5F      		subi r24,lo8(-(1))
+ 1386 08e0 8093 0000 		sts radius,r24
+ 1387               	.L37:
+ 426:main.c        **** 
+ 427:main.c        ****     draw_circle(radius, wallbrightness);
+ 1388               		.stabn	68,0,427,.LM291-.LFBB4
+ 1389               	.LM291:
+GAS LISTING /tmp/ccHhQq1L.s 			page 33
+
+
+ 1390 08e4 6091 0000 		lds r22,wallbrightness
+ 1391 08e8 7091 0000 		lds r23,wallbrightness+1
+ 1392 08ec 8091 0000 		lds r24,radius
+ 1393 08f0 00C0      		rjmp draw_circle
+ 1394               		.size	update_sinecircle, .-update_sinecircle
+ 1395               	.Lscope4:
+ 1396               		.stabs	"",36,0,0,.Lscope4-.LFBB4
+ 1397               		.stabd	78,0,0
+ 1398               		.stabs	"update_bouncer:F(0,15)",36,0,429,update_bouncer
+ 1399               	.global	update_bouncer
+ 1400               		.type	update_bouncer, @function
+ 1401               	update_bouncer:
+ 1402               		.stabd	46,0,0
+ 428:main.c        **** }//end update sinecircle
+ 429:main.c        **** void update_bouncer(){
+ 1403               		.stabn	68,0,429,.LM292-.LFBB5
+ 1404               	.LM292:
+ 1405               	.LFBB5:
+ 1406               	/* prologue: function */
+ 1407               	/* frame size = 0 */
+ 1408               	/* stack size = 0 */
+ 1409               	.L__stack_usage = 0
+ 430:main.c        ****     if(dirx == 1)
+ 1410               		.stabn	68,0,430,.LM293-.LFBB5
+ 1411               	.LM293:
+ 1412 08f2 9091 0000 		lds r25,dirx
+ 1413 08f6 8091 0000 		lds r24,posx
+ 1414 08fa 9130      		cpi r25,lo8(1)
+ 1415 08fc 01F4      		brne .L39
+ 431:main.c        ****       {
+ 432:main.c        ****         if(posx == 7)
+ 1416               		.stabn	68,0,432,.LM294-.LFBB5
+ 1417               	.LM294:
+ 1418 08fe 8730      		cpi r24,lo8(7)
+ 1419 0900 01F4      		brne .L40
+ 433:main.c        ****         {
+ 434:main.c        ****           dirx = 0;
+ 1420               		.stabn	68,0,434,.LM295-.LFBB5
+ 1421               	.LM295:
+ 1422 0902 1092 0000 		sts dirx,__zero_reg__
+ 435:main.c        ****           posx -= 2;
+ 1423               		.stabn	68,0,435,.LM296-.LFBB5
+ 1424               	.LM296:
+ 1425 0906 85E0      		ldi r24,lo8(5)
+ 1426 0908 00C0      		rjmp .L47
+ 1427               	.L40:
+ 436:main.c        ****         }else posx += 1;
+ 1428               		.stabn	68,0,436,.LM297-.LFBB5
+ 1429               	.LM297:
+ 1430 090a 8F5F      		subi r24,lo8(-(1))
+ 1431 090c 00C0      		rjmp .L47
+ 1432               	.L39:
+ 437:main.c        ****       }
+ 438:main.c        ****       else{
+ 439:main.c        ****         if(posx == 0)
+ 1433               		.stabn	68,0,439,.LM298-.LFBB5
+ 1434               	.LM298:
+GAS LISTING /tmp/ccHhQq1L.s 			page 34
+
+
+ 1435 090e 8111      		cpse r24,__zero_reg__
+ 1436 0910 00C0      		rjmp .L42
+ 440:main.c        ****         {
+ 441:main.c        ****           dirx = 1;
+ 1437               		.stabn	68,0,441,.LM299-.LFBB5
+ 1438               	.LM299:
+ 1439 0912 81E0      		ldi r24,lo8(1)
+ 1440 0914 8093 0000 		sts dirx,r24
+ 442:main.c        ****           posx += 2;
+ 1441               		.stabn	68,0,442,.LM300-.LFBB5
+ 1442               	.LM300:
+ 1443 0918 82E0      		ldi r24,lo8(2)
+ 1444 091a 00C0      		rjmp .L47
+ 1445               	.L42:
+ 443:main.c        ****         }
+ 444:main.c        ****         else posx -= 1;
+ 1446               		.stabn	68,0,444,.LM301-.LFBB5
+ 1447               	.LM301:
+ 1448 091c 8150      		subi r24,lo8(-(-1))
+ 1449               	.L47:
+ 1450 091e 8093 0000 		sts posx,r24
+ 445:main.c        ****       }
+ 446:main.c        **** 
+ 447:main.c        ****       if(diry == 1)
+ 1451               		.stabn	68,0,447,.LM302-.LFBB5
+ 1452               	.LM302:
+ 1453 0922 9091 0000 		lds r25,diry
+ 1454 0926 8091 0000 		lds r24,posy
+ 1455 092a 9130      		cpi r25,lo8(1)
+ 1456 092c 01F4      		brne .L43
+ 448:main.c        ****       {
+ 449:main.c        ****         if(posy == 7)
+ 1457               		.stabn	68,0,449,.LM303-.LFBB5
+ 1458               	.LM303:
+ 1459 092e 8730      		cpi r24,lo8(7)
+ 1460 0930 01F4      		brne .L44
+ 450:main.c        ****         {
+ 451:main.c        ****           diry = 0;
+ 1461               		.stabn	68,0,451,.LM304-.LFBB5
+ 1462               	.LM304:
+ 1463 0932 1092 0000 		sts diry,__zero_reg__
+ 452:main.c        ****           posy -= 1;
+ 1464               		.stabn	68,0,452,.LM305-.LFBB5
+ 1465               	.LM305:
+ 1466 0936 86E0      		ldi r24,lo8(6)
+ 1467 0938 00C0      		rjmp .L48
+ 1468               	.L44:
+ 453:main.c        ****         }else posy += 1;
+ 1469               		.stabn	68,0,453,.LM306-.LFBB5
+ 1470               	.LM306:
+ 1471 093a 8F5F      		subi r24,lo8(-(1))
+ 1472 093c 00C0      		rjmp .L48
+ 1473               	.L43:
+ 454:main.c        ****       }
+ 455:main.c        ****       else{
+ 456:main.c        ****         if(posy == 0)
+ 1474               		.stabn	68,0,456,.LM307-.LFBB5
+GAS LISTING /tmp/ccHhQq1L.s 			page 35
+
+
+ 1475               	.LM307:
+ 1476 093e 8111      		cpse r24,__zero_reg__
+ 1477 0940 00C0      		rjmp .L46
+ 457:main.c        ****         {
+ 458:main.c        ****           diry = 1;
+ 1478               		.stabn	68,0,458,.LM308-.LFBB5
+ 1479               	.LM308:
+ 1480 0942 81E0      		ldi r24,lo8(1)
+ 1481 0944 8093 0000 		sts diry,r24
+ 1482 0948 00C0      		rjmp .L48
+ 1483               	.L46:
+ 459:main.c        ****           posy += 1;
+ 460:main.c        ****         }
+ 461:main.c        ****         else posy -= 1;
+ 1484               		.stabn	68,0,461,.LM309-.LFBB5
+ 1485               	.LM309:
+ 1486 094a 8150      		subi r24,lo8(-(-1))
+ 1487               	.L48:
+ 1488 094c 8093 0000 		sts posy,r24
+ 462:main.c        ****       }
+ 463:main.c        **** 
+ 464:main.c        ****       draw_outline();
+ 1489               		.stabn	68,0,464,.LM310-.LFBB5
+ 1490               	.LM310:
+ 1491 0950 00D0      		rcall draw_outline
+ 465:main.c        ****       matrix[posy][posx] = 0x00ff;
+ 1492               		.stabn	68,0,465,.LM311-.LFBB5
+ 1493               	.LM311:
+ 1494 0952 8091 0000 		lds r24,posx
+ 1495 0956 E091 0000 		lds r30,posy
+ 1496 095a 98E0      		ldi r25,lo8(8)
+ 1497 095c E99F      		mul r30,r25
+ 1498 095e F001      		movw r30,r0
+ 1499 0960 1124      		clr __zero_reg__
+ 1500 0962 E80F      		add r30,r24
+ 1501 0964 F11D      		adc r31,__zero_reg__
+ 1502 0966 EE0F      		lsl r30
+ 1503 0968 FF1F      		rol r31
+ 1504 096a E050      		subi r30,lo8(-(matrix))
+ 1505 096c F040      		sbci r31,hi8(-(matrix))
+ 1506 096e 8FEF      		ldi r24,lo8(-1)
+ 1507 0970 90E0      		ldi r25,0
+ 1508 0972 9183      		std Z+1,r25
+ 1509 0974 8083      		st Z,r24
+ 1510 0976 0895      		ret
+ 1511               		.size	update_bouncer, .-update_bouncer
+ 1512               	.Lscope5:
+ 1513               		.stabs	"",36,0,0,.Lscope5-.LFBB5
+ 1514               		.stabd	78,0,0
+ 1515               		.stabs	"configure_timer0:F(0,15)",36,0,468,configure_timer0
+ 1516               	.global	configure_timer0
+ 1517               		.type	configure_timer0, @function
+ 1518               	configure_timer0:
+ 1519               		.stabd	46,0,0
+ 466:main.c        **** }
+ 467:main.c        **** 
+ 468:main.c        **** void configure_timer0()
+GAS LISTING /tmp/ccHhQq1L.s 			page 36
+
+
+ 469:main.c        **** {
+ 1520               		.stabn	68,0,469,.LM312-.LFBB6
+ 1521               	.LM312:
+ 1522               	.LFBB6:
+ 1523               	/* prologue: function */
+ 1524               	/* frame size = 0 */
+ 1525               	/* stack size = 0 */
+ 1526               	.L__stack_usage = 0
+ 470:main.c        ****   cli();
+ 1527               		.stabn	68,0,470,.LM313-.LFBB6
+ 1528               	.LM313:
+ 1529               	/* #APP */
+ 1530               	 ;  470 "main.c" 1
+ 1531 0978 F894      		cli
+ 1532               	 ;  0 "" 2
+ 471:main.c        ****   TCCR0A = 0;
+ 1533               		.stabn	68,0,471,.LM314-.LFBB6
+ 1534               	.LM314:
+ 1535               	/* #NOAPP */
+ 1536 097a 14BC      		out 0x24,__zero_reg__
+ 472:main.c        ****   TCCR0B = 0;
+ 1537               		.stabn	68,0,472,.LM315-.LFBB6
+ 1538               	.LM315:
+ 1539 097c 15BC      		out 0x25,__zero_reg__
+ 473:main.c        ****   TIMSK0 = 0; //Clear registers
+ 1540               		.stabn	68,0,473,.LM316-.LFBB6
+ 1541               	.LM316:
+ 1542 097e EEE6      		ldi r30,lo8(110)
+ 1543 0980 F0E0      		ldi r31,0
+ 1544 0982 1082      		st Z,__zero_reg__
+ 474:main.c        ****   TCNT0 = 0; //reset timer
+ 1545               		.stabn	68,0,474,.LM317-.LFBB6
+ 1546               	.LM317:
+ 1547 0984 16BC      		out 0x26,__zero_reg__
+ 475:main.c        **** 
+ 476:main.c        ****   OCR0A = 0xff;
+ 1548               		.stabn	68,0,476,.LM318-.LFBB6
+ 1549               	.LM318:
+ 1550 0986 8FEF      		ldi r24,lo8(-1)
+ 1551 0988 87BD      		out 0x27,r24
+ 477:main.c        ****   TIMSK0 |= BS(OCIE1A); //enable COMPA1 ISR
+ 1552               		.stabn	68,0,477,.LM319-.LFBB6
+ 1553               	.LM319:
+ 1554 098a 8081      		ld r24,Z
+ 1555 098c 8260      		ori r24,lo8(2)
+ 1556 098e 8083      		st Z,r24
+ 478:main.c        ****   //TCCR0A |= BS(WGM11);//not needed since not toggling anything
+ 479:main.c        ****   //TCCR0B |= BS(CS12)|BS(CS10); //1024 prescaler, must be configured
+ 480:main.c        ****   TCCR0B |= BS(CS02)|BS(CS00)|BS(WGM02);
+ 1557               		.stabn	68,0,480,.LM320-.LFBB6
+ 1558               	.LM320:
+ 1559 0990 85B5      		in r24,0x25
+ 1560 0992 8D60      		ori r24,lo8(13)
+ 1561 0994 85BD      		out 0x25,r24
+ 481:main.c        ****   sei();
+ 1562               		.stabn	68,0,481,.LM321-.LFBB6
+ 1563               	.LM321:
+GAS LISTING /tmp/ccHhQq1L.s 			page 37
+
+
+ 1564               	/* #APP */
+ 1565               	 ;  481 "main.c" 1
+ 1566 0996 7894      		sei
+ 1567               	 ;  0 "" 2
+ 1568               	/* #NOAPP */
+ 1569 0998 0895      		ret
+ 1570               		.size	configure_timer0, .-configure_timer0
+ 1571               	.Lscope6:
+ 1572               		.stabs	"",36,0,0,.Lscope6-.LFBB6
+ 1573               		.stabd	78,0,0
+ 1574               		.stabs	"configure_timer1:F(0,15)",36,0,484,configure_timer1
+ 1575               	.global	configure_timer1
+ 1576               		.type	configure_timer1, @function
+ 1577               	configure_timer1:
+ 1578               		.stabd	46,0,0
+ 482:main.c        **** }
+ 483:main.c        **** 
+ 484:main.c        **** void configure_timer1()
+ 485:main.c        **** {
+ 1579               		.stabn	68,0,485,.LM322-.LFBB7
+ 1580               	.LM322:
+ 1581               	.LFBB7:
+ 1582               	/* prologue: function */
+ 1583               	/* frame size = 0 */
+ 1584               	/* stack size = 0 */
+ 1585               	.L__stack_usage = 0
+ 486:main.c        ****   cli();
+ 1586               		.stabn	68,0,486,.LM323-.LFBB7
+ 1587               	.LM323:
+ 1588               	/* #APP */
+ 1589               	 ;  486 "main.c" 1
+ 1590 099a F894      		cli
+ 1591               	 ;  0 "" 2
+ 487:main.c        ****   TCCR1A = 0;
+ 1592               		.stabn	68,0,487,.LM324-.LFBB7
+ 1593               	.LM324:
+ 1594               	/* #NOAPP */
+ 1595 099c 1092 8000 		sts 128,__zero_reg__
+ 488:main.c        ****   TCCR1B = 0;
+ 1596               		.stabn	68,0,488,.LM325-.LFBB7
+ 1597               	.LM325:
+ 1598 09a0 E1E8      		ldi r30,lo8(-127)
+ 1599 09a2 F0E0      		ldi r31,0
+ 1600 09a4 1082      		st Z,__zero_reg__
+ 489:main.c        ****   TIMSK1 = 0; //Clear registers
+ 1601               		.stabn	68,0,489,.LM326-.LFBB7
+ 1602               	.LM326:
+ 1603 09a6 AFE6      		ldi r26,lo8(111)
+ 1604 09a8 B0E0      		ldi r27,0
+ 1605 09aa 1C92      		st X,__zero_reg__
+ 490:main.c        ****   TCNT1 = 0; //reset timer
+ 1606               		.stabn	68,0,490,.LM327-.LFBB7
+ 1607               	.LM327:
+ 1608 09ac 1092 8500 		sts 132+1,__zero_reg__
+ 1609 09b0 1092 8400 		sts 132,__zero_reg__
+ 491:main.c        **** 
+ 492:main.c        ****   OCR1A = 0x0fff;
+GAS LISTING /tmp/ccHhQq1L.s 			page 38
+
+
+ 1610               		.stabn	68,0,492,.LM328-.LFBB7
+ 1611               	.LM328:
+ 1612 09b4 8FEF      		ldi r24,lo8(-1)
+ 1613 09b6 9FE0      		ldi r25,lo8(15)
+ 1614 09b8 9093 8900 		sts 136+1,r25
+ 1615 09bc 8093 8800 		sts 136,r24
+ 493:main.c        ****   TIMSK1 |= BS(OCIE1A); //enable COMPA1 ISR
+ 1616               		.stabn	68,0,493,.LM329-.LFBB7
+ 1617               	.LM329:
+ 1618 09c0 8C91      		ld r24,X
+ 1619 09c2 8260      		ori r24,lo8(2)
+ 1620 09c4 8C93      		st X,r24
+ 494:main.c        ****   //TCCR0A |= BS(WGM11);//not needed since not toggling anything
+ 495:main.c        ****   //TCCR0B |= BS(CS12)|BS(CS10); //1024 prescaler, must be configured
+ 496:main.c        ****   TCCR1B |= BS(CS12)|BS(WGM12);
+ 1621               		.stabn	68,0,496,.LM330-.LFBB7
+ 1622               	.LM330:
+ 1623 09c6 8081      		ld r24,Z
+ 1624 09c8 8C60      		ori r24,lo8(12)
+ 1625 09ca 8083      		st Z,r24
+ 497:main.c        ****   sei();
+ 1626               		.stabn	68,0,497,.LM331-.LFBB7
+ 1627               	.LM331:
+ 1628               	/* #APP */
+ 1629               	 ;  497 "main.c" 1
+ 1630 09cc 7894      		sei
+ 1631               	 ;  0 "" 2
+ 1632               	/* #NOAPP */
+ 1633 09ce 0895      		ret
+ 1634               		.size	configure_timer1, .-configure_timer1
+ 1635               	.Lscope7:
+ 1636               		.stabs	"",36,0,0,.Lscope7-.LFBB7
+ 1637               		.stabd	78,0,0
+ 1638               		.stabs	"setup:F(0,15)",36,0,500,setup
+ 1639               	.global	setup
+ 1640               		.type	setup, @function
+ 1641               	setup:
+ 1642               		.stabd	46,0,0
+ 498:main.c        **** }
+ 499:main.c        **** 
+ 500:main.c        **** void setup()
+ 501:main.c        **** {
+ 1643               		.stabn	68,0,501,.LM332-.LFBB8
+ 1644               	.LM332:
+ 1645               	.LFBB8:
+ 1646               	/* prologue: function */
+ 1647               	/* frame size = 0 */
+ 1648               	/* stack size = 0 */
+ 1649               	.L__stack_usage = 0
+ 502:main.c        ****     erase_screen(0x0000);
+ 1650               		.stabn	68,0,502,.LM333-.LFBB8
+ 1651               	.LM333:
+ 1652 09d0 80E0      		ldi r24,0
+ 1653 09d2 90E0      		ldi r25,0
+ 1654 09d4 00D0      		rcall erase_screen
+ 503:main.c        ****     state = SINECIRCLE;
+ 1655               		.stabn	68,0,503,.LM334-.LFBB8
+GAS LISTING /tmp/ccHhQq1L.s 			page 39
+
+
+ 1656               	.LM334:
+ 1657 09d6 81E0      		ldi r24,lo8(1)
+ 1658 09d8 8093 0000 		sts state,r24
+ 504:main.c        ****     
+ 505:main.c        ****     //bouncer variables
+ 506:main.c        ****     posx = 1;
+ 1659               		.stabn	68,0,506,.LM335-.LFBB8
+ 1660               	.LM335:
+ 1661 09dc 8093 0000 		sts posx,r24
+ 507:main.c        ****     posy = 0;
+ 1662               		.stabn	68,0,507,.LM336-.LFBB8
+ 1663               	.LM336:
+ 1664 09e0 1092 0000 		sts posy,__zero_reg__
+ 508:main.c        ****     dirx = 0;
+ 1665               		.stabn	68,0,508,.LM337-.LFBB8
+ 1666               	.LM337:
+ 1667 09e4 1092 0000 		sts dirx,__zero_reg__
+ 509:main.c        ****     diry = 0;
+ 1668               		.stabn	68,0,509,.LM338-.LFBB8
+ 1669               	.LM338:
+ 1670 09e8 1092 0000 		sts diry,__zero_reg__
+ 510:main.c        ****     wallbrightness = 0x0000;
+ 1671               		.stabn	68,0,510,.LM339-.LFBB8
+ 1672               	.LM339:
+ 1673 09ec 1092 0000 		sts wallbrightness+1,__zero_reg__
+ 1674 09f0 1092 0000 		sts wallbrightness,__zero_reg__
+ 511:main.c        ****     delay = 0;
+ 1675               		.stabn	68,0,511,.LM340-.LFBB8
+ 1676               	.LM340:
+ 1677 09f4 1092 0000 		sts delay+1,__zero_reg__
+ 1678 09f8 1092 0000 		sts delay,__zero_reg__
+ 512:main.c        **** 
+ 513:main.c        ****     //circle variables
+ 514:main.c        ****     radius = 0;
+ 1679               		.stabn	68,0,514,.LM341-.LFBB8
+ 1680               	.LM341:
+ 1681 09fc 1092 0000 		sts radius,__zero_reg__
+ 515:main.c        **** 
+ 516:main.c        ****     switch(state)
+ 517:main.c        ****     {
+ 518:main.c        ****         case BOUNCER:
+ 519:main.c        ****             break;
+ 520:main.c        ****         case SINECIRCLE:
+ 521:main.c        ****             //configure_sinecircle();
+ 522:main.c        ****             break;
+ 523:main.c        ****     }
+ 524:main.c        ****     //configure timer configuration
+ 525:main.c        ****     configure_timer0();
+ 1682               		.stabn	68,0,525,.LM342-.LFBB8
+ 1683               	.LM342:
+ 1684 0a00 00D0      		rcall configure_timer0
+ 526:main.c        ****     configure_timer1();
+ 1685               		.stabn	68,0,526,.LM343-.LFBB8
+ 1686               	.LM343:
+ 1687 0a02 00C0      		rjmp configure_timer1
+ 1688               		.size	setup, .-setup
+ 1689               	.Lscope8:
+GAS LISTING /tmp/ccHhQq1L.s 			page 40
+
+
+ 1690               		.stabs	"",36,0,0,.Lscope8-.LFBB8
+ 1691               		.stabd	78,0,0
+ 1692               		.stabs	"__vector_14:F(0,15)",36,0,531,__vector_14
+ 1693               	.global	__vector_14
+ 1694               		.type	__vector_14, @function
+ 1695               	__vector_14:
+ 1696               		.stabd	46,0,0
+ 527:main.c        **** }
+ 528:main.c        **** 
+ 529:main.c        **** 
+ 530:main.c        **** //Compare on match interrupt
+ 531:main.c        **** ISR(TIMER0_COMPA_vect)
+ 532:main.c        **** {
+ 1697               		.stabn	68,0,532,.LM344-.LFBB9
+ 1698               	.LM344:
+ 1699               	.LFBB9:
+ 1700 0a04 1F92      		push r1
+ 1701 0a06 0F92      		push r0
+ 1702 0a08 0FB6      		in r0,__SREG__
+ 1703 0a0a 0F92      		push r0
+ 1704 0a0c 1124      		clr __zero_reg__
+ 1705 0a0e 8F93      		push r24
+ 1706 0a10 9F93      		push r25
+ 1707               	/* prologue: Signal */
+ 1708               	/* frame size = 0 */
+ 1709               	/* stack size = 5 */
+ 1710               	.L__stack_usage = 5
+ 533:main.c        ****     if(delay == 0x02)
+ 1711               		.stabn	68,0,533,.LM345-.LFBB9
+ 1712               	.LM345:
+ 1713 0a12 8091 0000 		lds r24,delay
+ 1714 0a16 9091 0000 		lds r25,delay+1
+ 1715 0a1a 8230      		cpi r24,2
+ 1716 0a1c 9105      		cpc r25,__zero_reg__
+ 1717 0a1e 01F4      		brne .L53
+ 534:main.c        ****     {
+ 535:main.c        ****         wallbrightness += 0x07;
+ 536:main.c        ****         wallbrightness += 0x0500;
+ 1718               		.stabn	68,0,536,.LM346-.LFBB9
+ 1719               	.LM346:
+ 1720 0a20 8091 0000 		lds r24,wallbrightness
+ 1721 0a24 9091 0000 		lds r25,wallbrightness+1
+ 1722 0a28 895F      		subi r24,-7
+ 1723 0a2a 9A4F      		sbci r25,-6
+ 1724 0a2c 9093 0000 		sts wallbrightness+1,r25
+ 1725 0a30 8093 0000 		sts wallbrightness,r24
+ 537:main.c        ****         delay = 0;
+ 1726               		.stabn	68,0,537,.LM347-.LFBB9
+ 1727               	.LM347:
+ 1728 0a34 1092 0000 		sts delay+1,__zero_reg__
+ 1729 0a38 1092 0000 		sts delay,__zero_reg__
+ 1730 0a3c 00C0      		rjmp .L52
+ 1731               	.L53:
+ 538:main.c        ****     }else
+ 539:main.c        ****         delay++;
+ 1732               		.stabn	68,0,539,.LM348-.LFBB9
+ 1733               	.LM348:
+GAS LISTING /tmp/ccHhQq1L.s 			page 41
+
+
+ 1734 0a3e 0196      		adiw r24,1
+ 1735 0a40 9093 0000 		sts delay+1,r25
+ 1736 0a44 8093 0000 		sts delay,r24
+ 1737               	.L52:
+ 1738               	/* epilogue start */
+ 540:main.c        **** }
+ 1739               		.stabn	68,0,540,.LM349-.LFBB9
+ 1740               	.LM349:
+ 1741 0a48 9F91      		pop r25
+ 1742 0a4a 8F91      		pop r24
+ 1743 0a4c 0F90      		pop r0
+ 1744 0a4e 0FBE      		out __SREG__,r0
+ 1745 0a50 0F90      		pop r0
+ 1746 0a52 1F90      		pop r1
+ 1747 0a54 1895      		reti
+ 1748               		.size	__vector_14, .-__vector_14
+ 1749               	.Lscope9:
+ 1750               		.stabs	"",36,0,0,.Lscope9-.LFBB9
+ 1751               		.stabd	78,0,0
+ 1752               		.stabs	"__vector_11:F(0,15)",36,0,542,__vector_11
+ 1753               	.global	__vector_11
+ 1754               		.type	__vector_11, @function
+ 1755               	__vector_11:
+ 1756               		.stabd	46,0,0
+ 541:main.c        **** 
+ 542:main.c        **** ISR(TIMER1_COMPA_vect)
+ 543:main.c        **** {
+ 1757               		.stabn	68,0,543,.LM350-.LFBB10
+ 1758               	.LM350:
+ 1759               	.LFBB10:
+ 1760 0a56 1F92      		push r1
+ 1761 0a58 0F92      		push r0
+ 1762 0a5a 0FB6      		in r0,__SREG__
+ 1763 0a5c 0F92      		push r0
+ 1764 0a5e 1124      		clr __zero_reg__
+ 1765 0a60 2F93      		push r18
+ 1766 0a62 3F93      		push r19
+ 1767 0a64 4F93      		push r20
+ 1768 0a66 5F93      		push r21
+ 1769 0a68 6F93      		push r22
+ 1770 0a6a 7F93      		push r23
+ 1771 0a6c 8F93      		push r24
+ 1772 0a6e 9F93      		push r25
+ 1773 0a70 AF93      		push r26
+ 1774 0a72 BF93      		push r27
+ 1775 0a74 EF93      		push r30
+ 1776 0a76 FF93      		push r31
+ 1777               	/* prologue: Signal */
+ 1778               	/* frame size = 0 */
+ 1779               	/* stack size = 15 */
+ 1780               	.L__stack_usage = 15
+ 544:main.c        **** 
+ 545:main.c        ****     erase_screen(0x0000);
+ 1781               		.stabn	68,0,545,.LM351-.LFBB10
+ 1782               	.LM351:
+ 1783 0a78 80E0      		ldi r24,0
+ 1784 0a7a 90E0      		ldi r25,0
+GAS LISTING /tmp/ccHhQq1L.s 			page 42
+
+
+ 1785 0a7c 00D0      		rcall erase_screen
+ 546:main.c        ****     //update x
+ 547:main.c        ****     switch(state){
+ 1786               		.stabn	68,0,547,.LM352-.LFBB10
+ 1787               	.LM352:
+ 1788 0a7e 8091 0000 		lds r24,state
+ 1789 0a82 8823      		tst r24
+ 1790 0a84 01F0      		breq .L57
+ 1791 0a86 8130      		cpi r24,lo8(1)
+ 1792 0a88 01F4      		brne .L55
+ 1793 0a8a 00C0      		rjmp .L58
+ 1794               	.L57:
+ 548:main.c        ****         case BOUNCER:
+ 549:main.c        ****             update_bouncer();
+ 1795               		.stabn	68,0,549,.LM353-.LFBB10
+ 1796               	.LM353:
+ 1797 0a8c 00D0      		rcall update_bouncer
+ 550:main.c        ****             break;
+ 1798               		.stabn	68,0,550,.LM354-.LFBB10
+ 1799               	.LM354:
+ 1800 0a8e 00C0      		rjmp .L55
+ 1801               	.L58:
+ 551:main.c        ****         case SINECIRCLE:
+ 552:main.c        ****             update_sinecircle();
+ 1802               		.stabn	68,0,552,.LM355-.LFBB10
+ 1803               	.LM355:
+ 1804 0a90 00D0      		rcall update_sinecircle
+ 1805               	.L55:
+ 1806               	/* epilogue start */
+ 553:main.c        ****             break;
+ 554:main.c        ****     }//end switch
+ 555:main.c        **** }//end ISR COMPA TIMER1
+ 1807               		.stabn	68,0,555,.LM356-.LFBB10
+ 1808               	.LM356:
+ 1809 0a92 FF91      		pop r31
+ 1810 0a94 EF91      		pop r30
+ 1811 0a96 BF91      		pop r27
+ 1812 0a98 AF91      		pop r26
+ 1813 0a9a 9F91      		pop r25
+ 1814 0a9c 8F91      		pop r24
+ 1815 0a9e 7F91      		pop r23
+ 1816 0aa0 6F91      		pop r22
+ 1817 0aa2 5F91      		pop r21
+ 1818 0aa4 4F91      		pop r20
+ 1819 0aa6 3F91      		pop r19
+ 1820 0aa8 2F91      		pop r18
+ 1821 0aaa 0F90      		pop r0
+ 1822 0aac 0FBE      		out __SREG__,r0
+ 1823 0aae 0F90      		pop r0
+ 1824 0ab0 1F90      		pop r1
+ 1825 0ab2 1895      		reti
+ 1826               		.size	__vector_11, .-__vector_11
+ 1827               	.Lscope10:
+ 1828               		.stabs	"",36,0,0,.Lscope10-.LFBB10
+ 1829               		.stabd	78,0,0
+ 1830               		.section	.text.startup,"ax",@progbits
+ 1831               		.stabs	"main:F(0,1)",36,0,559,main
+GAS LISTING /tmp/ccHhQq1L.s 			page 43
+
+
+ 1832               	.global	main
+ 1833               		.type	main, @function
+ 1834               	main:
+ 1835               		.stabd	46,0,0
+ 556:main.c        **** 
+ 557:main.c        **** /* Main */
+ 558:main.c        **** 
+ 559:main.c        **** int main(void)
+ 560:main.c        **** {
+ 1836               		.stabn	68,0,560,.LM357-.LFBB11
+ 1837               	.LM357:
+ 1838               	.LFBB11:
+ 1839               	/* prologue: function */
+ 1840               	/* frame size = 0 */
+ 1841               	/* stack size = 0 */
+ 1842               	.L__stack_usage = 0
+ 561:main.c        **** 
+ 562:main.c        ****     setup();
+ 1843               		.stabn	68,0,562,.LM358-.LFBB11
+ 1844               	.LM358:
+ 1845 0000 00D0      		rcall setup
+ 563:main.c        **** 
+ 564:main.c        ****     //Configure image
+ 565:main.c        ****     //topline (y,x)
+ 566:main.c        **** 
+ 567:main.c        ****     /*
+ 568:main.c        ****     //write green elsewhere
+ 569:main.c        ****     for(i=0;i<8;i++)
+ 570:main.c        ****       for(j=0;j<8;j++)
+ 571:main.c        ****       {
+ 572:main.c        ****         if(matrix[i][j] != 255)
+ 573:main.c        ****           matrix[i][j] = (0xff<<8);
+ 574:main.c        ****       }
+ 575:main.c        ****       */
+ 576:main.c        **** 
+ 577:main.c        ****     //Configure timers first
+ 578:main.c        ****     //timer = TIMER_MAX_VALUE;
+ 579:main.c        **** 
+ 580:main.c        ****     //Configure all outputs
+ 581:main.c        ****     DDRB = 0xff; //SPI out
+ 1846               		.stabn	68,0,581,.LM359-.LFBB11
+ 1847               	.LM359:
+ 1848 0002 8FEF      		ldi r24,lo8(-1)
+ 1849 0004 84B9      		out 0x4,r24
+ 582:main.c        ****     DDRD = 0xff; //rows
+ 1850               		.stabn	68,0,582,.LM360-.LFBB11
+ 1851               	.LM360:
+ 1852 0006 8AB9      		out 0xa,r24
+ 583:main.c        ****     DDRC = 0xff; //shifter
+ 1853               		.stabn	68,0,583,.LM361-.LFBB11
+ 1854               	.LM361:
+ 1855 0008 87B9      		out 0x7,r24
+ 584:main.c        **** 
+ 585:main.c        ****     //Clear ports
+ 586:main.c        ****     PORTB = 0x00;
+ 1856               		.stabn	68,0,586,.LM362-.LFBB11
+ 1857               	.LM362:
+GAS LISTING /tmp/ccHhQq1L.s 			page 44
+
+
+ 1858 000a 15B8      		out 0x5,__zero_reg__
+ 587:main.c        ****     PORTC = 0x00;
+ 1859               		.stabn	68,0,587,.LM363-.LFBB11
+ 1860               	.LM363:
+ 1861 000c 18B8      		out 0x8,__zero_reg__
+ 588:main.c        ****     PORTD = 0x00;
+ 1862               		.stabn	68,0,588,.LM364-.LFBB11
+ 1863               	.LM364:
+ 1864 000e 1BB8      		out 0xb,__zero_reg__
+ 589:main.c        **** 
+ 590:main.c        ****     //Initailize variables
+ 591:main.c        ****     uint8_t y=0;
+ 592:main.c        ****     PORTD = 0x00; //clear rows
+ 1865               		.stabn	68,0,592,.LM365-.LFBB11
+ 1866               	.LM365:
+ 1867 0010 1BB8      		out 0xb,__zero_reg__
+ 593:main.c        ****     uint8_t x=0;
+ 594:main.c        ****     inttimer=0x00;
+ 1868               		.stabn	68,0,594,.LM366-.LFBB11
+ 1869               	.LM366:
+ 1870 0012 1092 0000 		sts inttimer,__zero_reg__
+ 591:main.c        ****     uint8_t y=0;
+ 1871               		.stabn	68,0,591,.LM367-.LFBB11
+ 1872               	.LM367:
+ 1873 0016 10E0      		ldi r17,0
+ 595:main.c        **** 
+ 596:main.c        ****     while(1)
+ 597:main.c        ****     {
+ 598:main.c        ****         PORTC &= NOT(BS(reset));//clear everything
+ 599:main.c        ****         PORTC = 0x00|BS(reset);
+ 1874               		.stabn	68,0,599,.LM368-.LFBB11
+ 1875               	.LM368:
+ 1876 0018 00E2      		ldi r16,lo8(32)
+ 600:main.c        **** 
+ 601:main.c        ****         //Green pixels
+ 602:main.c        ****         for(x=0;x<8;x++)
+ 603:main.c        ****         {
+ 604:main.c        ****             if( (((matrix[y][7-x]))&0x00ff) >= inttimer)
+ 605:main.c        ****             {
+ 606:main.c        ****                 PORTC |= BS(data);
+ 607:main.c        ****             }else{
+ 608:main.c        ****                 PORTC &= NOT(BS(data));
+ 609:main.c        ****             }
+ 610:main.c        **** 
+ 611:main.c        ****             PORTC |= BS(shift);
+ 612:main.c        ****             PORTC &= NOT(BS(shift));
+ 613:main.c        ****         }
+ 614:main.c        **** 
+ 615:main.c        ****           //Red pixels
+ 616:main.c        ****         for(x=0;x<8;x++)
+ 617:main.c        ****         {
+ 618:main.c        ****             if( (((matrix[y][7-x])>>8)) >= inttimer)
+ 619:main.c        ****             {
+ 620:main.c        ****                 PORTC |= BS(data);
+ 621:main.c        ****             }else{
+ 622:main.c        ****                 PORTC &= NOT(BS(data));
+ 623:main.c        ****             }
+GAS LISTING /tmp/ccHhQq1L.s 			page 45
+
+
+ 624:main.c        **** 
+ 625:main.c        ****             PORTC |= BS(shift);
+ 626:main.c        ****             PORTC &= NOT(BS(shift));
+ 627:main.c        ****         }//end for
+ 628:main.c        **** 
+ 629:main.c        ****         PORTD = 0x00; //clear display
+ 630:main.c        ****         PORTC |= BS(latch);
+ 631:main.c        ****         PORTC &= NOT(BS(latch));
+ 632:main.c        **** 
+ 633:main.c        ****         //Output row data
+ 634:main.c        ****         PORTD = BS(y);
+ 1877               		.stabn	68,0,634,.LM369-.LFBB11
+ 1878               	.LM369:
+ 1879 001a E1E0      		ldi r30,lo8(1)
+ 1880 001c F0E0      		ldi r31,0
+ 635:main.c        ****         y++;
+ 636:main.c        ****         y = y%8;
+ 637:main.c        **** 
+ 638:main.c        **** 
+ 639:main.c        ****         //Increment intensity timer
+ 640:main.c        ****         
+ 641:main.c        ****         if(inttimer==255)
+ 642:main.c        ****             inttimer=1;
+ 1881               		.stabn	68,0,642,.LM370-.LFBB11
+ 1882               	.LM370:
+ 1883 001e FF24      		clr r15
+ 1884 0020 F394      		inc r15
+ 1885               	.L71:
+ 598:main.c        ****         PORTC &= NOT(BS(reset));//clear everything
+ 1886               		.stabn	68,0,598,.LM371-.LFBB11
+ 1887               	.LM371:
+ 1888 0022 4598      		cbi 0x8,5
+ 599:main.c        ****         PORTC = 0x00|BS(reset);
+ 1889               		.stabn	68,0,599,.LM372-.LFBB11
+ 1890               	.LM372:
+ 1891 0024 08B9      		out 0x8,r16
+ 559:main.c        **** int main(void)
+ 1892               		.stabn	68,0,559,.LM373-.LFBB11
+ 1893               	.LM373:
+ 1894 0026 612F      		mov r22,r17
+ 1895 0028 70E0      		ldi r23,0
+ 1896 002a 9B01      		movw r18,r22
+ 1897 002c 44E0      		ldi r20,4
+ 1898               		1:
+ 1899 002e 220F      		lsl r18
+ 1900 0030 331F      		rol r19
+ 1901 0032 4A95      		dec r20
+ 1902 0034 01F4      		brne 1b
+ 1903 0036 2050      		subi r18,lo8(-(matrix))
+ 1904 0038 3040      		sbci r19,hi8(-(matrix))
+ 1905 003a 80E0      		ldi r24,0
+ 1906 003c 90E0      		ldi r25,0
+ 1907               	.L63:
+ 1908 003e D901      		movw r26,r18
+ 1909 0040 A80F      		add r26,r24
+ 1910 0042 B91F      		adc r27,r25
+ 604:main.c        ****             if( (((matrix[y][7-x]))&0x00ff) >= inttimer)
+GAS LISTING /tmp/ccHhQq1L.s 			page 46
+
+
+ 1911               		.stabn	68,0,604,.LM374-.LFBB11
+ 1912               	.LM374:
+ 1913 0044 1E96      		adiw r26,14
+ 1914 0046 4D91      		ld r20,X+
+ 1915 0048 5C91      		ld r21,X
+ 1916 004a 1F97      		sbiw r26,14+1
+ 1917 004c 5527      		clr r21
+ 1918 004e A091 0000 		lds r26,inttimer
+ 1919 0052 B0E0      		ldi r27,0
+ 1920 0054 4A17      		cp r20,r26
+ 1921 0056 5B07      		cpc r21,r27
+ 1922 0058 00F0      		brlo .L61
+ 606:main.c        ****                 PORTC |= BS(data);
+ 1923               		.stabn	68,0,606,.LM375-.LFBB11
+ 1924               	.LM375:
+ 1925 005a 409A      		sbi 0x8,0
+ 1926 005c 00C0      		rjmp .L62
+ 1927               	.L61:
+ 608:main.c        ****                 PORTC &= NOT(BS(data));
+ 1928               		.stabn	68,0,608,.LM376-.LFBB11
+ 1929               	.LM376:
+ 1930 005e 4098      		cbi 0x8,0
+ 1931               	.L62:
+ 611:main.c        ****             PORTC |= BS(shift);
+ 1932               		.stabn	68,0,611,.LM377-.LFBB11
+ 1933               	.LM377:
+ 1934 0060 419A      		sbi 0x8,1
+ 612:main.c        ****             PORTC &= NOT(BS(shift));
+ 1935               		.stabn	68,0,612,.LM378-.LFBB11
+ 1936               	.LM378:
+ 1937 0062 4198      		cbi 0x8,1
+ 1938 0064 0297      		sbiw r24,2
+ 602:main.c        ****         for(x=0;x<8;x++)
+ 1939               		.stabn	68,0,602,.LM379-.LFBB11
+ 1940               	.LM379:
+ 1941 0066 803F      		cpi r24,-16
+ 1942 0068 4FEF      		ldi r20,-1
+ 1943 006a 9407      		cpc r25,r20
+ 1944 006c 01F4      		brne .L63
+ 559:main.c        **** int main(void)
+ 1945               		.stabn	68,0,559,.LM380-.LFBB11
+ 1946               	.LM380:
+ 1947 006e 9B01      		movw r18,r22
+ 1948 0070 94E0      		ldi r25,4
+ 1949               		1:
+ 1950 0072 220F      		lsl r18
+ 1951 0074 331F      		rol r19
+ 1952 0076 9A95      		dec r25
+ 1953 0078 01F4      		brne 1b
+ 1954 007a 2050      		subi r18,lo8(-(matrix))
+ 1955 007c 3040      		sbci r19,hi8(-(matrix))
+ 1956 007e 80E0      		ldi r24,0
+ 1957 0080 90E0      		ldi r25,0
+ 1958               	.L66:
+ 1959 0082 D901      		movw r26,r18
+ 1960 0084 A80F      		add r26,r24
+ 1961 0086 B91F      		adc r27,r25
+GAS LISTING /tmp/ccHhQq1L.s 			page 47
+
+
+ 618:main.c        ****             if( (((matrix[y][7-x])>>8)) >= inttimer)
+ 1962               		.stabn	68,0,618,.LM381-.LFBB11
+ 1963               	.LM381:
+ 1964 0088 1F96      		adiw r26,15
+ 1965 008a 4C91      		ld r20,X
+ 1966 008c C42F      		mov r28,r20
+ 1967 008e 40E0      		ldi r20,0
+ 1968 0090 D42F      		mov r29,r20
+ 1969 0092 4091 0000 		lds r20,inttimer
+ 1970 0096 50E0      		ldi r21,0
+ 1971 0098 C417      		cp r28,r20
+ 1972 009a D507      		cpc r29,r21
+ 1973 009c 00F0      		brlo .L64
+ 620:main.c        ****                 PORTC |= BS(data);
+ 1974               		.stabn	68,0,620,.LM382-.LFBB11
+ 1975               	.LM382:
+ 1976 009e 409A      		sbi 0x8,0
+ 1977 00a0 00C0      		rjmp .L65
+ 1978               	.L64:
+ 622:main.c        ****                 PORTC &= NOT(BS(data));
+ 1979               		.stabn	68,0,622,.LM383-.LFBB11
+ 1980               	.LM383:
+ 1981 00a2 4098      		cbi 0x8,0
+ 1982               	.L65:
+ 625:main.c        ****             PORTC |= BS(shift);
+ 1983               		.stabn	68,0,625,.LM384-.LFBB11
+ 1984               	.LM384:
+ 1985 00a4 419A      		sbi 0x8,1
+ 626:main.c        ****             PORTC &= NOT(BS(shift));
+ 1986               		.stabn	68,0,626,.LM385-.LFBB11
+ 1987               	.LM385:
+ 1988 00a6 4198      		cbi 0x8,1
+ 1989 00a8 0297      		sbiw r24,2
+ 616:main.c        ****         for(x=0;x<8;x++)
+ 1990               		.stabn	68,0,616,.LM386-.LFBB11
+ 1991               	.LM386:
+ 1992 00aa 803F      		cpi r24,-16
+ 1993 00ac 4FEF      		ldi r20,-1
+ 1994 00ae 9407      		cpc r25,r20
+ 1995 00b0 01F4      		brne .L66
+ 629:main.c        ****         PORTD = 0x00; //clear display
+ 1996               		.stabn	68,0,629,.LM387-.LFBB11
+ 1997               	.LM387:
+ 1998 00b2 1BB8      		out 0xb,__zero_reg__
+ 630:main.c        ****         PORTC |= BS(latch);
+ 1999               		.stabn	68,0,630,.LM388-.LFBB11
+ 2000               	.LM388:
+ 2001 00b4 429A      		sbi 0x8,2
+ 631:main.c        ****         PORTC &= NOT(BS(latch));
+ 2002               		.stabn	68,0,631,.LM389-.LFBB11
+ 2003               	.LM389:
+ 2004 00b6 4298      		cbi 0x8,2
+ 634:main.c        ****         PORTD = BS(y);
+ 2005               		.stabn	68,0,634,.LM390-.LFBB11
+ 2006               	.LM390:
+ 2007 00b8 CF01      		movw r24,r30
+ 2008 00ba 00C0      		rjmp 2f
+GAS LISTING /tmp/ccHhQq1L.s 			page 48
+
+
+ 2009               		1:
+ 2010 00bc 880F      		lsl r24
+ 2011 00be 991F      		rol r25
+ 2012               		2:
+ 2013 00c0 6A95      		dec r22
+ 2014 00c2 02F4      		brpl 1b
+ 2015 00c4 8BB9      		out 0xb,r24
+ 635:main.c        ****         y++;
+ 2016               		.stabn	68,0,635,.LM391-.LFBB11
+ 2017               	.LM391:
+ 2018 00c6 1F5F      		subi r17,lo8(-(1))
+ 636:main.c        ****         y = y%8;
+ 2019               		.stabn	68,0,636,.LM392-.LFBB11
+ 2020               	.LM392:
+ 2021 00c8 1770      		andi r17,lo8(7)
+ 641:main.c        ****         if(inttimer==255)
+ 2022               		.stabn	68,0,641,.LM393-.LFBB11
+ 2023               	.LM393:
+ 2024 00ca 8091 0000 		lds r24,inttimer
+ 2025 00ce 8F3F      		cpi r24,lo8(-1)
+ 2026 00d0 01F4      		brne .L67
+ 2027               		.stabn	68,0,642,.LM394-.LFBB11
+ 2028               	.LM394:
+ 2029 00d2 F092 0000 		sts inttimer,r15
+ 2030 00d6 00C0      		rjmp .L71
+ 2031               	.L67:
+ 643:main.c        ****         else
+ 644:main.c        ****             inttimer++;
+ 2032               		.stabn	68,0,644,.LM395-.LFBB11
+ 2033               	.LM395:
+ 2034 00d8 8F5F      		subi r24,lo8(-(1))
+ 2035 00da 8093 0000 		sts inttimer,r24
+ 2036 00de 00C0      		rjmp .L71
+ 2037               		.size	main, .-main
+ 2038               	.Lscope11:
+ 2039               		.stabs	"",36,0,0,.Lscope11-.LFBB11
+ 2040               		.stabd	78,0,0
+ 2041               		.comm	radius,1,1
+ 2042               		.comm	wallbrightness,2,1
+ 2043               		.comm	diry,1,1
+ 2044               		.comm	dirx,1,1
+ 2045               		.comm	posy,1,1
+ 2046               		.comm	posx,1,1
+ 2047               		.comm	delay,2,1
+ 2048               		.comm	inttimer,1,1
+ 2049               		.comm	matrix,128,1
+ 2050               		.comm	state,1,1
+ 2051               		.stabs	"state:G(5,2)",32,0,33,0
+ 2052               		.stabs	"matrix:G(0,17)=ar(0,18)=r(0,18);0;0177777;;0;7;(0,19)=ar(0,18);0;7;(5,4)",32,0,34,0
+ 2053               		.stabs	"inttimer:G(5,2)",32,0,35,0
+ 2054               		.stabs	"delay:G(5,4)",32,0,36,0
+ 2055               		.stabs	"posx:G(5,2)",32,0,39,0
+ 2056               		.stabs	"posy:G(5,2)",32,0,40,0
+ 2057               		.stabs	"dirx:G(5,2)",32,0,41,0
+ 2058               		.stabs	"diry:G(5,2)",32,0,42,0
+ 2059               		.stabs	"wallbrightness:G(5,4)",32,0,43,0
+ 2060               		.stabs	"radius:G(5,2)",32,0,46,0
+GAS LISTING /tmp/ccHhQq1L.s 			page 49
+
+
+ 2061               		.text
+ 2062               		.stabs	"",100,0,0,.Letext0
+ 2063               	.Letext0:
+ 2064               		.ident	"GCC: (GNU) 4.7.0"
+ 2065               	.global __do_clear_bss
+GAS LISTING /tmp/ccHhQq1L.s 			page 50
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+     /tmp/ccHhQq1L.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccHhQq1L.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccHhQq1L.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccHhQq1L.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccHhQq1L.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccHhQq1L.s:89     .text:0000000000000000 erase_screen
+                            *COM*:0000000000000080 matrix
+     /tmp/ccHhQq1L.s:139    .text:0000000000000030 draw_circle
+     /tmp/ccHhQq1L.s:1279   .text:0000000000000878 draw_outline
+                            *COM*:0000000000000002 wallbrightness
+     /tmp/ccHhQq1L.s:1364   .text:00000000000008d0 update_sinecircle
+                            *COM*:0000000000000001 radius
+     /tmp/ccHhQq1L.s:1401   .text:00000000000008f2 update_bouncer
+                            *COM*:0000000000000001 dirx
+                            *COM*:0000000000000001 posx
+                            *COM*:0000000000000001 diry
+                            *COM*:0000000000000001 posy
+     /tmp/ccHhQq1L.s:1518   .text:0000000000000978 configure_timer0
+     /tmp/ccHhQq1L.s:1577   .text:000000000000099a configure_timer1
+     /tmp/ccHhQq1L.s:1641   .text:00000000000009d0 setup
+                            *COM*:0000000000000001 state
+                            *COM*:0000000000000002 delay
+     /tmp/ccHhQq1L.s:1695   .text:0000000000000a04 __vector_14
+     /tmp/ccHhQq1L.s:1755   .text:0000000000000a56 __vector_11
+     /tmp/ccHhQq1L.s:1834   .text.startup:0000000000000000 main
+                            *COM*:0000000000000001 inttimer
+
+UNDEFINED SYMBOLS
+__do_clear_bss
