@@ -29,6 +29,7 @@ enum{
     BOUNCER = 0,
     SMILEY,
     SINE,
+    TREE,
     SINECIRCLE
 };
 
@@ -48,10 +49,10 @@ uint8_t diry;
 uint16_t wallbrightness;
 
 //sinecircle variables
-uint8_t radius;
+uint8_t counter;
 
-//sine variables
-uint8_t sinecounter;
+//tree variables
+uint8_t apples[5];
 
 //Smileyface map
 uint8_t smileymap[8] = {
@@ -191,6 +192,41 @@ uint8_t sinecirclemap[11][8] = {
     0b00011000
 }};
 
+uint8_t treemap[3][8] = {
+//0 greenmap
+{
+    0b00111000,
+    0b00111110,
+    0b01111111,
+    0b11111111,
+    0b01111110,
+    0b00000000,
+    0b00000000,
+    0b00000000
+},
+//1 brownmap
+{
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00011000,
+    0b00011000,
+    0b00111100
+},
+//2 applemap (static)
+{
+    0b00000000,
+    0b00001000,
+    0b00100010,
+    0b01000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
+}
+};
 
 void erase_screen(uint16_t val)
 {
@@ -217,43 +253,12 @@ void copy_image(uint8_t img[8], uint16_t color)
 
 void draw_circle(uint8_t radius, uint16_t color)
 {
-    uint16_t colors[4];
-    colors[3] = color;
-    colors[2] = color - 0x3333;
-    colors[1] = color - 0x6666;
-    colors[0] = color - 0x9999;
-
     uint8_t i;
     for(i=0;i<4;i++)
     {
-        copy_image(sinecirclemap[ (i+radius)%11 ], colors[i]); 
+        //copy_image(sinecirclemap[ (i+radius)%11 ], colors[i]); 
+        copy_image(sinecirclemap[ (i+radius)%11 ], color-i*0x3333); 
     }
-
-    /*
-    //draw up to radius
-    if(radius<5)
-    {
-        start = 0;
-        stop = radius;
-    }
-    else if(radius > 8)
-    {
-        start = radius-4;
-        stop = 9;
-    }
-    else{
-        start = radius-4;
-        stop = radius;
-    }
-        
-    //draw radius
-    uint8_t cnt = stop-start;
-    for(i=start;i<stop;i++)
-    {
-        copy_image((sinecirclemap[i]), colors[cnt]);
-        cnt--;
-    }
-    */
 }
 
 void draw_outline()
@@ -270,12 +275,9 @@ void draw_outline()
 }
 
 void update_sinecircle(){
-    if(radius==10)
-        radius = 0;
-    else
-        radius += 1; 
-
-    draw_circle(radius, wallbrightness);
+    if(counter==10) counter = 0;
+    else counter += 1; 
+    draw_circle(counter, wallbrightness);
 }//end update sinecircle
 
 void update_sine(){    
@@ -283,18 +285,25 @@ void update_sine(){
     for(i=0;i<8;i++)
         for(j=0;j<8;j++)
         {
-            mask = (sinecounter+i)%28;
+            mask = (counter+i)%28;
             if( ((sinemap[j]>>(mask))&0x01) == 0x01)
                 matrix[j][i] = wallbrightness;
             //if(sinemap[j][(i+sinecounter)%28] == 1)
             //    matrix[j][i] = wallbrightness;
         }
-    sinecounter = (sinecounter+1)%28;  
+    counter = (counter+1)%28;  
 }
 
 
 void update_smiley(){
     copy_image(smileymap, wallbrightness);
+}
+
+void update_tree(){
+    copy_image(treemap, 0x00ff); //leaves
+    copy_image(treemap[1], 0x1010); //trunk
+    //copy_image(treemap[2], 0xaa10); //bland apples
+    copy_image(treemap[2], wallbrightness);
 }
 
 void update_bouncer(){
@@ -360,11 +369,9 @@ void configure_timer0()
   TIMSK0 = 0; //Clear registers
   TCNT0 = 0; //reset timer
 
-  OCR0A = 0xff;
+  OCR0A = 0xff; // timer interrupt counter
   TIMSK0 |= BS(OCIE1A); //enable COMPA1 ISR
-  //TCCR0A |= BS(WGM11);//not needed since not toggling anything
-  //TCCR0B |= BS(CS12)|BS(CS10); //1024 prescaler, must be configured
-  TCCR0B |= BS(CS02)|BS(CS00)|BS(WGM02);
+  TCCR0B |= BS(CS02)|BS(CS00)|BS(WGM02); //1024 clk divider CTC 
   sei();
 }
 
@@ -378,18 +385,18 @@ void configure_timer1()
 
   OCR1A = 0x0fff;
   TIMSK1 |= BS(OCIE1A); //enable COMPA1 ISR
-  //TCCR0A |= BS(WGM11);//not needed since not toggling anything
-  //TCCR0B |= BS(CS12)|BS(CS10); //1024 prescaler, must be configured
-  TCCR1B |= BS(CS12)|BS(WGM12);
+  TCCR1B |= BS(CS12)|BS(WGM12); //256 presclaer, CTC configured
   sei();
 }
 
 void setup()
 {
+    //initialize important variables
     erase_screen(0x0000);
-    state = SINECIRCLE;
+    maxtimer = 0x00ff;
+    state = TREE;
     statetimer = 0;
-    //state = SINE;
+    counter = 0;
 
     //bouncer variables
     posx = 1;
@@ -399,18 +406,9 @@ void setup()
     wallbrightness = 0x0000;
     delay = 0;
 
-    //circle variables
-    radius = 0;
-
-    //sine var
-    sinecounter = 0;
-    
     //configure timer configuration
     configure_timer0();
     configure_timer1();
-
-    //configure_sine(); 
-    configure_sinecircle();
 }
 
 
@@ -422,8 +420,7 @@ ISR(TIMER0_COMPA_vect)
         wallbrightness += 0x07;
         wallbrightness += 0x0500;
         delay = 0;
-    }else
-        delay++;
+    }else delay++;
 }
 
 ISR(TIMER1_COMPA_vect)
@@ -443,12 +440,16 @@ ISR(TIMER1_COMPA_vect)
         case SINECIRCLE:
             update_sinecircle();
             break;
+        case TREE:
+            update_tree();
+            break;
     }//end switch
 
     statetimer += 1;
     if(statetimer==maxtimer)
     {
         statetimer=0;
+        counter=0;
         state = (state+1)%(SINECIRCLE+1);
         switch(state){
             case(SINE):
@@ -470,22 +471,6 @@ int main(void)
 {
 
     setup();
-
-    //Configure image
-    //topline (y,x)
-
-    /*
-    //write green elsewhere
-    for(i=0;i<8;i++)
-      for(j=0;j<8;j++)
-      {
-        if(matrix[i][j] != 255)
-          matrix[i][j] = (0xff<<8);
-      }
-      */
-
-    //Configure timers first
-    //timer = TIMER_MAX_VALUE;
 
     //Configure all outputs
     DDRB = 0xff; //SPI out
@@ -511,7 +496,7 @@ int main(void)
         //Green pixels
         for(x=0;x<8;x++)
         {
-            if( (((matrix[y][7-x]))&0x00ff) >= inttimer)
+            if( (((matrix[y][x]))&0x00ff) >= inttimer)
             {
                 PORTC |= BS(data);
             }else{
@@ -525,7 +510,7 @@ int main(void)
           //Red pixels
         for(x=0;x<8;x++)
         {
-            if( (((matrix[y][7-x])>>8)) >= inttimer)
+            if( (((matrix[y][x])>>8)) >= inttimer)
             {
                 PORTC |= BS(data);
             }else{

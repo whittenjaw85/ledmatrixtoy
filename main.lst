@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccwyvPfy.s 			page 1
+GAS LISTING /tmp/ccP3TZct.s 			page 1
 
 
    1               		.file	"main.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccwyvPfy.s 			page 1
   55               		.stabs	"uint_fast32_t:t(5,24)=(5,6)",128,0,238,0
   56               		.stabs	"int_fast64_t:t(5,25)=(5,7)",128,0,246,0
   57               		.stabs	"uint_fast64_t:t(5,26)=(5,8)",128,0,253,0
-GAS LISTING /tmp/ccwyvPfy.s 			page 2
+GAS LISTING /tmp/ccP3TZct.s 			page 2
 
 
   58               		.stabs	"intmax_t:t(5,27)=(5,7)",128,0,273,0
@@ -87,9 +87,9 @@ GAS LISTING /tmp/ccwyvPfy.s 			page 1
   81               		.stabs	" :T(10,1)=@s8;eclock_div_1:0,clock_div_2:1,clock_div_4:2,clock_div_8:3,clock_div_16:4,cloc
   82               		.stabs	"clock_div_t:t(10,2)=(10,1)",128,0,1478,0
   83               		.stabn	162,0,0,0
-  84               		.stabs	" :T(0,16)=@s8;eBOUNCER:0,SMILEY:1,SINE:2,SINECIRCLE:3,;",128,0,0,0
-  85               		.stabs	"erase_screen:F(0,15)",36,0,195,erase_screen
-  86               		.stabs	"val:P(5,4)",64,0,195,24
+  84               		.stabs	" :T(0,16)=@s8;eBOUNCER:0,SMILEY:1,SINE:2,TREE:3,SINECIRCLE:4,;",128,0,0,0
+  85               		.stabs	"erase_screen:F(0,15)",36,0,231,erase_screen
+  86               		.stabs	"val:P(5,4)",64,0,231,24
   87               	.global	erase_screen
   88               		.type	erase_screen, @function
   89               	erase_screen:
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccwyvPfy.s 			page 1
   22:main.c        **** #define shift 1
   23:main.c        **** #define latch 2
   24:main.c        **** #define enable1 3
-GAS LISTING /tmp/ccwyvPfy.s 			page 3
+GAS LISTING /tmp/ccP3TZct.s 			page 3
 
 
   25:main.c        **** #define enable2 4
@@ -128,181 +128,217 @@ GAS LISTING /tmp/ccwyvPfy.s 			page 1
   29:main.c        ****     BOUNCER = 0,
   30:main.c        ****     SMILEY,
   31:main.c        ****     SINE,
-  32:main.c        ****     SINECIRCLE
-  33:main.c        **** };
-  34:main.c        **** 
-  35:main.c        **** //Universal variables
-  36:main.c        **** uint8_t state;
-  37:main.c        **** uint16_t statetimer;
-  38:main.c        **** uint16_t matrix[8][8];
-  39:main.c        **** uint8_t inttimer;
-  40:main.c        **** uint16_t maxtimer;
-  41:main.c        **** uint16_t delay;
-  42:main.c        **** 
-  43:main.c        **** //Bouncer variables
-  44:main.c        **** uint8_t posx;
-  45:main.c        **** uint8_t posy;
-  46:main.c        **** uint8_t dirx;
-  47:main.c        **** uint8_t diry;
-  48:main.c        **** uint16_t wallbrightness;
-  49:main.c        **** 
-  50:main.c        **** //sinecircle variables
-  51:main.c        **** uint8_t radius;
-  52:main.c        **** 
-  53:main.c        **** //sine variables
-  54:main.c        **** uint8_t sinecounter;
-  55:main.c        **** 
-  56:main.c        **** //Smileyface map
-  57:main.c        **** uint8_t smileymap[8] = {
-  58:main.c        ****     0b00111100,
-  59:main.c        ****     0b01000010,
-  60:main.c        ****     0b10100101,
-  61:main.c        ****     0b10000001,
-  62:main.c        ****     0b10100101,
-  63:main.c        ****     0b10011001,
-  64:main.c        ****     0b01000010,
-  65:main.c        ****     0b00111100
-  66:main.c        **** };
-  67:main.c        **** 
-  68:main.c        **** //Sinemap
-  69:main.c        **** uint32_t sinemap[8] = {
-  70:main.c        ****     0b1111000000000000000000000000,
-  71:main.c        ****     0b0000110000000000000000000011,
-  72:main.c        ****     0b0000001100000000000000001100,
-  73:main.c        ****     0b0000000010000000000000010000,
-  74:main.c        ****     0b0000000001000000000000100000,
-  75:main.c        ****     0b0000000000110000000011000000,
-  76:main.c        ****     0b0000000000001100001100000000,
-  77:main.c        ****     0b0000000000000011110000000000
-  78:main.c        **** };
-  79:main.c        **** 
+  32:main.c        ****     TREE,
+  33:main.c        ****     SINECIRCLE
+  34:main.c        **** };
+  35:main.c        **** 
+  36:main.c        **** //Universal variables
+  37:main.c        **** uint8_t state;
+  38:main.c        **** uint16_t statetimer;
+  39:main.c        **** uint16_t matrix[8][8];
+  40:main.c        **** uint8_t inttimer;
+  41:main.c        **** uint16_t maxtimer;
+  42:main.c        **** uint16_t delay;
+  43:main.c        **** 
+  44:main.c        **** //Bouncer variables
+  45:main.c        **** uint8_t posx;
+  46:main.c        **** uint8_t posy;
+  47:main.c        **** uint8_t dirx;
+  48:main.c        **** uint8_t diry;
+  49:main.c        **** uint16_t wallbrightness;
+  50:main.c        **** 
+  51:main.c        **** //sinecircle variables
+  52:main.c        **** uint8_t counter;
+  53:main.c        **** 
+  54:main.c        **** //tree variables
+  55:main.c        **** uint8_t apples[5];
+  56:main.c        **** 
+  57:main.c        **** //Smileyface map
+  58:main.c        **** uint8_t smileymap[8] = {
+  59:main.c        ****     0b00111100,
+  60:main.c        ****     0b01000010,
+  61:main.c        ****     0b10100101,
+  62:main.c        ****     0b10000001,
+  63:main.c        ****     0b10100101,
+  64:main.c        ****     0b10011001,
+  65:main.c        ****     0b01000010,
+  66:main.c        ****     0b00111100
+  67:main.c        **** };
+  68:main.c        **** 
+  69:main.c        **** //Sinemap
+  70:main.c        **** uint32_t sinemap[8] = {
+  71:main.c        ****     0b1111000000000000000000000000,
+  72:main.c        ****     0b0000110000000000000000000011,
+  73:main.c        ****     0b0000001100000000000000001100,
+  74:main.c        ****     0b0000000010000000000000010000,
+  75:main.c        ****     0b0000000001000000000000100000,
+  76:main.c        ****     0b0000000000110000000011000000,
+  77:main.c        ****     0b0000000000001100001100000000,
+  78:main.c        ****     0b0000000000000011110000000000
+  79:main.c        **** };
   80:main.c        **** 
-  81:main.c        **** uint8_t sinecirclemap[11][8] = {
-GAS LISTING /tmp/ccwyvPfy.s 			page 4
+  81:main.c        **** 
+GAS LISTING /tmp/ccP3TZct.s 			page 4
 
 
-  82:main.c        **** {
-  83:main.c        ****     0b00000000,
+  82:main.c        **** uint8_t sinecirclemap[11][8] = {
+  83:main.c        **** {
   84:main.c        ****     0b00000000,
   85:main.c        ****     0b00000000,
   86:main.c        ****     0b00000000,
   87:main.c        ****     0b00000000,
   88:main.c        ****     0b00000000,
   89:main.c        ****     0b00000000,
-  90:main.c        ****     0b00000000
-  91:main.c        **** },
-  92:main.c        **** {
-  93:main.c        ****     0b00000000,
+  90:main.c        ****     0b00000000,
+  91:main.c        ****     0b00000000
+  92:main.c        **** },
+  93:main.c        **** {
   94:main.c        ****     0b00000000,
   95:main.c        ****     0b00000000,
   96:main.c        ****     0b00000000,
   97:main.c        ****     0b00000000,
   98:main.c        ****     0b00000000,
   99:main.c        ****     0b00000000,
- 100:main.c        ****     0b00000000
- 101:main.c        **** },
- 102:main.c        **** {
- 103:main.c        ****     0b00000000,
+ 100:main.c        ****     0b00000000,
+ 101:main.c        ****     0b00000000
+ 102:main.c        **** },
+ 103:main.c        **** {
  104:main.c        ****     0b00000000,
  105:main.c        ****     0b00000000,
  106:main.c        ****     0b00000000,
  107:main.c        ****     0b00000000,
  108:main.c        ****     0b00000000,
  109:main.c        ****     0b00000000,
- 110:main.c        ****     0b00000000
- 111:main.c        **** },
- 112:main.c        **** {
- 113:main.c        ****     0b00000000,
+ 110:main.c        ****     0b00000000,
+ 111:main.c        ****     0b00000000
+ 112:main.c        **** },
+ 113:main.c        **** {
  114:main.c        ****     0b00000000,
  115:main.c        ****     0b00000000,
- 116:main.c        ****     0b00010000,
- 117:main.c        ****     0b00000000,
+ 116:main.c        ****     0b00000000,
+ 117:main.c        ****     0b00010000,
  118:main.c        ****     0b00000000,
  119:main.c        ****     0b00000000,
- 120:main.c        ****     0b00000000
- 121:main.c        **** 
- 122:main.c        **** },
- 123:main.c        **** {
- 124:main.c        ****     0b00000000,
+ 120:main.c        ****     0b00000000,
+ 121:main.c        ****     0b00000000
+ 122:main.c        **** 
+ 123:main.c        **** },
+ 124:main.c        **** {
  125:main.c        ****     0b00000000,
  126:main.c        ****     0b00000000,
- 127:main.c        ****     0b00011000,
+ 127:main.c        ****     0b00000000,
  128:main.c        ****     0b00011000,
- 129:main.c        ****     0b00000000,
+ 129:main.c        ****     0b00011000,
  130:main.c        ****     0b00000000,
- 131:main.c        ****     0b00000000
- 132:main.c        **** },
- 133:main.c        **** {
- 134:main.c        ****     0b00000000,
+ 131:main.c        ****     0b00000000,
+ 132:main.c        ****     0b00000000
+ 133:main.c        **** },
+ 134:main.c        **** {
  135:main.c        ****     0b00000000,
- 136:main.c        ****     0b00011000,
- 137:main.c        ****     0b00100100,
+ 136:main.c        ****     0b00000000,
+ 137:main.c        ****     0b00011000,
  138:main.c        ****     0b00100100,
-GAS LISTING /tmp/ccwyvPfy.s 			page 5
+GAS LISTING /tmp/ccP3TZct.s 			page 5
 
 
- 139:main.c        ****     0b00011000,
- 140:main.c        ****     0b00000000,
- 141:main.c        ****     0b00000000
- 142:main.c        **** },
- 143:main.c        **** {
- 144:main.c        ****     0b00000000,
- 145:main.c        ****     0b00100100,
- 146:main.c        ****     0b01100110,
- 147:main.c        ****     0b00000000,
+ 139:main.c        ****     0b00100100,
+ 140:main.c        ****     0b00011000,
+ 141:main.c        ****     0b00000000,
+ 142:main.c        ****     0b00000000
+ 143:main.c        **** },
+ 144:main.c        **** {
+ 145:main.c        ****     0b00000000,
+ 146:main.c        ****     0b00100100,
+ 147:main.c        ****     0b01100110,
  148:main.c        ****     0b00000000,
- 149:main.c        ****     0b01100110,
- 150:main.c        ****     0b00100100,
- 151:main.c        ****     0b00000000
- 152:main.c        **** },
- 153:main.c        **** {
- 154:main.c        ****     0b00000000,
- 155:main.c        ****     0b00011000,
- 156:main.c        ****     0b00000000,
- 157:main.c        ****     0b01000010,
+ 149:main.c        ****     0b00000000,
+ 150:main.c        ****     0b01100110,
+ 151:main.c        ****     0b00100100,
+ 152:main.c        ****     0b00000000
+ 153:main.c        **** },
+ 154:main.c        **** {
+ 155:main.c        ****     0b00000000,
+ 156:main.c        ****     0b00011000,
+ 157:main.c        ****     0b00000000,
  158:main.c        ****     0b01000010,
- 159:main.c        ****     0b00000000,
- 160:main.c        ****     0b00011000,
- 161:main.c        ****     0b00000000
- 162:main.c        **** },
- 163:main.c        **** {
- 164:main.c        ****     0b00100100,
- 165:main.c        ****     0b01000010,
- 166:main.c        ****     0b10000001,
- 167:main.c        ****     0b00000000,
+ 159:main.c        ****     0b01000010,
+ 160:main.c        ****     0b00000000,
+ 161:main.c        ****     0b00011000,
+ 162:main.c        ****     0b00000000
+ 163:main.c        **** },
+ 164:main.c        **** {
+ 165:main.c        ****     0b00100100,
+ 166:main.c        ****     0b01000010,
+ 167:main.c        ****     0b10000001,
  168:main.c        ****     0b00000000,
- 169:main.c        ****     0b10000001,
- 170:main.c        ****     0b01000010,
- 171:main.c        ****     0b00100100
- 172:main.c        **** },
- 173:main.c        **** {
- 174:main.c        ****     0b11000011,
- 175:main.c        ****     0b10000001,
- 176:main.c        ****     0b00000000,
+ 169:main.c        ****     0b00000000,
+ 170:main.c        ****     0b10000001,
+ 171:main.c        ****     0b01000010,
+ 172:main.c        ****     0b00100100
+ 173:main.c        **** },
+ 174:main.c        **** {
+ 175:main.c        ****     0b11000011,
+ 176:main.c        ****     0b10000001,
  177:main.c        ****     0b00000000,
  178:main.c        ****     0b00000000,
  179:main.c        ****     0b00000000,
- 180:main.c        ****     0b10000001,
- 181:main.c        ****     0b11000011
- 182:main.c        **** },
- 183:main.c        **** {
- 184:main.c        ****     0b00011000,
- 185:main.c        ****     0b00000000,
+ 180:main.c        ****     0b00000000,
+ 181:main.c        ****     0b10000001,
+ 182:main.c        ****     0b11000011
+ 183:main.c        **** },
+ 184:main.c        **** {
+ 185:main.c        ****     0b00011000,
  186:main.c        ****     0b00000000,
- 187:main.c        ****     0b10000001,
+ 187:main.c        ****     0b00000000,
  188:main.c        ****     0b10000001,
- 189:main.c        ****     0b00000000,
+ 189:main.c        ****     0b10000001,
  190:main.c        ****     0b00000000,
- 191:main.c        ****     0b00011000
- 192:main.c        **** }};
- 193:main.c        **** 
+ 191:main.c        ****     0b00000000,
+ 192:main.c        ****     0b00011000
+ 193:main.c        **** }};
  194:main.c        **** 
- 195:main.c        **** void erase_screen(uint16_t val)
-GAS LISTING /tmp/ccwyvPfy.s 			page 6
+ 195:main.c        **** uint8_t treemap[3][8] = {
+GAS LISTING /tmp/ccP3TZct.s 			page 6
 
 
- 196:main.c        **** {
-  91               		.stabn	68,0,196,.LM0-.LFBB1
+ 196:main.c        **** //0 greenmap
+ 197:main.c        **** {
+ 198:main.c        ****     0b00111000,
+ 199:main.c        ****     0b00111110,
+ 200:main.c        ****     0b01111111,
+ 201:main.c        ****     0b11111111,
+ 202:main.c        ****     0b01111110,
+ 203:main.c        ****     0b00000000,
+ 204:main.c        ****     0b00000000,
+ 205:main.c        ****     0b00000000
+ 206:main.c        **** },
+ 207:main.c        **** //1 brownmap
+ 208:main.c        **** {
+ 209:main.c        ****     0b00000000,
+ 210:main.c        ****     0b00000000,
+ 211:main.c        ****     0b00000000,
+ 212:main.c        ****     0b00000000,
+ 213:main.c        ****     0b00000000,
+ 214:main.c        ****     0b00011000,
+ 215:main.c        ****     0b00011000,
+ 216:main.c        ****     0b00111100
+ 217:main.c        **** },
+ 218:main.c        **** //2 applemap (static)
+ 219:main.c        **** {
+ 220:main.c        ****     0b00000000,
+ 221:main.c        ****     0b00001000,
+ 222:main.c        ****     0b00100010,
+ 223:main.c        ****     0b01000000,
+ 224:main.c        ****     0b00000000,
+ 225:main.c        ****     0b00000000,
+ 226:main.c        ****     0b00000000,
+ 227:main.c        ****     0b00000000
+ 228:main.c        **** }
+ 229:main.c        **** };
+ 230:main.c        **** 
+ 231:main.c        **** void erase_screen(uint16_t val)
+ 232:main.c        **** {
+  91               		.stabn	68,0,232,.LM0-.LFBB1
   92               	.LM0:
   93               	.LFBB1:
   94               	/* prologue: function */
@@ -312,16 +348,19 @@ GAS LISTING /tmp/ccwyvPfy.s 			page 1
   98 0000 E0E0      		ldi r30,lo8(matrix)
   99 0002 F0E0      		ldi r31,hi8(matrix)
  100               	.L2:
- 197:main.c        ****   int i=0,j =0;
- 198:main.c        ****   for(i=0;i<8;i++)
- 199:main.c        ****   {
- 200:main.c        ****     for(j=0;j<8;j++)
- 201:main.c        ****     {
- 202:main.c        ****       matrix[i][j] = val;
- 101               		.stabn	68,0,202,.LM1-.LFBB1
+ 233:main.c        ****   int i=0,j =0;
+ 234:main.c        ****   for(i=0;i<8;i++)
+ 235:main.c        ****   {
+ 236:main.c        ****     for(j=0;j<8;j++)
+ 237:main.c        ****     {
+ 238:main.c        ****       matrix[i][j] = val;
+ 101               		.stabn	68,0,238,.LM1-.LFBB1
  102               	.LM1:
  103 0004 9183      		std Z+1,r25
  104 0006 8083      		st Z,r24
+GAS LISTING /tmp/ccP3TZct.s 			page 7
+
+
  105 0008 9383      		std Z+3,r25
  106 000a 8283      		std Z+2,r24
  107 000c 9583      		std Z+5,r25
@@ -337,37 +376,34 @@ GAS LISTING /tmp/ccwyvPfy.s 			page 1
  117 0020 9787      		std Z+15,r25
  118 0022 8687      		std Z+14,r24
  119 0024 7096      		adiw r30,16
- 198:main.c        ****   for(i=0;i<8;i++)
- 120               		.stabn	68,0,198,.LM2-.LFBB1
+ 234:main.c        ****   for(i=0;i<8;i++)
+ 120               		.stabn	68,0,234,.LM2-.LFBB1
  121               	.LM2:
  122 0026 20E0      		ldi r18,hi8(matrix+128)
  123 0028 E030      		cpi r30,lo8(matrix+128)
  124 002a F207      		cpc r31,r18
  125 002c 01F4      		brne .L2
  126               	/* epilogue start */
- 203:main.c        ****     }
- 204:main.c        ****   }
- 205:main.c        **** }//end erase screen
- 127               		.stabn	68,0,205,.LM3-.LFBB1
+ 239:main.c        ****     }
+ 240:main.c        ****   }
+ 241:main.c        **** }//end erase screen
+ 127               		.stabn	68,0,241,.LM3-.LFBB1
  128               	.LM3:
  129 002e 0895      		ret
  130               		.size	erase_screen, .-erase_screen
  131               	.Lscope1:
  132               		.stabs	"",36,0,0,.Lscope1-.LFBB1
  133               		.stabd	78,0,0
- 134               		.stabs	"copy_image:F(0,15)",36,0,207,copy_image
- 135               		.stabs	"color:P(5,4)",64,0,207,22
+ 134               		.stabs	"copy_image:F(0,15)",36,0,243,copy_image
+ 135               		.stabs	"color:P(5,4)",64,0,243,22
  136               	.global	copy_image
-GAS LISTING /tmp/ccwyvPfy.s 			page 7
-
-
  137               		.type	copy_image, @function
  138               	copy_image:
  139               		.stabd	46,0,0
- 206:main.c        **** 
- 207:main.c        **** void copy_image(uint8_t img[8], uint16_t color)
- 208:main.c        **** {
- 140               		.stabn	68,0,208,.LM4-.LFBB2
+ 242:main.c        **** 
+ 243:main.c        **** void copy_image(uint8_t img[8], uint16_t color)
+ 244:main.c        **** {
+ 140               		.stabn	68,0,244,.LM4-.LFBB2
  141               	.LM4:
  142               	.LFBB2:
  143 0030 EF92      		push r14
@@ -382,12 +418,15 @@ GAS LISTING /tmp/ccwyvPfy.s 			page 1
  152               	.L__stack_usage = 6
  153 003c A0E0      		ldi r26,lo8(matrix)
  154 003e B0E0      		ldi r27,hi8(matrix)
- 209:main.c        ****     uint8_t i,j;
- 210:main.c        ****     for(i=0;i<8;i++)
- 211:main.c        ****         for(j=0;j<8;j++)
- 212:main.c        ****         {
- 213:main.c        ****             if( ((img[j]>>i)&0x1) == 0x1)
- 155               		.stabn	68,0,213,.LM5-.LFBB2
+GAS LISTING /tmp/ccP3TZct.s 			page 8
+
+
+ 245:main.c        ****     uint8_t i,j;
+ 246:main.c        ****     for(i=0;i<8;i++)
+ 247:main.c        ****         for(j=0;j<8;j++)
+ 248:main.c        ****         {
+ 249:main.c        ****             if( ((img[j]>>i)&0x1) == 0x1)
+ 155               		.stabn	68,0,249,.LM5-.LFBB2
  156               	.LM5:
  157 0040 40E0      		ldi r20,0
  158 0042 50E0      		ldi r21,0
@@ -402,25 +441,22 @@ GAS LISTING /tmp/ccwyvPfy.s 			page 1
  167 0052 D123      		and r29,r17
  168 0054 CD2B      		or r28,r29
  169 0056 01F0      		breq .L6
- 207:main.c        **** void copy_image(uint8_t img[8], uint16_t color)
- 170               		.stabn	68,0,207,.LM6-.LFBB2
+ 243:main.c        **** void copy_image(uint8_t img[8], uint16_t color)
+ 170               		.stabn	68,0,243,.LM6-.LFBB2
  171               	.LM6:
  172 0058 ED01      		movw r28,r26
  173 005a C20F      		add r28,r18
  174 005c D31F      		adc r29,r19
- 214:main.c        ****                 matrix[j][i] = color;
- 175               		.stabn	68,0,214,.LM7-.LFBB2
+ 250:main.c        ****                 matrix[j][i] = color;
+ 175               		.stabn	68,0,250,.LM7-.LFBB2
  176               	.LM7:
  177 005e 7983      		std Y+1,r23
  178 0060 6883      		st Y,r22
  179               	.L6:
  180 0062 205F      		subi r18,-16
  181 0064 3F4F      		sbci r19,-1
- 211:main.c        ****         for(j=0;j<8;j++)
- 182               		.stabn	68,0,211,.LM8-.LFBB2
-GAS LISTING /tmp/ccwyvPfy.s 			page 8
-
-
+ 247:main.c        ****         for(j=0;j<8;j++)
+ 182               		.stabn	68,0,247,.LM8-.LFBB2
  183               	.LM8:
  184 0066 2038      		cpi r18,-128
  185 0068 3105      		cpc r19,__zero_reg__
@@ -428,8 +464,8 @@ GAS LISTING /tmp/ccwyvPfy.s 			page 1
  187 006c 4F5F      		subi r20,-1
  188 006e 5F4F      		sbci r21,-1
  189 0070 1296      		adiw r26,2
- 210:main.c        ****     for(i=0;i<8;i++)
- 190               		.stabn	68,0,210,.LM9-.LFBB2
+ 246:main.c        ****     for(i=0;i<8;i++)
+ 190               		.stabn	68,0,246,.LM9-.LFBB2
  191               	.LM9:
  192 0072 4830      		cpi r20,8
  193 0074 5105      		cpc r21,__zero_reg__
@@ -442,20 +478,23 @@ GAS LISTING /tmp/ccwyvPfy.s 			page 1
  200 007e 000F      		lsl r16
  201 0080 111F      		rol r17
  202               		2:
+GAS LISTING /tmp/ccP3TZct.s 			page 9
+
+
  203 0082 0A94      		dec r0
  204 0084 02F4      		brpl 1b
  205 0086 FC01      		movw r30,r24
- 213:main.c        ****             if( ((img[j]>>i)&0x1) == 0x1)
- 206               		.stabn	68,0,213,.LM10-.LFBB2
+ 249:main.c        ****             if( ((img[j]>>i)&0x1) == 0x1)
+ 206               		.stabn	68,0,249,.LM10-.LFBB2
  207               	.LM10:
  208 0088 20E0      		ldi r18,0
  209 008a 30E0      		ldi r19,0
  210 008c 00C0      		rjmp .L7
  211               	.L4:
  212               	/* epilogue start */
- 215:main.c        ****         }
- 216:main.c        **** }
- 213               		.stabn	68,0,216,.LM11-.LFBB2
+ 251:main.c        ****         }
+ 252:main.c        **** }
+ 213               		.stabn	68,0,252,.LM11-.LFBB2
  214               	.LM11:
  215 008e DF91      		pop r29
  216 0090 CF91      		pop r28
@@ -468,1963 +507,1938 @@ GAS LISTING /tmp/ccwyvPfy.s 			page 1
  223               	.Lscope2:
  224               		.stabs	"",36,0,0,.Lscope2-.LFBB2
  225               		.stabd	78,0,0
- 226               		.stabs	"draw_circle:F(0,15)",36,0,218,draw_circle
- 227               		.stabs	"radius:P(5,2)",64,0,218,24
- 228               		.stabs	"color:P(5,4)",64,0,218,22
+ 226               		.stabs	"draw_circle:F(0,15)",36,0,254,draw_circle
+ 227               		.stabs	"radius:P(5,2)",64,0,254,24
+ 228               		.stabs	"color:P(5,4)",64,0,254,16
  229               	.global	draw_circle
  230               		.type	draw_circle, @function
  231               	draw_circle:
  232               		.stabd	46,0,0
- 217:main.c        **** 
- 218:main.c        **** void draw_circle(uint8_t radius, uint16_t color)
- 219:main.c        **** {
-GAS LISTING /tmp/ccwyvPfy.s 			page 9
-
-
- 233               		.stabn	68,0,219,.LM12-.LFBB3
+ 253:main.c        **** 
+ 254:main.c        **** void draw_circle(uint8_t radius, uint16_t color)
+ 255:main.c        **** {
+ 233               		.stabn	68,0,255,.LM12-.LFBB3
  234               	.LM12:
  235               	.LFBB3:
- 236 009c AF92      		push r10
- 237 009e BF92      		push r11
- 238 00a0 CF92      		push r12
- 239 00a2 DF92      		push r13
- 240 00a4 EF92      		push r14
- 241 00a6 FF92      		push r15
- 242 00a8 0F93      		push r16
- 243 00aa 1F93      		push r17
- 244 00ac CF93      		push r28
- 245 00ae DF93      		push r29
- 246 00b0 CDB7      		in r28,__SP_L__
- 247 00b2 DEB7      		in r29,__SP_H__
- 248 00b4 2897      		sbiw r28,8
- 249 00b6 0FB6      		in __tmp_reg__,__SREG__
- 250 00b8 F894      		cli
- 251 00ba DEBF      		out __SP_H__,r29
- 252 00bc 0FBE      		out __SREG__,__tmp_reg__
- 253 00be CDBF      		out __SP_L__,r28
- 254               	/* prologue: function */
- 255               	/* frame size = 8 */
- 256               	/* stack size = 18 */
- 257               	.L__stack_usage = 18
- 220:main.c        ****     uint16_t colors[4];
- 221:main.c        ****     colors[3] = color;
- 258               		.stabn	68,0,221,.LM13-.LFBB3
- 259               	.LM13:
- 260 00c0 7887      		std Y+8,r23
- 261 00c2 6F83      		std Y+7,r22
- 222:main.c        ****     colors[2] = color - 0x3333;
- 262               		.stabn	68,0,222,.LM14-.LFBB3
- 263               	.LM14:
- 264 00c4 9B01      		movw r18,r22
- 265 00c6 2353      		subi r18,51
- 266 00c8 3343      		sbci r19,51
- 267 00ca 3E83      		std Y+6,r19
- 268 00cc 2D83      		std Y+5,r18
- 223:main.c        ****     colors[1] = color - 0x6666;
- 269               		.stabn	68,0,223,.LM15-.LFBB3
- 270               	.LM15:
- 271 00ce 9B01      		movw r18,r22
- 272 00d0 2656      		subi r18,102
- 273 00d2 3646      		sbci r19,102
- 274 00d4 3C83      		std Y+4,r19
- 275 00d6 2B83      		std Y+3,r18
- 224:main.c        ****     colors[0] = color - 0x9999;
- 276               		.stabn	68,0,224,.LM16-.LFBB3
- 277               	.LM16:
- 278 00d8 6959      		subi r22,-103
- 279 00da 7949      		sbci r23,-103
- 280 00dc 7A83      		std Y+2,r23
- 281 00de 6983      		std Y+1,r22
- 282 00e0 EE24      		clr r14
- 283 00e2 E394      		inc r14
- 284 00e4 F12C      		mov r15,__zero_reg__
-GAS LISTING /tmp/ccwyvPfy.s 			page 10
+ 236 009c CF92      		push r12
+ 237 009e DF92      		push r13
+ 238 00a0 EF92      		push r14
+ 239 00a2 FF92      		push r15
+ 240 00a4 0F93      		push r16
+ 241 00a6 1F93      		push r17
+ 242 00a8 CF93      		push r28
+ 243 00aa DF93      		push r29
+ 244               	/* prologue: function */
+ 245               	/* frame size = 0 */
+ 246               	/* stack size = 8 */
+ 247               	.L__stack_usage = 8
+ 248 00ac 8B01      		movw r16,r22
+ 249               		.stabn	68,0,255,.LM13-.LFBB3
+ 250               	.LM13:
+ 251 00ae C0E0      		ldi r28,0
+ 252 00b0 D0E0      		ldi r29,0
+ 254:main.c        **** void draw_circle(uint8_t radius, uint16_t color)
+GAS LISTING /tmp/ccP3TZct.s 			page 10
 
 
- 285 00e6 EC0E      		add r14,r28
- 286 00e8 FD1E      		adc r15,r29
- 287 00ea 00E0      		ldi r16,0
- 288 00ec 10E0      		ldi r17,0
- 218:main.c        **** void draw_circle(uint8_t radius, uint16_t color)
- 289               		.stabn	68,0,218,.LM17-.LFBB3
- 290               	.LM17:
- 291 00ee A82E      		mov r10,r24
- 292 00f0 B12C      		mov r11,__zero_reg__
- 225:main.c        **** 
- 226:main.c        ****     uint8_t i;
- 227:main.c        ****     for(i=0;i<4;i++)
- 228:main.c        ****     {
- 229:main.c        ****         copy_image(sinecirclemap[ (i+radius)%11 ], colors[i]); 
- 293               		.stabn	68,0,229,.LM18-.LFBB3
- 294               	.LM18:
- 295 00f2 6BE0      		ldi r22,lo8(11)
- 296 00f4 C62E      		mov r12,r22
- 297 00f6 D12C      		mov r13,__zero_reg__
- 298               	.L14:
- 299               		.stabn	68,0,229,.LM19-.LFBB3
- 300               	.LM19:
- 301 00f8 F701      		movw r30,r14
- 302 00fa 2191      		ld r18,Z+
- 303 00fc 3191      		ld r19,Z+
- 304 00fe 7F01      		movw r14,r30
- 218:main.c        **** void draw_circle(uint8_t radius, uint16_t color)
- 305               		.stabn	68,0,218,.LM20-.LFBB3
- 306               	.LM20:
- 307 0100 C801      		movw r24,r16
- 308 0102 8A0D      		add r24,r10
- 309 0104 9B1D      		adc r25,r11
- 310               		.stabn	68,0,229,.LM21-.LFBB3
- 311               	.LM21:
- 312 0106 B601      		movw r22,r12
- 313 0108 00D0      		rcall __divmodhi4
- 314 010a 43E0      		ldi r20,3
- 315               		1:
- 316 010c 880F      		lsl r24
- 317 010e 991F      		rol r25
- 318 0110 4A95      		dec r20
- 319 0112 01F4      		brne 1b
- 320 0114 B901      		movw r22,r18
- 321 0116 8050      		subi r24,lo8(-(sinecirclemap))
- 322 0118 9040      		sbci r25,hi8(-(sinecirclemap))
- 323 011a 00D0      		rcall copy_image
- 324 011c 0F5F      		subi r16,-1
- 325 011e 1F4F      		sbci r17,-1
- 227:main.c        ****     for(i=0;i<4;i++)
- 326               		.stabn	68,0,227,.LM22-.LFBB3
- 327               	.LM22:
- 328 0120 0430      		cpi r16,4
- 329 0122 1105      		cpc r17,__zero_reg__
- 330 0124 01F4      		brne .L14
- 331               	/* epilogue start */
- 230:main.c        ****     }
- 231:main.c        **** 
-GAS LISTING /tmp/ccwyvPfy.s 			page 11
+ 253               		.stabn	68,0,254,.LM14-.LFBB3
+ 254               	.LM14:
+ 255 00b2 C82E      		mov r12,r24
+ 256 00b4 D12C      		mov r13,__zero_reg__
+ 256:main.c        ****     uint8_t i;
+ 257:main.c        ****     for(i=0;i<4;i++)
+ 258:main.c        ****     {
+ 259:main.c        ****         //copy_image(sinecirclemap[ (i+radius)%11 ], colors[i]); 
+ 260:main.c        ****         copy_image(sinecirclemap[ (i+radius)%11 ], color-i*0x3333); 
+ 257               		.stabn	68,0,260,.LM15-.LFBB3
+ 258               	.LM15:
+ 259 00b6 4BE0      		ldi r20,lo8(11)
+ 260 00b8 E42E      		mov r14,r20
+ 261 00ba F12C      		mov r15,__zero_reg__
+ 262               	.L14:
+ 254:main.c        **** void draw_circle(uint8_t radius, uint16_t color)
+ 263               		.stabn	68,0,254,.LM16-.LFBB3
+ 264               	.LM16:
+ 265 00bc CE01      		movw r24,r28
+ 266 00be 8C0D      		add r24,r12
+ 267 00c0 9D1D      		adc r25,r13
+ 268               		.stabn	68,0,260,.LM17-.LFBB3
+ 269               	.LM17:
+ 270 00c2 B701      		movw r22,r14
+ 271 00c4 00D0      		rcall __divmodhi4
+ 272 00c6 33E0      		ldi r19,3
+ 273               		1:
+ 274 00c8 880F      		lsl r24
+ 275 00ca 991F      		rol r25
+ 276 00cc 3A95      		dec r19
+ 277 00ce 01F4      		brne 1b
+ 278 00d0 B801      		movw r22,r16
+ 279 00d2 8050      		subi r24,lo8(-(sinecirclemap))
+ 280 00d4 9040      		sbci r25,hi8(-(sinecirclemap))
+ 281 00d6 00D0      		rcall copy_image
+ 282 00d8 2196      		adiw r28,1
+ 283 00da 0353      		subi r16,51
+ 284 00dc 1343      		sbci r17,51
+ 257:main.c        ****     for(i=0;i<4;i++)
+ 285               		.stabn	68,0,257,.LM18-.LFBB3
+ 286               	.LM18:
+ 287 00de C430      		cpi r28,4
+ 288 00e0 D105      		cpc r29,__zero_reg__
+ 289 00e2 01F4      		brne .L14
+ 290               	/* epilogue start */
+ 261:main.c        ****     }
+ 262:main.c        **** }
+ 291               		.stabn	68,0,262,.LM19-.LFBB3
+ 292               	.LM19:
+ 293 00e4 DF91      		pop r29
+ 294 00e6 CF91      		pop r28
+ 295 00e8 1F91      		pop r17
+ 296 00ea 0F91      		pop r16
+ 297 00ec FF90      		pop r15
+ 298 00ee EF90      		pop r14
+ 299 00f0 DF90      		pop r13
+ 300 00f2 CF90      		pop r12
+GAS LISTING /tmp/ccP3TZct.s 			page 11
 
 
- 232:main.c        ****     /*
- 233:main.c        ****     //draw up to radius
- 234:main.c        ****     if(radius<5)
- 235:main.c        ****     {
- 236:main.c        ****         start = 0;
- 237:main.c        ****         stop = radius;
- 238:main.c        ****     }
- 239:main.c        ****     else if(radius > 8)
- 240:main.c        ****     {
- 241:main.c        ****         start = radius-4;
- 242:main.c        ****         stop = 9;
- 243:main.c        ****     }
- 244:main.c        ****     else{
- 245:main.c        ****         start = radius-4;
- 246:main.c        ****         stop = radius;
- 247:main.c        ****     }
- 248:main.c        ****         
- 249:main.c        ****     //draw radius
- 250:main.c        ****     uint8_t cnt = stop-start;
- 251:main.c        ****     for(i=start;i<stop;i++)
- 252:main.c        ****     {
- 253:main.c        ****         copy_image((sinecirclemap[i]), colors[cnt]);
- 254:main.c        ****         cnt--;
- 255:main.c        ****     }
- 256:main.c        ****     */
- 257:main.c        **** }
- 332               		.stabn	68,0,257,.LM23-.LFBB3
- 333               	.LM23:
- 334 0126 2896      		adiw r28,8
- 335 0128 0FB6      		in __tmp_reg__,__SREG__
- 336 012a F894      		cli
- 337 012c DEBF      		out __SP_H__,r29
- 338 012e 0FBE      		out __SREG__,__tmp_reg__
- 339 0130 CDBF      		out __SP_L__,r28
- 340 0132 DF91      		pop r29
- 341 0134 CF91      		pop r28
- 342 0136 1F91      		pop r17
- 343 0138 0F91      		pop r16
- 344 013a FF90      		pop r15
- 345 013c EF90      		pop r14
- 346 013e DF90      		pop r13
- 347 0140 CF90      		pop r12
- 348 0142 BF90      		pop r11
- 349 0144 AF90      		pop r10
- 350 0146 0895      		ret
- 351               		.size	draw_circle, .-draw_circle
- 352               		.stabs	"colors:(0,17)=ar(0,18)=r(0,18);0;0177777;;0;3;(5,4)",128,0,220,1
- 353               		.stabn	192,0,0,.LFBB3-.LFBB3
- 354               		.stabn	224,0,0,.Lscope3-.LFBB3
- 355               	.Lscope3:
- 356               		.stabs	"",36,0,0,.Lscope3-.LFBB3
- 357               		.stabd	78,0,0
- 358               		.stabs	"draw_outline:F(0,15)",36,0,259,draw_outline
- 359               	.global	draw_outline
- 360               		.type	draw_outline, @function
- 361               	draw_outline:
- 362               		.stabd	46,0,0
-GAS LISTING /tmp/ccwyvPfy.s 			page 12
+ 301 00f4 0895      		ret
+ 302               		.size	draw_circle, .-draw_circle
+ 303               	.Lscope3:
+ 304               		.stabs	"",36,0,0,.Lscope3-.LFBB3
+ 305               		.stabd	78,0,0
+ 306               		.stabs	"draw_outline:F(0,15)",36,0,264,draw_outline
+ 307               	.global	draw_outline
+ 308               		.type	draw_outline, @function
+ 309               	draw_outline:
+ 310               		.stabd	46,0,0
+ 263:main.c        **** 
+ 264:main.c        **** void draw_outline()
+ 265:main.c        **** {
+ 311               		.stabn	68,0,265,.LM20-.LFBB4
+ 312               	.LM20:
+ 313               	.LFBB4:
+ 314               	/* prologue: function */
+ 315               	/* frame size = 0 */
+ 316               	/* stack size = 0 */
+ 317               	.L__stack_usage = 0
+ 266:main.c        ****     int i,j;
+ 267:main.c        ****     for(i=0;i<8;i++)
+ 268:main.c        ****     {
+ 269:main.c        ****       for(j=0;j<8;j++)
+ 270:main.c        ****       {
+ 271:main.c        ****         if(i==7 || i==0 || j==7 || j==0)
+ 272:main.c        ****           matrix[j][i] = wallbrightness;
+ 318               		.stabn	68,0,272,.LM21-.LFBB4
+ 319               	.LM21:
+ 320 00f6 E091 0000 		lds r30,wallbrightness
+ 321 00fa F091 0000 		lds r31,wallbrightness+1
+ 322 00fe 60E0      		ldi r22,lo8(matrix)
+ 323 0100 70E0      		ldi r23,hi8(matrix)
+ 267:main.c        ****     for(i=0;i<8;i++)
+ 324               		.stabn	68,0,267,.LM22-.LFBB4
+ 325               	.LM22:
+ 326 0102 20E0      		ldi r18,0
+ 327 0104 30E0      		ldi r19,0
+ 328 0106 00C0      		rjmp .L17
+ 329               	.L20:
+ 271:main.c        ****         if(i==7 || i==0 || j==7 || j==0)
+ 330               		.stabn	68,0,271,.LM23-.LFBB4
+ 331               	.LM23:
+ 332 0108 2730      		cpi r18,7
+ 333 010a 3105      		cpc r19,__zero_reg__
+ 334 010c 01F0      		breq .L18
+ 271:main.c        ****         if(i==7 || i==0 || j==7 || j==0)
+ 335               		.stabn	68,0,271,.LM24-.LFBB4
+ 336               	.LM24:
+ 337 010e 2115      		cp r18,__zero_reg__
+ 338 0110 3105      		cpc r19,__zero_reg__
+ 339 0112 01F0      		breq .L18
+ 340 0114 8730      		cpi r24,7
+ 341 0116 9105      		cpc r25,__zero_reg__
+ 342 0118 01F0      		breq .L18
+ 343 011a 0097      		sbiw r24,0
+ 344 011c 01F4      		brne .L19
+GAS LISTING /tmp/ccP3TZct.s 			page 12
 
 
- 258:main.c        **** 
- 259:main.c        **** void draw_outline()
- 260:main.c        **** {
- 363               		.stabn	68,0,260,.LM24-.LFBB4
- 364               	.LM24:
- 365               	.LFBB4:
- 366               	/* prologue: function */
- 367               	/* frame size = 0 */
- 368               	/* stack size = 0 */
- 369               	.L__stack_usage = 0
- 261:main.c        ****     int i,j;
- 262:main.c        ****     for(i=0;i<8;i++)
- 263:main.c        ****     {
- 264:main.c        ****       for(j=0;j<8;j++)
- 265:main.c        ****       {
- 266:main.c        ****         if(i==7 || i==0 || j==7 || j==0)
- 267:main.c        ****           matrix[j][i] = wallbrightness;
- 370               		.stabn	68,0,267,.LM25-.LFBB4
- 371               	.LM25:
- 372 0148 E091 0000 		lds r30,wallbrightness
- 373 014c F091 0000 		lds r31,wallbrightness+1
- 374 0150 60E0      		ldi r22,lo8(matrix)
- 375 0152 70E0      		ldi r23,hi8(matrix)
- 262:main.c        ****     for(i=0;i<8;i++)
- 376               		.stabn	68,0,262,.LM26-.LFBB4
- 377               	.LM26:
- 378 0154 20E0      		ldi r18,0
- 379 0156 30E0      		ldi r19,0
- 380 0158 00C0      		rjmp .L17
- 381               	.L20:
- 266:main.c        ****         if(i==7 || i==0 || j==7 || j==0)
- 382               		.stabn	68,0,266,.LM27-.LFBB4
- 383               	.LM27:
- 384 015a 2730      		cpi r18,7
- 385 015c 3105      		cpc r19,__zero_reg__
- 386 015e 01F0      		breq .L18
- 266:main.c        ****         if(i==7 || i==0 || j==7 || j==0)
- 387               		.stabn	68,0,266,.LM28-.LFBB4
- 388               	.LM28:
- 389 0160 2115      		cp r18,__zero_reg__
- 390 0162 3105      		cpc r19,__zero_reg__
- 391 0164 01F0      		breq .L18
- 392 0166 8730      		cpi r24,7
- 393 0168 9105      		cpc r25,__zero_reg__
- 394 016a 01F0      		breq .L18
- 395 016c 0097      		sbiw r24,0
- 396 016e 01F4      		brne .L19
- 397               	.L18:
- 259:main.c        **** void draw_outline()
- 398               		.stabn	68,0,259,.LM29-.LFBB4
- 399               	.LM29:
- 400 0170 DB01      		movw r26,r22
- 401 0172 A40F      		add r26,r20
- 402 0174 B51F      		adc r27,r21
- 403               		.stabn	68,0,267,.LM30-.LFBB4
- 404               	.LM30:
- 405 0176 ED93      		st X+,r30
-GAS LISTING /tmp/ccwyvPfy.s 			page 13
+ 345               	.L18:
+ 264:main.c        **** void draw_outline()
+ 346               		.stabn	68,0,264,.LM25-.LFBB4
+ 347               	.LM25:
+ 348 011e DB01      		movw r26,r22
+ 349 0120 A40F      		add r26,r20
+ 350 0122 B51F      		adc r27,r21
+ 351               		.stabn	68,0,272,.LM26-.LFBB4
+ 352               	.LM26:
+ 353 0124 ED93      		st X+,r30
+ 354 0126 FC93      		st X,r31
+ 355               	.L19:
+ 269:main.c        ****       for(j=0;j<8;j++)
+ 356               		.stabn	68,0,269,.LM27-.LFBB4
+ 357               	.LM27:
+ 358 0128 0196      		adiw r24,1
+ 359 012a 405F      		subi r20,-16
+ 360 012c 5F4F      		sbci r21,-1
+ 361 012e 8830      		cpi r24,8
+ 362 0130 9105      		cpc r25,__zero_reg__
+ 363 0132 01F4      		brne .L20
+ 267:main.c        ****     for(i=0;i<8;i++)
+ 364               		.stabn	68,0,267,.LM28-.LFBB4
+ 365               	.LM28:
+ 366 0134 2F5F      		subi r18,-1
+ 367 0136 3F4F      		sbci r19,-1
+ 368 0138 6E5F      		subi r22,-2
+ 369 013a 7F4F      		sbci r23,-1
+ 370 013c 2830      		cpi r18,8
+ 371 013e 3105      		cpc r19,__zero_reg__
+ 372 0140 01F0      		breq .L16
+ 373               	.L17:
+ 265:main.c        **** {
+ 374               		.stabn	68,0,265,.LM29-.LFBB4
+ 375               	.LM29:
+ 376 0142 40E0      		ldi r20,0
+ 377 0144 50E0      		ldi r21,0
+ 378 0146 80E0      		ldi r24,0
+ 379 0148 90E0      		ldi r25,0
+ 380 014a 00C0      		rjmp .L20
+ 381               	.L16:
+ 382 014c 0895      		ret
+ 383               		.size	draw_outline, .-draw_outline
+ 384               		.stabs	"i:r(0,1)",64,0,266,18
+ 385               		.stabs	"j:r(0,1)",64,0,266,24
+ 386               		.stabn	192,0,0,.LFBB4-.LFBB4
+ 387               		.stabn	224,0,0,.Lscope4-.LFBB4
+ 388               	.Lscope4:
+ 389               		.stabs	"",36,0,0,.Lscope4-.LFBB4
+ 390               		.stabd	78,0,0
+ 391               		.stabs	"update_sinecircle:F(0,15)",36,0,277,update_sinecircle
+ 392               	.global	update_sinecircle
+ 393               		.type	update_sinecircle, @function
+ 394               	update_sinecircle:
+ 395               		.stabd	46,0,0
+ 273:main.c        ****       }
+ 274:main.c        ****     }
+GAS LISTING /tmp/ccP3TZct.s 			page 13
 
 
- 406 0178 FC93      		st X,r31
- 407               	.L19:
- 264:main.c        ****       for(j=0;j<8;j++)
- 408               		.stabn	68,0,264,.LM31-.LFBB4
- 409               	.LM31:
- 410 017a 0196      		adiw r24,1
- 411 017c 405F      		subi r20,-16
- 412 017e 5F4F      		sbci r21,-1
- 413 0180 8830      		cpi r24,8
- 414 0182 9105      		cpc r25,__zero_reg__
- 415 0184 01F4      		brne .L20
- 262:main.c        ****     for(i=0;i<8;i++)
- 416               		.stabn	68,0,262,.LM32-.LFBB4
- 417               	.LM32:
- 418 0186 2F5F      		subi r18,-1
- 419 0188 3F4F      		sbci r19,-1
- 420 018a 6E5F      		subi r22,-2
- 421 018c 7F4F      		sbci r23,-1
- 422 018e 2830      		cpi r18,8
- 423 0190 3105      		cpc r19,__zero_reg__
- 424 0192 01F0      		breq .L16
- 425               	.L17:
- 260:main.c        **** {
- 426               		.stabn	68,0,260,.LM33-.LFBB4
- 427               	.LM33:
- 428 0194 40E0      		ldi r20,0
- 429 0196 50E0      		ldi r21,0
- 430 0198 80E0      		ldi r24,0
- 431 019a 90E0      		ldi r25,0
- 432 019c 00C0      		rjmp .L20
- 433               	.L16:
- 434 019e 0895      		ret
- 435               		.size	draw_outline, .-draw_outline
- 436               		.stabs	"i:r(0,1)",64,0,261,18
- 437               		.stabs	"j:r(0,1)",64,0,261,24
- 438               		.stabn	192,0,0,.LFBB4-.LFBB4
- 439               		.stabn	224,0,0,.Lscope4-.LFBB4
- 440               	.Lscope4:
- 441               		.stabs	"",36,0,0,.Lscope4-.LFBB4
- 442               		.stabd	78,0,0
- 443               		.stabs	"update_sinecircle:F(0,15)",36,0,272,update_sinecircle
- 444               	.global	update_sinecircle
- 445               		.type	update_sinecircle, @function
- 446               	update_sinecircle:
- 447               		.stabd	46,0,0
- 268:main.c        ****       }
- 269:main.c        ****     }
- 270:main.c        **** }
- 271:main.c        **** 
- 272:main.c        **** void update_sinecircle(){
- 448               		.stabn	68,0,272,.LM34-.LFBB5
- 449               	.LM34:
- 450               	.LFBB5:
- 451               	/* prologue: function */
- 452               	/* frame size = 0 */
- 453               	/* stack size = 0 */
- 454               	.L__stack_usage = 0
-GAS LISTING /tmp/ccwyvPfy.s 			page 14
+ 275:main.c        **** }
+ 276:main.c        **** 
+ 277:main.c        **** void update_sinecircle(){
+ 396               		.stabn	68,0,277,.LM30-.LFBB5
+ 397               	.LM30:
+ 398               	.LFBB5:
+ 399               	/* prologue: function */
+ 400               	/* frame size = 0 */
+ 401               	/* stack size = 0 */
+ 402               	.L__stack_usage = 0
+ 278:main.c        ****     if(counter==10) counter = 0;
+ 403               		.stabn	68,0,278,.LM31-.LFBB5
+ 404               	.LM31:
+ 405 014e 8091 0000 		lds r24,counter
+ 406 0152 8A30      		cpi r24,lo8(10)
+ 407 0154 01F4      		brne .L33
+ 408               		.stabn	68,0,278,.LM32-.LFBB5
+ 409               	.LM32:
+ 410 0156 1092 0000 		sts counter,__zero_reg__
+ 411 015a 00C0      		rjmp .L34
+ 412               	.L33:
+ 279:main.c        ****     else counter += 1; 
+ 413               		.stabn	68,0,279,.LM33-.LFBB5
+ 414               	.LM33:
+ 415 015c 8F5F      		subi r24,lo8(-(1))
+ 416 015e 8093 0000 		sts counter,r24
+ 417               	.L34:
+ 280:main.c        ****     draw_circle(counter, wallbrightness);
+ 418               		.stabn	68,0,280,.LM34-.LFBB5
+ 419               	.LM34:
+ 420 0162 6091 0000 		lds r22,wallbrightness
+ 421 0166 7091 0000 		lds r23,wallbrightness+1
+ 422 016a 8091 0000 		lds r24,counter
+ 423 016e 00C0      		rjmp draw_circle
+ 424               		.size	update_sinecircle, .-update_sinecircle
+ 425               	.Lscope5:
+ 426               		.stabs	"",36,0,0,.Lscope5-.LFBB5
+ 427               		.stabd	78,0,0
+ 428               		.stabs	"update_sine:F(0,15)",36,0,283,update_sine
+ 429               	.global	update_sine
+ 430               		.type	update_sine, @function
+ 431               	update_sine:
+ 432               		.stabd	46,0,0
+ 281:main.c        **** }//end update sinecircle
+ 282:main.c        **** 
+ 283:main.c        **** void update_sine(){    
+ 433               		.stabn	68,0,283,.LM35-.LFBB6
+ 434               	.LM35:
+ 435               	.LFBB6:
+ 436 0170 2F92      		push r2
+ 437 0172 3F92      		push r3
+ 438 0174 4F92      		push r4
+ 439 0176 5F92      		push r5
+ 440 0178 6F92      		push r6
+ 441 017a 7F92      		push r7
+ 442 017c 8F92      		push r8
+ 443 017e 9F92      		push r9
+GAS LISTING /tmp/ccP3TZct.s 			page 14
 
 
- 273:main.c        ****     if(radius==10)
- 455               		.stabn	68,0,273,.LM35-.LFBB5
- 456               	.LM35:
- 457 01a0 8091 0000 		lds r24,radius
- 458 01a4 8A30      		cpi r24,lo8(10)
- 459 01a6 01F4      		brne .L33
- 274:main.c        ****         radius = 0;
- 460               		.stabn	68,0,274,.LM36-.LFBB5
- 461               	.LM36:
- 462 01a8 1092 0000 		sts radius,__zero_reg__
- 463 01ac 00C0      		rjmp .L34
- 464               	.L33:
- 275:main.c        ****     else
- 276:main.c        ****         radius += 1; 
- 465               		.stabn	68,0,276,.LM37-.LFBB5
- 466               	.LM37:
- 467 01ae 8F5F      		subi r24,lo8(-(1))
- 468 01b0 8093 0000 		sts radius,r24
- 469               	.L34:
- 277:main.c        **** 
- 278:main.c        ****     draw_circle(radius, wallbrightness);
- 470               		.stabn	68,0,278,.LM38-.LFBB5
+ 444 0180 AF92      		push r10
+ 445 0182 BF92      		push r11
+ 446 0184 CF92      		push r12
+ 447 0186 DF92      		push r13
+ 448 0188 EF92      		push r14
+ 449 018a FF92      		push r15
+ 450 018c 0F93      		push r16
+ 451 018e 1F93      		push r17
+ 452 0190 CF93      		push r28
+ 453 0192 DF93      		push r29
+ 454               	/* prologue: function */
+ 455               	/* frame size = 0 */
+ 456               	/* stack size = 18 */
+ 457               	.L__stack_usage = 18
+ 284:main.c        ****     uint8_t i,j,mask;
+ 285:main.c        ****     for(i=0;i<8;i++)
+ 286:main.c        ****         for(j=0;j<8;j++)
+ 287:main.c        ****         {
+ 288:main.c        ****             mask = (counter+i)%28;
+ 458               		.stabn	68,0,288,.LM36-.LFBB6
+ 459               	.LM36:
+ 460 0194 A090 0000 		lds r10,counter
+ 461 0198 B12C      		mov r11,__zero_reg__
+ 289:main.c        ****             if( ((sinemap[j]>>(mask))&0x01) == 0x01)
+ 290:main.c        ****                 matrix[j][i] = wallbrightness;
+ 462               		.stabn	68,0,290,.LM37-.LFBB6
+ 463               	.LM37:
+ 464 019a 4090 0000 		lds r4,wallbrightness
+ 465 019e 5090 0000 		lds r5,wallbrightness+1
+ 466 01a2 C0E0      		ldi r28,lo8(matrix)
+ 467 01a4 D0E0      		ldi r29,hi8(matrix)
+ 468 01a6 212C      		mov r2,__zero_reg__
+ 469 01a8 312C      		mov r3,__zero_reg__
+ 283:main.c        **** void update_sine(){    
+ 470               		.stabn	68,0,283,.LM38-.LFBB6
  471               	.LM38:
- 472 01b4 6091 0000 		lds r22,wallbrightness
- 473 01b8 7091 0000 		lds r23,wallbrightness+1
- 474 01bc 8091 0000 		lds r24,radius
- 475 01c0 00C0      		rjmp draw_circle
- 476               		.size	update_sinecircle, .-update_sinecircle
- 477               	.Lscope5:
- 478               		.stabs	"",36,0,0,.Lscope5-.LFBB5
- 479               		.stabd	78,0,0
- 480               		.stabs	"update_sine:F(0,15)",36,0,281,update_sine
- 481               	.global	update_sine
- 482               		.type	update_sine, @function
- 483               	update_sine:
- 484               		.stabd	46,0,0
- 279:main.c        **** }//end update sinecircle
- 280:main.c        **** 
- 281:main.c        **** void update_sine(){    
- 485               		.stabn	68,0,281,.LM39-.LFBB6
- 486               	.LM39:
- 487               	.LFBB6:
- 488 01c2 2F92      		push r2
- 489 01c4 3F92      		push r3
- 490 01c6 4F92      		push r4
- 491 01c8 5F92      		push r5
- 492 01ca 6F92      		push r6
- 493 01cc 7F92      		push r7
- 494 01ce 8F92      		push r8
- 495 01d0 9F92      		push r9
- 496 01d2 AF92      		push r10
- 497 01d4 BF92      		push r11
- 498 01d6 CF92      		push r12
- 499 01d8 DF92      		push r13
- 500 01da EF92      		push r14
- 501 01dc FF92      		push r15
- 502 01de 0F93      		push r16
-GAS LISTING /tmp/ccwyvPfy.s 			page 15
+ 472 01aa 3501      		movw r6,r10
+ 288:main.c        ****             mask = (counter+i)%28;
+ 473               		.stabn	68,0,288,.LM39-.LFBB6
+ 474               	.LM39:
+ 475 01ac 5CE1      		ldi r21,lo8(28)
+ 476 01ae 852E      		mov r8,r21
+ 477 01b0 912C      		mov r9,__zero_reg__
+ 478 01b2 01E0      		ldi r16,lo8(1)
+ 479 01b4 10E0      		ldi r17,0
+ 480 01b6 20E0      		ldi r18,0
+ 481 01b8 30E0      		ldi r19,0
+ 482 01ba 00C0      		rjmp .L36
+ 483               	.L38:
+ 289:main.c        ****             if( ((sinemap[j]>>(mask))&0x01) == 0x01)
+ 484               		.stabn	68,0,289,.LM40-.LFBB6
+ 485               	.LM40:
+ 486 01bc FC01      		movw r30,r24
+ 487 01be 4191      		ld r20,Z+
+ 488 01c0 5191      		ld r21,Z+
+ 489 01c2 6191      		ld r22,Z+
+ 490 01c4 7191      		ld r23,Z+
+GAS LISTING /tmp/ccP3TZct.s 			page 15
 
 
- 503 01e0 1F93      		push r17
- 504 01e2 CF93      		push r28
- 505 01e4 DF93      		push r29
- 506               	/* prologue: function */
- 507               	/* frame size = 0 */
- 508               	/* stack size = 18 */
- 509               	.L__stack_usage = 18
- 282:main.c        ****     uint8_t i,j,mask;
- 283:main.c        ****     for(i=0;i<8;i++)
- 284:main.c        ****         for(j=0;j<8;j++)
- 285:main.c        ****         {
- 286:main.c        ****             mask = (sinecounter+i)%28;
- 510               		.stabn	68,0,286,.LM40-.LFBB6
- 511               	.LM40:
- 512 01e6 A090 0000 		lds r10,sinecounter
- 513 01ea B12C      		mov r11,__zero_reg__
- 287:main.c        ****             if( ((sinemap[j]>>(mask))&0x01) == 0x01)
- 288:main.c        ****                 matrix[j][i] = wallbrightness;
- 514               		.stabn	68,0,288,.LM41-.LFBB6
- 515               	.LM41:
- 516 01ec 4090 0000 		lds r4,wallbrightness
- 517 01f0 5090 0000 		lds r5,wallbrightness+1
- 518 01f4 C0E0      		ldi r28,lo8(matrix)
- 519 01f6 D0E0      		ldi r29,hi8(matrix)
- 520 01f8 212C      		mov r2,__zero_reg__
- 521 01fa 312C      		mov r3,__zero_reg__
- 281:main.c        **** void update_sine(){    
- 522               		.stabn	68,0,281,.LM42-.LFBB6
- 523               	.LM42:
- 524 01fc 3501      		movw r6,r10
- 286:main.c        ****             mask = (sinecounter+i)%28;
- 525               		.stabn	68,0,286,.LM43-.LFBB6
- 526               	.LM43:
- 527 01fe 7CE1      		ldi r23,lo8(28)
- 528 0200 872E      		mov r8,r23
- 529 0202 912C      		mov r9,__zero_reg__
- 530 0204 01E0      		ldi r16,lo8(1)
- 531 0206 10E0      		ldi r17,0
- 532 0208 20E0      		ldi r18,0
- 533 020a 30E0      		ldi r19,0
- 534 020c 00C0      		rjmp .L36
- 535               	.L38:
- 287:main.c        ****             if( ((sinemap[j]>>(mask))&0x01) == 0x01)
- 536               		.stabn	68,0,287,.LM44-.LFBB6
- 537               	.LM44:
- 538 020e FC01      		movw r30,r24
- 539 0210 4191      		ld r20,Z+
- 540 0212 5191      		ld r21,Z+
- 541 0214 6191      		ld r22,Z+
- 542 0216 7191      		ld r23,Z+
- 543 0218 CF01      		movw r24,r30
- 544 021a 4C21      		and r20,r12
- 545 021c 5D21      		and r21,r13
- 546 021e 6E21      		and r22,r14
- 547 0220 7F21      		and r23,r15
- 548 0222 452B      		or r20,r21
- 549 0224 462B      		or r20,r22
-GAS LISTING /tmp/ccwyvPfy.s 			page 16
+ 491 01c6 CF01      		movw r24,r30
+ 492 01c8 4C21      		and r20,r12
+ 493 01ca 5D21      		and r21,r13
+ 494 01cc 6E21      		and r22,r14
+ 495 01ce 7F21      		and r23,r15
+ 496 01d0 452B      		or r20,r21
+ 497 01d2 462B      		or r20,r22
+ 498 01d4 472B      		or r20,r23
+ 499 01d6 01F0      		breq .L37
+ 283:main.c        **** void update_sine(){    
+ 500               		.stabn	68,0,283,.LM41-.LFBB6
+ 501               	.LM41:
+ 502 01d8 AE01      		movw r20,r28
+ 503 01da 4A0F      		add r20,r26
+ 504 01dc 5B1F      		adc r21,r27
+ 505               		.stabn	68,0,290,.LM42-.LFBB6
+ 506               	.LM42:
+ 507 01de FA01      		movw r30,r20
+ 508 01e0 5182      		std Z+1,r5
+ 509 01e2 4082      		st Z,r4
+ 510               	.L37:
+ 511 01e4 5096      		adiw r26,16
+ 286:main.c        ****         for(j=0;j<8;j++)
+ 512               		.stabn	68,0,286,.LM43-.LFBB6
+ 513               	.LM43:
+ 514 01e6 A038      		cpi r26,-128
+ 515 01e8 B105      		cpc r27,__zero_reg__
+ 516 01ea 01F4      		brne .L38
+ 517 01ec FFEF      		ldi r31,-1
+ 518 01ee 2F1A      		sub r2,r31
+ 519 01f0 3F0A      		sbc r3,r31
+ 520 01f2 2296      		adiw r28,2
+ 285:main.c        ****     for(i=0;i<8;i++)
+ 521               		.stabn	68,0,285,.LM44-.LFBB6
+ 522               	.LM44:
+ 523 01f4 88E0      		ldi r24,8
+ 524 01f6 2816      		cp r2,r24
+ 525 01f8 3104      		cpc r3,__zero_reg__
+ 526 01fa 01F0      		breq .L39
+ 527               	.L36:
+ 283:main.c        **** void update_sine(){    
+ 528               		.stabn	68,0,283,.LM45-.LFBB6
+ 529               	.LM45:
+ 530 01fc C101      		movw r24,r2
+ 531 01fe 860D      		add r24,r6
+ 532 0200 971D      		adc r25,r7
+ 288:main.c        ****             mask = (counter+i)%28;
+ 533               		.stabn	68,0,288,.LM46-.LFBB6
+ 534               	.LM46:
+ 535 0202 B401      		movw r22,r8
+ 536 0204 00D0      		rcall __divmodhi4
+ 537 0206 6801      		movw r12,r16
+ 538 0208 7901      		movw r14,r18
+ 539 020a 00C0      		rjmp 2f
+ 540               		1:
+ 541 020c CC0C      		lsl r12
+ 542 020e DD1C      		rol r13
+GAS LISTING /tmp/ccP3TZct.s 			page 16
 
 
- 550 0226 472B      		or r20,r23
- 551 0228 01F0      		breq .L37
- 281:main.c        **** void update_sine(){    
- 552               		.stabn	68,0,281,.LM45-.LFBB6
- 553               	.LM45:
- 554 022a AE01      		movw r20,r28
- 555 022c 4A0F      		add r20,r26
- 556 022e 5B1F      		adc r21,r27
- 557               		.stabn	68,0,288,.LM46-.LFBB6
- 558               	.LM46:
- 559 0230 FA01      		movw r30,r20
- 560 0232 5182      		std Z+1,r5
- 561 0234 4082      		st Z,r4
- 562               	.L37:
- 563 0236 5096      		adiw r26,16
- 284:main.c        ****         for(j=0;j<8;j++)
- 564               		.stabn	68,0,284,.LM47-.LFBB6
- 565               	.LM47:
- 566 0238 A038      		cpi r26,-128
- 567 023a B105      		cpc r27,__zero_reg__
- 568 023c 01F4      		brne .L38
- 569 023e FFEF      		ldi r31,-1
- 570 0240 2F1A      		sub r2,r31
- 571 0242 3F0A      		sbc r3,r31
- 572 0244 2296      		adiw r28,2
- 283:main.c        ****     for(i=0;i<8;i++)
- 573               		.stabn	68,0,283,.LM48-.LFBB6
- 574               	.LM48:
- 575 0246 88E0      		ldi r24,8
- 576 0248 2816      		cp r2,r24
- 577 024a 3104      		cpc r3,__zero_reg__
- 578 024c 01F0      		breq .L39
- 579               	.L36:
- 281:main.c        **** void update_sine(){    
- 580               		.stabn	68,0,281,.LM49-.LFBB6
- 581               	.LM49:
- 582 024e C101      		movw r24,r2
- 583 0250 860D      		add r24,r6
- 584 0252 971D      		adc r25,r7
- 286:main.c        ****             mask = (sinecounter+i)%28;
- 585               		.stabn	68,0,286,.LM50-.LFBB6
- 586               	.LM50:
- 587 0254 B401      		movw r22,r8
- 588 0256 00D0      		rcall __divmodhi4
- 589 0258 6801      		movw r12,r16
- 590 025a 7901      		movw r14,r18
- 591 025c 00C0      		rjmp 2f
- 592               		1:
- 593 025e CC0C      		lsl r12
- 594 0260 DD1C      		rol r13
- 595 0262 EE1C      		rol r14
- 596 0264 FF1C      		rol r15
- 597               		2:
- 598 0266 8A95      		dec r24
- 599 0268 02F4      		brpl 1b
- 600 026a 80E0      		ldi r24,lo8(sinemap)
- 601 026c 90E0      		ldi r25,hi8(sinemap)
-GAS LISTING /tmp/ccwyvPfy.s 			page 17
+ 543 0210 EE1C      		rol r14
+ 544 0212 FF1C      		rol r15
+ 545               		2:
+ 546 0214 8A95      		dec r24
+ 547 0216 02F4      		brpl 1b
+ 548 0218 80E0      		ldi r24,lo8(sinemap)
+ 549 021a 90E0      		ldi r25,hi8(sinemap)
+ 550 021c A0E0      		ldi r26,0
+ 551 021e B0E0      		ldi r27,0
+ 552 0220 00C0      		rjmp .L38
+ 553               	.L39:
+ 291:main.c        ****             //if(sinemap[j][(i+sinecounter)%28] == 1)
+ 292:main.c        ****             //    matrix[j][i] = wallbrightness;
+ 293:main.c        ****         }
+ 294:main.c        ****     counter = (counter+1)%28;  
+ 554               		.stabn	68,0,294,.LM47-.LFBB6
+ 555               	.LM47:
+ 556 0222 C501      		movw r24,r10
+ 557 0224 0196      		adiw r24,1
+ 558 0226 6CE1      		ldi r22,lo8(28)
+ 559 0228 70E0      		ldi r23,0
+ 560 022a 00D0      		rcall __divmodhi4
+ 561 022c 8093 0000 		sts counter,r24
+ 562               	/* epilogue start */
+ 295:main.c        **** }
+ 563               		.stabn	68,0,295,.LM48-.LFBB6
+ 564               	.LM48:
+ 565 0230 DF91      		pop r29
+ 566 0232 CF91      		pop r28
+ 567 0234 1F91      		pop r17
+ 568 0236 0F91      		pop r16
+ 569 0238 FF90      		pop r15
+ 570 023a EF90      		pop r14
+ 571 023c DF90      		pop r13
+ 572 023e CF90      		pop r12
+ 573 0240 BF90      		pop r11
+ 574 0242 AF90      		pop r10
+ 575 0244 9F90      		pop r9
+ 576 0246 8F90      		pop r8
+ 577 0248 7F90      		pop r7
+ 578 024a 6F90      		pop r6
+ 579 024c 5F90      		pop r5
+ 580 024e 4F90      		pop r4
+ 581 0250 3F90      		pop r3
+ 582 0252 2F90      		pop r2
+ 583 0254 0895      		ret
+ 584               		.size	update_sine, .-update_sine
+ 585               	.Lscope6:
+ 586               		.stabs	"",36,0,0,.Lscope6-.LFBB6
+ 587               		.stabd	78,0,0
+ 588               		.stabs	"update_smiley:F(0,15)",36,0,298,update_smiley
+ 589               	.global	update_smiley
+ 590               		.type	update_smiley, @function
+ 591               	update_smiley:
+ 592               		.stabd	46,0,0
+ 296:main.c        **** 
+ 297:main.c        **** 
+GAS LISTING /tmp/ccP3TZct.s 			page 17
 
 
- 602 026e A0E0      		ldi r26,0
- 603 0270 B0E0      		ldi r27,0
- 604 0272 00C0      		rjmp .L38
- 605               	.L39:
- 289:main.c        ****             //if(sinemap[j][(i+sinecounter)%28] == 1)
- 290:main.c        ****             //    matrix[j][i] = wallbrightness;
- 291:main.c        ****         }
- 292:main.c        ****     sinecounter = (sinecounter+1)%28;  
- 606               		.stabn	68,0,292,.LM51-.LFBB6
- 607               	.LM51:
- 608 0274 C501      		movw r24,r10
- 609 0276 0196      		adiw r24,1
- 610 0278 6CE1      		ldi r22,lo8(28)
- 611 027a 70E0      		ldi r23,0
- 612 027c 00D0      		rcall __divmodhi4
- 613 027e 8093 0000 		sts sinecounter,r24
- 614               	/* epilogue start */
- 293:main.c        **** }
- 615               		.stabn	68,0,293,.LM52-.LFBB6
- 616               	.LM52:
- 617 0282 DF91      		pop r29
- 618 0284 CF91      		pop r28
- 619 0286 1F91      		pop r17
- 620 0288 0F91      		pop r16
- 621 028a FF90      		pop r15
- 622 028c EF90      		pop r14
- 623 028e DF90      		pop r13
- 624 0290 CF90      		pop r12
- 625 0292 BF90      		pop r11
- 626 0294 AF90      		pop r10
- 627 0296 9F90      		pop r9
- 628 0298 8F90      		pop r8
- 629 029a 7F90      		pop r7
- 630 029c 6F90      		pop r6
- 631 029e 5F90      		pop r5
- 632 02a0 4F90      		pop r4
- 633 02a2 3F90      		pop r3
- 634 02a4 2F90      		pop r2
- 635 02a6 0895      		ret
- 636               		.size	update_sine, .-update_sine
- 637               	.Lscope6:
- 638               		.stabs	"",36,0,0,.Lscope6-.LFBB6
- 639               		.stabd	78,0,0
- 640               		.stabs	"update_smiley:F(0,15)",36,0,296,update_smiley
- 641               	.global	update_smiley
- 642               		.type	update_smiley, @function
- 643               	update_smiley:
- 644               		.stabd	46,0,0
- 294:main.c        **** 
- 295:main.c        **** 
- 296:main.c        **** void update_smiley(){
- 645               		.stabn	68,0,296,.LM53-.LFBB7
- 646               	.LM53:
- 647               	.LFBB7:
- 648               	/* prologue: function */
- 649               	/* frame size = 0 */
- 650               	/* stack size = 0 */
-GAS LISTING /tmp/ccwyvPfy.s 			page 18
+ 298:main.c        **** void update_smiley(){
+ 593               		.stabn	68,0,298,.LM49-.LFBB7
+ 594               	.LM49:
+ 595               	.LFBB7:
+ 596               	/* prologue: function */
+ 597               	/* frame size = 0 */
+ 598               	/* stack size = 0 */
+ 599               	.L__stack_usage = 0
+ 299:main.c        ****     copy_image(smileymap, wallbrightness);
+ 600               		.stabn	68,0,299,.LM50-.LFBB7
+ 601               	.LM50:
+ 602 0256 6091 0000 		lds r22,wallbrightness
+ 603 025a 7091 0000 		lds r23,wallbrightness+1
+ 604 025e 80E0      		ldi r24,lo8(smileymap)
+ 605 0260 90E0      		ldi r25,hi8(smileymap)
+ 606 0262 00C0      		rjmp copy_image
+ 607               		.size	update_smiley, .-update_smiley
+ 608               	.Lscope7:
+ 609               		.stabs	"",36,0,0,.Lscope7-.LFBB7
+ 610               		.stabd	78,0,0
+ 611               		.stabs	"update_tree:F(0,15)",36,0,302,update_tree
+ 612               	.global	update_tree
+ 613               		.type	update_tree, @function
+ 614               	update_tree:
+ 615               		.stabd	46,0,0
+ 300:main.c        **** }
+ 301:main.c        **** 
+ 302:main.c        **** void update_tree(){
+ 616               		.stabn	68,0,302,.LM51-.LFBB8
+ 617               	.LM51:
+ 618               	.LFBB8:
+ 619               	/* prologue: function */
+ 620               	/* frame size = 0 */
+ 621               	/* stack size = 0 */
+ 622               	.L__stack_usage = 0
+ 303:main.c        ****     copy_image(treemap, 0x00ff); //leaves
+ 623               		.stabn	68,0,303,.LM52-.LFBB8
+ 624               	.LM52:
+ 625 0264 6FEF      		ldi r22,lo8(-1)
+ 626 0266 70E0      		ldi r23,0
+ 627 0268 80E0      		ldi r24,lo8(treemap)
+ 628 026a 90E0      		ldi r25,hi8(treemap)
+ 629 026c 00D0      		rcall copy_image
+ 304:main.c        ****     copy_image(treemap[1], 0x1010); //trunk
+ 630               		.stabn	68,0,304,.LM53-.LFBB8
+ 631               	.LM53:
+ 632 026e 60E1      		ldi r22,lo8(16)
+ 633 0270 70E1      		ldi r23,lo8(16)
+ 634 0272 80E0      		ldi r24,lo8(treemap+8)
+ 635 0274 90E0      		ldi r25,hi8(treemap+8)
+ 636 0276 00D0      		rcall copy_image
+ 305:main.c        ****     //copy_image(treemap[2], 0xaa10); //bland apples
+ 306:main.c        ****     copy_image(treemap[2], wallbrightness);
+ 637               		.stabn	68,0,306,.LM54-.LFBB8
+ 638               	.LM54:
+ 639 0278 6091 0000 		lds r22,wallbrightness
+ 640 027c 7091 0000 		lds r23,wallbrightness+1
+GAS LISTING /tmp/ccP3TZct.s 			page 18
 
 
- 651               	.L__stack_usage = 0
- 297:main.c        ****     copy_image(smileymap, wallbrightness);
- 652               		.stabn	68,0,297,.LM54-.LFBB7
- 653               	.LM54:
- 654 02a8 6091 0000 		lds r22,wallbrightness
- 655 02ac 7091 0000 		lds r23,wallbrightness+1
- 656 02b0 80E0      		ldi r24,lo8(smileymap)
- 657 02b2 90E0      		ldi r25,hi8(smileymap)
- 658 02b4 00C0      		rjmp copy_image
- 659               		.size	update_smiley, .-update_smiley
- 660               	.Lscope7:
- 661               		.stabs	"",36,0,0,.Lscope7-.LFBB7
- 662               		.stabd	78,0,0
- 663               		.stabs	"update_bouncer:F(0,15)",36,0,300,update_bouncer
- 664               	.global	update_bouncer
- 665               		.type	update_bouncer, @function
- 666               	update_bouncer:
- 667               		.stabd	46,0,0
- 298:main.c        **** }
- 299:main.c        **** 
- 300:main.c        **** void update_bouncer(){
- 668               		.stabn	68,0,300,.LM55-.LFBB8
- 669               	.LM55:
- 670               	.LFBB8:
- 671               	/* prologue: function */
- 672               	/* frame size = 0 */
- 673               	/* stack size = 0 */
- 674               	.L__stack_usage = 0
- 301:main.c        ****     if(dirx == 1)
- 675               		.stabn	68,0,301,.LM56-.LFBB8
- 676               	.LM56:
- 677 02b6 9091 0000 		lds r25,dirx
- 678 02ba 8091 0000 		lds r24,posx
- 679 02be 9130      		cpi r25,lo8(1)
- 680 02c0 01F4      		brne .L46
- 302:main.c        ****       {
- 303:main.c        ****         if(posx == 7)
- 681               		.stabn	68,0,303,.LM57-.LFBB8
- 682               	.LM57:
- 683 02c2 8730      		cpi r24,lo8(7)
- 684 02c4 01F4      		brne .L47
- 304:main.c        ****         {
- 305:main.c        ****           dirx = 0;
- 685               		.stabn	68,0,305,.LM58-.LFBB8
- 686               	.LM58:
- 687 02c6 1092 0000 		sts dirx,__zero_reg__
- 306:main.c        ****           posx -= 2;
- 688               		.stabn	68,0,306,.LM59-.LFBB8
- 689               	.LM59:
- 690 02ca 85E0      		ldi r24,lo8(5)
- 691 02cc 00C0      		rjmp .L54
- 692               	.L47:
- 307:main.c        ****         }else posx += 1;
- 693               		.stabn	68,0,307,.LM60-.LFBB8
- 694               	.LM60:
- 695 02ce 8F5F      		subi r24,lo8(-(1))
- 696 02d0 00C0      		rjmp .L54
-GAS LISTING /tmp/ccwyvPfy.s 			page 19
+ 641 0280 80E0      		ldi r24,lo8(treemap+16)
+ 642 0282 90E0      		ldi r25,hi8(treemap+16)
+ 643 0284 00C0      		rjmp copy_image
+ 644               		.size	update_tree, .-update_tree
+ 645               	.Lscope8:
+ 646               		.stabs	"",36,0,0,.Lscope8-.LFBB8
+ 647               		.stabd	78,0,0
+ 648               		.stabs	"update_bouncer:F(0,15)",36,0,309,update_bouncer
+ 649               	.global	update_bouncer
+ 650               		.type	update_bouncer, @function
+ 651               	update_bouncer:
+ 652               		.stabd	46,0,0
+ 307:main.c        **** }
+ 308:main.c        **** 
+ 309:main.c        **** void update_bouncer(){
+ 653               		.stabn	68,0,309,.LM55-.LFBB9
+ 654               	.LM55:
+ 655               	.LFBB9:
+ 656               	/* prologue: function */
+ 657               	/* frame size = 0 */
+ 658               	/* stack size = 0 */
+ 659               	.L__stack_usage = 0
+ 310:main.c        ****     if(dirx == 1)
+ 660               		.stabn	68,0,310,.LM56-.LFBB9
+ 661               	.LM56:
+ 662 0286 9091 0000 		lds r25,dirx
+ 663 028a 8091 0000 		lds r24,posx
+ 664 028e 9130      		cpi r25,lo8(1)
+ 665 0290 01F4      		brne .L47
+ 311:main.c        ****       {
+ 312:main.c        ****         if(posx == 7)
+ 666               		.stabn	68,0,312,.LM57-.LFBB9
+ 667               	.LM57:
+ 668 0292 8730      		cpi r24,lo8(7)
+ 669 0294 01F4      		brne .L48
+ 313:main.c        ****         {
+ 314:main.c        ****           dirx = 0;
+ 670               		.stabn	68,0,314,.LM58-.LFBB9
+ 671               	.LM58:
+ 672 0296 1092 0000 		sts dirx,__zero_reg__
+ 315:main.c        ****           posx -= 2;
+ 673               		.stabn	68,0,315,.LM59-.LFBB9
+ 674               	.LM59:
+ 675 029a 85E0      		ldi r24,lo8(5)
+ 676 029c 00C0      		rjmp .L55
+ 677               	.L48:
+ 316:main.c        ****         }else posx += 1;
+ 678               		.stabn	68,0,316,.LM60-.LFBB9
+ 679               	.LM60:
+ 680 029e 8F5F      		subi r24,lo8(-(1))
+ 681 02a0 00C0      		rjmp .L55
+ 682               	.L47:
+ 317:main.c        ****       }
+ 318:main.c        ****       else{
+ 319:main.c        ****         if(posx == 0)
+ 683               		.stabn	68,0,319,.LM61-.LFBB9
+ 684               	.LM61:
+GAS LISTING /tmp/ccP3TZct.s 			page 19
 
 
- 697               	.L46:
- 308:main.c        ****       }
- 309:main.c        ****       else{
- 310:main.c        ****         if(posx == 0)
- 698               		.stabn	68,0,310,.LM61-.LFBB8
- 699               	.LM61:
- 700 02d2 8111      		cpse r24,__zero_reg__
- 701 02d4 00C0      		rjmp .L49
- 311:main.c        ****         {
- 312:main.c        ****           dirx = 1;
- 702               		.stabn	68,0,312,.LM62-.LFBB8
- 703               	.LM62:
- 704 02d6 81E0      		ldi r24,lo8(1)
- 705 02d8 8093 0000 		sts dirx,r24
- 313:main.c        ****           posx += 2;
- 706               		.stabn	68,0,313,.LM63-.LFBB8
- 707               	.LM63:
- 708 02dc 82E0      		ldi r24,lo8(2)
- 709 02de 00C0      		rjmp .L54
- 710               	.L49:
- 314:main.c        ****         }
- 315:main.c        ****         else posx -= 1;
- 711               		.stabn	68,0,315,.LM64-.LFBB8
- 712               	.LM64:
- 713 02e0 8150      		subi r24,lo8(-(-1))
- 714               	.L54:
- 715 02e2 8093 0000 		sts posx,r24
- 316:main.c        ****       }
- 317:main.c        **** 
- 318:main.c        ****       if(diry == 1)
- 716               		.stabn	68,0,318,.LM65-.LFBB8
- 717               	.LM65:
- 718 02e6 9091 0000 		lds r25,diry
- 719 02ea 8091 0000 		lds r24,posy
- 720 02ee 9130      		cpi r25,lo8(1)
- 721 02f0 01F4      		brne .L50
- 319:main.c        ****       {
- 320:main.c        ****         if(posy == 7)
- 722               		.stabn	68,0,320,.LM66-.LFBB8
- 723               	.LM66:
- 724 02f2 8730      		cpi r24,lo8(7)
- 725 02f4 01F4      		brne .L51
- 321:main.c        ****         {
- 322:main.c        ****           diry = 0;
- 726               		.stabn	68,0,322,.LM67-.LFBB8
- 727               	.LM67:
- 728 02f6 1092 0000 		sts diry,__zero_reg__
- 323:main.c        ****           posy -= 1;
- 729               		.stabn	68,0,323,.LM68-.LFBB8
- 730               	.LM68:
- 731 02fa 86E0      		ldi r24,lo8(6)
- 732 02fc 00C0      		rjmp .L55
- 733               	.L51:
- 324:main.c        ****         }else posy += 1;
- 734               		.stabn	68,0,324,.LM69-.LFBB8
- 735               	.LM69:
- 736 02fe 8F5F      		subi r24,lo8(-(1))
-GAS LISTING /tmp/ccwyvPfy.s 			page 20
-
-
- 737 0300 00C0      		rjmp .L55
- 738               	.L50:
+ 685 02a2 8111      		cpse r24,__zero_reg__
+ 686 02a4 00C0      		rjmp .L50
+ 320:main.c        ****         {
+ 321:main.c        ****           dirx = 1;
+ 687               		.stabn	68,0,321,.LM62-.LFBB9
+ 688               	.LM62:
+ 689 02a6 81E0      		ldi r24,lo8(1)
+ 690 02a8 8093 0000 		sts dirx,r24
+ 322:main.c        ****           posx += 2;
+ 691               		.stabn	68,0,322,.LM63-.LFBB9
+ 692               	.LM63:
+ 693 02ac 82E0      		ldi r24,lo8(2)
+ 694 02ae 00C0      		rjmp .L55
+ 695               	.L50:
+ 323:main.c        ****         }
+ 324:main.c        ****         else posx -= 1;
+ 696               		.stabn	68,0,324,.LM64-.LFBB9
+ 697               	.LM64:
+ 698 02b0 8150      		subi r24,lo8(-(-1))
+ 699               	.L55:
+ 700 02b2 8093 0000 		sts posx,r24
  325:main.c        ****       }
- 326:main.c        ****       else{
- 327:main.c        ****         if(posy == 0)
- 739               		.stabn	68,0,327,.LM70-.LFBB8
- 740               	.LM70:
- 741 0302 8111      		cpse r24,__zero_reg__
- 742 0304 00C0      		rjmp .L53
- 328:main.c        ****         {
- 329:main.c        ****           diry = 1;
- 743               		.stabn	68,0,329,.LM71-.LFBB8
- 744               	.LM71:
- 745 0306 81E0      		ldi r24,lo8(1)
- 746 0308 8093 0000 		sts diry,r24
- 747 030c 00C0      		rjmp .L55
- 748               	.L53:
- 330:main.c        ****           posy += 1;
- 331:main.c        ****         }
- 332:main.c        ****         else posy -= 1;
- 749               		.stabn	68,0,332,.LM72-.LFBB8
- 750               	.LM72:
- 751 030e 8150      		subi r24,lo8(-(-1))
- 752               	.L55:
- 753 0310 8093 0000 		sts posy,r24
- 333:main.c        ****       }
- 334:main.c        **** 
- 335:main.c        ****       draw_outline();
- 754               		.stabn	68,0,335,.LM73-.LFBB8
- 755               	.LM73:
- 756 0314 00D0      		rcall draw_outline
- 336:main.c        ****       matrix[posy][posx] = 0x00ff;
- 757               		.stabn	68,0,336,.LM74-.LFBB8
- 758               	.LM74:
- 759 0316 8091 0000 		lds r24,posx
- 760 031a E091 0000 		lds r30,posy
- 761 031e 98E0      		ldi r25,lo8(8)
- 762 0320 E99F      		mul r30,r25
- 763 0322 F001      		movw r30,r0
- 764 0324 1124      		clr __zero_reg__
- 765 0326 E80F      		add r30,r24
- 766 0328 F11D      		adc r31,__zero_reg__
- 767 032a EE0F      		lsl r30
- 768 032c FF1F      		rol r31
- 769 032e E050      		subi r30,lo8(-(matrix))
- 770 0330 F040      		sbci r31,hi8(-(matrix))
- 771 0332 8FEF      		ldi r24,lo8(-1)
- 772 0334 90E0      		ldi r25,0
- 773 0336 9183      		std Z+1,r25
- 774 0338 8083      		st Z,r24
- 775 033a 0895      		ret
- 776               		.size	update_bouncer, .-update_bouncer
- 777               	.Lscope8:
- 778               		.stabs	"",36,0,0,.Lscope8-.LFBB8
- 779               		.stabd	78,0,0
- 780               		.stabs	"configure_sine:F(0,15)",36,0,339,configure_sine
- 781               	.global	configure_sine
-GAS LISTING /tmp/ccwyvPfy.s 			page 21
+ 326:main.c        **** 
+ 327:main.c        ****       if(diry == 1)
+ 701               		.stabn	68,0,327,.LM65-.LFBB9
+ 702               	.LM65:
+ 703 02b6 9091 0000 		lds r25,diry
+ 704 02ba 8091 0000 		lds r24,posy
+ 705 02be 9130      		cpi r25,lo8(1)
+ 706 02c0 01F4      		brne .L51
+ 328:main.c        ****       {
+ 329:main.c        ****         if(posy == 7)
+ 707               		.stabn	68,0,329,.LM66-.LFBB9
+ 708               	.LM66:
+ 709 02c2 8730      		cpi r24,lo8(7)
+ 710 02c4 01F4      		brne .L52
+ 330:main.c        ****         {
+ 331:main.c        ****           diry = 0;
+ 711               		.stabn	68,0,331,.LM67-.LFBB9
+ 712               	.LM67:
+ 713 02c6 1092 0000 		sts diry,__zero_reg__
+ 332:main.c        ****           posy -= 1;
+ 714               		.stabn	68,0,332,.LM68-.LFBB9
+ 715               	.LM68:
+ 716 02ca 86E0      		ldi r24,lo8(6)
+ 717 02cc 00C0      		rjmp .L56
+ 718               	.L52:
+ 333:main.c        ****         }else posy += 1;
+ 719               		.stabn	68,0,333,.LM69-.LFBB9
+ 720               	.LM69:
+ 721 02ce 8F5F      		subi r24,lo8(-(1))
+ 722 02d0 00C0      		rjmp .L56
+ 723               	.L51:
+ 334:main.c        ****       }
+ 335:main.c        ****       else{
+ 336:main.c        ****         if(posy == 0)
+ 724               		.stabn	68,0,336,.LM70-.LFBB9
+GAS LISTING /tmp/ccP3TZct.s 			page 20
 
 
- 782               		.type	configure_sine, @function
- 783               	configure_sine:
- 784               		.stabd	46,0,0
- 337:main.c        **** }
- 338:main.c        **** 
- 339:main.c        **** void configure_sine(){
- 785               		.stabn	68,0,339,.LM75-.LFBB9
- 786               	.LM75:
- 787               	.LFBB9:
- 788               	/* prologue: function */
- 789               	/* frame size = 0 */
- 790               	/* stack size = 0 */
- 791               	.L__stack_usage = 0
- 340:main.c        ****     cli();
- 792               		.stabn	68,0,340,.LM76-.LFBB9
- 793               	.LM76:
- 794               	/* #APP */
- 795               	 ;  340 "main.c" 1
- 796 033c F894      		cli
- 797               	 ;  0 "" 2
- 341:main.c        ****     OCR1A = 0x02ff;
- 798               		.stabn	68,0,341,.LM77-.LFBB9
- 799               	.LM77:
- 800               	/* #NOAPP */
- 801 033e 8FEF      		ldi r24,lo8(-1)
- 802 0340 92E0      		ldi r25,lo8(2)
- 803 0342 9093 8900 		sts 136+1,r25
- 804 0346 8093 8800 		sts 136,r24
- 342:main.c        ****     TCNT1 = 0;
- 805               		.stabn	68,0,342,.LM78-.LFBB9
- 806               	.LM78:
- 807 034a 1092 8500 		sts 132+1,__zero_reg__
- 808 034e 1092 8400 		sts 132,__zero_reg__
- 343:main.c        ****     sei();
- 809               		.stabn	68,0,343,.LM79-.LFBB9
- 810               	.LM79:
- 811               	/* #APP */
- 812               	 ;  343 "main.c" 1
- 813 0352 7894      		sei
- 814               	 ;  0 "" 2
- 344:main.c        ****     maxtimer = 0x0200;
- 815               		.stabn	68,0,344,.LM80-.LFBB9
- 816               	.LM80:
- 817               	/* #NOAPP */
- 818 0354 80E0      		ldi r24,0
- 819 0356 92E0      		ldi r25,lo8(2)
- 820 0358 9093 0000 		sts maxtimer+1,r25
- 821 035c 8093 0000 		sts maxtimer,r24
- 822 0360 0895      		ret
- 823               		.size	configure_sine, .-configure_sine
- 824               	.Lscope9:
- 825               		.stabs	"",36,0,0,.Lscope9-.LFBB9
- 826               		.stabd	78,0,0
- 827               		.stabs	"configure_sinecircle:F(0,15)",36,0,347,configure_sinecircle
- 828               	.global	configure_sinecircle
- 829               		.type	configure_sinecircle, @function
- 830               	configure_sinecircle:
-GAS LISTING /tmp/ccwyvPfy.s 			page 22
+ 725               	.LM70:
+ 726 02d2 8111      		cpse r24,__zero_reg__
+ 727 02d4 00C0      		rjmp .L54
+ 337:main.c        ****         {
+ 338:main.c        ****           diry = 1;
+ 728               		.stabn	68,0,338,.LM71-.LFBB9
+ 729               	.LM71:
+ 730 02d6 81E0      		ldi r24,lo8(1)
+ 731 02d8 8093 0000 		sts diry,r24
+ 732 02dc 00C0      		rjmp .L56
+ 733               	.L54:
+ 339:main.c        ****           posy += 1;
+ 340:main.c        ****         }
+ 341:main.c        ****         else posy -= 1;
+ 734               		.stabn	68,0,341,.LM72-.LFBB9
+ 735               	.LM72:
+ 736 02de 8150      		subi r24,lo8(-(-1))
+ 737               	.L56:
+ 738 02e0 8093 0000 		sts posy,r24
+ 342:main.c        ****       }
+ 343:main.c        **** 
+ 344:main.c        ****       draw_outline();
+ 739               		.stabn	68,0,344,.LM73-.LFBB9
+ 740               	.LM73:
+ 741 02e4 00D0      		rcall draw_outline
+ 345:main.c        ****       matrix[posy][posx] = 0x00ff;
+ 742               		.stabn	68,0,345,.LM74-.LFBB9
+ 743               	.LM74:
+ 744 02e6 8091 0000 		lds r24,posx
+ 745 02ea E091 0000 		lds r30,posy
+ 746 02ee 98E0      		ldi r25,lo8(8)
+ 747 02f0 E99F      		mul r30,r25
+ 748 02f2 F001      		movw r30,r0
+ 749 02f4 1124      		clr __zero_reg__
+ 750 02f6 E80F      		add r30,r24
+ 751 02f8 F11D      		adc r31,__zero_reg__
+ 752 02fa EE0F      		lsl r30
+ 753 02fc FF1F      		rol r31
+ 754 02fe E050      		subi r30,lo8(-(matrix))
+ 755 0300 F040      		sbci r31,hi8(-(matrix))
+ 756 0302 8FEF      		ldi r24,lo8(-1)
+ 757 0304 90E0      		ldi r25,0
+ 758 0306 9183      		std Z+1,r25
+ 759 0308 8083      		st Z,r24
+ 760 030a 0895      		ret
+ 761               		.size	update_bouncer, .-update_bouncer
+ 762               	.Lscope9:
+ 763               		.stabs	"",36,0,0,.Lscope9-.LFBB9
+ 764               		.stabd	78,0,0
+ 765               		.stabs	"configure_sine:F(0,15)",36,0,348,configure_sine
+ 766               	.global	configure_sine
+ 767               		.type	configure_sine, @function
+ 768               	configure_sine:
+ 769               		.stabd	46,0,0
+ 346:main.c        **** }
+ 347:main.c        **** 
+ 348:main.c        **** void configure_sine(){
+GAS LISTING /tmp/ccP3TZct.s 			page 21
 
 
- 831               		.stabd	46,0,0
- 345:main.c        **** }
- 346:main.c        **** 
- 347:main.c        **** void configure_sinecircle(){
- 832               		.stabn	68,0,347,.LM81-.LFBB10
- 833               	.LM81:
- 834               	.LFBB10:
- 835               	/* prologue: function */
- 836               	/* frame size = 0 */
- 837               	/* stack size = 0 */
- 838               	.L__stack_usage = 0
- 348:main.c        ****     cli();
- 839               		.stabn	68,0,348,.LM82-.LFBB10
- 840               	.LM82:
- 841               	/* #APP */
- 842               	 ;  348 "main.c" 1
- 843 0362 F894      		cli
- 844               	 ;  0 "" 2
- 349:main.c        ****     OCR1A = 0x1222;
- 845               		.stabn	68,0,349,.LM83-.LFBB10
- 846               	.LM83:
- 847               	/* #NOAPP */
- 848 0364 82E2      		ldi r24,lo8(34)
- 849 0366 92E1      		ldi r25,lo8(18)
- 850 0368 9093 8900 		sts 136+1,r25
- 851 036c 8093 8800 		sts 136,r24
- 350:main.c        ****     TCNT1 = 0;
- 852               		.stabn	68,0,350,.LM84-.LFBB10
- 853               	.LM84:
- 854 0370 1092 8500 		sts 132+1,__zero_reg__
- 855 0374 1092 8400 		sts 132,__zero_reg__
- 351:main.c        ****     sei();
- 856               		.stabn	68,0,351,.LM85-.LFBB10
- 857               	.LM85:
- 858               	/* #APP */
- 859               	 ;  351 "main.c" 1
- 860 0378 7894      		sei
- 861               	 ;  0 "" 2
- 352:main.c        ****     maxtimer = 0x00ff;
- 862               		.stabn	68,0,352,.LM86-.LFBB10
- 863               	.LM86:
- 864               	/* #NOAPP */
- 865 037a 8FEF      		ldi r24,lo8(-1)
- 866 037c 90E0      		ldi r25,0
- 867 037e 9093 0000 		sts maxtimer+1,r25
- 868 0382 8093 0000 		sts maxtimer,r24
- 869 0386 0895      		ret
- 870               		.size	configure_sinecircle, .-configure_sinecircle
- 871               	.Lscope10:
- 872               		.stabs	"",36,0,0,.Lscope10-.LFBB10
- 873               		.stabd	78,0,0
- 874               		.stabs	"configure_timer0:F(0,15)",36,0,355,configure_timer0
- 875               	.global	configure_timer0
- 876               		.type	configure_timer0, @function
- 877               	configure_timer0:
- 878               		.stabd	46,0,0
- 353:main.c        **** }
-GAS LISTING /tmp/ccwyvPfy.s 			page 23
+ 770               		.stabn	68,0,348,.LM75-.LFBB10
+ 771               	.LM75:
+ 772               	.LFBB10:
+ 773               	/* prologue: function */
+ 774               	/* frame size = 0 */
+ 775               	/* stack size = 0 */
+ 776               	.L__stack_usage = 0
+ 349:main.c        ****     cli();
+ 777               		.stabn	68,0,349,.LM76-.LFBB10
+ 778               	.LM76:
+ 779               	/* #APP */
+ 780               	 ;  349 "main.c" 1
+ 781 030c F894      		cli
+ 782               	 ;  0 "" 2
+ 350:main.c        ****     OCR1A = 0x02ff;
+ 783               		.stabn	68,0,350,.LM77-.LFBB10
+ 784               	.LM77:
+ 785               	/* #NOAPP */
+ 786 030e 8FEF      		ldi r24,lo8(-1)
+ 787 0310 92E0      		ldi r25,lo8(2)
+ 788 0312 9093 8900 		sts 136+1,r25
+ 789 0316 8093 8800 		sts 136,r24
+ 351:main.c        ****     TCNT1 = 0;
+ 790               		.stabn	68,0,351,.LM78-.LFBB10
+ 791               	.LM78:
+ 792 031a 1092 8500 		sts 132+1,__zero_reg__
+ 793 031e 1092 8400 		sts 132,__zero_reg__
+ 352:main.c        ****     sei();
+ 794               		.stabn	68,0,352,.LM79-.LFBB10
+ 795               	.LM79:
+ 796               	/* #APP */
+ 797               	 ;  352 "main.c" 1
+ 798 0322 7894      		sei
+ 799               	 ;  0 "" 2
+ 353:main.c        ****     maxtimer = 0x0200;
+ 800               		.stabn	68,0,353,.LM80-.LFBB10
+ 801               	.LM80:
+ 802               	/* #NOAPP */
+ 803 0324 80E0      		ldi r24,0
+ 804 0326 92E0      		ldi r25,lo8(2)
+ 805 0328 9093 0000 		sts maxtimer+1,r25
+ 806 032c 8093 0000 		sts maxtimer,r24
+ 807 0330 0895      		ret
+ 808               		.size	configure_sine, .-configure_sine
+ 809               	.Lscope10:
+ 810               		.stabs	"",36,0,0,.Lscope10-.LFBB10
+ 811               		.stabd	78,0,0
+ 812               		.stabs	"configure_sinecircle:F(0,15)",36,0,356,configure_sinecircle
+ 813               	.global	configure_sinecircle
+ 814               		.type	configure_sinecircle, @function
+ 815               	configure_sinecircle:
+ 816               		.stabd	46,0,0
+ 354:main.c        **** }
+ 355:main.c        **** 
+ 356:main.c        **** void configure_sinecircle(){
+ 817               		.stabn	68,0,356,.LM81-.LFBB11
+ 818               	.LM81:
+GAS LISTING /tmp/ccP3TZct.s 			page 22
 
 
- 354:main.c        **** 
- 355:main.c        **** void configure_timer0()
- 356:main.c        **** {
- 879               		.stabn	68,0,356,.LM87-.LFBB11
- 880               	.LM87:
- 881               	.LFBB11:
- 882               	/* prologue: function */
- 883               	/* frame size = 0 */
- 884               	/* stack size = 0 */
- 885               	.L__stack_usage = 0
- 357:main.c        ****   cli();
- 886               		.stabn	68,0,357,.LM88-.LFBB11
- 887               	.LM88:
- 888               	/* #APP */
- 889               	 ;  357 "main.c" 1
- 890 0388 F894      		cli
- 891               	 ;  0 "" 2
- 358:main.c        ****   TCCR0A = 0;
- 892               		.stabn	68,0,358,.LM89-.LFBB11
- 893               	.LM89:
- 894               	/* #NOAPP */
- 895 038a 14BC      		out 0x24,__zero_reg__
- 359:main.c        ****   TCCR0B = 0;
- 896               		.stabn	68,0,359,.LM90-.LFBB11
- 897               	.LM90:
- 898 038c 15BC      		out 0x25,__zero_reg__
- 360:main.c        ****   TIMSK0 = 0; //Clear registers
- 899               		.stabn	68,0,360,.LM91-.LFBB11
- 900               	.LM91:
- 901 038e EEE6      		ldi r30,lo8(110)
- 902 0390 F0E0      		ldi r31,0
- 903 0392 1082      		st Z,__zero_reg__
- 361:main.c        ****   TCNT0 = 0; //reset timer
- 904               		.stabn	68,0,361,.LM92-.LFBB11
- 905               	.LM92:
- 906 0394 16BC      		out 0x26,__zero_reg__
- 362:main.c        **** 
- 363:main.c        ****   OCR0A = 0xff;
- 907               		.stabn	68,0,363,.LM93-.LFBB11
- 908               	.LM93:
- 909 0396 8FEF      		ldi r24,lo8(-1)
- 910 0398 87BD      		out 0x27,r24
- 364:main.c        ****   TIMSK0 |= BS(OCIE1A); //enable COMPA1 ISR
- 911               		.stabn	68,0,364,.LM94-.LFBB11
- 912               	.LM94:
- 913 039a 8081      		ld r24,Z
- 914 039c 8260      		ori r24,lo8(2)
- 915 039e 8083      		st Z,r24
- 365:main.c        ****   //TCCR0A |= BS(WGM11);//not needed since not toggling anything
- 366:main.c        ****   //TCCR0B |= BS(CS12)|BS(CS10); //1024 prescaler, must be configured
- 367:main.c        ****   TCCR0B |= BS(CS02)|BS(CS00)|BS(WGM02);
- 916               		.stabn	68,0,367,.LM95-.LFBB11
- 917               	.LM95:
- 918 03a0 85B5      		in r24,0x25
- 919 03a2 8D60      		ori r24,lo8(13)
- 920 03a4 85BD      		out 0x25,r24
- 368:main.c        ****   sei();
-GAS LISTING /tmp/ccwyvPfy.s 			page 24
+ 819               	.LFBB11:
+ 820               	/* prologue: function */
+ 821               	/* frame size = 0 */
+ 822               	/* stack size = 0 */
+ 823               	.L__stack_usage = 0
+ 357:main.c        ****     cli();
+ 824               		.stabn	68,0,357,.LM82-.LFBB11
+ 825               	.LM82:
+ 826               	/* #APP */
+ 827               	 ;  357 "main.c" 1
+ 828 0332 F894      		cli
+ 829               	 ;  0 "" 2
+ 358:main.c        ****     OCR1A = 0x1222;
+ 830               		.stabn	68,0,358,.LM83-.LFBB11
+ 831               	.LM83:
+ 832               	/* #NOAPP */
+ 833 0334 82E2      		ldi r24,lo8(34)
+ 834 0336 92E1      		ldi r25,lo8(18)
+ 835 0338 9093 8900 		sts 136+1,r25
+ 836 033c 8093 8800 		sts 136,r24
+ 359:main.c        ****     TCNT1 = 0;
+ 837               		.stabn	68,0,359,.LM84-.LFBB11
+ 838               	.LM84:
+ 839 0340 1092 8500 		sts 132+1,__zero_reg__
+ 840 0344 1092 8400 		sts 132,__zero_reg__
+ 360:main.c        ****     sei();
+ 841               		.stabn	68,0,360,.LM85-.LFBB11
+ 842               	.LM85:
+ 843               	/* #APP */
+ 844               	 ;  360 "main.c" 1
+ 845 0348 7894      		sei
+ 846               	 ;  0 "" 2
+ 361:main.c        ****     maxtimer = 0x00ff;
+ 847               		.stabn	68,0,361,.LM86-.LFBB11
+ 848               	.LM86:
+ 849               	/* #NOAPP */
+ 850 034a 8FEF      		ldi r24,lo8(-1)
+ 851 034c 90E0      		ldi r25,0
+ 852 034e 9093 0000 		sts maxtimer+1,r25
+ 853 0352 8093 0000 		sts maxtimer,r24
+ 854 0356 0895      		ret
+ 855               		.size	configure_sinecircle, .-configure_sinecircle
+ 856               	.Lscope11:
+ 857               		.stabs	"",36,0,0,.Lscope11-.LFBB11
+ 858               		.stabd	78,0,0
+ 859               		.stabs	"configure_timer0:F(0,15)",36,0,364,configure_timer0
+ 860               	.global	configure_timer0
+ 861               		.type	configure_timer0, @function
+ 862               	configure_timer0:
+ 863               		.stabd	46,0,0
+ 362:main.c        **** }
+ 363:main.c        **** 
+ 364:main.c        **** void configure_timer0()
+ 365:main.c        **** {
+ 864               		.stabn	68,0,365,.LM87-.LFBB12
+ 865               	.LM87:
+ 866               	.LFBB12:
+GAS LISTING /tmp/ccP3TZct.s 			page 23
 
 
- 921               		.stabn	68,0,368,.LM96-.LFBB11
- 922               	.LM96:
- 923               	/* #APP */
- 924               	 ;  368 "main.c" 1
- 925 03a6 7894      		sei
- 926               	 ;  0 "" 2
- 927               	/* #NOAPP */
- 928 03a8 0895      		ret
- 929               		.size	configure_timer0, .-configure_timer0
- 930               	.Lscope11:
- 931               		.stabs	"",36,0,0,.Lscope11-.LFBB11
- 932               		.stabd	78,0,0
- 933               		.stabs	"configure_timer1:F(0,15)",36,0,371,configure_timer1
- 934               	.global	configure_timer1
- 935               		.type	configure_timer1, @function
- 936               	configure_timer1:
- 937               		.stabd	46,0,0
- 369:main.c        **** }
- 370:main.c        **** 
- 371:main.c        **** void configure_timer1()
- 372:main.c        **** {
- 938               		.stabn	68,0,372,.LM97-.LFBB12
- 939               	.LM97:
- 940               	.LFBB12:
- 941               	/* prologue: function */
- 942               	/* frame size = 0 */
- 943               	/* stack size = 0 */
- 944               	.L__stack_usage = 0
- 373:main.c        ****   cli();
- 945               		.stabn	68,0,373,.LM98-.LFBB12
- 946               	.LM98:
- 947               	/* #APP */
- 948               	 ;  373 "main.c" 1
- 949 03aa F894      		cli
- 950               	 ;  0 "" 2
- 374:main.c        ****   TCCR1A = 0;
- 951               		.stabn	68,0,374,.LM99-.LFBB12
- 952               	.LM99:
- 953               	/* #NOAPP */
- 954 03ac 1092 8000 		sts 128,__zero_reg__
- 375:main.c        ****   TCCR1B = 0;
- 955               		.stabn	68,0,375,.LM100-.LFBB12
- 956               	.LM100:
- 957 03b0 E1E8      		ldi r30,lo8(-127)
- 958 03b2 F0E0      		ldi r31,0
- 959 03b4 1082      		st Z,__zero_reg__
- 376:main.c        ****   TIMSK1 = 0; //Clear registers
- 960               		.stabn	68,0,376,.LM101-.LFBB12
- 961               	.LM101:
- 962 03b6 AFE6      		ldi r26,lo8(111)
- 963 03b8 B0E0      		ldi r27,0
- 964 03ba 1C92      		st X,__zero_reg__
- 377:main.c        ****   TCNT1 = 0; //reset timer
- 965               		.stabn	68,0,377,.LM102-.LFBB12
- 966               	.LM102:
- 967 03bc 1092 8500 		sts 132+1,__zero_reg__
- 968 03c0 1092 8400 		sts 132,__zero_reg__
-GAS LISTING /tmp/ccwyvPfy.s 			page 25
+ 867               	/* prologue: function */
+ 868               	/* frame size = 0 */
+ 869               	/* stack size = 0 */
+ 870               	.L__stack_usage = 0
+ 366:main.c        ****   cli();
+ 871               		.stabn	68,0,366,.LM88-.LFBB12
+ 872               	.LM88:
+ 873               	/* #APP */
+ 874               	 ;  366 "main.c" 1
+ 875 0358 F894      		cli
+ 876               	 ;  0 "" 2
+ 367:main.c        ****   TCCR0A = 0;
+ 877               		.stabn	68,0,367,.LM89-.LFBB12
+ 878               	.LM89:
+ 879               	/* #NOAPP */
+ 880 035a 14BC      		out 0x24,__zero_reg__
+ 368:main.c        ****   TCCR0B = 0;
+ 881               		.stabn	68,0,368,.LM90-.LFBB12
+ 882               	.LM90:
+ 883 035c 15BC      		out 0x25,__zero_reg__
+ 369:main.c        ****   TIMSK0 = 0; //Clear registers
+ 884               		.stabn	68,0,369,.LM91-.LFBB12
+ 885               	.LM91:
+ 886 035e EEE6      		ldi r30,lo8(110)
+ 887 0360 F0E0      		ldi r31,0
+ 888 0362 1082      		st Z,__zero_reg__
+ 370:main.c        ****   TCNT0 = 0; //reset timer
+ 889               		.stabn	68,0,370,.LM92-.LFBB12
+ 890               	.LM92:
+ 891 0364 16BC      		out 0x26,__zero_reg__
+ 371:main.c        **** 
+ 372:main.c        ****   OCR0A = 0xff; // timer interrupt counter
+ 892               		.stabn	68,0,372,.LM93-.LFBB12
+ 893               	.LM93:
+ 894 0366 8FEF      		ldi r24,lo8(-1)
+ 895 0368 87BD      		out 0x27,r24
+ 373:main.c        ****   TIMSK0 |= BS(OCIE1A); //enable COMPA1 ISR
+ 896               		.stabn	68,0,373,.LM94-.LFBB12
+ 897               	.LM94:
+ 898 036a 8081      		ld r24,Z
+ 899 036c 8260      		ori r24,lo8(2)
+ 900 036e 8083      		st Z,r24
+ 374:main.c        ****   TCCR0B |= BS(CS02)|BS(CS00)|BS(WGM02); //1024 clk divider CTC 
+ 901               		.stabn	68,0,374,.LM95-.LFBB12
+ 902               	.LM95:
+ 903 0370 85B5      		in r24,0x25
+ 904 0372 8D60      		ori r24,lo8(13)
+ 905 0374 85BD      		out 0x25,r24
+ 375:main.c        ****   sei();
+ 906               		.stabn	68,0,375,.LM96-.LFBB12
+ 907               	.LM96:
+ 908               	/* #APP */
+ 909               	 ;  375 "main.c" 1
+ 910 0376 7894      		sei
+ 911               	 ;  0 "" 2
+ 912               	/* #NOAPP */
+ 913 0378 0895      		ret
+GAS LISTING /tmp/ccP3TZct.s 			page 24
 
 
- 378:main.c        **** 
- 379:main.c        ****   OCR1A = 0x0fff;
- 969               		.stabn	68,0,379,.LM103-.LFBB12
- 970               	.LM103:
- 971 03c4 8FEF      		ldi r24,lo8(-1)
- 972 03c6 9FE0      		ldi r25,lo8(15)
- 973 03c8 9093 8900 		sts 136+1,r25
- 974 03cc 8093 8800 		sts 136,r24
- 380:main.c        ****   TIMSK1 |= BS(OCIE1A); //enable COMPA1 ISR
- 975               		.stabn	68,0,380,.LM104-.LFBB12
- 976               	.LM104:
- 977 03d0 8C91      		ld r24,X
- 978 03d2 8260      		ori r24,lo8(2)
- 979 03d4 8C93      		st X,r24
- 381:main.c        ****   //TCCR0A |= BS(WGM11);//not needed since not toggling anything
- 382:main.c        ****   //TCCR0B |= BS(CS12)|BS(CS10); //1024 prescaler, must be configured
- 383:main.c        ****   TCCR1B |= BS(CS12)|BS(WGM12);
- 980               		.stabn	68,0,383,.LM105-.LFBB12
- 981               	.LM105:
- 982 03d6 8081      		ld r24,Z
- 983 03d8 8C60      		ori r24,lo8(12)
- 984 03da 8083      		st Z,r24
- 384:main.c        ****   sei();
- 985               		.stabn	68,0,384,.LM106-.LFBB12
- 986               	.LM106:
- 987               	/* #APP */
- 988               	 ;  384 "main.c" 1
- 989 03dc 7894      		sei
- 990               	 ;  0 "" 2
- 991               	/* #NOAPP */
- 992 03de 0895      		ret
- 993               		.size	configure_timer1, .-configure_timer1
- 994               	.Lscope12:
- 995               		.stabs	"",36,0,0,.Lscope12-.LFBB12
- 996               		.stabd	78,0,0
- 997               		.stabs	"setup:F(0,15)",36,0,387,setup
- 998               	.global	setup
- 999               		.type	setup, @function
- 1000               	setup:
- 1001               		.stabd	46,0,0
- 385:main.c        **** }
- 386:main.c        **** 
- 387:main.c        **** void setup()
- 388:main.c        **** {
- 1002               		.stabn	68,0,388,.LM107-.LFBB13
- 1003               	.LM107:
- 1004               	.LFBB13:
- 1005               	/* prologue: function */
- 1006               	/* frame size = 0 */
- 1007               	/* stack size = 0 */
- 1008               	.L__stack_usage = 0
- 389:main.c        ****     erase_screen(0x0000);
- 1009               		.stabn	68,0,389,.LM108-.LFBB13
- 1010               	.LM108:
- 1011 03e0 80E0      		ldi r24,0
- 1012 03e2 90E0      		ldi r25,0
- 1013 03e4 00D0      		rcall erase_screen
-GAS LISTING /tmp/ccwyvPfy.s 			page 26
+ 914               		.size	configure_timer0, .-configure_timer0
+ 915               	.Lscope12:
+ 916               		.stabs	"",36,0,0,.Lscope12-.LFBB12
+ 917               		.stabd	78,0,0
+ 918               		.stabs	"configure_timer1:F(0,15)",36,0,378,configure_timer1
+ 919               	.global	configure_timer1
+ 920               		.type	configure_timer1, @function
+ 921               	configure_timer1:
+ 922               		.stabd	46,0,0
+ 376:main.c        **** }
+ 377:main.c        **** 
+ 378:main.c        **** void configure_timer1()
+ 379:main.c        **** {
+ 923               		.stabn	68,0,379,.LM97-.LFBB13
+ 924               	.LM97:
+ 925               	.LFBB13:
+ 926               	/* prologue: function */
+ 927               	/* frame size = 0 */
+ 928               	/* stack size = 0 */
+ 929               	.L__stack_usage = 0
+ 380:main.c        ****   cli();
+ 930               		.stabn	68,0,380,.LM98-.LFBB13
+ 931               	.LM98:
+ 932               	/* #APP */
+ 933               	 ;  380 "main.c" 1
+ 934 037a F894      		cli
+ 935               	 ;  0 "" 2
+ 381:main.c        ****   TCCR1A = 0;
+ 936               		.stabn	68,0,381,.LM99-.LFBB13
+ 937               	.LM99:
+ 938               	/* #NOAPP */
+ 939 037c 1092 8000 		sts 128,__zero_reg__
+ 382:main.c        ****   TCCR1B = 0;
+ 940               		.stabn	68,0,382,.LM100-.LFBB13
+ 941               	.LM100:
+ 942 0380 E1E8      		ldi r30,lo8(-127)
+ 943 0382 F0E0      		ldi r31,0
+ 944 0384 1082      		st Z,__zero_reg__
+ 383:main.c        ****   TIMSK1 = 0; //Clear registers
+ 945               		.stabn	68,0,383,.LM101-.LFBB13
+ 946               	.LM101:
+ 947 0386 AFE6      		ldi r26,lo8(111)
+ 948 0388 B0E0      		ldi r27,0
+ 949 038a 1C92      		st X,__zero_reg__
+ 384:main.c        ****   TCNT1 = 0; //reset timer
+ 950               		.stabn	68,0,384,.LM102-.LFBB13
+ 951               	.LM102:
+ 952 038c 1092 8500 		sts 132+1,__zero_reg__
+ 953 0390 1092 8400 		sts 132,__zero_reg__
+ 385:main.c        **** 
+ 386:main.c        ****   OCR1A = 0x0fff;
+ 954               		.stabn	68,0,386,.LM103-.LFBB13
+ 955               	.LM103:
+ 956 0394 8FEF      		ldi r24,lo8(-1)
+ 957 0396 9FE0      		ldi r25,lo8(15)
+ 958 0398 9093 8900 		sts 136+1,r25
+ 959 039c 8093 8800 		sts 136,r24
+GAS LISTING /tmp/ccP3TZct.s 			page 25
 
 
- 390:main.c        ****     state = SINECIRCLE;
- 1014               		.stabn	68,0,390,.LM109-.LFBB13
- 1015               	.LM109:
- 1016 03e6 83E0      		ldi r24,lo8(3)
- 1017 03e8 8093 0000 		sts state,r24
- 391:main.c        ****     statetimer = 0;
- 1018               		.stabn	68,0,391,.LM110-.LFBB13
- 1019               	.LM110:
- 1020 03ec 1092 0000 		sts statetimer+1,__zero_reg__
- 1021 03f0 1092 0000 		sts statetimer,__zero_reg__
- 392:main.c        ****     //state = SINE;
- 393:main.c        **** 
- 394:main.c        ****     //bouncer variables
- 395:main.c        ****     posx = 1;
- 1022               		.stabn	68,0,395,.LM111-.LFBB13
- 1023               	.LM111:
- 1024 03f4 81E0      		ldi r24,lo8(1)
- 1025 03f6 8093 0000 		sts posx,r24
- 396:main.c        ****     posy = 0;
- 1026               		.stabn	68,0,396,.LM112-.LFBB13
- 1027               	.LM112:
- 1028 03fa 1092 0000 		sts posy,__zero_reg__
- 397:main.c        ****     dirx = 0;
- 1029               		.stabn	68,0,397,.LM113-.LFBB13
- 1030               	.LM113:
- 1031 03fe 1092 0000 		sts dirx,__zero_reg__
- 398:main.c        ****     diry = 0;
- 1032               		.stabn	68,0,398,.LM114-.LFBB13
- 1033               	.LM114:
- 1034 0402 1092 0000 		sts diry,__zero_reg__
- 399:main.c        ****     wallbrightness = 0x0000;
- 1035               		.stabn	68,0,399,.LM115-.LFBB13
- 1036               	.LM115:
- 1037 0406 1092 0000 		sts wallbrightness+1,__zero_reg__
- 1038 040a 1092 0000 		sts wallbrightness,__zero_reg__
- 400:main.c        ****     delay = 0;
- 1039               		.stabn	68,0,400,.LM116-.LFBB13
- 1040               	.LM116:
- 1041 040e 1092 0000 		sts delay+1,__zero_reg__
- 1042 0412 1092 0000 		sts delay,__zero_reg__
- 401:main.c        **** 
- 402:main.c        ****     //circle variables
- 403:main.c        ****     radius = 0;
- 1043               		.stabn	68,0,403,.LM117-.LFBB13
- 1044               	.LM117:
- 1045 0416 1092 0000 		sts radius,__zero_reg__
- 404:main.c        **** 
- 405:main.c        ****     //sine var
- 406:main.c        ****     sinecounter = 0;
- 1046               		.stabn	68,0,406,.LM118-.LFBB13
- 1047               	.LM118:
- 1048 041a 1092 0000 		sts sinecounter,__zero_reg__
- 407:main.c        ****     
- 408:main.c        ****     //configure timer configuration
- 409:main.c        ****     configure_timer0();
- 1049               		.stabn	68,0,409,.LM119-.LFBB13
- 1050               	.LM119:
-GAS LISTING /tmp/ccwyvPfy.s 			page 27
+ 387:main.c        ****   TIMSK1 |= BS(OCIE1A); //enable COMPA1 ISR
+ 960               		.stabn	68,0,387,.LM104-.LFBB13
+ 961               	.LM104:
+ 962 03a0 8C91      		ld r24,X
+ 963 03a2 8260      		ori r24,lo8(2)
+ 964 03a4 8C93      		st X,r24
+ 388:main.c        ****   TCCR1B |= BS(CS12)|BS(WGM12); //256 presclaer, CTC configured
+ 965               		.stabn	68,0,388,.LM105-.LFBB13
+ 966               	.LM105:
+ 967 03a6 8081      		ld r24,Z
+ 968 03a8 8C60      		ori r24,lo8(12)
+ 969 03aa 8083      		st Z,r24
+ 389:main.c        ****   sei();
+ 970               		.stabn	68,0,389,.LM106-.LFBB13
+ 971               	.LM106:
+ 972               	/* #APP */
+ 973               	 ;  389 "main.c" 1
+ 974 03ac 7894      		sei
+ 975               	 ;  0 "" 2
+ 976               	/* #NOAPP */
+ 977 03ae 0895      		ret
+ 978               		.size	configure_timer1, .-configure_timer1
+ 979               	.Lscope13:
+ 980               		.stabs	"",36,0,0,.Lscope13-.LFBB13
+ 981               		.stabd	78,0,0
+ 982               		.stabs	"setup:F(0,15)",36,0,392,setup
+ 983               	.global	setup
+ 984               		.type	setup, @function
+ 985               	setup:
+ 986               		.stabd	46,0,0
+ 390:main.c        **** }
+ 391:main.c        **** 
+ 392:main.c        **** void setup()
+ 393:main.c        **** {
+ 987               		.stabn	68,0,393,.LM107-.LFBB14
+ 988               	.LM107:
+ 989               	.LFBB14:
+ 990               	/* prologue: function */
+ 991               	/* frame size = 0 */
+ 992               	/* stack size = 0 */
+ 993               	.L__stack_usage = 0
+ 394:main.c        ****     //initialize important variables
+ 395:main.c        ****     erase_screen(0x0000);
+ 994               		.stabn	68,0,395,.LM108-.LFBB14
+ 995               	.LM108:
+ 996 03b0 80E0      		ldi r24,0
+ 997 03b2 90E0      		ldi r25,0
+ 998 03b4 00D0      		rcall erase_screen
+ 396:main.c        ****     maxtimer = 0x00ff;
+ 999               		.stabn	68,0,396,.LM109-.LFBB14
+ 1000               	.LM109:
+ 1001 03b6 8FEF      		ldi r24,lo8(-1)
+ 1002 03b8 90E0      		ldi r25,0
+ 1003 03ba 9093 0000 		sts maxtimer+1,r25
+ 1004 03be 8093 0000 		sts maxtimer,r24
+ 397:main.c        ****     state = TREE;
+ 1005               		.stabn	68,0,397,.LM110-.LFBB14
+GAS LISTING /tmp/ccP3TZct.s 			page 26
 
 
- 1051 041e 00D0      		rcall configure_timer0
- 410:main.c        ****     configure_timer1();
- 1052               		.stabn	68,0,410,.LM120-.LFBB13
- 1053               	.LM120:
- 1054 0420 00D0      		rcall configure_timer1
- 411:main.c        **** 
- 412:main.c        ****     //configure_sine(); 
- 413:main.c        ****     configure_sinecircle();
- 1055               		.stabn	68,0,413,.LM121-.LFBB13
- 1056               	.LM121:
- 1057 0422 00C0      		rjmp configure_sinecircle
- 1058               		.size	setup, .-setup
- 1059               	.Lscope13:
- 1060               		.stabs	"",36,0,0,.Lscope13-.LFBB13
- 1061               		.stabd	78,0,0
- 1062               		.stabs	"__vector_14:F(0,15)",36,0,418,__vector_14
- 1063               	.global	__vector_14
- 1064               		.type	__vector_14, @function
- 1065               	__vector_14:
- 1066               		.stabd	46,0,0
- 414:main.c        **** }
- 415:main.c        **** 
- 416:main.c        **** 
- 417:main.c        **** //Compare on match interrupt
- 418:main.c        **** ISR(TIMER0_COMPA_vect)
- 419:main.c        **** {
- 1067               		.stabn	68,0,419,.LM122-.LFBB14
- 1068               	.LM122:
- 1069               	.LFBB14:
- 1070 0424 1F92      		push r1
- 1071 0426 0F92      		push r0
- 1072 0428 0FB6      		in r0,__SREG__
- 1073 042a 0F92      		push r0
- 1074 042c 1124      		clr __zero_reg__
- 1075 042e 8F93      		push r24
- 1076 0430 9F93      		push r25
- 1077               	/* prologue: Signal */
- 1078               	/* frame size = 0 */
- 1079               	/* stack size = 5 */
- 1080               	.L__stack_usage = 5
- 420:main.c        ****     if(delay == 0x02)
- 1081               		.stabn	68,0,420,.LM123-.LFBB14
- 1082               	.LM123:
- 1083 0432 8091 0000 		lds r24,delay
- 1084 0436 9091 0000 		lds r25,delay+1
- 1085 043a 8230      		cpi r24,2
- 1086 043c 9105      		cpc r25,__zero_reg__
- 1087 043e 01F4      		brne .L62
- 421:main.c        ****     {
- 422:main.c        ****         wallbrightness += 0x07;
- 423:main.c        ****         wallbrightness += 0x0500;
- 1088               		.stabn	68,0,423,.LM124-.LFBB14
- 1089               	.LM124:
- 1090 0440 8091 0000 		lds r24,wallbrightness
- 1091 0444 9091 0000 		lds r25,wallbrightness+1
- 1092 0448 895F      		subi r24,-7
- 1093 044a 9A4F      		sbci r25,-6
-GAS LISTING /tmp/ccwyvPfy.s 			page 28
+ 1006               	.LM110:
+ 1007 03c2 83E0      		ldi r24,lo8(3)
+ 1008 03c4 8093 0000 		sts state,r24
+ 398:main.c        ****     statetimer = 0;
+ 1009               		.stabn	68,0,398,.LM111-.LFBB14
+ 1010               	.LM111:
+ 1011 03c8 1092 0000 		sts statetimer+1,__zero_reg__
+ 1012 03cc 1092 0000 		sts statetimer,__zero_reg__
+ 399:main.c        ****     counter = 0;
+ 1013               		.stabn	68,0,399,.LM112-.LFBB14
+ 1014               	.LM112:
+ 1015 03d0 1092 0000 		sts counter,__zero_reg__
+ 400:main.c        **** 
+ 401:main.c        ****     //bouncer variables
+ 402:main.c        ****     posx = 1;
+ 1016               		.stabn	68,0,402,.LM113-.LFBB14
+ 1017               	.LM113:
+ 1018 03d4 81E0      		ldi r24,lo8(1)
+ 1019 03d6 8093 0000 		sts posx,r24
+ 403:main.c        ****     posy = 0;
+ 1020               		.stabn	68,0,403,.LM114-.LFBB14
+ 1021               	.LM114:
+ 1022 03da 1092 0000 		sts posy,__zero_reg__
+ 404:main.c        ****     dirx = 0;
+ 1023               		.stabn	68,0,404,.LM115-.LFBB14
+ 1024               	.LM115:
+ 1025 03de 1092 0000 		sts dirx,__zero_reg__
+ 405:main.c        ****     diry = 0;
+ 1026               		.stabn	68,0,405,.LM116-.LFBB14
+ 1027               	.LM116:
+ 1028 03e2 1092 0000 		sts diry,__zero_reg__
+ 406:main.c        ****     wallbrightness = 0x0000;
+ 1029               		.stabn	68,0,406,.LM117-.LFBB14
+ 1030               	.LM117:
+ 1031 03e6 1092 0000 		sts wallbrightness+1,__zero_reg__
+ 1032 03ea 1092 0000 		sts wallbrightness,__zero_reg__
+ 407:main.c        ****     delay = 0;
+ 1033               		.stabn	68,0,407,.LM118-.LFBB14
+ 1034               	.LM118:
+ 1035 03ee 1092 0000 		sts delay+1,__zero_reg__
+ 1036 03f2 1092 0000 		sts delay,__zero_reg__
+ 408:main.c        **** 
+ 409:main.c        ****     //configure timer configuration
+ 410:main.c        ****     configure_timer0();
+ 1037               		.stabn	68,0,410,.LM119-.LFBB14
+ 1038               	.LM119:
+ 1039 03f6 00D0      		rcall configure_timer0
+ 411:main.c        ****     configure_timer1();
+ 1040               		.stabn	68,0,411,.LM120-.LFBB14
+ 1041               	.LM120:
+ 1042 03f8 00C0      		rjmp configure_timer1
+ 1043               		.size	setup, .-setup
+ 1044               	.Lscope14:
+ 1045               		.stabs	"",36,0,0,.Lscope14-.LFBB14
+ 1046               		.stabd	78,0,0
+ 1047               		.stabs	"__vector_14:F(0,15)",36,0,416,__vector_14
+ 1048               	.global	__vector_14
+GAS LISTING /tmp/ccP3TZct.s 			page 27
 
 
- 1094 044c 9093 0000 		sts wallbrightness+1,r25
- 1095 0450 8093 0000 		sts wallbrightness,r24
- 424:main.c        ****         delay = 0;
- 1096               		.stabn	68,0,424,.LM125-.LFBB14
- 1097               	.LM125:
- 1098 0454 1092 0000 		sts delay+1,__zero_reg__
- 1099 0458 1092 0000 		sts delay,__zero_reg__
- 1100 045c 00C0      		rjmp .L61
- 1101               	.L62:
- 425:main.c        ****     }else
- 426:main.c        ****         delay++;
- 1102               		.stabn	68,0,426,.LM126-.LFBB14
- 1103               	.LM126:
- 1104 045e 0196      		adiw r24,1
- 1105 0460 9093 0000 		sts delay+1,r25
- 1106 0464 8093 0000 		sts delay,r24
- 1107               	.L61:
- 1108               	/* epilogue start */
- 427:main.c        **** }
- 1109               		.stabn	68,0,427,.LM127-.LFBB14
- 1110               	.LM127:
- 1111 0468 9F91      		pop r25
- 1112 046a 8F91      		pop r24
- 1113 046c 0F90      		pop r0
- 1114 046e 0FBE      		out __SREG__,r0
- 1115 0470 0F90      		pop r0
- 1116 0472 1F90      		pop r1
- 1117 0474 1895      		reti
- 1118               		.size	__vector_14, .-__vector_14
- 1119               	.Lscope14:
- 1120               		.stabs	"",36,0,0,.Lscope14-.LFBB14
- 1121               		.stabd	78,0,0
- 1122               		.stabs	"__vector_11:F(0,15)",36,0,429,__vector_11
- 1123               	.global	__vector_11
- 1124               		.type	__vector_11, @function
- 1125               	__vector_11:
- 1126               		.stabd	46,0,0
- 428:main.c        **** 
- 429:main.c        **** ISR(TIMER1_COMPA_vect)
- 430:main.c        **** {
- 1127               		.stabn	68,0,430,.LM128-.LFBB15
- 1128               	.LM128:
- 1129               	.LFBB15:
- 1130 0476 1F92      		push r1
- 1131 0478 0F92      		push r0
- 1132 047a 0FB6      		in r0,__SREG__
- 1133 047c 0F92      		push r0
- 1134 047e 1124      		clr __zero_reg__
- 1135 0480 2F93      		push r18
- 1136 0482 3F93      		push r19
- 1137 0484 4F93      		push r20
- 1138 0486 5F93      		push r21
- 1139 0488 6F93      		push r22
- 1140 048a 7F93      		push r23
- 1141 048c 8F93      		push r24
- 1142 048e 9F93      		push r25
- 1143 0490 AF93      		push r26
-GAS LISTING /tmp/ccwyvPfy.s 			page 29
+ 1049               		.type	__vector_14, @function
+ 1050               	__vector_14:
+ 1051               		.stabd	46,0,0
+ 412:main.c        **** }
+ 413:main.c        **** 
+ 414:main.c        **** 
+ 415:main.c        **** //Compare on match interrupt
+ 416:main.c        **** ISR(TIMER0_COMPA_vect)
+ 417:main.c        **** {
+ 1052               		.stabn	68,0,417,.LM121-.LFBB15
+ 1053               	.LM121:
+ 1054               	.LFBB15:
+ 1055 03fa 1F92      		push r1
+ 1056 03fc 0F92      		push r0
+ 1057 03fe 0FB6      		in r0,__SREG__
+ 1058 0400 0F92      		push r0
+ 1059 0402 1124      		clr __zero_reg__
+ 1060 0404 8F93      		push r24
+ 1061 0406 9F93      		push r25
+ 1062               	/* prologue: Signal */
+ 1063               	/* frame size = 0 */
+ 1064               	/* stack size = 5 */
+ 1065               	.L__stack_usage = 5
+ 418:main.c        ****     if(delay == 0x02)
+ 1066               		.stabn	68,0,418,.LM122-.LFBB15
+ 1067               	.LM122:
+ 1068 0408 8091 0000 		lds r24,delay
+ 1069 040c 9091 0000 		lds r25,delay+1
+ 1070 0410 8230      		cpi r24,2
+ 1071 0412 9105      		cpc r25,__zero_reg__
+ 1072 0414 01F4      		brne .L63
+ 419:main.c        ****     {
+ 420:main.c        ****         wallbrightness += 0x07;
+ 421:main.c        ****         wallbrightness += 0x0500;
+ 1073               		.stabn	68,0,421,.LM123-.LFBB15
+ 1074               	.LM123:
+ 1075 0416 8091 0000 		lds r24,wallbrightness
+ 1076 041a 9091 0000 		lds r25,wallbrightness+1
+ 1077 041e 895F      		subi r24,-7
+ 1078 0420 9A4F      		sbci r25,-6
+ 1079 0422 9093 0000 		sts wallbrightness+1,r25
+ 1080 0426 8093 0000 		sts wallbrightness,r24
+ 422:main.c        ****         delay = 0;
+ 1081               		.stabn	68,0,422,.LM124-.LFBB15
+ 1082               	.LM124:
+ 1083 042a 1092 0000 		sts delay+1,__zero_reg__
+ 1084 042e 1092 0000 		sts delay,__zero_reg__
+ 1085 0432 00C0      		rjmp .L62
+ 1086               	.L63:
+ 423:main.c        ****     }else delay++;
+ 1087               		.stabn	68,0,423,.LM125-.LFBB15
+ 1088               	.LM125:
+ 1089 0434 0196      		adiw r24,1
+ 1090 0436 9093 0000 		sts delay+1,r25
+ 1091 043a 8093 0000 		sts delay,r24
+ 1092               	.L62:
+ 1093               	/* epilogue start */
+GAS LISTING /tmp/ccP3TZct.s 			page 28
 
 
- 1144 0492 BF93      		push r27
- 1145 0494 EF93      		push r30
- 1146 0496 FF93      		push r31
- 1147               	/* prologue: Signal */
- 1148               	/* frame size = 0 */
- 1149               	/* stack size = 15 */
- 1150               	.L__stack_usage = 15
- 431:main.c        ****     erase_screen(0x0000);
- 1151               		.stabn	68,0,431,.LM129-.LFBB15
- 1152               	.LM129:
- 1153 0498 80E0      		ldi r24,0
- 1154 049a 90E0      		ldi r25,0
- 1155 049c 00D0      		rcall erase_screen
- 432:main.c        ****     //update x
- 433:main.c        ****     switch(state){
- 1156               		.stabn	68,0,433,.LM130-.LFBB15
- 1157               	.LM130:
- 1158 049e 8091 0000 		lds r24,state
- 1159 04a2 8130      		cpi r24,lo8(1)
- 1160 04a4 01F0      		breq .L67
- 1161 04a6 00F0      		brlo .L66
- 1162 04a8 8230      		cpi r24,lo8(2)
- 1163 04aa 01F0      		breq .L68
- 1164 04ac 8330      		cpi r24,lo8(3)
- 1165 04ae 01F4      		brne .L65
- 1166 04b0 00C0      		rjmp .L69
- 1167               	.L66:
- 434:main.c        ****         case BOUNCER:
- 435:main.c        ****             update_bouncer();
- 1168               		.stabn	68,0,435,.LM131-.LFBB15
- 1169               	.LM131:
- 1170 04b2 00D0      		rcall update_bouncer
+ 424:main.c        **** }
+ 1094               		.stabn	68,0,424,.LM126-.LFBB15
+ 1095               	.LM126:
+ 1096 043e 9F91      		pop r25
+ 1097 0440 8F91      		pop r24
+ 1098 0442 0F90      		pop r0
+ 1099 0444 0FBE      		out __SREG__,r0
+ 1100 0446 0F90      		pop r0
+ 1101 0448 1F90      		pop r1
+ 1102 044a 1895      		reti
+ 1103               		.size	__vector_14, .-__vector_14
+ 1104               	.Lscope15:
+ 1105               		.stabs	"",36,0,0,.Lscope15-.LFBB15
+ 1106               		.stabd	78,0,0
+ 1107               		.stabs	"__vector_11:F(0,15)",36,0,426,__vector_11
+ 1108               	.global	__vector_11
+ 1109               		.type	__vector_11, @function
+ 1110               	__vector_11:
+ 1111               		.stabd	46,0,0
+ 425:main.c        **** 
+ 426:main.c        **** ISR(TIMER1_COMPA_vect)
+ 427:main.c        **** {
+ 1112               		.stabn	68,0,427,.LM127-.LFBB16
+ 1113               	.LM127:
+ 1114               	.LFBB16:
+ 1115 044c 1F92      		push r1
+ 1116 044e 0F92      		push r0
+ 1117 0450 0FB6      		in r0,__SREG__
+ 1118 0452 0F92      		push r0
+ 1119 0454 1124      		clr __zero_reg__
+ 1120 0456 2F93      		push r18
+ 1121 0458 3F93      		push r19
+ 1122 045a 4F93      		push r20
+ 1123 045c 5F93      		push r21
+ 1124 045e 6F93      		push r22
+ 1125 0460 7F93      		push r23
+ 1126 0462 8F93      		push r24
+ 1127 0464 9F93      		push r25
+ 1128 0466 AF93      		push r26
+ 1129 0468 BF93      		push r27
+ 1130 046a EF93      		push r30
+ 1131 046c FF93      		push r31
+ 1132               	/* prologue: Signal */
+ 1133               	/* frame size = 0 */
+ 1134               	/* stack size = 15 */
+ 1135               	.L__stack_usage = 15
+ 428:main.c        ****     erase_screen(0x0000);
+ 1136               		.stabn	68,0,428,.LM128-.LFBB16
+ 1137               	.LM128:
+ 1138 046e 80E0      		ldi r24,0
+ 1139 0470 90E0      		ldi r25,0
+ 1140 0472 00D0      		rcall erase_screen
+ 429:main.c        ****     //update x
+ 430:main.c        ****     switch(state){
+ 1141               		.stabn	68,0,430,.LM129-.LFBB16
+ 1142               	.LM129:
+ 1143 0474 8091 0000 		lds r24,state
+GAS LISTING /tmp/ccP3TZct.s 			page 29
+
+
+ 1144 0478 8230      		cpi r24,lo8(2)
+ 1145 047a 01F0      		breq .L69
+ 1146 047c 00F4      		brsh .L72
+ 1147 047e 8823      		tst r24
+ 1148 0480 01F0      		breq .L67
+ 1149 0482 8130      		cpi r24,lo8(1)
+ 1150 0484 01F4      		brne .L66
+ 1151 0486 00C0      		rjmp .L68
+ 1152               	.L72:
+ 1153 0488 8330      		cpi r24,lo8(3)
+ 1154 048a 01F0      		breq .L70
+ 1155 048c 8430      		cpi r24,lo8(4)
+ 1156 048e 01F4      		brne .L66
+ 1157 0490 00C0      		rjmp .L71
+ 1158               	.L67:
+ 431:main.c        ****         case BOUNCER:
+ 432:main.c        ****             update_bouncer();
+ 1159               		.stabn	68,0,432,.LM130-.LFBB16
+ 1160               	.LM130:
+ 1161 0492 00D0      		rcall update_bouncer
+ 433:main.c        ****             break;
+ 1162               		.stabn	68,0,433,.LM131-.LFBB16
+ 1163               	.LM131:
+ 1164 0494 00C0      		rjmp .L66
+ 1165               	.L68:
+ 434:main.c        ****         case SMILEY:
+ 435:main.c        ****             update_smiley();
+ 1166               		.stabn	68,0,435,.LM132-.LFBB16
+ 1167               	.LM132:
+ 1168 0496 00D0      		rcall update_smiley
  436:main.c        ****             break;
- 1171               		.stabn	68,0,436,.LM132-.LFBB15
- 1172               	.LM132:
- 1173 04b4 00C0      		rjmp .L65
- 1174               	.L67:
- 437:main.c        ****         case SMILEY:
- 438:main.c        ****             update_smiley();
- 1175               		.stabn	68,0,438,.LM133-.LFBB15
- 1176               	.LM133:
- 1177 04b6 00D0      		rcall update_smiley
+ 1169               		.stabn	68,0,436,.LM133-.LFBB16
+ 1170               	.LM133:
+ 1171 0498 00C0      		rjmp .L66
+ 1172               	.L69:
+ 437:main.c        ****         case SINE:
+ 438:main.c        ****             update_sine();
+ 1173               		.stabn	68,0,438,.LM134-.LFBB16
+ 1174               	.LM134:
+ 1175 049a 00D0      		rcall update_sine
  439:main.c        ****             break;
- 1178               		.stabn	68,0,439,.LM134-.LFBB15
- 1179               	.LM134:
- 1180 04b8 00C0      		rjmp .L65
- 1181               	.L68:
- 440:main.c        ****         case SINE:
- 441:main.c        ****             update_sine();
- 1182               		.stabn	68,0,441,.LM135-.LFBB15
- 1183               	.LM135:
- 1184 04ba 00D0      		rcall update_sine
+ 1176               		.stabn	68,0,439,.LM135-.LFBB16
+ 1177               	.LM135:
+ 1178 049c 00C0      		rjmp .L66
+ 1179               	.L71:
+ 440:main.c        ****         case SINECIRCLE:
+ 441:main.c        ****             update_sinecircle();
+ 1180               		.stabn	68,0,441,.LM136-.LFBB16
+ 1181               	.LM136:
+ 1182 049e 00D0      		rcall update_sinecircle
  442:main.c        ****             break;
- 1185               		.stabn	68,0,442,.LM136-.LFBB15
- 1186               	.LM136:
- 1187 04bc 00C0      		rjmp .L65
- 1188               	.L69:
-GAS LISTING /tmp/ccwyvPfy.s 			page 30
+ 1183               		.stabn	68,0,442,.LM137-.LFBB16
+ 1184               	.LM137:
+ 1185 04a0 00C0      		rjmp .L66
+ 1186               	.L70:
+ 443:main.c        ****         case TREE:
+ 444:main.c        ****             update_tree();
+GAS LISTING /tmp/ccP3TZct.s 			page 30
 
 
- 443:main.c        ****         case SINECIRCLE:
- 444:main.c        ****             update_sinecircle();
- 1189               		.stabn	68,0,444,.LM137-.LFBB15
- 1190               	.LM137:
- 1191 04be 00D0      		rcall update_sinecircle
- 1192               	.L65:
+ 1187               		.stabn	68,0,444,.LM138-.LFBB16
+ 1188               	.LM138:
+ 1189 04a2 00D0      		rcall update_tree
+ 1190               	.L66:
  445:main.c        ****             break;
  446:main.c        ****     }//end switch
  447:main.c        **** 
  448:main.c        ****     statetimer += 1;
- 1193               		.stabn	68,0,448,.LM138-.LFBB15
- 1194               	.LM138:
- 1195 04c0 8091 0000 		lds r24,statetimer
- 1196 04c4 9091 0000 		lds r25,statetimer+1
- 1197 04c8 0196      		adiw r24,1
- 1198 04ca 9093 0000 		sts statetimer+1,r25
- 1199 04ce 8093 0000 		sts statetimer,r24
+ 1191               		.stabn	68,0,448,.LM139-.LFBB16
+ 1192               	.LM139:
+ 1193 04a4 8091 0000 		lds r24,statetimer
+ 1194 04a8 9091 0000 		lds r25,statetimer+1
+ 1195 04ac 0196      		adiw r24,1
+ 1196 04ae 9093 0000 		sts statetimer+1,r25
+ 1197 04b2 8093 0000 		sts statetimer,r24
  449:main.c        ****     if(statetimer==maxtimer)
- 1200               		.stabn	68,0,449,.LM139-.LFBB15
- 1201               	.LM139:
- 1202 04d2 2091 0000 		lds r18,maxtimer
- 1203 04d6 3091 0000 		lds r19,maxtimer+1
- 1204 04da 8217      		cp r24,r18
- 1205 04dc 9307      		cpc r25,r19
- 1206 04de 01F4      		brne .L64
+ 1198               		.stabn	68,0,449,.LM140-.LFBB16
+ 1199               	.LM140:
+ 1200 04b6 2091 0000 		lds r18,maxtimer
+ 1201 04ba 3091 0000 		lds r19,maxtimer+1
+ 1202 04be 8217      		cp r24,r18
+ 1203 04c0 9307      		cpc r25,r19
+ 1204 04c2 01F4      		brne .L65
  450:main.c        ****     {
  451:main.c        ****         statetimer=0;
- 1207               		.stabn	68,0,451,.LM140-.LFBB15
- 1208               	.LM140:
- 1209 04e0 1092 0000 		sts statetimer+1,__zero_reg__
- 1210 04e4 1092 0000 		sts statetimer,__zero_reg__
- 452:main.c        ****         state = (state+1)%(SINECIRCLE+1);
- 1211               		.stabn	68,0,452,.LM141-.LFBB15
- 1212               	.LM141:
- 1213 04e8 8091 0000 		lds r24,state
- 1214 04ec 90E0      		ldi r25,0
- 1215 04ee 0196      		adiw r24,1
- 1216 04f0 8370      		andi r24,3
- 1217 04f2 9927      		clr r25
- 1218 04f4 8093 0000 		sts state,r24
- 453:main.c        ****         switch(state){
- 1219               		.stabn	68,0,453,.LM142-.LFBB15
- 1220               	.LM142:
- 1221 04f8 8230      		cpi r24,lo8(2)
- 1222 04fa 01F0      		breq .L72
- 1223 04fc 8330      		cpi r24,lo8(3)
- 1224 04fe 01F4      		brne .L74
- 1225 0500 00C0      		rjmp .L73
- 1226               	.L72:
- 454:main.c        ****             case(SINE):
- 455:main.c        ****                 configure_sine();
- 1227               		.stabn	68,0,455,.LM143-.LFBB15
- 1228               	.LM143:
- 1229 0502 00D0      		rcall configure_sine
- 456:main.c        ****                 break;
- 1230               		.stabn	68,0,456,.LM144-.LFBB15
- 1231               	.LM144:
-GAS LISTING /tmp/ccwyvPfy.s 			page 31
+ 1205               		.stabn	68,0,451,.LM141-.LFBB16
+ 1206               	.LM141:
+ 1207 04c4 1092 0000 		sts statetimer+1,__zero_reg__
+ 1208 04c8 1092 0000 		sts statetimer,__zero_reg__
+ 452:main.c        ****         counter=0;
+ 1209               		.stabn	68,0,452,.LM142-.LFBB16
+ 1210               	.LM142:
+ 1211 04cc 1092 0000 		sts counter,__zero_reg__
+ 453:main.c        ****         state = (state+1)%(SINECIRCLE+1);
+ 1212               		.stabn	68,0,453,.LM143-.LFBB16
+ 1213               	.LM143:
+ 1214 04d0 8091 0000 		lds r24,state
+ 1215 04d4 90E0      		ldi r25,0
+ 1216 04d6 0196      		adiw r24,1
+ 1217 04d8 65E0      		ldi r22,lo8(5)
+ 1218 04da 70E0      		ldi r23,0
+ 1219 04dc 00D0      		rcall __divmodhi4
+ 1220 04de 8093 0000 		sts state,r24
+ 454:main.c        ****         switch(state){
+ 1221               		.stabn	68,0,454,.LM144-.LFBB16
+ 1222               	.LM144:
+ 1223 04e2 8230      		cpi r24,lo8(2)
+ 1224 04e4 01F0      		breq .L75
+ 1225 04e6 8430      		cpi r24,lo8(4)
+ 1226 04e8 01F4      		brne .L77
+ 1227 04ea 00C0      		rjmp .L76
+ 1228               	.L75:
+ 455:main.c        ****             case(SINE):
+ 456:main.c        ****                 configure_sine();
+ 1229               		.stabn	68,0,456,.LM145-.LFBB16
+ 1230               	.LM145:
+ 1231 04ec 00D0      		rcall configure_sine
+GAS LISTING /tmp/ccP3TZct.s 			page 31
 
 
- 1232 0504 00C0      		rjmp .L64
- 1233               	.L73:
- 457:main.c        ****             case(SINECIRCLE):
- 458:main.c        ****                 configure_sinecircle();
- 1234               		.stabn	68,0,458,.LM145-.LFBB15
- 1235               	.LM145:
- 1236 0506 00D0      		rcall configure_sinecircle
- 459:main.c        ****                 break;
- 1237               		.stabn	68,0,459,.LM146-.LFBB15
- 1238               	.LM146:
- 1239 0508 00C0      		rjmp .L64
- 1240               	.L74:
- 460:main.c        ****             default:
- 461:main.c        ****                 OCR1A = 0x0fff;
- 1241               		.stabn	68,0,461,.LM147-.LFBB15
- 1242               	.LM147:
- 1243 050a 8FEF      		ldi r24,lo8(-1)
- 1244 050c 9FE0      		ldi r25,lo8(15)
- 1245 050e 9093 8900 		sts 136+1,r25
- 1246 0512 8093 8800 		sts 136,r24
- 462:main.c        ****                 maxtimer = 0x00ff;
- 1247               		.stabn	68,0,462,.LM148-.LFBB15
- 1248               	.LM148:
- 1249 0516 8FEF      		ldi r24,lo8(-1)
- 1250 0518 90E0      		ldi r25,0
- 1251 051a 9093 0000 		sts maxtimer+1,r25
- 1252 051e 8093 0000 		sts maxtimer,r24
- 1253               	.L64:
- 1254               	/* epilogue start */
- 463:main.c        ****         }
- 464:main.c        ****     }
- 465:main.c        **** }//end ISR COMPA TIMER1
- 1255               		.stabn	68,0,465,.LM149-.LFBB15
- 1256               	.LM149:
- 1257 0522 FF91      		pop r31
- 1258 0524 EF91      		pop r30
- 1259 0526 BF91      		pop r27
- 1260 0528 AF91      		pop r26
- 1261 052a 9F91      		pop r25
- 1262 052c 8F91      		pop r24
- 1263 052e 7F91      		pop r23
- 1264 0530 6F91      		pop r22
- 1265 0532 5F91      		pop r21
- 1266 0534 4F91      		pop r20
- 1267 0536 3F91      		pop r19
- 1268 0538 2F91      		pop r18
- 1269 053a 0F90      		pop r0
- 1270 053c 0FBE      		out __SREG__,r0
- 1271 053e 0F90      		pop r0
- 1272 0540 1F90      		pop r1
- 1273 0542 1895      		reti
- 1274               		.size	__vector_11, .-__vector_11
- 1275               	.Lscope15:
- 1276               		.stabs	"",36,0,0,.Lscope15-.LFBB15
- 1277               		.stabd	78,0,0
- 1278               		.section	.text.startup,"ax",@progbits
- 1279               		.stabs	"main:F(0,1)",36,0,469,main
-GAS LISTING /tmp/ccwyvPfy.s 			page 32
+ 457:main.c        ****                 break;
+ 1232               		.stabn	68,0,457,.LM146-.LFBB16
+ 1233               	.LM146:
+ 1234 04ee 00C0      		rjmp .L65
+ 1235               	.L76:
+ 458:main.c        ****             case(SINECIRCLE):
+ 459:main.c        ****                 configure_sinecircle();
+ 1236               		.stabn	68,0,459,.LM147-.LFBB16
+ 1237               	.LM147:
+ 1238 04f0 00D0      		rcall configure_sinecircle
+ 460:main.c        ****                 break;
+ 1239               		.stabn	68,0,460,.LM148-.LFBB16
+ 1240               	.LM148:
+ 1241 04f2 00C0      		rjmp .L65
+ 1242               	.L77:
+ 461:main.c        ****             default:
+ 462:main.c        ****                 OCR1A = 0x0fff;
+ 1243               		.stabn	68,0,462,.LM149-.LFBB16
+ 1244               	.LM149:
+ 1245 04f4 8FEF      		ldi r24,lo8(-1)
+ 1246 04f6 9FE0      		ldi r25,lo8(15)
+ 1247 04f8 9093 8900 		sts 136+1,r25
+ 1248 04fc 8093 8800 		sts 136,r24
+ 463:main.c        ****                 maxtimer = 0x00ff;
+ 1249               		.stabn	68,0,463,.LM150-.LFBB16
+ 1250               	.LM150:
+ 1251 0500 8FEF      		ldi r24,lo8(-1)
+ 1252 0502 90E0      		ldi r25,0
+ 1253 0504 9093 0000 		sts maxtimer+1,r25
+ 1254 0508 8093 0000 		sts maxtimer,r24
+ 1255               	.L65:
+ 1256               	/* epilogue start */
+ 464:main.c        ****         }
+ 465:main.c        ****     }
+ 466:main.c        **** }//end ISR COMPA TIMER1
+ 1257               		.stabn	68,0,466,.LM151-.LFBB16
+ 1258               	.LM151:
+ 1259 050c FF91      		pop r31
+ 1260 050e EF91      		pop r30
+ 1261 0510 BF91      		pop r27
+ 1262 0512 AF91      		pop r26
+ 1263 0514 9F91      		pop r25
+ 1264 0516 8F91      		pop r24
+ 1265 0518 7F91      		pop r23
+ 1266 051a 6F91      		pop r22
+ 1267 051c 5F91      		pop r21
+ 1268 051e 4F91      		pop r20
+ 1269 0520 3F91      		pop r19
+ 1270 0522 2F91      		pop r18
+ 1271 0524 0F90      		pop r0
+ 1272 0526 0FBE      		out __SREG__,r0
+ 1273 0528 0F90      		pop r0
+ 1274 052a 1F90      		pop r1
+ 1275 052c 1895      		reti
+ 1276               		.size	__vector_11, .-__vector_11
+ 1277               	.Lscope16:
+ 1278               		.stabs	"",36,0,0,.Lscope16-.LFBB16
+GAS LISTING /tmp/ccP3TZct.s 			page 32
 
 
- 1280               	.global	main
- 1281               		.type	main, @function
- 1282               	main:
- 1283               		.stabd	46,0,0
- 466:main.c        **** 
- 467:main.c        **** /* Main */
- 468:main.c        **** 
- 469:main.c        **** int main(void)
- 470:main.c        **** {
- 1284               		.stabn	68,0,470,.LM150-.LFBB16
- 1285               	.LM150:
- 1286               	.LFBB16:
- 1287               	/* prologue: function */
- 1288               	/* frame size = 0 */
- 1289               	/* stack size = 0 */
- 1290               	.L__stack_usage = 0
- 471:main.c        **** 
- 472:main.c        ****     setup();
- 1291               		.stabn	68,0,472,.LM151-.LFBB16
- 1292               	.LM151:
- 1293 0000 00D0      		rcall setup
- 473:main.c        **** 
- 474:main.c        ****     //Configure image
- 475:main.c        ****     //topline (y,x)
- 476:main.c        **** 
- 477:main.c        ****     /*
- 478:main.c        ****     //write green elsewhere
- 479:main.c        ****     for(i=0;i<8;i++)
- 480:main.c        ****       for(j=0;j<8;j++)
- 481:main.c        ****       {
- 482:main.c        ****         if(matrix[i][j] != 255)
- 483:main.c        ****           matrix[i][j] = (0xff<<8);
- 484:main.c        ****       }
- 485:main.c        ****       */
- 486:main.c        **** 
- 487:main.c        ****     //Configure timers first
- 488:main.c        ****     //timer = TIMER_MAX_VALUE;
- 489:main.c        **** 
- 490:main.c        ****     //Configure all outputs
- 491:main.c        ****     DDRB = 0xff; //SPI out
- 1294               		.stabn	68,0,491,.LM152-.LFBB16
- 1295               	.LM152:
- 1296 0002 8FEF      		ldi r24,lo8(-1)
- 1297 0004 84B9      		out 0x4,r24
- 492:main.c        ****     DDRD = 0xff; //rows
- 1298               		.stabn	68,0,492,.LM153-.LFBB16
- 1299               	.LM153:
- 1300 0006 8AB9      		out 0xa,r24
- 493:main.c        ****     DDRC = 0xff; //shifter
- 1301               		.stabn	68,0,493,.LM154-.LFBB16
- 1302               	.LM154:
- 1303 0008 87B9      		out 0x7,r24
- 494:main.c        **** 
- 495:main.c        ****     //Clear ports
- 496:main.c        ****     PORTB = 0x00;
- 1304               		.stabn	68,0,496,.LM155-.LFBB16
- 1305               	.LM155:
-GAS LISTING /tmp/ccwyvPfy.s 			page 33
+ 1279               		.stabd	78,0,0
+ 1280               		.section	.text.startup,"ax",@progbits
+ 1281               		.stabs	"main:F(0,1)",36,0,470,main
+ 1282               	.global	main
+ 1283               		.type	main, @function
+ 1284               	main:
+ 1285               		.stabd	46,0,0
+ 467:main.c        **** 
+ 468:main.c        **** /* Main */
+ 469:main.c        **** 
+ 470:main.c        **** int main(void)
+ 471:main.c        **** {
+ 1286               		.stabn	68,0,471,.LM152-.LFBB17
+ 1287               	.LM152:
+ 1288               	.LFBB17:
+ 1289               	/* prologue: function */
+ 1290               	/* frame size = 0 */
+ 1291               	/* stack size = 0 */
+ 1292               	.L__stack_usage = 0
+ 472:main.c        **** 
+ 473:main.c        ****     setup();
+ 1293               		.stabn	68,0,473,.LM153-.LFBB17
+ 1294               	.LM153:
+ 1295 0000 00D0      		rcall setup
+ 474:main.c        **** 
+ 475:main.c        ****     //Configure all outputs
+ 476:main.c        ****     DDRB = 0xff; //SPI out
+ 1296               		.stabn	68,0,476,.LM154-.LFBB17
+ 1297               	.LM154:
+ 1298 0002 8FEF      		ldi r24,lo8(-1)
+ 1299 0004 84B9      		out 0x4,r24
+ 477:main.c        ****     DDRD = 0xff; //rows
+ 1300               		.stabn	68,0,477,.LM155-.LFBB17
+ 1301               	.LM155:
+ 1302 0006 8AB9      		out 0xa,r24
+ 478:main.c        ****     DDRC = 0xff; //shifter
+ 1303               		.stabn	68,0,478,.LM156-.LFBB17
+ 1304               	.LM156:
+ 1305 0008 87B9      		out 0x7,r24
+ 479:main.c        **** 
+ 480:main.c        ****     //Clear ports
+ 481:main.c        ****     PORTB = 0x00;
+ 1306               		.stabn	68,0,481,.LM157-.LFBB17
+ 1307               	.LM157:
+ 1308 000a 15B8      		out 0x5,__zero_reg__
+ 482:main.c        ****     PORTC = 0x00;
+ 1309               		.stabn	68,0,482,.LM158-.LFBB17
+ 1310               	.LM158:
+ 1311 000c 18B8      		out 0x8,__zero_reg__
+ 483:main.c        ****     PORTD = 0x00;
+ 1312               		.stabn	68,0,483,.LM159-.LFBB17
+ 1313               	.LM159:
+ 1314 000e 1BB8      		out 0xb,__zero_reg__
+ 484:main.c        **** 
+ 485:main.c        ****     //Initailize variables
+ 486:main.c        ****     uint8_t y=0;
+ 487:main.c        ****     PORTD = 0x00; //clear rows
+GAS LISTING /tmp/ccP3TZct.s 			page 33
 
 
- 1306 000a 15B8      		out 0x5,__zero_reg__
- 497:main.c        ****     PORTC = 0x00;
- 1307               		.stabn	68,0,497,.LM156-.LFBB16
- 1308               	.LM156:
- 1309 000c 18B8      		out 0x8,__zero_reg__
- 498:main.c        ****     PORTD = 0x00;
- 1310               		.stabn	68,0,498,.LM157-.LFBB16
- 1311               	.LM157:
- 1312 000e 1BB8      		out 0xb,__zero_reg__
- 499:main.c        **** 
- 500:main.c        ****     //Initailize variables
- 501:main.c        ****     uint8_t y=0;
- 502:main.c        ****     PORTD = 0x00; //clear rows
- 1313               		.stabn	68,0,502,.LM158-.LFBB16
- 1314               	.LM158:
- 1315 0010 1BB8      		out 0xb,__zero_reg__
- 503:main.c        ****     uint8_t x=0;
- 504:main.c        ****     inttimer=0x00;
- 1316               		.stabn	68,0,504,.LM159-.LFBB16
- 1317               	.LM159:
- 1318 0012 1092 0000 		sts inttimer,__zero_reg__
- 501:main.c        ****     uint8_t y=0;
- 1319               		.stabn	68,0,501,.LM160-.LFBB16
- 1320               	.LM160:
- 1321 0016 10E0      		ldi r17,0
+ 1315               		.stabn	68,0,487,.LM160-.LFBB17
+ 1316               	.LM160:
+ 1317 0010 1BB8      		out 0xb,__zero_reg__
+ 488:main.c        ****     uint8_t x=0;
+ 489:main.c        ****     inttimer=0x00;
+ 1318               		.stabn	68,0,489,.LM161-.LFBB17
+ 1319               	.LM161:
+ 1320 0012 1092 0000 		sts inttimer,__zero_reg__
+ 486:main.c        ****     uint8_t y=0;
+ 1321               		.stabn	68,0,486,.LM162-.LFBB17
+ 1322               	.LM162:
+ 1323 0016 10E0      		ldi r17,0
+ 490:main.c        **** 
+ 491:main.c        ****     while(1)
+ 492:main.c        ****     {
+ 493:main.c        ****         PORTC &= NOT(BS(reset));//clear everything
+ 494:main.c        ****         PORTC = 0x00|BS(reset);
+ 1324               		.stabn	68,0,494,.LM163-.LFBB17
+ 1325               	.LM163:
+ 1326 0018 00E2      		ldi r16,lo8(32)
+ 495:main.c        **** 
+ 496:main.c        ****         //Green pixels
+ 497:main.c        ****         for(x=0;x<8;x++)
+ 498:main.c        ****         {
+ 499:main.c        ****             if( (((matrix[y][x]))&0x00ff) >= inttimer)
+ 500:main.c        ****             {
+ 501:main.c        ****                 PORTC |= BS(data);
+ 502:main.c        ****             }else{
+ 503:main.c        ****                 PORTC &= NOT(BS(data));
+ 504:main.c        ****             }
  505:main.c        **** 
- 506:main.c        ****     while(1)
- 507:main.c        ****     {
- 508:main.c        ****         PORTC &= NOT(BS(reset));//clear everything
- 509:main.c        ****         PORTC = 0x00|BS(reset);
- 1322               		.stabn	68,0,509,.LM161-.LFBB16
- 1323               	.LM161:
- 1324 0018 00E2      		ldi r16,lo8(32)
- 510:main.c        **** 
- 511:main.c        ****         //Green pixels
- 512:main.c        ****         for(x=0;x<8;x++)
- 513:main.c        ****         {
- 514:main.c        ****             if( (((matrix[y][7-x]))&0x00ff) >= inttimer)
- 515:main.c        ****             {
- 516:main.c        ****                 PORTC |= BS(data);
- 517:main.c        ****             }else{
- 518:main.c        ****                 PORTC &= NOT(BS(data));
- 519:main.c        ****             }
- 520:main.c        **** 
- 521:main.c        ****             PORTC |= BS(shift);
- 522:main.c        ****             PORTC &= NOT(BS(shift));
- 523:main.c        ****         }
- 524:main.c        **** 
- 525:main.c        ****           //Red pixels
- 526:main.c        ****         for(x=0;x<8;x++)
- 527:main.c        ****         {
- 528:main.c        ****             if( (((matrix[y][7-x])>>8)) >= inttimer)
- 529:main.c        ****             {
- 530:main.c        ****                 PORTC |= BS(data);
- 531:main.c        ****             }else{
- 532:main.c        ****                 PORTC &= NOT(BS(data));
- 533:main.c        ****             }
-GAS LISTING /tmp/ccwyvPfy.s 			page 34
+ 506:main.c        ****             PORTC |= BS(shift);
+ 507:main.c        ****             PORTC &= NOT(BS(shift));
+ 508:main.c        ****         }
+ 509:main.c        **** 
+ 510:main.c        ****           //Red pixels
+ 511:main.c        ****         for(x=0;x<8;x++)
+ 512:main.c        ****         {
+ 513:main.c        ****             if( (((matrix[y][x])>>8)) >= inttimer)
+ 514:main.c        ****             {
+ 515:main.c        ****                 PORTC |= BS(data);
+ 516:main.c        ****             }else{
+ 517:main.c        ****                 PORTC &= NOT(BS(data));
+ 518:main.c        ****             }
+ 519:main.c        **** 
+ 520:main.c        ****             PORTC |= BS(shift);
+ 521:main.c        ****             PORTC &= NOT(BS(shift));
+ 522:main.c        ****         }//end for
+ 523:main.c        **** 
+ 524:main.c        ****         PORTD = 0x00; //clear display
+ 525:main.c        ****         PORTC |= BS(latch);
+ 526:main.c        ****         PORTC &= NOT(BS(latch));
+ 527:main.c        **** 
+ 528:main.c        ****         //Output row data
+ 529:main.c        ****         PORTD = BS(y);
+ 1327               		.stabn	68,0,529,.LM164-.LFBB17
+ 1328               	.LM164:
+GAS LISTING /tmp/ccP3TZct.s 			page 34
 
 
- 534:main.c        **** 
- 535:main.c        ****             PORTC |= BS(shift);
- 536:main.c        ****             PORTC &= NOT(BS(shift));
- 537:main.c        ****         }//end for
- 538:main.c        **** 
- 539:main.c        ****         PORTD = 0x00; //clear display
- 540:main.c        ****         PORTC |= BS(latch);
- 541:main.c        ****         PORTC &= NOT(BS(latch));
- 542:main.c        **** 
- 543:main.c        ****         //Output row data
- 544:main.c        ****         PORTD = BS(y);
- 1325               		.stabn	68,0,544,.LM162-.LFBB16
- 1326               	.LM162:
- 1327 001a E1E0      		ldi r30,lo8(1)
- 1328 001c F0E0      		ldi r31,0
- 545:main.c        ****         y++;
- 546:main.c        ****         y = y%8;
- 547:main.c        **** 
- 548:main.c        **** 
- 549:main.c        ****         //Increment intensity timer
- 550:main.c        ****         
- 551:main.c        ****         if(inttimer==255)
- 552:main.c        ****             inttimer=1;
- 1329               		.stabn	68,0,552,.LM163-.LFBB16
- 1330               	.LM163:
- 1331 001e FF24      		clr r15
- 1332 0020 F394      		inc r15
- 1333               	.L87:
- 508:main.c        ****         PORTC &= NOT(BS(reset));//clear everything
- 1334               		.stabn	68,0,508,.LM164-.LFBB16
- 1335               	.LM164:
- 1336 0022 4598      		cbi 0x8,5
- 509:main.c        ****         PORTC = 0x00|BS(reset);
- 1337               		.stabn	68,0,509,.LM165-.LFBB16
- 1338               	.LM165:
- 1339 0024 08B9      		out 0x8,r16
- 469:main.c        **** int main(void)
- 1340               		.stabn	68,0,469,.LM166-.LFBB16
- 1341               	.LM166:
- 1342 0026 612F      		mov r22,r17
- 1343 0028 70E0      		ldi r23,0
- 1344 002a 9B01      		movw r18,r22
- 1345 002c C4E0      		ldi r28,4
- 1346               		1:
- 1347 002e 220F      		lsl r18
- 1348 0030 331F      		rol r19
- 1349 0032 CA95      		dec r28
- 1350 0034 01F4      		brne 1b
- 1351 0036 2050      		subi r18,lo8(-(matrix))
- 1352 0038 3040      		sbci r19,hi8(-(matrix))
- 1353 003a 80E0      		ldi r24,0
- 1354 003c 90E0      		ldi r25,0
- 1355               	.L79:
- 1356 003e D901      		movw r26,r18
- 1357 0040 A80F      		add r26,r24
- 1358 0042 B91F      		adc r27,r25
- 514:main.c        ****             if( (((matrix[y][7-x]))&0x00ff) >= inttimer)
-GAS LISTING /tmp/ccwyvPfy.s 			page 35
+ 1329 001a E1E0      		ldi r30,lo8(1)
+ 1330 001c F0E0      		ldi r31,0
+ 530:main.c        ****         y++;
+ 531:main.c        ****         y = y%8;
+ 532:main.c        **** 
+ 533:main.c        **** 
+ 534:main.c        ****         //Increment intensity timer
+ 535:main.c        ****         
+ 536:main.c        ****         if(inttimer==255)
+ 537:main.c        ****             inttimer=1;
+ 1331               		.stabn	68,0,537,.LM165-.LFBB17
+ 1332               	.LM165:
+ 1333 001e FF24      		clr r15
+ 1334 0020 F394      		inc r15
+ 1335               	.L90:
+ 493:main.c        ****         PORTC &= NOT(BS(reset));//clear everything
+ 1336               		.stabn	68,0,493,.LM166-.LFBB17
+ 1337               	.LM166:
+ 1338 0022 4598      		cbi 0x8,5
+ 494:main.c        ****         PORTC = 0x00|BS(reset);
+ 1339               		.stabn	68,0,494,.LM167-.LFBB17
+ 1340               	.LM167:
+ 1341 0024 08B9      		out 0x8,r16
+ 470:main.c        **** int main(void)
+ 1342               		.stabn	68,0,470,.LM168-.LFBB17
+ 1343               	.LM168:
+ 1344 0026 612F      		mov r22,r17
+ 1345 0028 70E0      		ldi r23,0
+ 1346 002a 9B01      		movw r18,r22
+ 1347 002c A4E0      		ldi r26,4
+ 1348               		1:
+ 1349 002e 220F      		lsl r18
+ 1350 0030 331F      		rol r19
+ 1351 0032 AA95      		dec r26
+ 1352 0034 01F4      		brne 1b
+ 1353 0036 2050      		subi r18,lo8(-(matrix))
+ 1354 0038 3040      		sbci r19,hi8(-(matrix))
+ 1355 003a 80E0      		ldi r24,0
+ 1356 003c 90E0      		ldi r25,0
+ 1357               	.L82:
+ 1358 003e D901      		movw r26,r18
+ 1359 0040 A80F      		add r26,r24
+ 1360 0042 B91F      		adc r27,r25
+ 499:main.c        ****             if( (((matrix[y][x]))&0x00ff) >= inttimer)
+ 1361               		.stabn	68,0,499,.LM169-.LFBB17
+ 1362               	.LM169:
+ 1363 0044 4D91      		ld r20,X+
+ 1364 0046 5C91      		ld r21,X
+ 1365 0048 5527      		clr r21
+ 1366 004a A091 0000 		lds r26,inttimer
+ 1367 004e B0E0      		ldi r27,0
+ 1368 0050 4A17      		cp r20,r26
+ 1369 0052 5B07      		cpc r21,r27
+ 1370 0054 00F0      		brlo .L80
+ 501:main.c        ****                 PORTC |= BS(data);
+ 1371               		.stabn	68,0,501,.LM170-.LFBB17
+ 1372               	.LM170:
+GAS LISTING /tmp/ccP3TZct.s 			page 35
 
 
- 1359               		.stabn	68,0,514,.LM167-.LFBB16
- 1360               	.LM167:
- 1361 0044 1E96      		adiw r26,14
- 1362 0046 4D91      		ld r20,X+
- 1363 0048 5C91      		ld r21,X
- 1364 004a 1F97      		sbiw r26,14+1
- 1365 004c 5527      		clr r21
- 1366 004e A091 0000 		lds r26,inttimer
- 1367 0052 B0E0      		ldi r27,0
- 1368 0054 4A17      		cp r20,r26
- 1369 0056 5B07      		cpc r21,r27
- 1370 0058 00F0      		brlo .L77
- 516:main.c        ****                 PORTC |= BS(data);
- 1371               		.stabn	68,0,516,.LM168-.LFBB16
- 1372               	.LM168:
- 1373 005a 409A      		sbi 0x8,0
- 1374 005c 00C0      		rjmp .L78
- 1375               	.L77:
- 518:main.c        ****                 PORTC &= NOT(BS(data));
- 1376               		.stabn	68,0,518,.LM169-.LFBB16
- 1377               	.LM169:
- 1378 005e 4098      		cbi 0x8,0
- 1379               	.L78:
- 521:main.c        ****             PORTC |= BS(shift);
- 1380               		.stabn	68,0,521,.LM170-.LFBB16
- 1381               	.LM170:
- 1382 0060 419A      		sbi 0x8,1
- 522:main.c        ****             PORTC &= NOT(BS(shift));
- 1383               		.stabn	68,0,522,.LM171-.LFBB16
- 1384               	.LM171:
- 1385 0062 4198      		cbi 0x8,1
- 1386 0064 0297      		sbiw r24,2
- 512:main.c        ****         for(x=0;x<8;x++)
- 1387               		.stabn	68,0,512,.LM172-.LFBB16
- 1388               	.LM172:
- 1389 0066 803F      		cpi r24,-16
- 1390 0068 4FEF      		ldi r20,-1
- 1391 006a 9407      		cpc r25,r20
- 1392 006c 01F4      		brne .L79
- 469:main.c        **** int main(void)
- 1393               		.stabn	68,0,469,.LM173-.LFBB16
- 1394               	.LM173:
- 1395 006e 9B01      		movw r18,r22
- 1396 0070 B4E0      		ldi r27,4
- 1397               		1:
- 1398 0072 220F      		lsl r18
- 1399 0074 331F      		rol r19
- 1400 0076 BA95      		dec r27
- 1401 0078 01F4      		brne 1b
- 1402 007a 2050      		subi r18,lo8(-(matrix))
- 1403 007c 3040      		sbci r19,hi8(-(matrix))
- 1404 007e 80E0      		ldi r24,0
- 1405 0080 90E0      		ldi r25,0
- 1406               	.L82:
- 1407 0082 D901      		movw r26,r18
- 1408 0084 A80F      		add r26,r24
- 1409 0086 B91F      		adc r27,r25
-GAS LISTING /tmp/ccwyvPfy.s 			page 36
+ 1373 0056 409A      		sbi 0x8,0
+ 1374 0058 00C0      		rjmp .L81
+ 1375               	.L80:
+ 503:main.c        ****                 PORTC &= NOT(BS(data));
+ 1376               		.stabn	68,0,503,.LM171-.LFBB17
+ 1377               	.LM171:
+ 1378 005a 4098      		cbi 0x8,0
+ 1379               	.L81:
+ 506:main.c        ****             PORTC |= BS(shift);
+ 1380               		.stabn	68,0,506,.LM172-.LFBB17
+ 1381               	.LM172:
+ 1382 005c 419A      		sbi 0x8,1
+ 507:main.c        ****             PORTC &= NOT(BS(shift));
+ 1383               		.stabn	68,0,507,.LM173-.LFBB17
+ 1384               	.LM173:
+ 1385 005e 4198      		cbi 0x8,1
+ 1386 0060 0296      		adiw r24,2
+ 497:main.c        ****         for(x=0;x<8;x++)
+ 1387               		.stabn	68,0,497,.LM174-.LFBB17
+ 1388               	.LM174:
+ 1389 0062 8031      		cpi r24,16
+ 1390 0064 9105      		cpc r25,__zero_reg__
+ 1391 0066 01F4      		brne .L82
+ 470:main.c        **** int main(void)
+ 1392               		.stabn	68,0,470,.LM175-.LFBB17
+ 1393               	.LM175:
+ 1394 0068 9B01      		movw r18,r22
+ 1395 006a 74E0      		ldi r23,4
+ 1396               		1:
+ 1397 006c 220F      		lsl r18
+ 1398 006e 331F      		rol r19
+ 1399 0070 7A95      		dec r23
+ 1400 0072 01F4      		brne 1b
+ 1401 0074 2050      		subi r18,lo8(-(matrix))
+ 1402 0076 3040      		sbci r19,hi8(-(matrix))
+ 1403 0078 80E0      		ldi r24,0
+ 1404 007a 90E0      		ldi r25,0
+ 1405               	.L85:
+ 1406 007c D901      		movw r26,r18
+ 1407 007e A80F      		add r26,r24
+ 1408 0080 B91F      		adc r27,r25
+ 513:main.c        ****             if( (((matrix[y][x])>>8)) >= inttimer)
+ 1409               		.stabn	68,0,513,.LM176-.LFBB17
+ 1410               	.LM176:
+ 1411 0082 1196      		adiw r26,1
+ 1412 0084 4C91      		ld r20,X
+ 1413 0086 C42F      		mov r28,r20
+ 1414 0088 40E0      		ldi r20,0
+ 1415 008a D42F      		mov r29,r20
+ 1416 008c 4091 0000 		lds r20,inttimer
+ 1417 0090 50E0      		ldi r21,0
+ 1418 0092 C417      		cp r28,r20
+ 1419 0094 D507      		cpc r29,r21
+ 1420 0096 00F0      		brlo .L83
+ 515:main.c        ****                 PORTC |= BS(data);
+ 1421               		.stabn	68,0,515,.LM177-.LFBB17
+ 1422               	.LM177:
+GAS LISTING /tmp/ccP3TZct.s 			page 36
 
 
- 528:main.c        ****             if( (((matrix[y][7-x])>>8)) >= inttimer)
- 1410               		.stabn	68,0,528,.LM174-.LFBB16
- 1411               	.LM174:
- 1412 0088 1F96      		adiw r26,15
- 1413 008a 4C91      		ld r20,X
- 1414 008c C42F      		mov r28,r20
- 1415 008e 40E0      		ldi r20,0
- 1416 0090 D42F      		mov r29,r20
- 1417 0092 4091 0000 		lds r20,inttimer
- 1418 0096 50E0      		ldi r21,0
- 1419 0098 C417      		cp r28,r20
- 1420 009a D507      		cpc r29,r21
- 1421 009c 00F0      		brlo .L80
- 530:main.c        ****                 PORTC |= BS(data);
- 1422               		.stabn	68,0,530,.LM175-.LFBB16
- 1423               	.LM175:
- 1424 009e 409A      		sbi 0x8,0
- 1425 00a0 00C0      		rjmp .L81
- 1426               	.L80:
- 532:main.c        ****                 PORTC &= NOT(BS(data));
- 1427               		.stabn	68,0,532,.LM176-.LFBB16
- 1428               	.LM176:
- 1429 00a2 4098      		cbi 0x8,0
- 1430               	.L81:
- 535:main.c        ****             PORTC |= BS(shift);
- 1431               		.stabn	68,0,535,.LM177-.LFBB16
- 1432               	.LM177:
- 1433 00a4 419A      		sbi 0x8,1
- 536:main.c        ****             PORTC &= NOT(BS(shift));
- 1434               		.stabn	68,0,536,.LM178-.LFBB16
- 1435               	.LM178:
- 1436 00a6 4198      		cbi 0x8,1
- 1437 00a8 0297      		sbiw r24,2
- 526:main.c        ****         for(x=0;x<8;x++)
- 1438               		.stabn	68,0,526,.LM179-.LFBB16
- 1439               	.LM179:
- 1440 00aa 803F      		cpi r24,-16
- 1441 00ac 4FEF      		ldi r20,-1
- 1442 00ae 9407      		cpc r25,r20
- 1443 00b0 01F4      		brne .L82
- 539:main.c        ****         PORTD = 0x00; //clear display
- 1444               		.stabn	68,0,539,.LM180-.LFBB16
- 1445               	.LM180:
- 1446 00b2 1BB8      		out 0xb,__zero_reg__
- 540:main.c        ****         PORTC |= BS(latch);
- 1447               		.stabn	68,0,540,.LM181-.LFBB16
- 1448               	.LM181:
- 1449 00b4 429A      		sbi 0x8,2
- 541:main.c        ****         PORTC &= NOT(BS(latch));
- 1450               		.stabn	68,0,541,.LM182-.LFBB16
- 1451               	.LM182:
- 1452 00b6 4298      		cbi 0x8,2
- 544:main.c        ****         PORTD = BS(y);
- 1453               		.stabn	68,0,544,.LM183-.LFBB16
- 1454               	.LM183:
- 1455 00b8 CF01      		movw r24,r30
- 1456 00ba 00C0      		rjmp 2f
-GAS LISTING /tmp/ccwyvPfy.s 			page 37
+ 1423 0098 409A      		sbi 0x8,0
+ 1424 009a 00C0      		rjmp .L84
+ 1425               	.L83:
+ 517:main.c        ****                 PORTC &= NOT(BS(data));
+ 1426               		.stabn	68,0,517,.LM178-.LFBB17
+ 1427               	.LM178:
+ 1428 009c 4098      		cbi 0x8,0
+ 1429               	.L84:
+ 520:main.c        ****             PORTC |= BS(shift);
+ 1430               		.stabn	68,0,520,.LM179-.LFBB17
+ 1431               	.LM179:
+ 1432 009e 419A      		sbi 0x8,1
+ 521:main.c        ****             PORTC &= NOT(BS(shift));
+ 1433               		.stabn	68,0,521,.LM180-.LFBB17
+ 1434               	.LM180:
+ 1435 00a0 4198      		cbi 0x8,1
+ 1436 00a2 0296      		adiw r24,2
+ 511:main.c        ****         for(x=0;x<8;x++)
+ 1437               		.stabn	68,0,511,.LM181-.LFBB17
+ 1438               	.LM181:
+ 1439 00a4 8031      		cpi r24,16
+ 1440 00a6 9105      		cpc r25,__zero_reg__
+ 1441 00a8 01F4      		brne .L85
+ 524:main.c        ****         PORTD = 0x00; //clear display
+ 1442               		.stabn	68,0,524,.LM182-.LFBB17
+ 1443               	.LM182:
+ 1444 00aa 1BB8      		out 0xb,__zero_reg__
+ 525:main.c        ****         PORTC |= BS(latch);
+ 1445               		.stabn	68,0,525,.LM183-.LFBB17
+ 1446               	.LM183:
+ 1447 00ac 429A      		sbi 0x8,2
+ 526:main.c        ****         PORTC &= NOT(BS(latch));
+ 1448               		.stabn	68,0,526,.LM184-.LFBB17
+ 1449               	.LM184:
+ 1450 00ae 4298      		cbi 0x8,2
+ 529:main.c        ****         PORTD = BS(y);
+ 1451               		.stabn	68,0,529,.LM185-.LFBB17
+ 1452               	.LM185:
+ 1453 00b0 CF01      		movw r24,r30
+ 1454 00b2 00C0      		rjmp 2f
+ 1455               		1:
+ 1456 00b4 880F      		lsl r24
+ 1457 00b6 991F      		rol r25
+ 1458               		2:
+ 1459 00b8 6A95      		dec r22
+ 1460 00ba 02F4      		brpl 1b
+ 1461 00bc 8BB9      		out 0xb,r24
+ 530:main.c        ****         y++;
+ 1462               		.stabn	68,0,530,.LM186-.LFBB17
+ 1463               	.LM186:
+ 1464 00be 1F5F      		subi r17,lo8(-(1))
+ 531:main.c        ****         y = y%8;
+ 1465               		.stabn	68,0,531,.LM187-.LFBB17
+ 1466               	.LM187:
+ 1467 00c0 1770      		andi r17,lo8(7)
+ 536:main.c        ****         if(inttimer==255)
+ 1468               		.stabn	68,0,536,.LM188-.LFBB17
+GAS LISTING /tmp/ccP3TZct.s 			page 37
 
 
- 1457               		1:
- 1458 00bc 880F      		lsl r24
- 1459 00be 991F      		rol r25
- 1460               		2:
- 1461 00c0 6A95      		dec r22
- 1462 00c2 02F4      		brpl 1b
- 1463 00c4 8BB9      		out 0xb,r24
- 545:main.c        ****         y++;
- 1464               		.stabn	68,0,545,.LM184-.LFBB16
- 1465               	.LM184:
- 1466 00c6 1F5F      		subi r17,lo8(-(1))
- 546:main.c        ****         y = y%8;
- 1467               		.stabn	68,0,546,.LM185-.LFBB16
- 1468               	.LM185:
- 1469 00c8 1770      		andi r17,lo8(7)
- 551:main.c        ****         if(inttimer==255)
- 1470               		.stabn	68,0,551,.LM186-.LFBB16
- 1471               	.LM186:
- 1472 00ca 8091 0000 		lds r24,inttimer
- 1473 00ce 8F3F      		cpi r24,lo8(-1)
- 1474 00d0 01F4      		brne .L83
- 1475               		.stabn	68,0,552,.LM187-.LFBB16
- 1476               	.LM187:
- 1477 00d2 F092 0000 		sts inttimer,r15
- 1478 00d6 00C0      		rjmp .L87
- 1479               	.L83:
- 553:main.c        ****         else
- 554:main.c        ****             inttimer++;
- 1480               		.stabn	68,0,554,.LM188-.LFBB16
- 1481               	.LM188:
- 1482 00d8 8F5F      		subi r24,lo8(-(1))
- 1483 00da 8093 0000 		sts inttimer,r24
- 1484 00de 00C0      		rjmp .L87
- 1485               		.size	main, .-main
- 1486               	.Lscope16:
- 1487               		.stabs	"",36,0,0,.Lscope16-.LFBB16
- 1488               		.stabd	78,0,0
- 1489               	.global	sinecirclemap
- 1490               		.data
- 1491               		.type	sinecirclemap, @object
- 1492               		.size	sinecirclemap, 88
- 1493               	sinecirclemap:
- 1494 0000 00        		.byte	0
- 1495 0001 00        		.byte	0
- 1496 0002 00        		.byte	0
- 1497 0003 00        		.byte	0
- 1498 0004 00        		.byte	0
- 1499 0005 00        		.byte	0
- 1500 0006 00        		.byte	0
- 1501 0007 00        		.byte	0
- 1502 0008 00        		.byte	0
- 1503 0009 00        		.byte	0
- 1504 000a 00        		.byte	0
- 1505 000b 00        		.byte	0
- 1506 000c 00        		.byte	0
- 1507 000d 00        		.byte	0
- 1508 000e 00        		.byte	0
-GAS LISTING /tmp/ccwyvPfy.s 			page 38
+ 1469               	.LM188:
+ 1470 00c2 8091 0000 		lds r24,inttimer
+ 1471 00c6 8F3F      		cpi r24,lo8(-1)
+ 1472 00c8 01F4      		brne .L86
+ 1473               		.stabn	68,0,537,.LM189-.LFBB17
+ 1474               	.LM189:
+ 1475 00ca F092 0000 		sts inttimer,r15
+ 1476 00ce 00C0      		rjmp .L90
+ 1477               	.L86:
+ 538:main.c        ****         else
+ 539:main.c        ****             inttimer++;
+ 1478               		.stabn	68,0,539,.LM190-.LFBB17
+ 1479               	.LM190:
+ 1480 00d0 8F5F      		subi r24,lo8(-(1))
+ 1481 00d2 8093 0000 		sts inttimer,r24
+ 1482 00d6 00C0      		rjmp .L90
+ 1483               		.size	main, .-main
+ 1484               	.Lscope17:
+ 1485               		.stabs	"",36,0,0,.Lscope17-.LFBB17
+ 1486               		.stabd	78,0,0
+ 1487               	.global	treemap
+ 1488               		.data
+ 1489               		.type	treemap, @object
+ 1490               		.size	treemap, 24
+ 1491               	treemap:
+ 1492 0000 38        		.byte	56
+ 1493 0001 3E        		.byte	62
+ 1494 0002 7F        		.byte	127
+ 1495 0003 FF        		.byte	-1
+ 1496 0004 7E        		.byte	126
+ 1497 0005 00        		.byte	0
+ 1498 0006 00        		.byte	0
+ 1499 0007 00        		.byte	0
+ 1500 0008 00        		.byte	0
+ 1501 0009 00        		.byte	0
+ 1502 000a 00        		.byte	0
+ 1503 000b 00        		.byte	0
+ 1504 000c 00        		.byte	0
+ 1505 000d 18        		.byte	24
+ 1506 000e 18        		.byte	24
+ 1507 000f 3C        		.byte	60
+ 1508 0010 00        		.byte	0
+ 1509 0011 08        		.byte	8
+ 1510 0012 22        		.byte	34
+ 1511 0013 40        		.byte	64
+ 1512 0014 00        		.byte	0
+ 1513 0015 00        		.byte	0
+ 1514 0016 00        		.byte	0
+ 1515 0017 00        		.byte	0
+ 1516               	.global	sinecirclemap
+ 1517               		.type	sinecirclemap, @object
+ 1518               		.size	sinecirclemap, 88
+ 1519               	sinecirclemap:
+ 1520 0018 00        		.byte	0
+ 1521 0019 00        		.byte	0
+ 1522 001a 00        		.byte	0
+ 1523 001b 00        		.byte	0
+GAS LISTING /tmp/ccP3TZct.s 			page 38
 
 
- 1509 000f 00        		.byte	0
- 1510 0010 00        		.byte	0
- 1511 0011 00        		.byte	0
- 1512 0012 00        		.byte	0
- 1513 0013 00        		.byte	0
- 1514 0014 00        		.byte	0
- 1515 0015 00        		.byte	0
- 1516 0016 00        		.byte	0
- 1517 0017 00        		.byte	0
- 1518 0018 00        		.byte	0
- 1519 0019 00        		.byte	0
- 1520 001a 00        		.byte	0
- 1521 001b 10        		.byte	16
- 1522 001c 00        		.byte	0
- 1523 001d 00        		.byte	0
- 1524 001e 00        		.byte	0
- 1525 001f 00        		.byte	0
- 1526 0020 00        		.byte	0
- 1527 0021 00        		.byte	0
- 1528 0022 00        		.byte	0
- 1529 0023 18        		.byte	24
- 1530 0024 18        		.byte	24
- 1531 0025 00        		.byte	0
- 1532 0026 00        		.byte	0
- 1533 0027 00        		.byte	0
- 1534 0028 00        		.byte	0
- 1535 0029 00        		.byte	0
- 1536 002a 18        		.byte	24
- 1537 002b 24        		.byte	36
- 1538 002c 24        		.byte	36
- 1539 002d 18        		.byte	24
- 1540 002e 00        		.byte	0
- 1541 002f 00        		.byte	0
- 1542 0030 00        		.byte	0
- 1543 0031 24        		.byte	36
- 1544 0032 66        		.byte	102
- 1545 0033 00        		.byte	0
- 1546 0034 00        		.byte	0
- 1547 0035 66        		.byte	102
- 1548 0036 24        		.byte	36
- 1549 0037 00        		.byte	0
- 1550 0038 00        		.byte	0
- 1551 0039 18        		.byte	24
- 1552 003a 00        		.byte	0
- 1553 003b 42        		.byte	66
- 1554 003c 42        		.byte	66
- 1555 003d 00        		.byte	0
- 1556 003e 18        		.byte	24
- 1557 003f 00        		.byte	0
- 1558 0040 24        		.byte	36
- 1559 0041 42        		.byte	66
- 1560 0042 81        		.byte	-127
- 1561 0043 00        		.byte	0
- 1562 0044 00        		.byte	0
- 1563 0045 81        		.byte	-127
- 1564 0046 42        		.byte	66
- 1565 0047 24        		.byte	36
-GAS LISTING /tmp/ccwyvPfy.s 			page 39
+ 1524 001c 00        		.byte	0
+ 1525 001d 00        		.byte	0
+ 1526 001e 00        		.byte	0
+ 1527 001f 00        		.byte	0
+ 1528 0020 00        		.byte	0
+ 1529 0021 00        		.byte	0
+ 1530 0022 00        		.byte	0
+ 1531 0023 00        		.byte	0
+ 1532 0024 00        		.byte	0
+ 1533 0025 00        		.byte	0
+ 1534 0026 00        		.byte	0
+ 1535 0027 00        		.byte	0
+ 1536 0028 00        		.byte	0
+ 1537 0029 00        		.byte	0
+ 1538 002a 00        		.byte	0
+ 1539 002b 00        		.byte	0
+ 1540 002c 00        		.byte	0
+ 1541 002d 00        		.byte	0
+ 1542 002e 00        		.byte	0
+ 1543 002f 00        		.byte	0
+ 1544 0030 00        		.byte	0
+ 1545 0031 00        		.byte	0
+ 1546 0032 00        		.byte	0
+ 1547 0033 10        		.byte	16
+ 1548 0034 00        		.byte	0
+ 1549 0035 00        		.byte	0
+ 1550 0036 00        		.byte	0
+ 1551 0037 00        		.byte	0
+ 1552 0038 00        		.byte	0
+ 1553 0039 00        		.byte	0
+ 1554 003a 00        		.byte	0
+ 1555 003b 18        		.byte	24
+ 1556 003c 18        		.byte	24
+ 1557 003d 00        		.byte	0
+ 1558 003e 00        		.byte	0
+ 1559 003f 00        		.byte	0
+ 1560 0040 00        		.byte	0
+ 1561 0041 00        		.byte	0
+ 1562 0042 18        		.byte	24
+ 1563 0043 24        		.byte	36
+ 1564 0044 24        		.byte	36
+ 1565 0045 18        		.byte	24
+ 1566 0046 00        		.byte	0
+ 1567 0047 00        		.byte	0
+ 1568 0048 00        		.byte	0
+ 1569 0049 24        		.byte	36
+ 1570 004a 66        		.byte	102
+ 1571 004b 00        		.byte	0
+ 1572 004c 00        		.byte	0
+ 1573 004d 66        		.byte	102
+ 1574 004e 24        		.byte	36
+ 1575 004f 00        		.byte	0
+ 1576 0050 00        		.byte	0
+ 1577 0051 18        		.byte	24
+ 1578 0052 00        		.byte	0
+ 1579 0053 42        		.byte	66
+ 1580 0054 42        		.byte	66
+GAS LISTING /tmp/ccP3TZct.s 			page 39
 
 
- 1566 0048 C3        		.byte	-61
- 1567 0049 81        		.byte	-127
- 1568 004a 00        		.byte	0
- 1569 004b 00        		.byte	0
- 1570 004c 00        		.byte	0
- 1571 004d 00        		.byte	0
- 1572 004e 81        		.byte	-127
- 1573 004f C3        		.byte	-61
- 1574 0050 18        		.byte	24
- 1575 0051 00        		.byte	0
- 1576 0052 00        		.byte	0
- 1577 0053 81        		.byte	-127
- 1578 0054 81        		.byte	-127
- 1579 0055 00        		.byte	0
- 1580 0056 00        		.byte	0
- 1581 0057 18        		.byte	24
- 1582               	.global	sinemap
- 1583               		.type	sinemap, @object
- 1584               		.size	sinemap, 32
- 1585               	sinemap:
- 1586 0058 00        		.byte	0
- 1587 0059 00        		.byte	0
- 1588 005a 00        		.byte	0
- 1589 005b 0F        		.byte	15
- 1590 005c 03        		.byte	3
- 1591 005d 00        		.byte	0
- 1592 005e C0        		.byte	-64
- 1593 005f 00        		.byte	0
- 1594 0060 0C        		.byte	12
- 1595 0061 00        		.byte	0
- 1596 0062 30        		.byte	48
- 1597 0063 00        		.byte	0
- 1598 0064 10        		.byte	16
- 1599 0065 00        		.byte	0
- 1600 0066 08        		.byte	8
- 1601 0067 00        		.byte	0
- 1602 0068 20        		.byte	32
- 1603 0069 00        		.byte	0
- 1604 006a 04        		.byte	4
- 1605 006b 00        		.byte	0
- 1606 006c C0        		.byte	-64
- 1607 006d 00        		.byte	0
- 1608 006e 03        		.byte	3
- 1609 006f 00        		.byte	0
- 1610 0070 00        		.byte	0
- 1611 0071 C3        		.byte	-61
- 1612 0072 00        		.byte	0
- 1613 0073 00        		.byte	0
- 1614 0074 00        		.byte	0
- 1615 0075 3C        		.byte	60
- 1616 0076 00        		.byte	0
- 1617 0077 00        		.byte	0
- 1618               	.global	smileymap
- 1619               		.type	smileymap, @object
- 1620               		.size	smileymap, 8
- 1621               	smileymap:
- 1622 0078 3C        		.byte	60
-GAS LISTING /tmp/ccwyvPfy.s 			page 40
+ 1581 0055 00        		.byte	0
+ 1582 0056 18        		.byte	24
+ 1583 0057 00        		.byte	0
+ 1584 0058 24        		.byte	36
+ 1585 0059 42        		.byte	66
+ 1586 005a 81        		.byte	-127
+ 1587 005b 00        		.byte	0
+ 1588 005c 00        		.byte	0
+ 1589 005d 81        		.byte	-127
+ 1590 005e 42        		.byte	66
+ 1591 005f 24        		.byte	36
+ 1592 0060 C3        		.byte	-61
+ 1593 0061 81        		.byte	-127
+ 1594 0062 00        		.byte	0
+ 1595 0063 00        		.byte	0
+ 1596 0064 00        		.byte	0
+ 1597 0065 00        		.byte	0
+ 1598 0066 81        		.byte	-127
+ 1599 0067 C3        		.byte	-61
+ 1600 0068 18        		.byte	24
+ 1601 0069 00        		.byte	0
+ 1602 006a 00        		.byte	0
+ 1603 006b 81        		.byte	-127
+ 1604 006c 81        		.byte	-127
+ 1605 006d 00        		.byte	0
+ 1606 006e 00        		.byte	0
+ 1607 006f 18        		.byte	24
+ 1608               	.global	sinemap
+ 1609               		.type	sinemap, @object
+ 1610               		.size	sinemap, 32
+ 1611               	sinemap:
+ 1612 0070 00        		.byte	0
+ 1613 0071 00        		.byte	0
+ 1614 0072 00        		.byte	0
+ 1615 0073 0F        		.byte	15
+ 1616 0074 03        		.byte	3
+ 1617 0075 00        		.byte	0
+ 1618 0076 C0        		.byte	-64
+ 1619 0077 00        		.byte	0
+ 1620 0078 0C        		.byte	12
+ 1621 0079 00        		.byte	0
+ 1622 007a 30        		.byte	48
+ 1623 007b 00        		.byte	0
+ 1624 007c 10        		.byte	16
+ 1625 007d 00        		.byte	0
+ 1626 007e 08        		.byte	8
+ 1627 007f 00        		.byte	0
+ 1628 0080 20        		.byte	32
+ 1629 0081 00        		.byte	0
+ 1630 0082 04        		.byte	4
+ 1631 0083 00        		.byte	0
+ 1632 0084 C0        		.byte	-64
+ 1633 0085 00        		.byte	0
+ 1634 0086 03        		.byte	3
+ 1635 0087 00        		.byte	0
+ 1636 0088 00        		.byte	0
+ 1637 0089 C3        		.byte	-61
+GAS LISTING /tmp/ccP3TZct.s 			page 40
 
 
- 1623 0079 42        		.byte	66
- 1624 007a A5        		.byte	-91
- 1625 007b 81        		.byte	-127
- 1626 007c A5        		.byte	-91
- 1627 007d 99        		.byte	-103
- 1628 007e 42        		.byte	66
- 1629 007f 3C        		.byte	60
- 1630               		.comm	sinecounter,1,1
- 1631               		.comm	radius,1,1
- 1632               		.comm	wallbrightness,2,1
- 1633               		.comm	diry,1,1
- 1634               		.comm	dirx,1,1
- 1635               		.comm	posy,1,1
- 1636               		.comm	posx,1,1
- 1637               		.comm	delay,2,1
- 1638               		.comm	maxtimer,2,1
- 1639               		.comm	inttimer,1,1
- 1640               		.comm	matrix,128,1
- 1641               		.comm	statetimer,2,1
- 1642               		.comm	state,1,1
- 1643               		.stabs	"state:G(5,2)",32,0,36,0
- 1644               		.stabs	"statetimer:G(5,4)",32,0,37,0
- 1645               		.stabs	"matrix:G(0,19)=ar(0,18);0;7;(0,20)=ar(0,18);0;7;(5,4)",32,0,38,0
- 1646               		.stabs	"inttimer:G(5,2)",32,0,39,0
- 1647               		.stabs	"maxtimer:G(5,4)",32,0,40,0
- 1648               		.stabs	"delay:G(5,4)",32,0,41,0
- 1649               		.stabs	"posx:G(5,2)",32,0,44,0
- 1650               		.stabs	"posy:G(5,2)",32,0,45,0
- 1651               		.stabs	"dirx:G(5,2)",32,0,46,0
- 1652               		.stabs	"diry:G(5,2)",32,0,47,0
- 1653               		.stabs	"wallbrightness:G(5,4)",32,0,48,0
- 1654               		.stabs	"radius:G(5,2)",32,0,51,0
- 1655               		.stabs	"sinecounter:G(5,2)",32,0,54,0
- 1656               		.stabs	"smileymap:G(0,21)=ar(0,18);0;7;(5,2)",32,0,57,0
- 1657               		.stabs	"sinemap:G(0,22)=ar(0,18);0;7;(5,6)",32,0,69,0
- 1658               		.stabs	"sinecirclemap:G(0,23)=ar(0,18);0;10;(0,21)",32,0,81,0
- 1659               		.text
- 1660               		.stabs	"",100,0,0,.Letext0
- 1661               	.Letext0:
- 1662               		.ident	"GCC: (GNU) 4.7.0"
- 1663               	.global __do_copy_data
- 1664               	.global __do_clear_bss
-GAS LISTING /tmp/ccwyvPfy.s 			page 41
+ 1638 008a 00        		.byte	0
+ 1639 008b 00        		.byte	0
+ 1640 008c 00        		.byte	0
+ 1641 008d 3C        		.byte	60
+ 1642 008e 00        		.byte	0
+ 1643 008f 00        		.byte	0
+ 1644               	.global	smileymap
+ 1645               		.type	smileymap, @object
+ 1646               		.size	smileymap, 8
+ 1647               	smileymap:
+ 1648 0090 3C        		.byte	60
+ 1649 0091 42        		.byte	66
+ 1650 0092 A5        		.byte	-91
+ 1651 0093 81        		.byte	-127
+ 1652 0094 A5        		.byte	-91
+ 1653 0095 99        		.byte	-103
+ 1654 0096 42        		.byte	66
+ 1655 0097 3C        		.byte	60
+ 1656               		.comm	apples,5,1
+ 1657               		.comm	counter,1,1
+ 1658               		.comm	wallbrightness,2,1
+ 1659               		.comm	diry,1,1
+ 1660               		.comm	dirx,1,1
+ 1661               		.comm	posy,1,1
+ 1662               		.comm	posx,1,1
+ 1663               		.comm	delay,2,1
+ 1664               		.comm	maxtimer,2,1
+ 1665               		.comm	inttimer,1,1
+ 1666               		.comm	matrix,128,1
+ 1667               		.comm	statetimer,2,1
+ 1668               		.comm	state,1,1
+ 1669               		.stabs	"state:G(5,2)",32,0,37,0
+ 1670               		.stabs	"statetimer:G(5,4)",32,0,38,0
+ 1671               		.stabs	"matrix:G(0,17)=ar(0,18)=r(0,18);0;0177777;;0;7;(0,19)=ar(0,18);0;7;(5,4)",32,0,39,0
+ 1672               		.stabs	"inttimer:G(5,2)",32,0,40,0
+ 1673               		.stabs	"maxtimer:G(5,4)",32,0,41,0
+ 1674               		.stabs	"delay:G(5,4)",32,0,42,0
+ 1675               		.stabs	"posx:G(5,2)",32,0,45,0
+ 1676               		.stabs	"posy:G(5,2)",32,0,46,0
+ 1677               		.stabs	"dirx:G(5,2)",32,0,47,0
+ 1678               		.stabs	"diry:G(5,2)",32,0,48,0
+ 1679               		.stabs	"wallbrightness:G(5,4)",32,0,49,0
+ 1680               		.stabs	"counter:G(5,2)",32,0,52,0
+ 1681               		.stabs	"apples:G(0,20)=ar(0,18);0;4;(5,2)",32,0,55,0
+ 1682               		.stabs	"smileymap:G(0,21)=ar(0,18);0;7;(5,2)",32,0,58,0
+ 1683               		.stabs	"sinemap:G(0,22)=ar(0,18);0;7;(5,6)",32,0,70,0
+ 1684               		.stabs	"sinecirclemap:G(0,23)=ar(0,18);0;10;(0,21)",32,0,82,0
+ 1685               		.stabs	"treemap:G(0,24)=ar(0,18);0;2;(0,21)",32,0,195,0
+ 1686               		.text
+ 1687               		.stabs	"",100,0,0,.Letext0
+ 1688               	.Letext0:
+ 1689               		.ident	"GCC: (GNU) 4.7.0"
+ 1690               	.global __do_copy_data
+ 1691               	.global __do_clear_bss
+GAS LISTING /tmp/ccP3TZct.s 			page 41
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccwyvPfy.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccwyvPfy.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccwyvPfy.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccwyvPfy.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccwyvPfy.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccwyvPfy.s:89     .text:0000000000000000 erase_screen
+     /tmp/ccP3TZct.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccP3TZct.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccP3TZct.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccP3TZct.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccP3TZct.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccP3TZct.s:89     .text:0000000000000000 erase_screen
                             *COM*:0000000000000080 matrix
-     /tmp/ccwyvPfy.s:138    .text:0000000000000030 copy_image
-     /tmp/ccwyvPfy.s:231    .text:000000000000009c draw_circle
-     /tmp/ccwyvPfy.s:1493   .data:0000000000000000 sinecirclemap
-     /tmp/ccwyvPfy.s:361    .text:0000000000000148 draw_outline
+     /tmp/ccP3TZct.s:138    .text:0000000000000030 copy_image
+     /tmp/ccP3TZct.s:231    .text:000000000000009c draw_circle
+     /tmp/ccP3TZct.s:1519   .data:0000000000000018 sinecirclemap
+     /tmp/ccP3TZct.s:309    .text:00000000000000f6 draw_outline
                             *COM*:0000000000000002 wallbrightness
-     /tmp/ccwyvPfy.s:446    .text:00000000000001a0 update_sinecircle
-                            *COM*:0000000000000001 radius
-     /tmp/ccwyvPfy.s:483    .text:00000000000001c2 update_sine
-                            *COM*:0000000000000001 sinecounter
-     /tmp/ccwyvPfy.s:1585   .data:0000000000000058 sinemap
-     /tmp/ccwyvPfy.s:643    .text:00000000000002a8 update_smiley
-     /tmp/ccwyvPfy.s:1621   .data:0000000000000078 smileymap
-     /tmp/ccwyvPfy.s:666    .text:00000000000002b6 update_bouncer
+     /tmp/ccP3TZct.s:394    .text:000000000000014e update_sinecircle
+                            *COM*:0000000000000001 counter
+     /tmp/ccP3TZct.s:431    .text:0000000000000170 update_sine
+     /tmp/ccP3TZct.s:1611   .data:0000000000000070 sinemap
+     /tmp/ccP3TZct.s:591    .text:0000000000000256 update_smiley
+     /tmp/ccP3TZct.s:1647   .data:0000000000000090 smileymap
+     /tmp/ccP3TZct.s:614    .text:0000000000000264 update_tree
+     /tmp/ccP3TZct.s:1491   .data:0000000000000000 treemap
+     /tmp/ccP3TZct.s:651    .text:0000000000000286 update_bouncer
                             *COM*:0000000000000001 dirx
                             *COM*:0000000000000001 posx
                             *COM*:0000000000000001 diry
                             *COM*:0000000000000001 posy
-     /tmp/ccwyvPfy.s:783    .text:000000000000033c configure_sine
+     /tmp/ccP3TZct.s:768    .text:000000000000030c configure_sine
                             *COM*:0000000000000002 maxtimer
-     /tmp/ccwyvPfy.s:830    .text:0000000000000362 configure_sinecircle
-     /tmp/ccwyvPfy.s:877    .text:0000000000000388 configure_timer0
-     /tmp/ccwyvPfy.s:936    .text:00000000000003aa configure_timer1
-     /tmp/ccwyvPfy.s:1000   .text:00000000000003e0 setup
+     /tmp/ccP3TZct.s:815    .text:0000000000000332 configure_sinecircle
+     /tmp/ccP3TZct.s:862    .text:0000000000000358 configure_timer0
+     /tmp/ccP3TZct.s:921    .text:000000000000037a configure_timer1
+     /tmp/ccP3TZct.s:985    .text:00000000000003b0 setup
                             *COM*:0000000000000001 state
                             *COM*:0000000000000002 statetimer
                             *COM*:0000000000000002 delay
-     /tmp/ccwyvPfy.s:1065   .text:0000000000000424 __vector_14
-     /tmp/ccwyvPfy.s:1125   .text:0000000000000476 __vector_11
-     /tmp/ccwyvPfy.s:1282   .text.startup:0000000000000000 main
+     /tmp/ccP3TZct.s:1050   .text:00000000000003fa __vector_14
+     /tmp/ccP3TZct.s:1110   .text:000000000000044c __vector_11
+     /tmp/ccP3TZct.s:1284   .text.startup:0000000000000000 main
                             *COM*:0000000000000001 inttimer
+                            *COM*:0000000000000005 apples
 
 UNDEFINED SYMBOLS
 __divmodhi4
